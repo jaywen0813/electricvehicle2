@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color_f5f5f5"
+    tools:context=".ui.activity.MyINDetailActivity"
+    android:fitsSystemWindows="true"
+    >
+
+
+
+    <include
+        layout="@layout/layer_header"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_value_dp50"
+        android:orientation="horizontal"
+        android:layout_marginLeft="@dimen/dimen_value_dp10"
+        android:layout_marginRight="@dimen/dimen_value_dp10"
+        android:gravity="center_vertical"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_3d3d3d"
+            android:textSize="@dimen/dimen_value_dp15"
+            android:text="装箱单："
+            />
+        <EditText
+            android:id="@+id/et_number"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textColor="@color/color_3d3d3d"
+            android:text="NO1324657"
+            />
+
+        <LinearLayout
+            android:id="@+id/ll_saomiao"
+            android:layout_width="@dimen/dimen_value_dp50"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:visibility="gone"
+            >
+
+            <ImageView
+                android:layout_width="@dimen/dimen_value_dp20"
+                android:layout_height="@dimen/dimen_value_dp20"
+                android:src="@mipmap/saoyisao"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_value_dp50"
+        android:orientation="horizontal"
+        android:layout_marginLeft="@dimen/dimen_value_dp10"
+        android:layout_marginRight="@dimen/dimen_value_dp10"
+        android:gravity="center_vertical"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_3d3d3d"
+            android:textSize="@dimen/dimen_value_dp15"
+            android:text="净    重："
+            />
+        <EditText
+            android:id="@+id/et_jingzhong"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textColor="@color/color_3d3d3d"
+            android:text="12kg"
+            />
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_value_dp50"
+        android:orientation="horizontal"
+        android:layout_marginLeft="@dimen/dimen_value_dp10"
+        android:layout_marginRight="@dimen/dimen_value_dp10"
+        android:gravity="center_vertical"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_3d3d3d"
+            android:textSize="@dimen/dimen_value_dp15"
+            android:text="毛    重："
+            />
+        <EditText
+            android:id="@+id/et_maozhong"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textColor="@color/color_3d3d3d"
+            android:text="11kg"
+            />
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_value_dp50"
+        android:orientation="horizontal"
+        android:layout_marginLeft="@dimen/dimen_value_dp10"
+        android:layout_marginRight="@dimen/dimen_value_dp10"
+        android:gravity="center_vertical"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_3d3d3d"
+            android:textSize="@dimen/dimen_value_dp15"
+            android:text="库    位："
+            />
+        <EditText
+            android:id="@+id/et_kw_number"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textColor="@color/color_3d3d3d"
+            android:text="XH-301-11"
+            />
+
+        <LinearLayout
+            android:id="@+id/ll_saomiao2"
+            android:layout_width="@dimen/dimen_value_dp50"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:visibility="gone"
+            >
+
+            <ImageView
+                android:layout_width="@dimen/dimen_value_dp20"
+                android:layout_height="@dimen/dimen_value_dp20"
+                android:src="@mipmap/saoyisao"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>

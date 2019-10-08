@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_value_dp0.5"
+            android:background="@color/regis_bg"/>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_value_dp45"
+            android:orientation="horizontal">
+
+        <com.flyco.roundview.RoundTextView
+                android:id="@+id/tv_cancel_dialog"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:gravity="left|center"
+                android:paddingLeft="@dimen/dimen_value_dp30"
+                android:text="取消"
+                android:textColor="#333333"
+                android:textSize="@dimen/dimen_value_sp16"
+                app:rv_backgroundColor="@color/base_white"
+                app:rv_backgroundPressColor="@color/press_gray"
+                app:rv_cornerRadius_BL="@dimen/dialog_corner_height"/>
+
+        <com.flyco.roundview.RoundTextView
+                android:id="@+id/tv_confirm_dialog"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:gravity="right|center"
+                android:paddingRight="@dimen/dimen_value_dp30"
+                android:text="确定"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/dimen_value_sp16"
+                app:rv_backgroundColor="@color/base_white"
+                app:rv_backgroundPressColor="@color/press_gray"
+                app:rv_cornerRadius_BR="@dimen/dialog_corner_height"/>
+    </LinearLayout>
+
+</merge>

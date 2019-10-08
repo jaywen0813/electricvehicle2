@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color_efefef"
+    tools:context=".ui.activity.Main2Activity">
+
+    <RelativeLayout
+        android:id="@+id/title_layout_rl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_value_dp50"
+        android:background="@drawable/shape_main_title"
+        android:orientation="horizontal">
+
+
+
+        <LinearLayout
+            android:id="@+id/back_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignParentLeft="true"
+            android:gravity="center_vertical"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" "
+                android:textColor="@color/white"
+                android:textSize="@dimen/dimen_value_sp15"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/dimen_value_dp10"
+                />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tv_layer_head"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:textColor="@color/regis_title"
+            android:textSize="@dimen/dimen_value_dp20"
+            />
+
+        <LinearLayout
+
+            android:layout_width="@dimen/dimen_value_dp120"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dimen_value_dp10"
+            android:visibility="visible"
+            android:gravity="center_vertical|right"
+            android:orientation="horizontal"
+            >
+
+            <LinearLayout
+                android:id="@+id/navigation_user_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                >
+                <ImageView
+                    android:layout_width="@dimen/dimen_value_dp15"
+                    android:layout_height="@dimen/dimen_value_dp15"
+                    android:src="@mipmap/sousuo"
+                    />
+
+                <TextView
+                    android:id="@+id/farm_input_save"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_alignParentRight="true"
+                    android:text="搜索"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:textSize="@dimen/dimen_value_sp15"
+                    android:layout_marginLeft="@dimen/dimen_value_dp10"
+
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/ll_tuichu"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="@dimen/dimen_value_dp10"
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/out_icon"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="退出"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dimen_value_sp15"
+                    android:layout_marginLeft="@dimen/dimen_value_dp10"
+                    />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_chaxun"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_value_dp50"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:visibility="gone"
+        >
+        <LinearLayout
+            android:id="@+id/ll_back"
+            android:layout_width="@dimen/dimen_value_dp50"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+            <ImageView
+                android:layout_width="@dimen/dimen_value_dp20"
+                android:layout_height="@dimen/dimen_value_dp20"
+                android:src="@mipmap/jiantou_zuo"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dimen_value_dp30"
+            android:layout_weight="1"
+            android:background="@drawable/shap_sousuo_bg"
+            android:layout_marginLeft="@dimen/dimen_value_dp10"
+            android:layout_marginRight="@dimen/dimen_value_dp10"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/sousuo"
+                android:layout_marginLeft="@dimen/dimen_value_dp5"
+                />
+            <EditText
+                android:id="@+id/et_sousuo"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dimen_value_dp30"
+                android:layout_weight="1"
+                android:background="@drawable/shap_sousuo_bg"
+                android:layout_marginLeft="@dimen/dimen_value_dp10"
+                android:layout_marginRight="@dimen/dimen_value_dp10"
+                android:textColor="@color/color_3d3d3d"
+                android:maxLines="1"
+                android:singleLine="true"
+                />
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/ll_sousuo"
+            android:layout_width="@dimen/dimen_value_dp50"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginRight="@dimen/dimen_value_dp10"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="搜索"
+                android:textColor="@color/color_2282EE"
+                android:textSize="@dimen/dimen_value_sp15"
+
+                />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!--<ListView-->
+        <!--android:id="@+id/lv_main"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:divider="@color/color_efefef"-->
+        <!--android:dividerHeight="@dimen/dimen_value_dp10"-->
+        <!--android:layout_marginTop="@dimen/dimen_value_dp10"-->
+        <!--/>-->
+    <RelativeLayout
+        android:id="@+id/rll_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        >
+
+
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/srl_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/color_efefef">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="vertical">
+
+            </android.support.v7.widget.RecyclerView>
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+
+
+
+
+    <LinearLayout
+        android:id="@+id/ll_popup_hide"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/hide_bg"
+        android:orientation="vertical"
+        />
+
+
+
+    </RelativeLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/ll_kkry"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="visible"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/empty_im" />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

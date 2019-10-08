@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout
+            android:layout_marginTop="@dimen/dimen_value_dp8"
+            android:orientation="vertical"
+            android:layout_height="@dimen/dimen_value_dp200"
+            android:layout_width="match_parent"
+            android:background="@drawable/shap_main_hd">
+
+        <TextView
+                android:id="@+id/tvTitle"
+                android:layout_marginTop="@dimen/dimen_value_dp10"
+                android:layout_marginStart="@dimen/dimen_value_dp10"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textColor="@color/result_view"
+                android:text="东风标致508引燃匠心“质”造 荣获多项行业奖项"
+                android:layout_marginLeft="@dimen/dimen_value_dp10"/>
+
+        <TextView
+            android:id="@+id/tvDate"
+                android:layout_marginStart="@dimen/dimen_value_dp10"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="10月12号"
+                android:textColor="@color/color_8e8e8e"
+                android:layout_marginLeft="@dimen/dimen_value_dp10"/>
+
+        <ImageView
+            android:id="@+id/tvImage"
+                android:scaleType="fitXY"
+                android:src="@mipmap/main_img"
+                android:layout_marginTop="@dimen/dimen_value_dp5"
+                android:layout_marginStart="@dimen/dimen_value_dp10"
+                android:layout_marginEnd="@dimen/dimen_value_dp10"
+                android:layout_height="@dimen/dimen_value_dp120"
+                android:layout_width="match_parent"/>
+
+        <TextView
+                android:gravity="center"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:textColor="@color/color_8e8e8e"
+                android:text="查看详情"/>
+
+    </LinearLayout>
+
+</LinearLayout>

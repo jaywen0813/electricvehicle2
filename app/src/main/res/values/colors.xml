@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="translucent">#8d8d8d</color>
+    <color name="colorPrimary">#49b8db</color>
+    <color name="colorPrimaryDark">#ffffff</color>
+    <color name="colorAccent">#49b8db</color>
+
+    <color name="color_bg_red">#f6141b</color>
+
+    <color name="color_406599">#406599</color>
+    <color name="color_2E2E2E">#E2E2E2</color>
+    <color name="transparency">#00000000</color>
+    <!-- 透明 -->
+    <color name="transparency_half">#2f000000</color>
+    <!-- 半透明 -->
+    <color name="transparency_two_thirds">#12ffffff</color>
+    <!-- 三分之二透明 -->
+
+    <color name="white">#ffffff</color>
+    <!-- 白色 -->
+
+    <color name="gray">#808080</color>
+    <!-- 灰色 -->
+
+    <color name="black">#3d3d3d</color>
+    <!-- 黑色 -->
+
+    <!-- 对话框字体颜色 -->
+    <color name="result_view">#3d3d3d</color>
+    <!-- 透明度 -->
+    <color name="transparent">#0000</color>
+    <color name="regis_bg">#f4f4f4</color>
+    <color name="regis_title">#3d3d3d</color>
+    <color name="line">#b3b3b3</color>
+
+    <color name="base_white">#FFFFFF</color>
+    <color name="base_black">#000000</color>
+    <!--分割线颜色-->
+    <color name="color_8e8e8e">#8e8e8e</color>
+    <color name="color_989898">#989898</color>
+    <color name="color_b3b3b3">#b3b3b3</color>
+    <color name="color_3d3d3d">#3d3d3d</color>
+    <color name="color_f4f4f4">#f4f4f4</color>
+
+    <color name="color_f5f5f5">#f5f5f5</color>
+
+    <color name="black_gray">#989898</color>
+    <color name="recommend_red">#f6141b</color>
+
+
+    <color name="press_gray">#f8f8f8</color>
+    <color name="color_efefef">#EFEFEF</color>
+    <color name="color_0B2C36">#0B2C36</color>
+    <color name="color_2192BA">#2192BA</color>
+    <color name="color_2282EE">#2282EE</color>
+    <color name="color_DBEAFB">#DBEAFB</color>
+    <color name="color_21BFBF">#21BFBF</color>
+    <color name="color_37CCB8">#37CCB8</color>
+    <color name="color_50d2c2">#50d2c2</color>
+    <color name="color_fcab53">#fcab53</color>
+    <color name="color_DFF7F7">#DFF7F7</color>
+    <color name="color_bfbfbf">#BFBFBF</color>
+    <color name="color_1D80A3">#1D80A3</color>
+    <color name="color_1F8AB0">#1F8AB0</color>
+    <!--蒙板-->
+    <color name="hide_bg">#88323232</color>
+    <color name="color_03d287">#03D287</color>
+</resources>

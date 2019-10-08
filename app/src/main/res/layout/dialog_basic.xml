@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.flyco.roundview.RoundLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/MatchMatch.Vertical"
+    app:rv_backgroundColor="@color/base_white"
+    app:rv_cornerRadius="@dimen/dialog_corner_height"
+   >
+
+    <include layout="@layout/dialog_title_close"/>
+
+    <TextView
+        android:id="@+id/tv_content_dialog_basic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimen_value_dp15"
+        android:layout_marginLeft="@dimen/dimen_value_dp30"
+        android:layout_marginRight="@dimen/dimen_value_dp30"
+        android:lineSpacingExtra="@dimen/dimen_value_dp2"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/dimen_value_sp14"/>
+    <include layout="@layout/dialog_bottom_btn"/>
+
+</com.flyco.roundview.RoundLinearLayout>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dimen_value_dp0">0dp</dimen>
+    <dimen name="dimen_value_dp0.5">0.5dp</dimen>
+    <dimen name="dimen_value_dp1">1dp</dimen>
+    <dimen name="dimen_value_dp2">2dp</dimen>
+    <dimen name="dimen_value_dp3">3dp</dimen>
+    <dimen name="dimen_value_dp5">5dp</dimen>
+    <dimen name="dimen_value_dp8">8dp</dimen>
+    <dimen name="dimen_value_dp9">9dp</dimen>
+    <dimen name="dimen_value_dp10">10dp</dimen>
+    <dimen name="dimen_value_dp11">11dp</dimen>
+    <dimen name="dimen_value_dp13">13dp</dimen>
+    <dimen name="dimen_value_dp15">15dp</dimen>
+    <dimen name="dimen_value_dp16">16dp</dimen>
+    <dimen name="dimen_value_dp18">18dp</dimen>
+    <dimen name="dimen_value_dp20">20dp</dimen>
+    <dimen name="dimen_value_dp25">25dp</dimen>
+    <dimen name="dimen_value_dp30">30dp</dimen>
+    <dimen name="dimen_value_dp35">35dp</dimen>
+    <dimen name="dimen_value_dp40">40dp</dimen>
+    <dimen name="dimen_value_dp45">45dp</dimen>
+    <dimen name="dimen_value_dp50">50dp</dimen>
+    <dimen name="dimen_value_dp54">54dp</dimen>
+    <dimen name="dimen_value_dp55">55dp</dimen>
+    <dimen name="dimen_value_dp60">60dp</dimen>
+    <dimen name="dimen_value_dp70">70dp</dimen>
+    <dimen name="dimen_value_dp75">75dp</dimen>
+    <dimen name="dimen_value_dp80">80dp</dimen>
+    <dimen name="dimen_value_dp90">90dp</dimen>
+    <dimen name="dimen_value_dp100">100dp</dimen>
+    <dimen name="dimen_value_dp110">110dp</dimen>
+    <dimen name="dimen_value_dp120">120dp</dimen>
+    <dimen name="dimen_value_dp122">122dp</dimen>
+    <dimen name="dimen_value_dp130">130dp</dimen>
+    <dimen name="dimen_value_dp140">140dp</dimen>
+    <dimen name="dimen_value_dp150">150dp</dimen>
+    <dimen name="dimen_value_dp170">170dp</dimen>
+    <dimen name="dimen_value_dp180">180dp</dimen>
+    <dimen name="dimen_value_dp190">190dp</dimen>
+    <dimen name="dimen_value_dp200">200dp</dimen>
+    <dimen name="dimen_value_dp230">230dp</dimen>
+    <dimen name="dimen_value_dp250">250dp</dimen>
+    <dimen name="dimen_value_dp270">270dp</dimen>
+    <dimen name="dimen_value_dp320">320dp</dimen>
+    <!-- 文字的大小 -->
+    <dimen name="dimen_value_sp10">10sp</dimen>
+    <dimen name="dimen_value_sp12">12sp</dimen>
+    <dimen name="dimen_value_sp13">13sp</dimen>
+    <dimen name="dimen_value_sp14">14sp</dimen>
+    <dimen name="dimen_value_sp15">15sp</dimen>
+    <dimen name="dimen_value_sp16">16sp</dimen>
+    <dimen name="dimen_value_sp18">18sp</dimen>
+    <dimen name="dimen_value_sp24">24sp</dimen>
+    <dimen name="dimen_value_sp30">30sp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!--设置 item 高度-->
+    <dimen name="setting_item_height">54dp</dimen>
+
+    <dimen name="dialog_corner_height">8dp</dimen>
+</resources>
