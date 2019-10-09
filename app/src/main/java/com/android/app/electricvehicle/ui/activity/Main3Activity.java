@@ -198,9 +198,10 @@ public class Main3Activity extends BaseMvpActivity<MianContract3.View, MainPrese
     public void getOutActivity() {
         T.showToastSafe("退出成功");
         PreferenceUtils.getInstance(MainApplication.getContext()).clear(MainApplication.getContext());
-        MainApplication.LOGINRESULTVO2.setToken(null);
-        MainApplication.LOGINRESULTVO2.setId(null);
-        MainApplication.LOGINRESULTVO2.setUnicomNumber(null);
+//        MainApplication.LOGINRESULTVO2.setToken(null);
+//        MainApplication.LOGINRESULTVO2.setId(null);
+//        MainApplication.LOGINRESULTVO2.setUnicomNumber(null);
+        MainApplication.LOGINRESULTVO3.getData().setAccess_token(null);
         MainApplication.sIsLogin = false;
         startActivity(new Intent(this, Login2Activity.class));
 //        finish();

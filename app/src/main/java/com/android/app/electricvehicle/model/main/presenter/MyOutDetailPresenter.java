@@ -1,16 +1,11 @@
 package com.android.app.electricvehicle.model.main.presenter;
 
-import android.util.Log;
-
-import com.android.app.electricvehicle.api.Api;
-import com.android.app.electricvehicle.entity.INDetailVO;
-import com.android.app.electricvehicle.entity.OutVO;
-import com.android.app.electricvehicle.model.main.contract.INContract;
-import com.android.app.electricvehicle.model.main.contract.MianContract3;
-import com.android.app.electricvehicle.model.main.http.MainService;
+import com.android.app.electricvehicle.entity.ItemDetailInVO;
+import com.android.app.electricvehicle.entity.ItemDetailOutVO;
+import com.android.app.electricvehicle.model.main.contract.MyInDetailContract;
+import com.android.app.electricvehicle.model.main.contract.MyOutDetailContract;
 import com.android.app.electricvehicle.model.main.repository.MainDataRepository;
 import com.android.app.electricvehicle.mvp.presenter.BasePresenter;
-import com.android.app.electricvehicle.utils.T;
 
 import java.util.SortedMap;
 import java.util.TreeMap;
@@ -19,11 +14,6 @@ import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * ================================================
@@ -34,14 +24,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * 修订历史：
  * ================================================
  */
-public class INPresenter extends BasePresenter<INContract.View> implements INContract.Presenter {
+public class MyOutDetailPresenter extends BasePresenter<MyOutDetailContract.View> implements MyOutDetailContract.Presenter {
 
 
 
 
     //提交到后台
     @Override
-    public void getUP(String instoreCode,String freeLoc,String remark) {
+    public void getUP(String id) {
         SortedMap<String, String> paramsMap = new TreeMap<>();
 
 //        paramsMap.put("instoreCode", instoreCode);//装箱单号  入库单号
@@ -62,21 +52,19 @@ public class INPresenter extends BasePresenter<INContract.View> implements INCon
 
 
 
-        MainDataRepository.getInstance().INdetailService(paramsMap)
+        MainDataRepository.getInstance().MyOutDetailService(paramsMap)
                 .subscribeOn(Schedulers.io())//网络是耗时操作,所以在io线程中去执行
                 .observeOn(AndroidSchedulers.mainThread())//请求成功后回到主线程中
-                .subscribe(new Observer<INDetailVO>() {
+                .subscribe(new Observer<ItemDetailOutVO>() {
                     @Override
                     public void onSubscribe(Disposable d) {
                         addDisposable(d);
                     }
 
                     @Override
-                    public void onNext(INDetailVO vDate) {
+                    public void onNext(ItemDetailOutVO vDate) {
                         if (vDate.getSuccess().equals("T")) {
-                            mView.showSuccess("T");
-                        }else {
-                            mView.showSuccess("F");
+                            mView.showSuccess(vDate);
                         }
                     }
 

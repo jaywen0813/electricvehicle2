@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.android.app.electricvehicle.R;
 import com.android.app.electricvehicle.base.BaseListActivity;
 import com.android.app.electricvehicle.entity.ActivityVO;
+import com.android.app.electricvehicle.entity.MyOutVO;
 import com.android.app.electricvehicle.model.main.contract.MYINContract;
 import com.android.app.electricvehicle.model.main.contract.MYOutContract;
 import com.android.app.electricvehicle.model.main.presenter.MyINPresenter;
@@ -43,7 +44,7 @@ public class MyOutActivity extends BaseListActivity<MYOutContract.View, MyOutPre
 
 
 
-    private List<ActivityVO.ResultBeanX.ResultBean> activityVOList=new ArrayList<>();
+    private List<MyOutVO.DataBean.DataListBean> activityVOList=new ArrayList<>();
     MyOutPresenter presenter;
     private String pageNum = "1";//分页
 
@@ -83,9 +84,9 @@ public class MyOutActivity extends BaseListActivity<MYOutContract.View, MyOutPre
     protected void initDate() {
         super.initDate();
         for (int i = 0; i <5 ; i++) {
-            ActivityVO.ResultBeanX.ResultBean ss=new ActivityVO.ResultBeanX.ResultBean();
+            MyOutVO.DataBean.DataListBean ss=new MyOutVO.DataBean.DataListBean();
             ss.setId("11");
-            ss.setBodyNum("222");
+            ss.setDataId("222");
             activityVOList.add(ss);
         }
 
@@ -133,13 +134,14 @@ public class MyOutActivity extends BaseListActivity<MYOutContract.View, MyOutPre
 
     @Override
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-        Intent intent=new Intent(this,MyINDetailActivity.class);
+        Intent intent=new Intent(this,MyOutDetailActivity.class);
+        intent.putExtra("id",activityVOList.get(position).getId());
         startActivity(intent);
 
     }
 
     @Override
-    public void showSuccess(List<ActivityVO.ResultBeanX.ResultBean>  list) {
+    public void showSuccess(List<MyOutVO.DataBean.DataListBean>  list) {
         srlList.setRefreshing(false);
 
         if (list == null || list.size() == 0) {

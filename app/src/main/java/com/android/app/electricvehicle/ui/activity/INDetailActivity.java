@@ -21,6 +21,7 @@ import com.android.app.electricvehicle.base.BaseMvpActivity;
 import com.android.app.electricvehicle.model.main.contract.INContract;
 import com.android.app.electricvehicle.model.main.presenter.INPresenter;
 import com.android.app.electricvehicle.mvp.presenter.BasePresenter;
+import com.android.app.electricvehicle.utils.Kits;
 import com.android.app.electricvehicle.utils.StatusBarUtil;
 import com.android.app.electricvehicle.utils.StatusBarUtils;
 import com.android.app.electricvehicle.utils.T;
@@ -56,10 +57,6 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
 
 
 
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,9 +86,38 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
                 break;
             case R.id.tv_tijiao://提交按钮
 //                T.showToastSafe("提交成功");
-                //网络请求
-                inPresenter.getUP();
+                String instoreCode=etNumber.getText().toString().trim();
+                String storehouseId=etCkid.getText().toString().trim();
+                String storehouseName=etCkmc.getText().toString().trim();
+                String freeLoc=etKwNumber.getText().toString().trim();
+                String packingListId=etZxdid.getText().toString().trim();
+                String remark=etBz.getText().toString().trim();//备注
 
+//                if (Kits.Empty.check(instoreCode)){
+//                    T.showToastSafe("装箱单号不能为空");
+//                    return;
+//                }
+//
+//                if (Kits.Empty.check(storehouseId)){
+//                    T.showToastSafe("仓库ID不能为空");
+//                    return;
+//                }
+//                if (Kits.Empty.check(storehouseName)){
+//                    T.showToastSafe("仓库名称不能为空");
+//                    return;
+//                }
+//                if (Kits.Empty.check(freeLoc)){
+//                    T.showToastSafe("库位号不能为空");
+//                    return;
+//                }
+//                if (Kits.Empty.check(packingListId)){
+//                    T.showToastSafe("装箱单ID不能为空");
+//                    return;
+//                }
+
+
+                //网络请求
+                inPresenter.getUP(instoreCode,freeLoc,remark);
 
                 break;
             case R.id.ll_saomiao2://库位  扫一扫
@@ -104,13 +130,6 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
     @Override
     protected void initView() {
         super.initView();
-
-
-
-
-
-
-
 
 
         titleLayoutRl = findViewById(R.id.title_layout_rl);
@@ -197,9 +216,6 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
             }else if (type==2){
                 startActivityForResult(intent, 1123);
             }
-
-
-
 
         }
     }

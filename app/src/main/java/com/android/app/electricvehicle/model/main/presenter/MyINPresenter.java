@@ -1,6 +1,7 @@
 package com.android.app.electricvehicle.model.main.presenter;
 
 import com.android.app.electricvehicle.entity.ActivityVO;
+import com.android.app.electricvehicle.entity.MyInVO;
 import com.android.app.electricvehicle.entity.OutVO;
 import com.android.app.electricvehicle.model.main.contract.MYINContract;
 import com.android.app.electricvehicle.model.main.contract.MianContract2;
@@ -31,27 +32,27 @@ public class MyINPresenter extends BasePresenter<MYINContract.View> implements M
      * 获取我的入库列表数据
      */
     @Override
-    public void getActivityList(String currentPage) {
+    public void getActivityList(String pageNo) {
         SortedMap<String, String> paramsMap = new TreeMap<>();
 //        paramsMap.put("authorityCode", MainApplication.LOGINRESULTVO.getAuthorityCode());
 
-        paramsMap.put("currentPage", currentPage);
+        paramsMap.put("pageNo", pageNo);
         paramsMap.put("pageSize", "10");
-        MainDataRepository.getInstance().MainService(paramsMap)
+        MainDataRepository.getInstance().MyInService(paramsMap)
                 .subscribeOn(Schedulers.io())//网络是耗时操作,所以在io线程中去执行
                 .observeOn(AndroidSchedulers.mainThread())//请求成功后回到主线程中
-                .subscribe(new Observer<ActivityVO>() {
+                .subscribe(new Observer<MyInVO>() {
                     @Override
                     public void onSubscribe(Disposable d) {
                         addDisposable(d);
                     }
 
                     @Override
-                    public void onNext(ActivityVO vDate) {
-                        if (vDate.getCode().equals("00000")) {
-                            if (vDate.getResult() != null) {
+                    public void onNext(MyInVO vDate) {
+                        if (vDate.getSuccess().equals("T")) {
+                            if ((vDate.getData().getDataList() != null) && vDate.getData().getDataList().size()>0) {
 
-                                mView.showSuccess(vDate.getResult().getResult());
+                                mView.showSuccess(vDate.getData().getDataList());
 
                             }
 

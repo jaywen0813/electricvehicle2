@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/color_f5f5f5"
-    tools:context=".ui.activity.MyINDtvailActivity"
+    tools:context=".ui.activity.MyOutDetailActivity"
     android:fitsSystemWindows="true"
     >
 
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/color_3d3d3d"
             android:textSize="@dimen/dimen_value_dp15"
-            android:text="装箱单号："
+            android:text="出库单号："
             />
         <TextView
             android:id="@+id/tv_number"

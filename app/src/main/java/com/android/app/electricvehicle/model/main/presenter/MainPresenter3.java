@@ -2,6 +2,7 @@ package com.android.app.electricvehicle.model.main.presenter;
 
 import com.android.app.electricvehicle.entity.ActivityVO;
 import com.android.app.electricvehicle.entity.OutVO;
+import com.android.app.electricvehicle.entity.OutVO2;
 import com.android.app.electricvehicle.model.main.contract.MianContract2;
 import com.android.app.electricvehicle.model.main.contract.MianContract3;
 import com.android.app.electricvehicle.model.main.repository.MainDataRepository;
@@ -38,18 +39,18 @@ public class MainPresenter3 extends BasePresenter<MianContract3.View> implements
 
 //        paramsMap.put("currentPage", currentPage);
 //        paramsMap.put("pageSize", "10");
-        MainDataRepository.getInstance().OutService(paramsMap)
+        MainDataRepository.getInstance().Outservice2(paramsMap)
                 .subscribeOn(Schedulers.io())//网络是耗时操作,所以在io线程中去执行
                 .observeOn(AndroidSchedulers.mainThread())//请求成功后回到主线程中
-                .subscribe(new Observer<OutVO>() {
+                .subscribe(new Observer<OutVO2>() {
                     @Override
                     public void onSubscribe(Disposable d) {
                         addDisposable(d);
                     }
 
                     @Override
-                    public void onNext(OutVO vDate) {
-                        if (vDate.getCode().equals("200")) {//如果是200，则代表退出成功了
+                    public void onNext(OutVO2 vDate) {
+                        if (vDate.getSuccess().equals("T")) {//如果是200，则代表退出成功了
                             mView.getOutActivity();
                         }else {//token失效等,需要手动退出
                             mView.getOutActivity();

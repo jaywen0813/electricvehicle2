@@ -5,18 +5,18 @@ import android.os.Build;
 import android.support.annotation.Nullable;
 
 import com.android.app.electricvehicle.R;
-import com.android.app.electricvehicle.entity.ActivityVO;
+import com.android.app.electricvehicle.entity.MyOutVO;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 
 import java.util.List;
 
-public class MyOutListAdapter extends BaseQuickAdapter<ActivityVO.ResultBeanX.ResultBean, BaseViewHolder> {
+public class MyOutListAdapter extends BaseQuickAdapter<MyOutVO.DataBean.DataListBean, BaseViewHolder> {
 
-    private List<ActivityVO.ResultBeanX.ResultBean> data;
+    private List<MyOutVO.DataBean.DataListBean> data;
     private Activity activity;
 
-    public MyOutListAdapter(@Nullable List<ActivityVO.ResultBeanX.ResultBean> data, Activity activity) {
+    public MyOutListAdapter(@Nullable List<MyOutVO.DataBean.DataListBean> data, Activity activity) {
         super(R.layout.item_my_out_list, data);
         this.data = data;
         this.activity = activity;
@@ -24,75 +24,50 @@ public class MyOutListAdapter extends BaseQuickAdapter<ActivityVO.ResultBeanX.Re
 
 
     @Override
-    protected void convert(BaseViewHolder helper, ActivityVO.ResultBeanX.ResultBean bean) {
+    protected void convert(BaseViewHolder helper, MyOutVO.DataBean.DataListBean bean) {
 
 
 
 
-        //如果用户名字不为空的时候
-        if (!(bean.getName()==null||bean.getName().equals(""))){
-            helper.setText(R.id.tv_userName, bean.getName());
+        //出库单号
+        if (!(bean.getOutstoreCode()==null||bean.getOutstoreCode().equals(""))){
+            helper.setText(R.id.tv_ckdh, bean.getOutstoreCode());
         }else {
-            helper.setText(R.id.tv_userName, "");
+            helper.setText(R.id.tv_ckdh, "");
         }
 
-        //车牌号
-        if (!(bean.getPalteNum()==null || bean.getPalteNum().equals(""))){
-            helper.setText(R.id.tv_chepai, ""+bean.getPalteNum());
+        //仓库ID：
+        if (!(bean.getStorehouseId()==null || bean.getStorehouseId().equals(""))){
+            helper.setText(R.id.tv_ckid, "仓库ID："+bean.getStorehouseId());
         }else {
-            helper.setText(R.id.tv_chepai, "");
+            helper.setText(R.id.tv_ckid, "仓库ID：");
         }
 
-        //车架号
-        if (!(bean.getBodyNum()==null || bean.getBodyNum().equals(""))){
-            helper.setText(R.id.tv_vin, ""+bean.getBodyNum());
+        //仓库名称
+        if (!(bean.getStorehouseName()==null || bean.getStorehouseName().equals(""))){
+            helper.setText(R.id.tv_ckmc, "仓库名称："+bean.getStorehouseName());
         }else {
-            helper.setText(R.id.tv_vin,""+"" );
-        }
-
-
-        //品牌型号
-        if (!(bean.getModelNum()==null || bean.getModelNum().equals(""))){
-            helper.setText(R.id.tv_xinghao,""+bean.getModelNum());
-
-        }else {
-            helper.setText(R.id.tv_xinghao,""+"");
-        }
-
-        //联系方式
-        if (!(bean.getPhone()==null || bean.getPhone().equals(""))){
-            helper.setText(R.id.tv_phone,""+bean.getPhone());
-        }else {
-            helper.setText(R.id.tv_phone,""+"");
+            helper.setText(R.id.tv_ckmc,""+"仓库名称：" );
         }
 
 
-        //是否完成的状态
-        if (!(bean.getStep()==null || bean.getStep().equals(""))){
-            if (bean.getStep().equals("2")){//已完成   1未完成 2已完成
-
-                helper.setText(R.id.tv_wancheng,"已完成");
-
-                helper.setTextColor(R.id.tv_wancheng,mContext.getResources().getColor(R.color.color_21BFBF));
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    helper.setBackgroundRes(R.id.tv_wancheng,R.drawable.shap_main_wwc2);
-                }
-
-//                helper.setVisible(R.id.tv_wancheng,View.VISIBLE);
-
-            }else {//未完成
-                helper.setText(R.id.tv_wancheng,"未完成");
-                helper.setTextColor(R.id.tv_wancheng,mContext.getResources().getColor(R.color.color_2282EE));
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    helper.setBackgroundRes(R.id.tv_wancheng,R.drawable.shap_main_wwc1);
-                }
-
-//                holder.tvWancheng.setVisibility(View.VISIBLE);
-            }
+        //库位号：
+        if (!(bean.getFreeLoc()==null || bean.getFreeLoc().equals(""))){
+            helper.setText(R.id.tv_kwh,"库位号："+bean.getFreeLoc());
 
         }else {
-//            holder.tvWancheng.setVisibility(View.INVISIBLE);
+            helper.setText(R.id.tv_kwh,"库位号："+"");
         }
+
+        //装箱单ID
+        if (!(bean.getPackingListId()==null || bean.getPackingListId().equals(""))){
+            helper.setText(R.id.tv_zxdid,"装箱单ID："+bean.getPackingListId());
+        }else {
+            helper.setText(R.id.tv_zxdid,"装箱单ID："+"");
+        }
+
+
+
 
 
     }

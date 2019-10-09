@@ -1,10 +1,8 @@
 package com.android.app.electricvehicle.ui.activity;
 
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -12,16 +10,16 @@ import android.widget.TextView;
 import com.android.app.electricvehicle.R;
 import com.android.app.electricvehicle.base.BaseMvpActivity;
 import com.android.app.electricvehicle.entity.ItemDetailInVO;
+import com.android.app.electricvehicle.entity.ItemDetailOutVO;
 import com.android.app.electricvehicle.model.main.contract.MyInDetailContract;
+import com.android.app.electricvehicle.model.main.contract.MyOutDetailContract;
 import com.android.app.electricvehicle.model.main.presenter.MyINDetailPresenter;
-import com.android.app.electricvehicle.mvp.presenter.BasePresenter;
+import com.android.app.electricvehicle.model.main.presenter.MyOutDetailPresenter;
 import com.android.app.electricvehicle.utils.Kits;
 import com.android.app.electricvehicle.utils.StatusBarUtil;
-import com.android.app.electricvehicle.utils.StatusBarUtils;
-import com.android.app.electricvehicle.utils.T;
 
 //我的入库单列表点进来的详情
-public class MyINDetailActivity extends BaseMvpActivity<MyInDetailContract.View, MyINDetailPresenter> implements MyInDetailContract.View, View.OnClickListener {
+public class MyOutDetailActivity extends BaseMvpActivity<MyOutDetailContract.View, MyOutDetailPresenter> implements MyOutDetailContract.View, View.OnClickListener {
 
     private RelativeLayout titleLayoutRl;
     private LinearLayout backLayout;
@@ -35,7 +33,7 @@ public class MyINDetailActivity extends BaseMvpActivity<MyInDetailContract.View,
     private TextView tvZxdid;
     private TextView tvBz;
 
-    MyINDetailPresenter presenter;
+    MyOutDetailPresenter presenter;
 
     String id = "";
 
@@ -46,7 +44,7 @@ public class MyINDetailActivity extends BaseMvpActivity<MyInDetailContract.View,
 
     @Override
     protected int getLayoutById() {
-        return R.layout.activity_my_indetail;
+        return R.layout.activity_my_outdetail;
     }
 
     @Override
@@ -76,8 +74,8 @@ public class MyINDetailActivity extends BaseMvpActivity<MyInDetailContract.View,
     }
 
     @Override
-    protected MyINDetailPresenter initPresenter() {
-        presenter = new MyINDetailPresenter();
+    protected MyOutDetailPresenter initPresenter() {
+        presenter = new MyOutDetailPresenter();
         return presenter;
     }
 
@@ -92,9 +90,9 @@ public class MyINDetailActivity extends BaseMvpActivity<MyInDetailContract.View,
 
     //获取到详情数据以后
     @Override
-    public void showSuccess(ItemDetailInVO vDate) {
-        if (!Kits.Empty.check(vDate.getData().getInstoreCode())) {
-            tvNumber.setText(vDate.getData().getInstoreCode());
+    public void showSuccess(ItemDetailOutVO vDate) {
+        if (!Kits.Empty.check(vDate.getData().getOutstoreCode())) {
+            tvNumber.setText(vDate.getData().getOutstoreCode());
         }
 
 

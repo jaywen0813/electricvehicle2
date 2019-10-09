@@ -1,19 +1,6 @@
 package com.android.app.electricvehicle.entity;
 
-import java.io.Serializable;
-
-/**
- * ================================================
- * 作   者：
- * 版   本：1.0
- * 日   期：2018/6/11
- * 描   述：
- * 修订历史：
- * ================================================
- */
-public class LoginResultVO3 implements Serializable {
-
-
+public class OutVO2 {
     /**
      * ticket : e159d27042c7366f944aa23074217855
      * success : T
@@ -37,7 +24,7 @@ public class LoginResultVO3 implements Serializable {
     private String method;
     private String uri;
     private long timestamp;
-    private DataBean data;
+    private LoginResultVO3.DataBean data;
     private String args;
     private String moreinfo;
     private String detail;
@@ -100,11 +87,11 @@ public class LoginResultVO3 implements Serializable {
         this.timestamp = timestamp;
     }
 
-    public DataBean getData() {
+    public LoginResultVO3.DataBean getData() {
         return data;
     }
 
-    public void setData(DataBean data) {
+    public void setData(LoginResultVO3.DataBean data) {
         this.data = data;
     }
 

@@ -1,5 +1,6 @@
 package com.android.app.electricvehicle.model.main.contract;
 
+import com.android.app.electricvehicle.entity.ItemDetailOutVO;
 import com.android.app.electricvehicle.mvp.view.BaseViewInf;
 
 /**
@@ -18,15 +19,17 @@ public interface OUTContract {
         //提交成功
         void showSuccess();
 
+        //查询到详情以后返回的数据
+        void  showDetail(ItemDetailOutVO detailOutVO);
 
 
     }
 
     interface Presenter {
         //网络请求。提交数据
-        void getUP();
+        void getUP(String outstoreCode,String freeLoc,String remark);
         //通过库位查询信息
-        void getKuWei();
+        void getZXD(String zxd);
 
     }
 }

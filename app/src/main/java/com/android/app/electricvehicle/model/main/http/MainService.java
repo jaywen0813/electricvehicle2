@@ -93,7 +93,7 @@ public interface MainService {
 //------------------------------------------
     //入库单接口
     @POST("packings/instore/save")
-    Observable<AllEntity> indetail(@Body RequestBody requestbody);
+    Observable<INDetailVO> indetail(@Body RequestBody requestbody);
 
 
 
@@ -103,5 +103,36 @@ public interface MainService {
 
 
 
+    //账号退出
+    @POST("oauth/logout")
+    Observable<OutVO2> myout(@Body RequestBody requestbody);
 
+
+    //出库单接口
+    @POST("packings/outstore/save")
+    Observable<OutDetailVO> outdetail(@Body RequestBody requestbody);
+
+    //我的入库单列表
+    @POST("packings/instore/search")
+    Observable<MyInVO> myin(@Body RequestBody requestbody);
+
+
+    //我的出库单列表
+    @POST("packings/outstore/search")
+    Observable<MyOutVO> myoutlist(@Body RequestBody requestbody);
+
+    //出库时的详情展示
+    @POST("packings/outstore/get/")
+    Observable<ItemDetailOutVO> getoutdetail(@Body RequestBody requestbody);
+
+
+
+    //我的入库列表点击以后的详情展示
+    @GET("packings/instore/get/")
+    Observable<ItemDetailInVO> getMyIndetail(@Body RequestBody requestbody);
+
+
+    //我的出库列表点击以后的详情展示
+    @GET("packings/outstore/get/")
+    Observable<ItemDetailOutVO> getMyOutdetail(@Body RequestBody requestbody);
 }

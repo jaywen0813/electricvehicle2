@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content">
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:id="@+id/ll_item"
-            android:layout_marginTop="@dimen/dimen_value_dp8"
-            android:orientation="vertical"
-            android:layout_height="@dimen/dimen_value_dp140"
-            android:layout_width="match_parent"
-            android:background="@drawable/shap_main_hd">
+        android:layout_marginTop="@dimen/dimen_value_dp8"
+        android:orientation="vertical"
+        android:layout_height="@dimen/dimen_value_dp140"
+        android:layout_width="match_parent"
+        android:background="@drawable/shap_main_hd">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -23,11 +23,11 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/color_3d3d3d"
                 android:textSize="@dimen/dimen_value_sp15"
-                android:text="装箱单单号："
+                android:text="出库单号："
                 android:layout_marginLeft="@dimen/dimen_value_dp10"
                 />
             <TextView
-                android:id="@+id/tv_userName"
+                android:id="@+id/tv_ckdh"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/color_3d3d3d"
@@ -44,7 +44,7 @@
                 android:id="@+id/tv_wancheng"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="已出库"
+                android:text="已入库"
                 android:textSize="@dimen/dimen_value_sp12"
                 android:textColor="@color/color_2282EE"
                 android:background="@drawable/shap_main_wwc1"
@@ -53,6 +53,7 @@
                 android:paddingBottom="@dimen/dimen_value_dp3"
                 android:paddingTop="@dimen/dimen_value_dp3"
                 android:layout_marginRight="@dimen/dimen_value_dp10"
+                android:visibility="invisible"
                 />
 
         </LinearLayout>
@@ -78,29 +79,29 @@
                 android:layout_marginLeft="@dimen/dimen_value_dp10"
                 >
                 <TextView
-                    android:id="@+id/tv_chepai"
+                    android:id="@+id/tv_ckid"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:text="净重：10kg"
+                    android:text="仓库ID：0000"
                     android:textColor="@color/color_989898"
                     android:textSize="@dimen/dimen_value_sp12"
                     android:gravity="center_vertical"
                     />
 
                 <TextView
-                    android:id="@+id/tv_vin"
+                    android:id="@+id/tv_ckmc"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:text="毛重：8kg"
+                    android:text="仓库名称：xxx"
                     android:textColor="@color/color_989898"
                     android:textSize="@dimen/dimen_value_sp12"
                     android:gravity="center_vertical"
                     />
 
                 <TextView
-                    android:id="@+id/tv_xinghao"
+                    android:id="@+id/tv_kwh"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -112,11 +113,11 @@
 
 
                 <TextView
-                    android:id="@+id/tv_phone"
+                    android:id="@+id/tv_zxdid"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:text="货物名称：木材"
+                    android:text="装箱单ID：13419607"
                     android:textColor="@color/color_989898"
                     android:textSize="@dimen/dimen_value_sp12"
                     android:gravity="center_vertical"

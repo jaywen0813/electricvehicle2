@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.android.app.electricvehicle.R;
 import com.android.app.electricvehicle.base.BaseListActivity;
 import com.android.app.electricvehicle.entity.ActivityVO;
+import com.android.app.electricvehicle.entity.MyInVO;
 import com.android.app.electricvehicle.model.main.contract.MYINContract;
 import com.android.app.electricvehicle.model.main.presenter.MyINPresenter;
 import com.android.app.electricvehicle.mvp.presenter.BasePresenter;
@@ -42,7 +43,7 @@ public class MyInActivity extends BaseListActivity<MYINContract.View, MyINPresen
 
 
 
-    private List<ActivityVO.ResultBeanX.ResultBean> activityVOList=new ArrayList<>();
+    private List<MyInVO.DataBean.DataListBean> activityVOList=new ArrayList<>();
     MyINPresenter presenter;
     private String pageNum = "1";//分页
 
@@ -84,9 +85,9 @@ public class MyInActivity extends BaseListActivity<MYINContract.View, MyINPresen
     protected void initDate() {
         super.initDate();
         for (int i = 0; i <5 ; i++) {
-            ActivityVO.ResultBeanX.ResultBean ss=new ActivityVO.ResultBeanX.ResultBean();
+            MyInVO.DataBean.DataListBean ss=new MyInVO.DataBean.DataListBean();
             ss.setId("11");
-            ss.setBodyNum("222");
+            ss.setDataId("22");
             activityVOList.add(ss);
         }
 
@@ -135,12 +136,13 @@ public class MyInActivity extends BaseListActivity<MYINContract.View, MyINPresen
     @Override
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
         Intent intent=new Intent(this,MyINDetailActivity.class);
+        intent.putExtra("id",activityVOList.get(position).getId());
         startActivity(intent);
 
     }
 
     @Override
-    public void showSuccess(List<ActivityVO.ResultBeanX.ResultBean>  list) {
+    public void showSuccess(List<MyInVO.DataBean.DataListBean>   list) {
         srlList.setRefreshing(false);
 
         if (list == null || list.size() == 0) {

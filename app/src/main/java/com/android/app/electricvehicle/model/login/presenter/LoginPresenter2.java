@@ -4,7 +4,7 @@ import android.util.Log;
 
 import com.android.app.electricvehicle.MainApplication;
 
-import com.android.app.electricvehicle.entity.AllEntity;
+
 import com.android.app.electricvehicle.entity.LoginBean2;
 
 import com.android.app.electricvehicle.entity.LoginResultVO2;
@@ -43,8 +43,8 @@ public class LoginPresenter2 extends BasePresenter<LoginContract2.View> implemen
 
     @Override
     public void login() {
-        String userName = mView.getUserName();
-        String passWord = mView.getPassword();
+//        String userName = mView.getUserName();
+//        String passWord = mView.getPassword();
         SortedMap<String, String> paramsMap = new TreeMap<>();
 //        paramsMap.put("username", userName);
 //        paramsMap.put("password", MD5.GetMD5Code(passWord));
@@ -68,7 +68,7 @@ public class LoginPresenter2 extends BasePresenter<LoginContract2.View> implemen
 //            return;
 //        }
 //        MainApplication.LOGINRESULTVO2.setToken("5nAmzLfdxtSc0hIOO3d8bTtCmrnSPNC132Jk3ZLB7qFm7uS47lsGfZJw7cdNgLfd");
-        MainApplication.LOGINRESULTVO3.getData().setAccess_token("");
+//        MainApplication.LOGINRESULTVO3.getData().setAccess_token("");
 
 //        MainApplication.LOGINRESULTVO2.setLdcSysUser(new LoginResultVO2.LdcSysUserBean());
 //        MainApplication.LOGINRESULTVO2.getLdcSysUser().setId("");//userId
@@ -92,6 +92,7 @@ public class LoginPresenter2 extends BasePresenter<LoginContract2.View> implemen
                             T.showToastSafe("登录成功");
                             mView.onLoginSessce(stringBaseEntity);
                             MainApplication.LOGINRESULTVO3.getData().setAccess_token(stringBaseEntity.getData().getAccess_token());
+                            Log.e("qqqqq--",stringBaseEntity.getData().getAccess_token());
                         }else {
                             T.showToastSafe("登录失败");
                         }

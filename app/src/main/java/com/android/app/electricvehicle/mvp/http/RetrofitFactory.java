@@ -40,7 +40,7 @@ import java.util.concurrent.TimeUnit;
 public class RetrofitFactory {
 
     //default  超时时间 30S
-    private static final int DEFAULT_TIME_OUT = 8;
+    private static final int DEFAULT_TIME_OUT = 30;
 
     public static <T> T initService(String baseUrl, Class<T> clazz, SortedMap<String, String> map) {
         Retrofit retrofit = new Retrofit.Builder()
@@ -217,7 +217,9 @@ public class RetrofitFactory {
                                     .addHeader("token", MainApplication.LOGINRESULTVO2.getToken())
                                     .addHeader("userId", MainApplication.LOGINRESULTVO2.getId())
                                     .addHeader("siteNo", MainApplication.LOGINRESULTVO2.getUnicomNumber())
-                                    .addHeader("X-Token","5nAmzLfdxtSc0hIOO3d8bTtCmrnSPNC132Jk3ZLB7qFm7uS47lsGfZJw7cdNgLfd")
+//                                    .addHeader("X-Token",MainApplication.LOGINRESULTVO3.getData().getAccess_token())
+                                    .addHeader("X-Token","MSag69rfZLhGipIcPC81jtccjhroIsVsW9AlcudW766j8T8QQTAfGWGERrecNxNs")
+
                                     .build();
                             Response response = chain.proceed(request);
                             ResponseBody responseBody = response.body();
@@ -279,7 +281,8 @@ public class RetrofitFactory {
                                     .addHeader("userId", MainApplication.LOGINRESULTVO2.getId())
                                     .addHeader("siteNo", MainApplication.LOGINRESULTVO2.getUnicomNumber())
 //                                    .addHeader("X-Token",MainApplication.LOGINRESULTVO2.getToken())
-                                    .addHeader("X-Token","5nAmzLfdxtSc0hIOO3d8bTtCmrnSPNC132Jk3ZLB7qFm7uS47lsGfZJw7cdNgLfd")
+//                                    .addHeader("X-Token",MainApplication.LOGINRESULTVO3.getData().getAccess_token())
+                                    .addHeader("X-Token","MSag69rfZLhGipIcPC81jtccjhroIsVsW9AlcudW766j8T8QQTAfGWGERrecNxNs")
                                     .build();
 
                             Response response = chain.proceed(request);

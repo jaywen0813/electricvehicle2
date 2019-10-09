@@ -69,7 +69,7 @@ android {
 
         variant ->
             variant.outputs.all {
-                outputFileName = "测试" + new Date().format("yyyy-MM-dd HH-mm-ss") + "-versionCode-" + defaultConfig.versionCode + "-versiondes-" + defaultConfig.versionName + "-" + buildType.name + ".apk"
+                outputFileName = "英特诺物流" + new Date().format("yyyy-MM-dd HH-mm-ss") + "-versionCode-" + defaultConfig.versionCode + "-versiondes-" + defaultConfig.versionName + "-" + buildType.name + ".apk"
             }
     }
     buildToolsVersion '27.0.3'

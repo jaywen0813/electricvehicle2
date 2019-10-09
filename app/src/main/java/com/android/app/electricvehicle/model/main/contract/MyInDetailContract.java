@@ -1,9 +1,7 @@
 package com.android.app.electricvehicle.model.main.contract;
 
-import com.android.app.electricvehicle.entity.DetailVO;
+import com.android.app.electricvehicle.entity.ItemDetailInVO;
 import com.android.app.electricvehicle.mvp.view.BaseViewInf;
-
-import java.util.List;
 
 /**
  * ================================================
@@ -14,12 +12,12 @@ import java.util.List;
  * 修订历史：
  * ================================================
  */
-public interface INContract {
+public interface MyInDetailContract {
 
     interface View extends BaseViewInf {
 
-        //提交成功
-        void showSuccess(String s);
+        //查询成功
+        void showSuccess(ItemDetailInVO vDate);
 
 
 
@@ -27,7 +25,7 @@ public interface INContract {
 
     interface Presenter {
         //网络请求。提交数据
-        void getUP(String instoreCode,String freeLoc,String remark);
+        void getUP(String id);
 
 
 

@@ -62,6 +62,7 @@
         android:layout_marginLeft="@dimen/dimen_value_dp10"
         android:layout_marginRight="@dimen/dimen_value_dp10"
         android:gravity="center_vertical"
+        android:visibility="gone"
         >
         <TextView
             android:layout_width="wrap_content"
@@ -88,6 +89,7 @@
         android:layout_marginLeft="@dimen/dimen_value_dp10"
         android:layout_marginRight="@dimen/dimen_value_dp10"
         android:gravity="center_vertical"
+        android:visibility="gone"
         >
         <TextView
             android:layout_width="wrap_content"
@@ -154,6 +156,7 @@
         android:layout_marginLeft="@dimen/dimen_value_dp10"
         android:layout_marginRight="@dimen/dimen_value_dp10"
         android:gravity="center_vertical"
+        android:visibility="gone"
         >
         <TextView
             android:layout_width="wrap_content"

@@ -17,9 +17,11 @@ import android.widget.TextView;
 
 import com.android.app.electricvehicle.R;
 import com.android.app.electricvehicle.base.BaseMvpActivity;
+import com.android.app.electricvehicle.entity.ItemDetailOutVO;
 import com.android.app.electricvehicle.model.main.contract.OUTContract;
 import com.android.app.electricvehicle.model.main.presenter.OUTPresenter;
 import com.android.app.electricvehicle.mvp.presenter.BasePresenter;
+import com.android.app.electricvehicle.utils.Kits;
 import com.android.app.electricvehicle.utils.StatusBarUtil;
 import com.android.app.electricvehicle.utils.StatusBarUtils;
 import com.android.app.electricvehicle.utils.T;
@@ -39,12 +41,16 @@ public class OUTDetailActivity extends BaseMvpActivity<OUTContract.View, OUTPres
     private TextView farmInputSave;
     private EditText etNumber;
     private LinearLayout llSaomiao;
-    private EditText etJingzhong;
-    private EditText etMaozhong;
-    private TextView tv_tijiao;
-    private LinearLayout ll_saomiao2;//库位二维码扫描
+    private TextView tvCkid;
+    private TextView tvCkmc;
+    private EditText etKwNumber;
+    private LinearLayout llSaomiao2;
+    private TextView tvZxdid;
+    private EditText etBz;
+    private TextView tvTijiao;
 
-    private EditText et_kw_number;//库位
+
+
 
 
     OUTPresenter outPresenter;
@@ -79,9 +85,41 @@ public class OUTDetailActivity extends BaseMvpActivity<OUTContract.View, OUTPres
                 requestPermissionsCamera();
                 break;
             case R.id.tv_tijiao://提交按钮
+
+                String outstoreCode=etNumber.getText().toString().trim();
+                String storehouseId=tvCkid.getText().toString();
+                String storehouseName=tvCkmc.getText().toString();
+                String freeLoc=etKwNumber.getText().toString().trim();
+                String packingListId=tvZxdid.getText().toString();
+                String remark=etBz.getText().toString().trim();//备注
+
+//                if (Kits.Empty.check(outstoreCode)){
+//                    T.showToastSafe("出库号不能为空");
+//                    return;
+//                }
+//
+//                if (Kits.Empty.check(storehouseId)){
+//                    T.showToastSafe("仓库ID不能为空");
+//                    return;
+//                }
+//                if (Kits.Empty.check(storehouseName)){
+//                    T.showToastSafe("仓库名称不能为空");
+//                    return;
+//                }
+//                if (Kits.Empty.check(freeLoc)){
+//                    T.showToastSafe("库位号不能为空");
+//                    return;
+//                }
+//                if (Kits.Empty.check(packingListId)){
+//                    T.showToastSafe("装箱单ID不能为空");
+//                    return;
+//                }
+
                 //网络请求  提交数据
-//                outPresenter.getUP();
-                T.showToastSafe("出库成功");
+
+                outPresenter.getUP(outstoreCode,freeLoc,remark);
+
+//                T.showToastSafe("出库成功");
                 break;
             case R.id.ll_saomiao2://扫一扫  库位号
                 type=2;
@@ -94,25 +132,27 @@ public class OUTDetailActivity extends BaseMvpActivity<OUTContract.View, OUTPres
     @Override
     protected void initView() {
         super.initView();
+
+
         titleLayoutRl = findViewById(R.id.title_layout_rl);
         backLayout = findViewById(R.id.back_layout);
         tvLayerHead = findViewById(R.id.tv_layer_head);
         navigationUserLayout = findViewById(R.id.navigation_user_layout);
         farmInputSave = findViewById(R.id.farm_input_save);
-        etNumber = findViewById(R.id.et_number);//装箱单号
-        llSaomiao = findViewById(R.id.ll_saomiao);//装箱单扫描
-        etJingzhong = findViewById(R.id.et_jingzhong);//净重
-        etMaozhong = findViewById(R.id.et_maozhong);//毛重
-        tv_tijiao=findViewById(R.id.tv_tijiao);//提交
-        ll_saomiao2=findViewById(R.id.ll_saomiao2);//库位单扫码
-
-        et_kw_number=findViewById(R.id.et_kw_number);//库位号
-
+        etNumber = findViewById(R.id.et_number);//出库单号
+        llSaomiao = findViewById(R.id.ll_saomiao);//出库单扫描
+        tvCkid = findViewById(R.id.tv_ckid);//仓库ID
+        tvCkmc = findViewById(R.id.tv_ckmc);//仓库名称
+        etKwNumber = findViewById(R.id.et_kw_number);//库位号
+        llSaomiao2 = findViewById(R.id.ll_saomiao2);//库位单扫码
+        tvZxdid = findViewById(R.id.tv_zxdid);//装箱单ID
+        etBz = findViewById(R.id.et_bz);//备注
+        tvTijiao = findViewById(R.id.tv_tijiao);//提交
 
         llSaomiao.setOnClickListener(this);
-        ll_saomiao2.setOnClickListener(this);
+        llSaomiao2.setOnClickListener(this);
         backLayout.setOnClickListener(this);
-        tv_tijiao.setOnClickListener(this);
+        tvTijiao.setOnClickListener(this);
 
 
         tvLayerHead.setText("出库单信息");
@@ -278,8 +318,12 @@ public class OUTDetailActivity extends BaseMvpActivity<OUTContract.View, OUTPres
 //                用来区分是扫装箱单 还是扫库位   默认为0，装箱单为1，库位为2
                 if (type==1){
                     etNumber.setText(content);//显示出来
+
+                    presenter.getZXD(content);
+
+
                 }else if (type==2){
-                    et_kw_number.setText(content);//扫码返回的库位号码
+                    etKwNumber.setText(content);//扫码返回的库位号码
 
                 }
 
@@ -294,6 +338,36 @@ public class OUTDetailActivity extends BaseMvpActivity<OUTContract.View, OUTPres
     @Override
     public void showSuccess() {
         T.showToastSafe("提交成功");
+    }
+    //获取详情展示数据
+    @Override
+    public void showDetail(ItemDetailOutVO detailOutVO) {
+
+        if (!Kits.Empty.check(detailOutVO.getData().getStorehouseId())){
+            tvCkid.setText(detailOutVO.getData().getStorehouseId());
+        }
+
+        if (!Kits.Empty.check(detailOutVO.getData().getStorehouseName())){
+            tvCkmc.setText(detailOutVO.getData().getStorehouseName());
+        }
+
+        if (!Kits.Empty.check(detailOutVO.getData().getPackingListId())){
+            tvZxdid.setText(detailOutVO.getData().getPackingListId());
+        }
+
+        if (!Kits.Empty.check(detailOutVO.getData().getFreeLoc())){
+            etKwNumber.setText(detailOutVO.getData().getFreeLoc());
+        }
+        //备注
+        if (!Kits.Empty.check(detailOutVO.getData().getRemark())){
+            etBz.setText(detailOutVO.getData().getRemark());
+        }
+
+
+
+
+
+
     }
 
     @Override

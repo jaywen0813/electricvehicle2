@@ -33,6 +33,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.activity.MyINDetailActivity"></activity>
+        <activity android:name=".ui.activity.MyOutDetailActivity"/>
         <activity android:name=".ui.activity.MyInActivity" />
         <activity android:name=".ui.activity.MyOutActivity"/>
         <activity android:name=".ui.activity.INDetailActivity" />

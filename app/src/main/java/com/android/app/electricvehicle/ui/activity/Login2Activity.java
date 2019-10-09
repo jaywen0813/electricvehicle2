@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -61,9 +62,9 @@ public class Login2Activity extends BaseMvpActivity<LoginContract2.View, LoginPr
         showpassword1.setOnClickListener(this);
 
 
-        if (!(MainApplication.LOGINRESULTVO2.getToken()==null||MainApplication.LOGINRESULTVO2.getToken().equals(""))){
-            presenter.tokenLogin();
-        }
+//        if (!(MainApplication.LOGINRESULTVO3.getData().getAccess_token()==null||MainApplication.LOGINRESULTVO3.getData().getAccess_token().equals(""))){
+//            presenter.tokenLogin();
+//        }
 
     }
 
@@ -88,6 +89,7 @@ public class Login2Activity extends BaseMvpActivity<LoginContract2.View, LoginPr
 //        MainApplication.LOGINRESULTVO2.setUserName(resultVO2.getLdcSysUser().getLoginName());
 //        PreferenceUtils.getInstance(this).setString("loginName", resultVO3.getLdcSysUser().getLoginName());
 //        startActivity(new Intent(this, Main2Activity.class));
+        Log.e("qqqqq===",resultVO3.getData().getAccess_token());
         T.showToastSafe("登录成功");
         startActivity(new Intent(this, Main3Activity.class));
         MainApplication.sIsLogin = true;
@@ -156,7 +158,7 @@ public class Login2Activity extends BaseMvpActivity<LoginContract2.View, LoginPr
                 presenter.login();
 
 //                startActivity(new Intent(this, Main2Activity.class));
-//                startActivity(new Intent(this, Main3Activity.class));
+                startActivity(new Intent(this, Main3Activity.class));
                 break;
 
 

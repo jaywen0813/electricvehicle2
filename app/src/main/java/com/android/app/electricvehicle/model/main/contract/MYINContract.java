@@ -1,6 +1,7 @@
 package com.android.app.electricvehicle.model.main.contract;
 
 import com.android.app.electricvehicle.entity.ActivityVO;
+import com.android.app.electricvehicle.entity.MyInVO;
 import com.android.app.electricvehicle.mvp.view.BaseViewInf;
 
 import java.util.List;
@@ -19,7 +20,7 @@ public interface MYINContract {
     interface View extends BaseViewInf {
 
         //提交成功
-        void showSuccess(List<ActivityVO.ResultBeanX.ResultBean>  result);
+        void showSuccess(List<MyInVO.DataBean.DataListBean>  result);
 
 
 
