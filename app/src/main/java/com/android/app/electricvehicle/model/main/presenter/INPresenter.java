@@ -2,6 +2,7 @@ package com.android.app.electricvehicle.model.main.presenter;
 
 import android.util.Log;
 
+import com.android.app.electricvehicle.MainApplication;
 import com.android.app.electricvehicle.api.Api;
 import com.android.app.electricvehicle.entity.INDetailVO;
 import com.android.app.electricvehicle.entity.OutVO;
@@ -9,8 +10,11 @@ import com.android.app.electricvehicle.model.main.contract.INContract;
 import com.android.app.electricvehicle.model.main.contract.MianContract3;
 import com.android.app.electricvehicle.model.main.http.MainService;
 import com.android.app.electricvehicle.model.main.repository.MainDataRepository;
+import com.android.app.electricvehicle.model.main.repository.NetInstance;
 import com.android.app.electricvehicle.mvp.presenter.BasePresenter;
+import com.android.app.electricvehicle.utils.ParameterUtils;
 import com.android.app.electricvehicle.utils.T;
+import com.orhanobut.logger.Logger;
 
 import java.util.SortedMap;
 import java.util.TreeMap;
@@ -62,70 +66,22 @@ public class INPresenter extends BasePresenter<INContract.View> implements INCon
 
 
 
-        MainDataRepository.getInstance().INdetailService(paramsMap)
-                .subscribeOn(Schedulers.io())//网络是耗时操作,所以在io线程中去执行
-                .observeOn(AndroidSchedulers.mainThread())//请求成功后回到主线程中
-                .subscribe(new Observer<INDetailVO>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-                        addDisposable(d);
-                    }
-
-                    @Override
-                    public void onNext(INDetailVO vDate) {
-                        if (vDate.getSuccess().equals("T")) {
-                            mView.showSuccess("T");
-                        }else {
-                            mView.showSuccess("F");
-                        }
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-
-                    }
-
-                    @Override
-                    public void onComplete() {
-                        //请求完成
-                    }
-                });
-    }
-
-
-
-
-
-
-    /**
-     * 搜索
-     */
-//    @Override
-//    public void getSousuo(String ss,String currentPage) {
-//        SortedMap<String, String> paramsMap = new TreeMap<>();
-//        paramsMap.put("param", ss);
-//        paramsMap.put("currentPage", currentPage);
-//        paramsMap.put("pageSize", "10");
-//
-//        MainDataRepository.getInstance().sousuo(paramsMap)
+//        MainDataRepository.getInstance().INdetailService(paramsMap)
 //                .subscribeOn(Schedulers.io())//网络是耗时操作,所以在io线程中去执行
 //                .observeOn(AndroidSchedulers.mainThread())//请求成功后回到主线程中
-//                .subscribe(new Observer<ActivityVO>() {
+//                .subscribe(new Observer<INDetailVO>() {
 //                    @Override
 //                    public void onSubscribe(Disposable d) {
 //                        addDisposable(d);
 //                    }
 //
 //                    @Override
-//                    public void onNext(ActivityVO vDate) {
-//                        if (vDate.getCode().equals("00000")) {
-////                            if (vDate.getResult().getActivict() != null) {
-////                                mView.showActivityList();
-////                            }
-//                            if (vDate.getResult()!=null &&vDate.getResult().getResult()!=null){
-//                                mView.showActivityList((List<ActivityVO.ResultBeanX.ResultBean>) vDate.getResult().getResult());
-//                            }
-//
+//                    public void onNext(INDetailVO vDate) {
+//                        if (vDate.getSuccess().equals("T")) {
+//                            mView.showSuccess("T");
+//                            Log.e("qqqq", "onNext: 成功" );
+//                        }else {
+//                            mView.showSuccess("F");
 //                        }
 //                    }
 //
@@ -139,6 +95,51 @@ public class INPresenter extends BasePresenter<INContract.View> implements INCon
 //                        //请求完成
 //                    }
 //                });
-//    }
+
+
+        NetInstance.getEventsService().indetail(ParameterUtils.getHeaser(paramsMap), ParameterUtils.getJsonBody(paramsMap)).
+                subscribeOn(Schedulers.io()).
+                observeOn(AndroidSchedulers.mainThread()).
+                subscribe(new Observer<INDetailVO>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        addDisposable(d);
+                    }
+
+                    @Override
+                    public void onNext(INDetailVO vDate) {
+                        if (vDate.getSuccess().equals("T")) {
+                            mView.showSuccess("T");
+                            Log.e("qqqq", "onNext: 成功" );
+                        }else {
+                            mView.showSuccess("F");
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Logger.e(e.toString());
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
 
 }

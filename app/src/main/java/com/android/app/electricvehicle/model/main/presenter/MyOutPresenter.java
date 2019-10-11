@@ -5,7 +5,10 @@ import com.android.app.electricvehicle.entity.MyOutVO;
 import com.android.app.electricvehicle.model.main.contract.MYINContract;
 import com.android.app.electricvehicle.model.main.contract.MYOutContract;
 import com.android.app.electricvehicle.model.main.repository.MainDataRepository;
+import com.android.app.electricvehicle.model.main.repository.NetInstance;
 import com.android.app.electricvehicle.mvp.presenter.BasePresenter;
+import com.android.app.electricvehicle.utils.ParameterUtils;
+import com.orhanobut.logger.Logger;
 
 import java.util.SortedMap;
 import java.util.TreeMap;
@@ -36,10 +39,44 @@ public class MyOutPresenter extends BasePresenter<MYOutContract.View> implements
 
         paramsMap.put("pageNo", currentPage);
         paramsMap.put("pageSize", "10");
-        MainDataRepository.getInstance().MyOutService(paramsMap)
-                .subscribeOn(Schedulers.io())//网络是耗时操作,所以在io线程中去执行
-                .observeOn(AndroidSchedulers.mainThread())//请求成功后回到主线程中
-                .subscribe(new Observer<MyOutVO>() {
+//        MainDataRepository.getInstance().MyOutService(paramsMap)
+//                .subscribeOn(Schedulers.io())//网络是耗时操作,所以在io线程中去执行
+//                .observeOn(AndroidSchedulers.mainThread())//请求成功后回到主线程中
+//                .subscribe(new Observer<MyOutVO>() {
+//                    @Override
+//                    public void onSubscribe(Disposable d) {
+//                        addDisposable(d);
+//                    }
+//
+//                    @Override
+//                    public void onNext(MyOutVO vDate) {
+//                        if (vDate.getSuccess().equals("T")) {
+//                            if ((vDate.getData().getDataList() != null)&& vDate.getData().getDataList().size()>0) {
+//
+//                                mView.showSuccess(vDate.getData().getDataList());
+//
+//                            }
+//
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onError(Throwable e) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onComplete() {
+//                        //请求完成
+//
+//                    }
+//                });
+
+
+        NetInstance.getEventsService().myoutlist(ParameterUtils.getHeaser(paramsMap), ParameterUtils.getJsonBody(paramsMap)).
+                subscribeOn(Schedulers.io()).
+                observeOn(AndroidSchedulers.mainThread()).
+                subscribe(new Observer<MyOutVO>() {
                     @Override
                     public void onSubscribe(Disposable d) {
                         addDisposable(d);
@@ -59,12 +96,12 @@ public class MyOutPresenter extends BasePresenter<MYOutContract.View> implements
 
                     @Override
                     public void onError(Throwable e) {
+                        Logger.e(e.toString());
 
                     }
 
                     @Override
                     public void onComplete() {
-                        //请求完成
 
                     }
                 });

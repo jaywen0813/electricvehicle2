@@ -1,5 +1,9 @@
 package com.android.app.electricvehicle.entity;
 
+import com.android.app.electricvehicle.MainApplication;
+import com.android.app.electricvehicle.utils.Kits;
+import com.android.app.electricvehicle.utils.PreferenceUtils;
+
 import java.io.Serializable;
 
 /**
@@ -162,11 +166,15 @@ public class LoginResultVO3 implements Serializable {
         private int expires_in;
 
         public String getAccess_token() {
+            if (Kits.Empty.check(access_token)) {
+                access_token = PreferenceUtils.getInstance(MainApplication.getContext()).getString("xtoken");
+            }
             return access_token;
         }
 
         public void setAccess_token(String access_token) {
             this.access_token = access_token;
+            PreferenceUtils.getInstance(MainApplication.getContext()).setString("xtoken", access_token);
         }
 
         public String getRefresh_token() {

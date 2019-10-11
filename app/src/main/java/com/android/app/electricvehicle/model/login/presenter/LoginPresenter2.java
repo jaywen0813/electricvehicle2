@@ -2,6 +2,8 @@ package com.android.app.electricvehicle.model.login.presenter;
 
 import android.util.Log;
 
+import com.alibaba.fastjson.JSON;
+import com.android.app.electricvehicle.BuildConfig;
 import com.android.app.electricvehicle.MainApplication;
 
 
@@ -11,23 +13,53 @@ import com.android.app.electricvehicle.entity.LoginResultVO2;
 
 import com.android.app.electricvehicle.entity.LoginResultVO3;
 import com.android.app.electricvehicle.model.login.contract.LoginContract2;
+import com.android.app.electricvehicle.model.main.http.MainService;
 import com.android.app.electricvehicle.model.main.repository.MainDataRepository;
 import com.android.app.electricvehicle.model.main.repository.NetInstance;
+import com.android.app.electricvehicle.mvp.http.AppConstants;
+import com.android.app.electricvehicle.mvp.http.NetErrorCode;
 import com.android.app.electricvehicle.mvp.model.BaseEntity;
 import com.android.app.electricvehicle.mvp.presenter.BasePresenter;
 import com.android.app.electricvehicle.utils.MD5;
 import com.android.app.electricvehicle.utils.ParameterUtils;
 import com.android.app.electricvehicle.utils.PreferenceUtils;
 import com.android.app.electricvehicle.utils.T;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.orhanobut.logger.Logger;
 
+import java.io.EOFException;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.charset.UnsupportedCharsetException;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
+import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import okhttp3.FormBody;
+import okhttp3.Headers;
+import okhttp3.Interceptor;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
+import okhttp3.logging.HttpLoggingInterceptor;
+import okio.Buffer;
+import okio.BufferedSource;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * ================================================
@@ -76,47 +108,49 @@ public class LoginPresenter2 extends BasePresenter<LoginContract2.View> implemen
 //        MainApplication.LOGINRESULTVO2.getLdcSysUser().setLoginName(userName);
 
 
-        MainDataRepository.getInstance().LoginService2(paramsMap)
-                .subscribeOn(Schedulers.io())//网络是耗时操作,所以在io线程中去执行
-                .observeOn(AndroidSchedulers.mainThread())//请求成功后回到主线程中
-                .subscribe(new Observer<LoginResultVO3>() {
+        NetInstance.getEventsService().Logintest(ParameterUtils.getHeaser(paramsMap), ParameterUtils.getJsonBody(paramsMap)).
+                subscribeOn(Schedulers.io()).
+                observeOn(AndroidSchedulers.mainThread()).
+                subscribe(new Observer<LoginResultVO3>() {
                     @Override
                     public void onSubscribe(Disposable d) {
                         addDisposable(d);
                     }
 
                     @Override
-                    public void onNext(LoginResultVO3 stringBaseEntity) {
+                    public void onNext(LoginResultVO3 loginBean) {
+                        if (loginBean.getSuccess().equals("T")) {
 
-                        if (stringBaseEntity.getSuccess().equals("T")){
                             T.showToastSafe("登录成功");
-                            mView.onLoginSessce(stringBaseEntity);
-                            MainApplication.LOGINRESULTVO3.getData().setAccess_token(stringBaseEntity.getData().getAccess_token());
-                            Log.e("qqqqq--",stringBaseEntity.getData().getAccess_token());
-                        }else {
+                            mView.onLoginSessce(loginBean);
+                            MainApplication.LOGINRESULTVO3.setAccess_token(loginBean.getData().getAccess_token());
+                            Log.e("qqqqq--",loginBean.getData().getAccess_token());
+
+                        } else {
                             T.showToastSafe("登录失败");
                         }
-
-//                        if (stringBaseEntity.getCode().equals("00000")) {
-//                            mView.onLoginSessce(stringBaseEntity.getResult());
-//                            MainApplication.LOGINRESULTVO2.setId(stringBaseEntity.getResult().getLdcSysUser().getId());//userID
-//                            MainApplication.LOGINRESULTVO2.setUnicomNumber(stringBaseEntity.getResult().getLdcSysUser().getUnicomNumber());//网点编码
-//                            MainApplication.LOGINRESULTVO2.setToken(stringBaseEntity.getResult().getToken());
-//                        }
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.e("qqqqq",e+"");
+                        Logger.e(e.toString());
+
                     }
 
                     @Override
                     public void onComplete() {
-                        //请求完成
 
                     }
                 });
+
+
     }
+
+
+
+
+
+
 
 
 
@@ -178,5 +212,6 @@ public class LoginPresenter2 extends BasePresenter<LoginContract2.View> implemen
                     }
                 });
     }
+
 
 }

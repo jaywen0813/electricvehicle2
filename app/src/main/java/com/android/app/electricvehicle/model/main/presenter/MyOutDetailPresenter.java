@@ -5,7 +5,10 @@ import com.android.app.electricvehicle.entity.ItemDetailOutVO;
 import com.android.app.electricvehicle.model.main.contract.MyInDetailContract;
 import com.android.app.electricvehicle.model.main.contract.MyOutDetailContract;
 import com.android.app.electricvehicle.model.main.repository.MainDataRepository;
+import com.android.app.electricvehicle.model.main.repository.NetInstance;
 import com.android.app.electricvehicle.mvp.presenter.BasePresenter;
+import com.android.app.electricvehicle.utils.ParameterUtils;
+import com.orhanobut.logger.Logger;
 
 import java.util.SortedMap;
 import java.util.TreeMap;
@@ -52,10 +55,37 @@ public class MyOutDetailPresenter extends BasePresenter<MyOutDetailContract.View
 
 
 
-        MainDataRepository.getInstance().MyOutDetailService(paramsMap)
-                .subscribeOn(Schedulers.io())//网络是耗时操作,所以在io线程中去执行
-                .observeOn(AndroidSchedulers.mainThread())//请求成功后回到主线程中
-                .subscribe(new Observer<ItemDetailOutVO>() {
+//        MainDataRepository.getInstance().MyOutDetailService(paramsMap)
+//                .subscribeOn(Schedulers.io())//网络是耗时操作,所以在io线程中去执行
+//                .observeOn(AndroidSchedulers.mainThread())//请求成功后回到主线程中
+//                .subscribe(new Observer<ItemDetailOutVO>() {
+//                    @Override
+//                    public void onSubscribe(Disposable d) {
+//                        addDisposable(d);
+//                    }
+//
+//                    @Override
+//                    public void onNext(ItemDetailOutVO vDate) {
+//                        if (vDate.getSuccess().equals("T")) {
+//                            mView.showSuccess(vDate);
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onError(Throwable e) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onComplete() {
+//                        //请求完成
+//                    }
+//                });
+
+        NetInstance.getEventsService().getMyOutdetail(ParameterUtils.getHeaser(paramsMap), ParameterUtils.getJsonBody(paramsMap)).
+                subscribeOn(Schedulers.io()).
+                observeOn(AndroidSchedulers.mainThread()).
+                subscribe(new Observer<ItemDetailOutVO>() {
                     @Override
                     public void onSubscribe(Disposable d) {
                         addDisposable(d);
@@ -70,12 +100,13 @@ public class MyOutDetailPresenter extends BasePresenter<MyOutDetailContract.View
 
                     @Override
                     public void onError(Throwable e) {
+                        Logger.e(e.toString());
 
                     }
 
                     @Override
                     public void onComplete() {
-                        //请求完成
+
                     }
                 });
     }
@@ -85,48 +116,6 @@ public class MyOutDetailPresenter extends BasePresenter<MyOutDetailContract.View
 
 
 
-    /**
-     * 搜索
-     */
-//    @Override
-//    public void getSousuo(String ss,String currentPage) {
-//        SortedMap<String, String> paramsMap = new TreeMap<>();
-//        paramsMap.put("param", ss);
-//        paramsMap.put("currentPage", currentPage);
-//        paramsMap.put("pageSize", "10");
-//
-//        MainDataRepository.getInstance().sousuo(paramsMap)
-//                .subscribeOn(Schedulers.io())//网络是耗时操作,所以在io线程中去执行
-//                .observeOn(AndroidSchedulers.mainThread())//请求成功后回到主线程中
-//                .subscribe(new Observer<ActivityVO>() {
-//                    @Override
-//                    public void onSubscribe(Disposable d) {
-//                        addDisposable(d);
-//                    }
-//
-//                    @Override
-//                    public void onNext(ActivityVO vDate) {
-//                        if (vDate.getCode().equals("00000")) {
-////                            if (vDate.getResult().getActivict() != null) {
-////                                mView.showActivityList();
-////                            }
-//                            if (vDate.getResult()!=null &&vDate.getResult().getResult()!=null){
-//                                mView.showActivityList((List<ActivityVO.ResultBeanX.ResultBean>) vDate.getResult().getResult());
-//                            }
-//
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onError(Throwable e) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onComplete() {
-//                        //请求完成
-//                    }
-//                });
-//    }
+
 
 }

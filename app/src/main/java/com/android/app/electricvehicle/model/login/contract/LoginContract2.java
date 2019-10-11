@@ -42,6 +42,9 @@ public interface LoginContract2 {
          */
         void tokenLogin();
 
+
+
+
     }
 
 }

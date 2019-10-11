@@ -1,12 +1,17 @@
 package com.android.app.electricvehicle.model.main.presenter;
 
+import android.util.Log;
+
 import com.android.app.electricvehicle.entity.ItemDetailOutVO;
 import com.android.app.electricvehicle.entity.OutDetailVO;
 import com.android.app.electricvehicle.entity.OutVO;
 import com.android.app.electricvehicle.model.main.contract.MianContract3;
 import com.android.app.electricvehicle.model.main.contract.OUTContract;
 import com.android.app.electricvehicle.model.main.repository.MainDataRepository;
+import com.android.app.electricvehicle.model.main.repository.NetInstance;
 import com.android.app.electricvehicle.mvp.presenter.BasePresenter;
+import com.android.app.electricvehicle.utils.ParameterUtils;
+import com.orhanobut.logger.Logger;
 
 import java.util.SortedMap;
 import java.util.TreeMap;
@@ -48,10 +53,41 @@ public class OUTPresenter extends BasePresenter<OUTContract.View> implements OUT
         paramsMap.put("packingListId", "20191001001");
 
 
-        MainDataRepository.getInstance().OutdetailService(paramsMap)
-                .subscribeOn(Schedulers.io())//网络是耗时操作,所以在io线程中去执行
-                .observeOn(AndroidSchedulers.mainThread())//请求成功后回到主线程中
-                .subscribe(new Observer<OutDetailVO>() {
+//        MainDataRepository.getInstance().OutdetailService(paramsMap)
+//                .subscribeOn(Schedulers.io())//网络是耗时操作,所以在io线程中去执行
+//                .observeOn(AndroidSchedulers.mainThread())//请求成功后回到主线程中
+//                .subscribe(new Observer<OutDetailVO>() {
+//                    @Override
+//                    public void onSubscribe(Disposable d) {
+//                        addDisposable(d);
+//                    }
+//
+//                    @Override
+//                    public void onNext(OutDetailVO vDate) {
+//                        if (vDate.getSuccess().equals("T")) {//如果是200，则代表退出成功了
+//                            mView.showSuccess();
+//                        }else {//token失效等,需要手动退出
+//                            mView.showSuccess();
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onError(Throwable e) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onComplete() {
+//                        //请求完成
+//                    }
+//                });
+
+
+
+        NetInstance.getEventsService().outdetail(ParameterUtils.getHeaser(paramsMap), ParameterUtils.getJsonBody(paramsMap)).
+                subscribeOn(Schedulers.io()).
+                observeOn(AndroidSchedulers.mainThread()).
+                subscribe(new Observer<OutDetailVO>() {
                     @Override
                     public void onSubscribe(Disposable d) {
                         addDisposable(d);
@@ -61,19 +97,18 @@ public class OUTPresenter extends BasePresenter<OUTContract.View> implements OUT
                     public void onNext(OutDetailVO vDate) {
                         if (vDate.getSuccess().equals("T")) {//如果是200，则代表退出成功了
                             mView.showSuccess();
-                        }else {//token失效等,需要手动退出
-                            mView.showSuccess();
                         }
                     }
 
                     @Override
                     public void onError(Throwable e) {
+                        Logger.e(e.toString());
 
                     }
 
                     @Override
                     public void onComplete() {
-                        //请求完成
+
                     }
                 });
     }
@@ -91,10 +126,37 @@ public class OUTPresenter extends BasePresenter<OUTContract.View> implements OUT
 
 
 
-        MainDataRepository.getInstance().OutDetailService(paramsMap)
-                .subscribeOn(Schedulers.io())//网络是耗时操作,所以在io线程中去执行
-                .observeOn(AndroidSchedulers.mainThread())//请求成功后回到主线程中
-                .subscribe(new Observer<ItemDetailOutVO>() {
+//        MainDataRepository.getInstance().OutDetailService(paramsMap)
+//                .subscribeOn(Schedulers.io())//网络是耗时操作,所以在io线程中去执行
+//                .observeOn(AndroidSchedulers.mainThread())//请求成功后回到主线程中
+//                .subscribe(new Observer<ItemDetailOutVO>() {
+//                    @Override
+//                    public void onSubscribe(Disposable d) {
+//                        addDisposable(d);
+//                    }
+//
+//                    @Override
+//                    public void onNext(ItemDetailOutVO vDate) {
+//                        if (vDate.getSuccess().equals("T")) {//如果是200，则代表退出成功了
+//                            mView.showDetail(vDate);
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onError(Throwable e) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onComplete() {
+//                        //请求完成
+//                    }
+//                });
+
+        NetInstance.getEventsService().getoutdetail(ParameterUtils.getHeaser(paramsMap), ParameterUtils.getJsonBody(paramsMap)).
+                subscribeOn(Schedulers.io()).
+                observeOn(AndroidSchedulers.mainThread()).
+                subscribe(new Observer<ItemDetailOutVO>() {
                     @Override
                     public void onSubscribe(Disposable d) {
                         addDisposable(d);
@@ -109,14 +171,16 @@ public class OUTPresenter extends BasePresenter<OUTContract.View> implements OUT
 
                     @Override
                     public void onError(Throwable e) {
+                        Logger.e(e.toString());
 
                     }
 
                     @Override
                     public void onComplete() {
-                        //请求完成
+
                     }
                 });
+
     }
 
 }

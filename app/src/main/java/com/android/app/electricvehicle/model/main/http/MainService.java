@@ -135,4 +135,48 @@ public interface MainService {
     //我的出库列表点击以后的详情展示
     @GET("packings/outstore/get/")
     Observable<ItemDetailOutVO> getMyOutdetail(@Body RequestBody requestbody);
+
+
+
+//--------------------------------------------
+
+    //帐号登录
+    @POST("oauth/token")
+    Observable<LoginResultVO3> Logintest(@HeaderMap Map<String, String> headerMap, @Body RequestBody requestBody);
+
+
+    //入库单接口
+    @POST("packings/instore/save")
+    Observable<INDetailVO> indetail(@HeaderMap Map<String, String> headerMap, @Body RequestBody requestBody);
+
+
+    //出库单接口
+    @POST("packings/outstore/save")
+    Observable<OutDetailVO> outdetail(@HeaderMap Map<String, String> headerMap, @Body RequestBody requestBody);
+
+
+    //账号退出
+    @POST("oauth/logout")
+    Observable<OutVO2> myout(@HeaderMap Map<String, String> headerMap, @Body RequestBody requestBody);
+
+    //我的入库单列表
+    @POST("packings/instore/search")
+    Observable<MyInVO> myin(@HeaderMap Map<String, String> headerMap, @Body RequestBody requestBody);
+
+    //我的出库单列表
+    @POST("packings/outstore/search")
+    Observable<MyOutVO> myoutlist(@HeaderMap Map<String, String> headerMap, @Body RequestBody requestBody);
+
+
+    //出库时的详情展示
+    @POST("packings/outstore/get/")
+    Observable<ItemDetailOutVO> getoutdetail(@HeaderMap Map<String, String> headerMap, @Body RequestBody requestBody);
+
+    //我的入库列表点击以后的详情展示
+    @POST("packings/instore/get/")
+    Observable<ItemDetailInVO> getMyIndetail(@HeaderMap Map<String, String> headerMap, @Body RequestBody requestBody);
+
+    ////我的出库列表点击以后的详情展示
+    @POST("packings/outstore/get/")
+    Observable<ItemDetailOutVO> getMyOutdetail(@HeaderMap Map<String, String> headerMap, @Body RequestBody requestBody);
 }

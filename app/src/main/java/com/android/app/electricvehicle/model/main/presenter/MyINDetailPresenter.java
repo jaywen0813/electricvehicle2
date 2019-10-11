@@ -5,7 +5,10 @@ import com.android.app.electricvehicle.entity.ItemDetailInVO;
 import com.android.app.electricvehicle.model.main.contract.INContract;
 import com.android.app.electricvehicle.model.main.contract.MyInDetailContract;
 import com.android.app.electricvehicle.model.main.repository.MainDataRepository;
+import com.android.app.electricvehicle.model.main.repository.NetInstance;
 import com.android.app.electricvehicle.mvp.presenter.BasePresenter;
+import com.android.app.electricvehicle.utils.ParameterUtils;
+import com.orhanobut.logger.Logger;
 
 import java.util.SortedMap;
 import java.util.TreeMap;
@@ -52,10 +55,38 @@ public class MyINDetailPresenter extends BasePresenter<MyInDetailContract.View> 
 
 
 
-        MainDataRepository.getInstance().MyInDetailService(paramsMap)
-                .subscribeOn(Schedulers.io())//网络是耗时操作,所以在io线程中去执行
-                .observeOn(AndroidSchedulers.mainThread())//请求成功后回到主线程中
-                .subscribe(new Observer<ItemDetailInVO>() {
+//        MainDataRepository.getInstance().MyInDetailService(paramsMap)
+//                .subscribeOn(Schedulers.io())//网络是耗时操作,所以在io线程中去执行
+//                .observeOn(AndroidSchedulers.mainThread())//请求成功后回到主线程中
+//                .subscribe(new Observer<ItemDetailInVO>() {
+//                    @Override
+//                    public void onSubscribe(Disposable d) {
+//                        addDisposable(d);
+//                    }
+//
+//                    @Override
+//                    public void onNext(ItemDetailInVO vDate) {
+//                        if (vDate.getSuccess().equals("T")) {
+//                            mView.showSuccess(vDate);
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onError(Throwable e) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onComplete() {
+//                        //请求完成
+//                    }
+//                });
+
+
+        NetInstance.getEventsService().getMyIndetail(ParameterUtils.getHeaser(paramsMap), ParameterUtils.getJsonBody(paramsMap)).
+                subscribeOn(Schedulers.io()).
+                observeOn(AndroidSchedulers.mainThread()).
+                subscribe(new Observer<ItemDetailInVO>() {
                     @Override
                     public void onSubscribe(Disposable d) {
                         addDisposable(d);
@@ -70,12 +101,13 @@ public class MyINDetailPresenter extends BasePresenter<MyInDetailContract.View> 
 
                     @Override
                     public void onError(Throwable e) {
+                        Logger.e(e.toString());
 
                     }
 
                     @Override
                     public void onComplete() {
-                        //请求完成
+
                     }
                 });
     }

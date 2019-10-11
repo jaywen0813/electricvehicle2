@@ -24,7 +24,7 @@ public class OutVO2 {
     private String method;
     private String uri;
     private long timestamp;
-    private LoginResultVO3.DataBean data;
+    private DataBean data;
     private String args;
     private String moreinfo;
     private String detail;
@@ -87,11 +87,11 @@ public class OutVO2 {
         this.timestamp = timestamp;
     }
 
-    public LoginResultVO3.DataBean getData() {
+    public DataBean getData() {
         return data;
     }
 
-    public void setData(LoginResultVO3.DataBean data) {
+    public void setData(DataBean data) {
         this.data = data;
     }
 

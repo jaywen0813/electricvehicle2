@@ -63,7 +63,7 @@ public class RetrofitFactory {
         if (Kits.Empty.check(baseUrl)) {
             throw new IllegalStateException("baseUrl can not be null");
         }
-        Logger.e(MainApplication.LOGINRESULTVO.getToken()+"---token---"+MainApplication.LOGINRESULTVO.getUserName()+"----userName");
+        Logger.e(MainApplication.LOGINRESULTVO3.getAccess_token()+"---token---");
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Api.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -85,89 +85,89 @@ public class RetrofitFactory {
                     .connectTimeout(DEFAULT_TIME_OUT, TimeUnit.SECONDS)
                     .readTimeout(DEFAULT_TIME_OUT, TimeUnit.SECONDS)
                     .addInterceptor(loggingInterceptor)
-                    .addInterceptor(new Interceptor(){
-
-                        @Override
-                        public Response intercept(Chain chain) throws IOException {
-                            Request request = chain.request()
-                                    .newBuilder().build();
-
-                            Response response = chain.proceed(request);
-                            ResponseBody responseBody = response.body();
-                            long contentLength = responseBody.contentLength();
-                            if (!bodyEncoded(response.headers())) {
-                                BufferedSource source = responseBody.source();
-                                source.request(Long.MAX_VALUE);
-                                Buffer buffer = source.buffer();
-
-                                Charset charset = Charset.forName("UTF-8");
-                                MediaType mediaType = responseBody.contentType();
-                                if (mediaType != null) {
-                                    try {
-                                        charset = mediaType.charset(Charset.forName("UTF-8"));
-                                    } catch (UnsupportedCharsetException e) {
-                                        return response;
-                                    }
-                                }
-
-                                if (!isPlaintext(buffer)) {
-                                    return response;
-                                }
-
-                                if (contentLength != 0) {
-                                    String result = buffer.clone().readString(charset);
-                                    Log.e("TAG", "-------" + result);
-                                    NetErrorCode.getCodeMessageShow(result);
-                                }
-
-                            }
-                            return response;
-                        }
-                    })
+//                    .addInterceptor(new Interceptor(){
+//
+//                        @Override
+//                        public Response intercept(Chain chain) throws IOException {
+//                            Request request = chain.request()
+//                                    .newBuilder().build();
+//
+//                            Response response = chain.proceed(request);
+//                            ResponseBody responseBody = response.body();
+//                            long contentLength = responseBody.contentLength();
+//                            if (!bodyEncoded(response.headers())) {
+//                                BufferedSource source = responseBody.source();
+//                                source.request(Long.MAX_VALUE);
+//                                Buffer buffer = source.buffer();
+//
+//                                Charset charset = Charset.forName("UTF-8");
+//                                MediaType mediaType = responseBody.contentType();
+//                                if (mediaType != null) {
+//                                    try {
+//                                        charset = mediaType.charset(Charset.forName("UTF-8"));
+//                                    } catch (UnsupportedCharsetException e) {
+//                                        return response;
+//                                    }
+//                                }
+//
+//                                if (!isPlaintext(buffer)) {
+//                                    return response;
+//                                }
+//
+//                                if (contentLength != 0) {
+//                                    String result = buffer.clone().readString(charset);
+//                                    Log.e("TAG", "-------" + result);
+//                                    NetErrorCode.getCodeMessageShow(result);
+//                                }
+//
+//                            }
+//                            return response;
+//                        }
+//                    })
                     .build();
         } else {
             okHttpClient = new OkHttpClient().newBuilder()
                     .connectTimeout(DEFAULT_TIME_OUT, TimeUnit.SECONDS)
                     .readTimeout(DEFAULT_TIME_OUT, TimeUnit.SECONDS)
-                    .addInterceptor(new Interceptor(){
-
-                        @Override
-                        public Response intercept(Chain chain) throws IOException {
-                            Request request = chain.request()
-                                    .newBuilder().build();
-
-                            Response response = chain.proceed(request);
-                            ResponseBody responseBody = response.body();
-                            long contentLength = responseBody.contentLength();
-                            if (!bodyEncoded(response.headers())) {
-                                BufferedSource source = responseBody.source();
-                                source.request(Long.MAX_VALUE);
-                                Buffer buffer = source.buffer();
-
-                                Charset charset = Charset.forName("UTF-8");
-                                MediaType mediaType = responseBody.contentType();
-                                if (mediaType != null) {
-                                    try {
-                                        charset = mediaType.charset(Charset.forName("UTF-8"));
-                                    } catch (UnsupportedCharsetException e) {
-                                        return response;
-                                    }
-                                }
-
-                                if (!isPlaintext(buffer)) {
-                                    return response;
-                                }
-
-                                if (contentLength != 0) {
-                                    String result = buffer.clone().readString(charset);
-                                    Log.e("TAG", "-------" + result);
-                                    NetErrorCode.getCodeMessageShow(result);
-                                }
-
-                            }
-                            return response;
-                        }
-                    })
+//                    .addInterceptor(new Interceptor(){
+//
+//                        @Override
+//                        public Response intercept(Chain chain) throws IOException {
+//                            Request request = chain.request()
+//                                    .newBuilder().build();
+//
+//                            Response response = chain.proceed(request);
+//                            ResponseBody responseBody = response.body();
+//                            long contentLength = responseBody.contentLength();
+//                            if (!bodyEncoded(response.headers())) {
+//                                BufferedSource source = responseBody.source();
+//                                source.request(Long.MAX_VALUE);
+//                                Buffer buffer = source.buffer();
+//
+//                                Charset charset = Charset.forName("UTF-8");
+//                                MediaType mediaType = responseBody.contentType();
+//                                if (mediaType != null) {
+//                                    try {
+//                                        charset = mediaType.charset(Charset.forName("UTF-8"));
+//                                    } catch (UnsupportedCharsetException e) {
+//                                        return response;
+//                                    }
+//                                }
+//
+//                                if (!isPlaintext(buffer)) {
+//                                    return response;
+//                                }
+//
+//                                if (contentLength != 0) {
+//                                    String result = buffer.clone().readString(charset);
+//                                    Log.e("TAG", "-------" + result);
+//                                    NetErrorCode.getCodeMessageShow(result);
+//                                }
+//
+//                            }
+//                            return response;
+//                        }
+//                    })
                     .build();
         }
         return okHttpClient;
@@ -204,23 +204,24 @@ public class RetrofitFactory {
                                     .addHeader("Content-Type", "application/json;charset=UTF-8")
 //                                    .addHeader("Accept-Encoding", "gzip, deflate")
                                     //.addHeader("Connection", "keep-alive")
-                                    .addHeader("Accept", "*/*")
+//                                    .addHeader("Accept", "*/*")
                                     //.addHeader("Cookie", "add cookies here")
                                     .addHeader("timeStamp", currentTimeStamp)
                                     //.addHeader("brandCode", AppConstants.BRANDCODE)
                                     .addHeader("sign", sign)
                                     //.addHeader("appId", AppConstants.APPID)
 //                                    .addHeader("loginName", MainApplication.LOGINRESULTVO2.getLdcSysUser().getLoginName())
-                                    .addHeader("appVersionNo", AppConstants.APPVERSIONNO)
+//                                    .addHeader("appVersionNo", AppConstants.APPVERSIONNO)
                                    // .addHeader("deviceNo", AppConstants.getMyUUID())
                                    // .addHeader("deviceType", AppConstants.DEVICETYPE)
-                                    .addHeader("token", MainApplication.LOGINRESULTVO2.getToken())
-                                    .addHeader("userId", MainApplication.LOGINRESULTVO2.getId())
-                                    .addHeader("siteNo", MainApplication.LOGINRESULTVO2.getUnicomNumber())
-//                                    .addHeader("X-Token",MainApplication.LOGINRESULTVO3.getData().getAccess_token())
-                                    .addHeader("X-Token","MSag69rfZLhGipIcPC81jtccjhroIsVsW9AlcudW766j8T8QQTAfGWGERrecNxNs")
+//                                    .addHeader("token", MainApplication.LOGINRESULTVO2.getToken())
+//                                    .addHeader("userId", MainApplication.LOGINRESULTVO2.getId())
+//                                    .addHeader("siteNo", MainApplication.LOGINRESULTVO2.getUnicomNumber())
+                                    .addHeader("X-Token",MainApplication.LOGINRESULTVO3.getAccess_token())
+//                                    .addHeader("X-Token","AXmm8WUYg4Nnr3ddSAS3tWaTO6ckIYkWIpFxBwyTyEvAtnc3L17LAb6x1T41EU0t")
 
                                     .build();
+                            Log.d("qqqqq1111", "intercept: "+MainApplication.LOGINRESULTVO3.getAccess_token());
                             Response response = chain.proceed(request);
                             ResponseBody responseBody = response.body();
                             long contentLength = responseBody.contentLength();
@@ -267,24 +268,24 @@ public class RetrofitFactory {
                                     .addHeader("Content-Type", "application/json;charset=UTF-8")
 //                                    .addHeader("Accept-Encoding", "gzip, deflate")
                                     //.addHeader("Connection", "keep-alive")
-                                    .addHeader("Accept", "*/*")
+//                                    .addHeader("Accept", "*/*")
                                     //.addHeader("Cookie", "add cookies here")
                                     .addHeader("timeStamp", currentTimeStamp)
                                     //.addHeader("brandCode", AppConstants.BRANDCODE)
                                     .addHeader("sign", sign)
                                     //.addHeader("appId", AppConstants.APPID)
 //                                    .addHeader("loginName", MainApplication.LOGINRESULTVO2.getLdcSysUser().getLoginName())
-                                    .addHeader("appVersionNo", AppConstants.APPVERSIONNO)
+//                                    .addHeader("appVersionNo", AppConstants.APPVERSIONNO)
                                     // .addHeader("deviceNo", AppConstants.getMyUUID())
-                                    // .addHeader("deviceType", AppConstants.DEVICETYPE)
-                                    .addHeader("token", MainApplication.LOGINRESULTVO2.getToken())
-                                    .addHeader("userId", MainApplication.LOGINRESULTVO2.getId())
-                                    .addHeader("siteNo", MainApplication.LOGINRESULTVO2.getUnicomNumber())
+//                                     .addHeader("deviceType", AppConstants.DEVICETYPE)
+//                                    .addHeader("token", MainApplication.LOGINRESULTVO2.getToken())
+//                                    .addHeader("userId", MainApplication.LOGINRESULTVO2.getId())
+//                                    .addHeader("siteNo", MainApplication.LOGINRESULTVO2.getUnicomNumber())
 //                                    .addHeader("X-Token",MainApplication.LOGINRESULTVO2.getToken())
-//                                    .addHeader("X-Token",MainApplication.LOGINRESULTVO3.getData().getAccess_token())
-                                    .addHeader("X-Token","MSag69rfZLhGipIcPC81jtccjhroIsVsW9AlcudW766j8T8QQTAfGWGERrecNxNs")
+                                    .addHeader("X-Token",MainApplication.LOGINRESULTVO3.getAccess_token())
+//                                    .addHeader("X-Token","AXmm8WUYg4Nnr3ddSAS3tWaTO6ckIYkWIpFxBwyTyEvAtnc3L17LAb6x1T41EU0t")
                                     .build();
-
+                            Log.d("qqqqq1111", "intercept: "+MainApplication.LOGINRESULTVO3.getAccess_token());
                             Response response = chain.proceed(request);
                             ResponseBody responseBody = response.body();
                             long contentLength = responseBody.contentLength();

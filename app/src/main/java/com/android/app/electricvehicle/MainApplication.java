@@ -49,7 +49,9 @@ public class MainApplication extends Application {
 
     public static LoginResultVO2 LOGINRESULTVO2 = new LoginResultVO2();
 
-    public static LoginResultVO3 LOGINRESULTVO3 = new LoginResultVO3();
+    public static LoginResultVO3.DataBean LOGINRESULTVO3 = new LoginResultVO3.DataBean();
+
+
 
     public static final String TAG = MainApplication.class.getSimpleName();
 

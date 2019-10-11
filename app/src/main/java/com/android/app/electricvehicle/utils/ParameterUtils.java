@@ -58,9 +58,10 @@ public class ParameterUtils {
         map.put("appVersionNo", AppConstants.APPVERSIONNO);
 //        map.put("deviceNo", AppConstants.getMyUUID());
 //        map.put("deviceType", AppConstants.DEVICETYPE);
-        map.put("token", MainApplication.LOGINRESULTVO2.getToken());
-        map.put("userId",MainApplication.LOGINRESULTVO2.getId());
-        map.put("siteNo",MainApplication.LOGINRESULTVO2.getUnicomNumber());
+        map.put("token", MainApplication.LOGINRESULTVO3.getAccess_token());
+//        map.put("userId",MainApplication.LOGINRESULTVO2.getId());
+//        map.put("siteNo",MainApplication.LOGINRESULTVO2.getUnicomNumber());
+        map.put("X-Token",MainApplication.LOGINRESULTVO3.getAccess_token());
         return map;
     }
 

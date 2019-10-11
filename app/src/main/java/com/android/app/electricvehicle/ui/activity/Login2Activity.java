@@ -85,14 +85,14 @@ public class Login2Activity extends BaseMvpActivity<LoginContract2.View, LoginPr
     //登录成功以后返回的方法
     @Override
     public void onLoginSessce(LoginResultVO3 resultVO3) {
-        MainApplication.LOGINRESULTVO3.getData().setAccess_token(resultVO3.getData().getAccess_token());
+//        MainApplication.LOGINRESULTVO3.getData().setAccess_token(resultVO3.getData().getAccess_token());
 //        MainApplication.LOGINRESULTVO2.setUserName(resultVO2.getLdcSysUser().getLoginName());
 //        PreferenceUtils.getInstance(this).setString("loginName", resultVO3.getLdcSysUser().getLoginName());
 //        startActivity(new Intent(this, Main2Activity.class));
-        Log.e("qqqqq===",resultVO3.getData().getAccess_token());
+//        Log.e("qqqqq===",resultVO3.getData().getAccess_token());
         T.showToastSafe("登录成功");
         startActivity(new Intent(this, Main3Activity.class));
-        MainApplication.sIsLogin = true;
+//        MainApplication.sIsLogin = true;
 //        if (!Kits.Empty.check(MainApplication.getClientId())) {
 //            RegisterClientIdUtils.bindingClient(MainApplication.getClientId());
 //        }
@@ -157,8 +157,8 @@ public class Login2Activity extends BaseMvpActivity<LoginContract2.View, LoginPr
             case R.id.login_bt:
                 presenter.login();
 
-//                startActivity(new Intent(this, Main2Activity.class));
-                startActivity(new Intent(this, Main3Activity.class));
+
+//                startActivity(new Intent(this, Main3Activity.class));
                 break;
 
 
