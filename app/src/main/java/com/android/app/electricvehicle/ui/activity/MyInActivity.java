@@ -138,6 +138,7 @@ public class MyInActivity extends BaseListActivity<MYINContract.View, MyINPresen
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
         Intent intent=new Intent(this,MyINDetailActivity.class);
         intent.putExtra("id",activityVOList.get(position).getId());
+        intent.putExtra("packingCode",activityVOList.get(position).getPackingCode());
         startActivity(intent);
 
     }

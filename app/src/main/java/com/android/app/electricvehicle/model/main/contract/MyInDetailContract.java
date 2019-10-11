@@ -1,7 +1,10 @@
 package com.android.app.electricvehicle.model.main.contract;
 
 import com.android.app.electricvehicle.entity.ItemDetailInVO;
+import com.android.app.electricvehicle.entity.MyInVO;
 import com.android.app.electricvehicle.mvp.view.BaseViewInf;
+
+import java.util.List;
 
 /**
  * ================================================
@@ -17,15 +20,16 @@ public interface MyInDetailContract {
     interface View extends BaseViewInf {
 
         //查询成功
-        void showSuccess(ItemDetailInVO vDate);
+//        void showSuccess(ItemDetailInVO vDate);
 
 
+        void showSuccess(List<MyInVO.DataBean.DataListBean> result );
 
     }
 
     interface Presenter {
         //网络请求。提交数据
-        void getUP(String id);
+        void getUP(String id,String packingCode);
 
 
 

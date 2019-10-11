@@ -11,6 +11,7 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.HeaderMap;
 import retrofit2.http.POST;
+import retrofit2.http.Url;
 
 import java.util.List;
 import java.util.Map;
@@ -179,4 +180,8 @@ public interface MainService {
     ////我的出库列表点击以后的详情展示
     @POST("packings/outstore/get/")
     Observable<ItemDetailOutVO> getMyOutdetail(@HeaderMap Map<String, String> headerMap, @Body RequestBody requestBody);
+
+
+    @GET
+    Observable<ItemDetailInVO> getPage(@Url String url);
 }

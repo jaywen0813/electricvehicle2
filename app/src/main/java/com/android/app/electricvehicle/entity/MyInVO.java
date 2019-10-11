@@ -14,7 +14,7 @@ public class MyInVO implements Serializable {
      * method : null
      * uri : null
      * timestamp : 1570797600348
-     * data : {"pageNo":1,"pageSize":10,"pageCount":1,"totalCount":1,"beginPageIndex":1,"endPageIndex":1,"dataList":[{"id":"ba8fc8a8ea9311e992930242ac110012","tokenId":null,"version":1,"locked":false,"lastAccess":1570625883301,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625582254,"updaterId":"a475d2268eb511e992930242ac110012","updatedBy":"英特诺","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","instoreCode":"1181915472606662656","storehouseId":"45933d9fe07511e992930242ac110012","storehouseName":"T00012B00001","freeLoc":"AAA-02-014","packingListId":"7eb0e96bea9211e992930242ac110012","packingCode":"1181913249818480640","instoreState":1,"remark":"","packingList":{"id":"7eb0e96bea9211e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625052301,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625052301,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","packingCode":"1181913249818480640","workCode":"55896849","madeTime":1569501298656,"packingMaterial":1,"rankNum":1,"totalNum":1,"packLength":500,"packwidth":500,"packHeight":500,"netWeight":5000,"roughWeight":5200,"storeState":0,"billArchived":0,"billPrint":0,"printTimes":0,"remark":"","packingListItems":[{"id":"7eb760afea9211e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625052353,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625052353,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"7eb0e96bea9211e992930242ac110012","soItem":"100","material":"RD-89VHJ4A5PF","rl":100,"agl":200,"qty":300,"wtpc":0,"totalWeight":0,"enable":true}],"enable":true,"storeStateText":"暂存","billArchivedText":"未归档","billPrintText":"未打印"},"enable":true,"instoreStateText":"已出库"}],"countResultMap":null,"draw":1,"recordsTotal":1,"recordsFiltered":1,"nextPageNo":1}
+     * data : {"pageNo":1,"pageSize":10,"pageCount":1,"totalCount":1,"beginPageIndex":1,"endPageIndex":1,"dataList":[{"id":"ba8fc8a8ea9311e992930242ac110012","tokenId":null,"version":1,"locked":false,"lastAccess":1570625883301,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625582254,"updaterId":"a475d2268eb511e992930242ac110012","updatedBy":"英特诺","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","instoreCode":"1181915472606662656","storehouseId":"45933d9fe07511e992930242ac110012","storehouseName":"T00012B00001","freeLoc":"AAA-02-014","packingListId":"7eb0e96bea9211e992930242ac110012","packingCode":"1181913249818480640","instoreState":1,"remark":"","packingList":{"id":"7eb0e96bea9211e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625052301,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625052301,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","packingCode":"1181913249818480640","workCode":"55896849","madeTime":1569501298656,"packingMaterial":1,"rankNum":1,"totalNum":1,"packLength":500,"packwidth":500,"packHeight":500,"netWeight":5000,"roughWeight":5200,"storeState":0,"billArchived":0,"billPrString":0,"prStringTimes":0,"remark":"","packingListItems":[{"id":"7eb760afea9211e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625052353,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625052353,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"7eb0e96bea9211e992930242ac110012","soItem":"100","material":"RD-89VHJ4A5PF","rl":100,"agl":200,"qty":300,"wtpc":0,"totalWeight":0,"enable":true}],"enable":true,"storeStateText":"暂存","billArchivedText":"未归档","billPrStringText":"未打印"},"enable":true,"instoreStateText":"已出库"}],"countResultMap":null,"draw":1,"recordsTotal":1,"recordsFiltered":1,"nextPageNo":1}
      * args : null
      * moreinfo : null
      * detail : null
@@ -148,7 +148,7 @@ public class MyInVO implements Serializable {
          * totalCount : 1
          * beginPageIndex : 1
          * endPageIndex : 1
-         * dataList : [{"id":"ba8fc8a8ea9311e992930242ac110012","tokenId":null,"version":1,"locked":false,"lastAccess":1570625883301,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625582254,"updaterId":"a475d2268eb511e992930242ac110012","updatedBy":"英特诺","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","instoreCode":"1181915472606662656","storehouseId":"45933d9fe07511e992930242ac110012","storehouseName":"T00012B00001","freeLoc":"AAA-02-014","packingListId":"7eb0e96bea9211e992930242ac110012","packingCode":"1181913249818480640","instoreState":1,"remark":"","packingList":{"id":"7eb0e96bea9211e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625052301,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625052301,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","packingCode":"1181913249818480640","workCode":"55896849","madeTime":1569501298656,"packingMaterial":1,"rankNum":1,"totalNum":1,"packLength":500,"packwidth":500,"packHeight":500,"netWeight":5000,"roughWeight":5200,"storeState":0,"billArchived":0,"billPrint":0,"printTimes":0,"remark":"","packingListItems":[{"id":"7eb760afea9211e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625052353,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625052353,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"7eb0e96bea9211e992930242ac110012","soItem":"100","material":"RD-89VHJ4A5PF","rl":100,"agl":200,"qty":300,"wtpc":0,"totalWeight":0,"enable":true}],"enable":true,"storeStateText":"暂存","billArchivedText":"未归档","billPrintText":"未打印"},"enable":true,"instoreStateText":"已出库"}]
+         * dataList : [{"id":"ba8fc8a8ea9311e992930242ac110012","tokenId":null,"version":1,"locked":false,"lastAccess":1570625883301,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625582254,"updaterId":"a475d2268eb511e992930242ac110012","updatedBy":"英特诺","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","instoreCode":"1181915472606662656","storehouseId":"45933d9fe07511e992930242ac110012","storehouseName":"T00012B00001","freeLoc":"AAA-02-014","packingListId":"7eb0e96bea9211e992930242ac110012","packingCode":"1181913249818480640","instoreState":1,"remark":"","packingList":{"id":"7eb0e96bea9211e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625052301,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625052301,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","packingCode":"1181913249818480640","workCode":"55896849","madeTime":1569501298656,"packingMaterial":1,"rankNum":1,"totalNum":1,"packLength":500,"packwidth":500,"packHeight":500,"netWeight":5000,"roughWeight":5200,"storeState":0,"billArchived":0,"billPrString":0,"prStringTimes":0,"remark":"","packingListItems":[{"id":"7eb760afea9211e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625052353,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625052353,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"7eb0e96bea9211e992930242ac110012","soItem":"100","material":"RD-89VHJ4A5PF","rl":100,"agl":200,"qty":300,"wtpc":0,"totalWeight":0,"enable":true}],"enable":true,"storeStateText":"暂存","billArchivedText":"未归档","billPrStringText":"未打印"},"enable":true,"instoreStateText":"已出库"}]
          * countResultMap : null
          * draw : 1
          * recordsTotal : 1
@@ -156,64 +156,64 @@ public class MyInVO implements Serializable {
          * nextPageNo : 1
          */
 
-        private int pageNo;
-        private int pageSize;
-        private int pageCount;
-        private int totalCount;
-        private int beginPageIndex;
-        private int endPageIndex;
+        private String pageNo;
+        private String pageSize;
+        private String pageCount;
+        private String totalCount;
+        private String beginPageIndex;
+        private String endPageIndex;
         private String countResultMap;
-        private int draw;
-        private int recordsTotal;
-        private int recordsFiltered;
-        private int nextPageNo;
+        private String draw;
+        private String recordsTotal;
+        private String recordsFiltered;
+        private String nextPageNo;
         private List<DataListBean> dataList;
 
-        public int getPageNo() {
+        public String getPageNo() {
             return pageNo;
         }
 
-        public void setPageNo(int pageNo) {
+        public void setPageNo(String pageNo) {
             this.pageNo = pageNo;
         }
 
-        public int getPageSize() {
+        public String getPageSize() {
             return pageSize;
         }
 
-        public void setPageSize(int pageSize) {
+        public void setPageSize(String pageSize) {
             this.pageSize = pageSize;
         }
 
-        public int getPageCount() {
+        public String getPageCount() {
             return pageCount;
         }
 
-        public void setPageCount(int pageCount) {
+        public void setPageCount(String pageCount) {
             this.pageCount = pageCount;
         }
 
-        public int getTotalCount() {
+        public String getTotalCount() {
             return totalCount;
         }
 
-        public void setTotalCount(int totalCount) {
+        public void setTotalCount(String totalCount) {
             this.totalCount = totalCount;
         }
 
-        public int getBeginPageIndex() {
+        public String getBeginPageIndex() {
             return beginPageIndex;
         }
 
-        public void setBeginPageIndex(int beginPageIndex) {
+        public void setBeginPageIndex(String beginPageIndex) {
             this.beginPageIndex = beginPageIndex;
         }
 
-        public int getEndPageIndex() {
+        public String getEndPageIndex() {
             return endPageIndex;
         }
 
-        public void setEndPageIndex(int endPageIndex) {
+        public void setEndPageIndex(String endPageIndex) {
             this.endPageIndex = endPageIndex;
         }
 
@@ -225,35 +225,35 @@ public class MyInVO implements Serializable {
             this.countResultMap = countResultMap;
         }
 
-        public int getDraw() {
+        public String getDraw() {
             return draw;
         }
 
-        public void setDraw(int draw) {
+        public void setDraw(String draw) {
             this.draw = draw;
         }
 
-        public int getRecordsTotal() {
+        public String getRecordsTotal() {
             return recordsTotal;
         }
 
-        public void setRecordsTotal(int recordsTotal) {
+        public void setRecordsTotal(String recordsTotal) {
             this.recordsTotal = recordsTotal;
         }
 
-        public int getRecordsFiltered() {
+        public String getRecordsFiltered() {
             return recordsFiltered;
         }
 
-        public void setRecordsFiltered(int recordsFiltered) {
+        public void setRecordsFiltered(String recordsFiltered) {
             this.recordsFiltered = recordsFiltered;
         }
 
-        public int getNextPageNo() {
+        public String getNextPageNo() {
             return nextPageNo;
         }
 
-        public void setNextPageNo(int nextPageNo) {
+        public void setNextPageNo(String nextPageNo) {
             this.nextPageNo = nextPageNo;
         }
 
@@ -290,14 +290,14 @@ public class MyInVO implements Serializable {
              * packingCode : 1181913249818480640
              * instoreState : 1
              * remark : 
-             * packingList : {"id":"7eb0e96bea9211e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625052301,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625052301,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","packingCode":"1181913249818480640","workCode":"55896849","madeTime":1569501298656,"packingMaterial":1,"rankNum":1,"totalNum":1,"packLength":500,"packwidth":500,"packHeight":500,"netWeight":5000,"roughWeight":5200,"storeState":0,"billArchived":0,"billPrint":0,"printTimes":0,"remark":"","packingListItems":[{"id":"7eb760afea9211e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625052353,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625052353,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"7eb0e96bea9211e992930242ac110012","soItem":"100","material":"RD-89VHJ4A5PF","rl":100,"agl":200,"qty":300,"wtpc":0,"totalWeight":0,"enable":true}],"enable":true,"storeStateText":"暂存","billArchivedText":"未归档","billPrintText":"未打印"}
+             * packingList : {"id":"7eb0e96bea9211e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625052301,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625052301,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","packingCode":"1181913249818480640","workCode":"55896849","madeTime":1569501298656,"packingMaterial":1,"rankNum":1,"totalNum":1,"packLength":500,"packwidth":500,"packHeight":500,"netWeight":5000,"roughWeight":5200,"storeState":0,"billArchived":0,"billPrString":0,"prStringTimes":0,"remark":"","packingListItems":[{"id":"7eb760afea9211e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625052353,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625052353,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"7eb0e96bea9211e992930242ac110012","soItem":"100","material":"RD-89VHJ4A5PF","rl":100,"agl":200,"qty":300,"wtpc":0,"totalWeight":0,"enable":true}],"enable":true,"storeStateText":"暂存","billArchivedText":"未归档","billPrStringText":"未打印"}
              * enable : true
              * instoreStateText : 已出库
              */
 
             private String id;
             private String tokenId;
-            private int version;
+            private String version;
             private boolean locked;
             private long lastAccess;
             private boolean disabled;
@@ -338,11 +338,11 @@ public class MyInVO implements Serializable {
                 this.tokenId = tokenId;
             }
 
-            public int getVersion() {
+            public String getVersion() {
                 return version;
             }
 
-            public void setVersion(int version) {
+            public void setVersion(String version) {
                 this.version = version;
             }
 
@@ -560,19 +560,19 @@ public class MyInVO implements Serializable {
                  * roughWeight : 5200
                  * storeState : 0
                  * billArchived : 0
-                 * billPrint : 0
-                 * printTimes : 0
+                 * billPrString : 0
+                 * prStringTimes : 0
                  * remark : 
                  * packingListItems : [{"id":"7eb760afea9211e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625052353,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625052353,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"7eb0e96bea9211e992930242ac110012","soItem":"100","material":"RD-89VHJ4A5PF","rl":100,"agl":200,"qty":300,"wtpc":0,"totalWeight":0,"enable":true}]
                  * enable : true
                  * storeStateText : 暂存
                  * billArchivedText : 未归档
-                 * billPrintText : 未打印
+                 * billPrStringText : 未打印
                  */
 
                 private String id;
                 private String tokenId;
-                private int version;
+                private String version;
                 private boolean locked;
                 private long lastAccess;
                 private boolean disabled;
@@ -588,23 +588,23 @@ public class MyInVO implements Serializable {
                 private String packingCode;
                 private String workCode;
                 private long madeTime;
-                private int packingMaterial;
-                private int rankNum;
-                private int totalNum;
-                private int packLength;
-                private int packwidth;
-                private int packHeight;
-                private int netWeight;
-                private int roughWeight;
-                private int storeState;
-                private int billArchived;
-                private int billPrint;
-                private int printTimes;
+                private String packingMaterial;
+                private String rankNum;
+                private String totalNum;
+                private String packLength;
+                private String packwidth;
+                private String packHeight;
+                private String netWeight;
+                private String roughWeight;
+                private String storeState;
+                private String billArchived;
+                private String billPrString;
+                private String prStringTimes;
                 private String remark;
                 private boolean enable;
                 private String storeStateText;
                 private String billArchivedText;
-                private String billPrintText;
+                private String billPrStringText;
                 private List<PackingListItemsBean> packingListItems;
 
                 public String getId() {
@@ -623,11 +623,11 @@ public class MyInVO implements Serializable {
                     this.tokenId = tokenId;
                 }
 
-                public int getVersion() {
+                public String getVersion() {
                     return version;
                 }
 
-                public void setVersion(int version) {
+                public void setVersion(String version) {
                     this.version = version;
                 }
 
@@ -751,100 +751,100 @@ public class MyInVO implements Serializable {
                     this.madeTime = madeTime;
                 }
 
-                public int getPackingMaterial() {
+                public String getPackingMaterial() {
                     return packingMaterial;
                 }
 
-                public void setPackingMaterial(int packingMaterial) {
+                public void setPackingMaterial(String packingMaterial) {
                     this.packingMaterial = packingMaterial;
                 }
 
-                public int getRankNum() {
+                public String getRankNum() {
                     return rankNum;
                 }
 
-                public void setRankNum(int rankNum) {
+                public void setRankNum(String rankNum) {
                     this.rankNum = rankNum;
                 }
 
-                public int getTotalNum() {
+                public String getTotalNum() {
                     return totalNum;
                 }
 
-                public void setTotalNum(int totalNum) {
+                public void setTotalNum(String totalNum) {
                     this.totalNum = totalNum;
                 }
 
-                public int getPackLength() {
+                public String getPackLength() {
                     return packLength;
                 }
 
-                public void setPackLength(int packLength) {
+                public void setPackLength(String packLength) {
                     this.packLength = packLength;
                 }
 
-                public int getPackwidth() {
+                public String getPackwidth() {
                     return packwidth;
                 }
 
-                public void setPackwidth(int packwidth) {
+                public void setPackwidth(String packwidth) {
                     this.packwidth = packwidth;
                 }
 
-                public int getPackHeight() {
+                public String getPackHeight() {
                     return packHeight;
                 }
 
-                public void setPackHeight(int packHeight) {
+                public void setPackHeight(String packHeight) {
                     this.packHeight = packHeight;
                 }
 
-                public int getNetWeight() {
+                public String getNetWeight() {
                     return netWeight;
                 }
 
-                public void setNetWeight(int netWeight) {
+                public void setNetWeight(String netWeight) {
                     this.netWeight = netWeight;
                 }
 
-                public int getRoughWeight() {
+                public String getRoughWeight() {
                     return roughWeight;
                 }
 
-                public void setRoughWeight(int roughWeight) {
+                public void setRoughWeight(String roughWeight) {
                     this.roughWeight = roughWeight;
                 }
 
-                public int getStoreState() {
+                public String getStoreState() {
                     return storeState;
                 }
 
-                public void setStoreState(int storeState) {
+                public void setStoreState(String storeState) {
                     this.storeState = storeState;
                 }
 
-                public int getBillArchived() {
+                public String getBillArchived() {
                     return billArchived;
                 }
 
-                public void setBillArchived(int billArchived) {
+                public void setBillArchived(String billArchived) {
                     this.billArchived = billArchived;
                 }
 
-                public int getBillPrint() {
-                    return billPrint;
+                public String getBillPrString() {
+                    return billPrString;
                 }
 
-                public void setBillPrint(int billPrint) {
-                    this.billPrint = billPrint;
+                public void setBillPrString(String billPrString) {
+                    this.billPrString = billPrString;
                 }
 
-                public int getPrintTimes() {
-                    return printTimes;
+                public String getPrStringTimes() {
+                    return prStringTimes;
                 }
 
-                public void setPrintTimes(int printTimes) {
-                    this.printTimes = printTimes;
+                public void setPrStringTimes(String prStringTimes) {
+                    this.prStringTimes = prStringTimes;
                 }
 
                 public String getRemark() {
@@ -879,12 +879,12 @@ public class MyInVO implements Serializable {
                     this.billArchivedText = billArchivedText;
                 }
 
-                public String getBillPrintText() {
-                    return billPrintText;
+                public String getBillPrStringText() {
+                    return billPrStringText;
                 }
 
-                public void setBillPrintText(String billPrintText) {
-                    this.billPrintText = billPrintText;
+                public void setBillPrStringText(String billPrStringText) {
+                    this.billPrStringText = billPrStringText;
                 }
 
                 public List<PackingListItemsBean> getPackingListItems() {
@@ -924,7 +924,7 @@ public class MyInVO implements Serializable {
 
                     private String id;
                     private String tokenId;
-                    private int version;
+                    private String version;
                     private boolean locked;
                     private long lastAccess;
                     private boolean disabled;
@@ -939,11 +939,11 @@ public class MyInVO implements Serializable {
                     private String packingId;
                     private String soItem;
                     private String material;
-                    private int rl;
-                    private int agl;
-                    private int qty;
-                    private int wtpc;
-                    private int totalWeight;
+                    private String rl;
+                    private String agl;
+                    private String qty;
+                    private String wtpc;
+                    private String totalWeight;
                     private boolean enable;
 
                     public String getId() {
@@ -962,11 +962,11 @@ public class MyInVO implements Serializable {
                         this.tokenId = tokenId;
                     }
 
-                    public int getVersion() {
+                    public String getVersion() {
                         return version;
                     }
 
-                    public void setVersion(int version) {
+                    public void setVersion(String version) {
                         this.version = version;
                     }
 
@@ -1082,43 +1082,43 @@ public class MyInVO implements Serializable {
                         this.material = material;
                     }
 
-                    public int getRl() {
+                    public String getRl() {
                         return rl;
                     }
 
-                    public void setRl(int rl) {
+                    public void setRl(String rl) {
                         this.rl = rl;
                     }
 
-                    public int getAgl() {
+                    public String getAgl() {
                         return agl;
                     }
 
-                    public void setAgl(int agl) {
+                    public void setAgl(String agl) {
                         this.agl = agl;
                     }
 
-                    public int getQty() {
+                    public String getQty() {
                         return qty;
                     }
 
-                    public void setQty(int qty) {
+                    public void setQty(String qty) {
                         this.qty = qty;
                     }
 
-                    public int getWtpc() {
+                    public String getWtpc() {
                         return wtpc;
                     }
 
-                    public void setWtpc(int wtpc) {
+                    public void setWtpc(String wtpc) {
                         this.wtpc = wtpc;
                     }
 
-                    public int getTotalWeight() {
+                    public String getTotalWeight() {
                         return totalWeight;
                     }
 
-                    public void setTotalWeight(int totalWeight) {
+                    public void setTotalWeight(String totalWeight) {
                         this.totalWeight = totalWeight;
                     }
 
