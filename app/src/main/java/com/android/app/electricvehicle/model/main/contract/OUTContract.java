@@ -1,6 +1,7 @@
 package com.android.app.electricvehicle.model.main.contract;
 
 import com.android.app.electricvehicle.entity.ItemDetailOutVO;
+import com.android.app.electricvehicle.entity.OutDetailVO;
 import com.android.app.electricvehicle.mvp.view.BaseViewInf;
 
 /**
@@ -17,7 +18,7 @@ public interface OUTContract {
     interface View extends BaseViewInf {
 
         //提交成功
-        void showSuccess();
+        void showSuccess(OutDetailVO vDate);
 
         //查询到详情以后返回的数据
         void  showDetail(ItemDetailOutVO detailOutVO);

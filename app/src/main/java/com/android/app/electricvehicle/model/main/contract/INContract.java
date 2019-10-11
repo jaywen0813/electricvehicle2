@@ -1,6 +1,7 @@
 package com.android.app.electricvehicle.model.main.contract;
 
 import com.android.app.electricvehicle.entity.DetailVO;
+import com.android.app.electricvehicle.entity.INDetailVO;
 import com.android.app.electricvehicle.mvp.view.BaseViewInf;
 
 import java.util.List;
@@ -19,7 +20,7 @@ public interface INContract {
     interface View extends BaseViewInf {
 
         //提交成功
-        void showSuccess(String s);
+        void showSuccess(INDetailVO vDate);
 
 
 

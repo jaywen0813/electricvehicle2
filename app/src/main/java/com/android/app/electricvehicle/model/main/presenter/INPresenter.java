@@ -1,6 +1,7 @@
 package com.android.app.electricvehicle.model.main.presenter;
 
 import android.util.Log;
+import android.widget.Toast;
 
 import com.android.app.electricvehicle.MainApplication;
 import com.android.app.electricvehicle.api.Api;
@@ -48,21 +49,18 @@ public class INPresenter extends BasePresenter<INContract.View> implements INCon
     public void getUP(String instoreCode,String freeLoc,String remark) {
         SortedMap<String, String> paramsMap = new TreeMap<>();
 
-//        paramsMap.put("instoreCode", instoreCode);//装箱单号  入库单号
+        paramsMap.put("packingCode", instoreCode);//装箱单号  入库单号
 //        paramsMap.put("storehouseId", storehouseId);//仓库id
 //        paramsMap.put("storehouseName", storehouseName);//仓库名称
-//        paramsMap.put("freeLoc", freeLoc);//库位编号
+        paramsMap.put("freeLoc", freeLoc);//库位编号
 //        paramsMap.put("packingListId", packingListId);//装箱单ID
 //        paramsMap.put("instoreState", "1");//状态（1，未出库，2已出库）
 //        paramsMap.put("remark",remark);//备注，非必传
 
 
-        paramsMap.put("instoreCode", "11118525");//装箱单号  入库单号
-        paramsMap.put("storehouseId", "55838525");//仓库id
-        paramsMap.put("storehouseName", "500");//仓库名称
-        paramsMap.put("freeLoc", "AAA-02-002");//库位编号
-        paramsMap.put("packingListId", "500");//装箱单ID
-        paramsMap.put("instoreState", "1");//状态（1，未出库，2已出库）
+//        paramsMap.put("packingCode", "122191324981180640");//装箱单号  入库单号
+//        paramsMap.put("freeLoc", "AAA-02-088");//库位编号
+
 
 
 
@@ -109,10 +107,10 @@ public class INPresenter extends BasePresenter<INContract.View> implements INCon
                     @Override
                     public void onNext(INDetailVO vDate) {
                         if (vDate.getSuccess().equals("T")) {
-                            mView.showSuccess("T");
+                            mView.showSuccess(vDate);
                             Log.e("qqqq", "onNext: 成功" );
                         }else {
-                            mView.showSuccess("F");
+                            mView.showSuccess(vDate);
                         }
                     }
 

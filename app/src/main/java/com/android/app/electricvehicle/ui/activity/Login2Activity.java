@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.app.electricvehicle.MainApplication;
 import com.android.app.electricvehicle.R;
@@ -70,47 +71,37 @@ public class Login2Activity extends BaseMvpActivity<LoginContract2.View, LoginPr
 
 
 
-    @Override
-    public String getUserName() {
-        //去掉两边的空格
-        return usernameEd.getText().toString().trim();
-    }
 
-    @Override
-    public String getPassword() {
-        //去掉两边的空格
-        return passwordEd.getText().toString().trim();
-    }
 
     //登录成功以后返回的方法
     @Override
     public void onLoginSessce(LoginResultVO3 resultVO3) {
-//        MainApplication.LOGINRESULTVO3.getData().setAccess_token(resultVO3.getData().getAccess_token());
+
+        if (resultVO3.getSuccess().equals("T")){
+            MainApplication.LOGINRESULTVO3.setAccess_token(resultVO3.getData().getAccess_token());
+            Toast.makeText(Login2Activity.this,"登录成功",Toast.LENGTH_LONG).show();
+            startActivity(new Intent(this, Main3Activity.class));
+            finish();
+        }else {
+            Toast.makeText(Login2Activity.this,resultVO3.getMessage()+"",Toast.LENGTH_LONG).show();
+        }
+
+
+
 //        MainApplication.LOGINRESULTVO2.setUserName(resultVO2.getLdcSysUser().getLoginName());
 //        PreferenceUtils.getInstance(this).setString("loginName", resultVO3.getLdcSysUser().getLoginName());
 //        startActivity(new Intent(this, Main2Activity.class));
 //        Log.e("qqqqq===",resultVO3.getData().getAccess_token());
-        T.showToastSafe("登录成功");
-        startActivity(new Intent(this, Main3Activity.class));
+//        T.showToastSafe("登录成功");
+
 //        MainApplication.sIsLogin = true;
 //        if (!Kits.Empty.check(MainApplication.getClientId())) {
 //            RegisterClientIdUtils.bindingClient(MainApplication.getClientId());
 //        }
-        finish();
-    }
-
-
-    //加载中
-    @Override
-    public void showLoading() {
 
     }
 
-    //加载结束
-    @Override
-    public void hideLoading() {
 
-    }
 
     //错误
     @Override
@@ -155,7 +146,21 @@ public class Login2Activity extends BaseMvpActivity<LoginContract2.View, LoginPr
 
                 break;
             case R.id.login_bt:
-                presenter.login();
+
+                String userName = usernameEd.getText().toString().trim();
+                String passWord = passwordEd.getText().toString().trim();
+                if (userName.isEmpty()) {
+//                    T.showToastSafe("用户名不能为空");
+                    Toast.makeText(Login2Activity.this,"用户名不能为空",Toast.LENGTH_LONG).show();
+                    return;
+                }
+                if (passWord.isEmpty()) {
+
+                    Toast.makeText(Login2Activity.this,"密码不能为空",Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                presenter.login(userName,passWord);
 
 
 //                startActivity(new Intent(this, Main3Activity.class));

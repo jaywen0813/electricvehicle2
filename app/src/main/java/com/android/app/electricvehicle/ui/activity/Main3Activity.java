@@ -202,9 +202,8 @@ public class Main3Activity extends BaseMvpActivity<MianContract3.View, MainPrese
 //        MainApplication.LOGINRESULTVO2.setId(null);
 //        MainApplication.LOGINRESULTVO2.setUnicomNumber(null);
         MainApplication.LOGINRESULTVO3.setAccess_token(null);
-        MainApplication.sIsLogin = false;
         startActivity(new Intent(this, Login2Activity.class));
-//        finish();
+        finish();
     }
 
 

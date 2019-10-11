@@ -69,7 +69,11 @@ public class MyOutDetailActivity extends BaseMvpActivity<MyOutDetailContract.Vie
         StatusBarUtil.transparencyBar(this);//设置状态栏全透明
         StatusBarUtil.StatusBarLightMode(this);//设置状态栏黑色文字、图标，
 
+        tvLayerHead.setText("出库详情");
+
+
         id = getIntent().getStringExtra("id");
+        presenter.getUP(id);
 
     }
 

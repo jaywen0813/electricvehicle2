@@ -83,19 +83,20 @@ public class MyOutActivity extends BaseListActivity<MYOutContract.View, MyOutPre
     @Override
     protected void initDate() {
         super.initDate();
-        for (int i = 0; i <5 ; i++) {
-            MyOutVO.DataBean.DataListBean ss=new MyOutVO.DataBean.DataListBean();
-            ss.setId("11");
-            ss.setDataId("222");
-            activityVOList.add(ss);
-        }
+        //假数据
+//        for (int i = 0; i <5 ; i++) {
+//            MyOutVO.DataBean.DataListBean ss=new MyOutVO.DataBean.DataListBean();
+//            ss.setId("11");
+//            ss.setDataId("222");
+//            activityVOList.add(ss);
+//        }
 
     }
 
     @Override
     public void onResume() {
         super.onResume();
-//        onRefresh();
+        onRefresh();
     }
 
 

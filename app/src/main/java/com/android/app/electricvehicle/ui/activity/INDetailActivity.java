@@ -15,9 +15,11 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.app.electricvehicle.R;
 import com.android.app.electricvehicle.base.BaseMvpActivity;
+import com.android.app.electricvehicle.entity.INDetailVO;
 import com.android.app.electricvehicle.model.main.contract.INContract;
 import com.android.app.electricvehicle.model.main.presenter.INPresenter;
 import com.android.app.electricvehicle.mvp.presenter.BasePresenter;
@@ -93,10 +95,10 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
                 String packingListId=etZxdid.getText().toString().trim();
                 String remark=etBz.getText().toString().trim();//备注
 
-//                if (Kits.Empty.check(instoreCode)){
-//                    T.showToastSafe("装箱单号不能为空");
-//                    return;
-//                }
+                if (Kits.Empty.check(instoreCode)){
+                    Toast.makeText(INDetailActivity.this, "装箱单号不能为空", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 //
 //                if (Kits.Empty.check(storehouseId)){
 //                    T.showToastSafe("仓库ID不能为空");
@@ -106,10 +108,10 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
 //                    T.showToastSafe("仓库名称不能为空");
 //                    return;
 //                }
-//                if (Kits.Empty.check(freeLoc)){
-//                    T.showToastSafe("库位号不能为空");
-//                    return;
-//                }
+                if (Kits.Empty.check(freeLoc)){
+                    Toast.makeText(INDetailActivity.this, "库位号不能为空", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 //                if (Kits.Empty.check(packingListId)){
 //                    T.showToastSafe("装箱单ID不能为空");
 //                    return;
@@ -232,7 +234,8 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
                     for (int i = 0; i < grantResults.length; i++) {
                         int grantResult = grantResults[i];
                         if (grantResult == PackageManager.PERMISSION_DENIED) { //这个是权限拒绝
-                            T.showToastSafe("请先授权");
+//                            T.showToastSafe("请先授权");
+                            Toast.makeText(INDetailActivity.this,  "请先授权", Toast.LENGTH_SHORT).show();
                         } else { //授权成功了
                             //do Something
                             Intent intent = new Intent(this, ZxingActivity.class);
@@ -272,8 +275,8 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
                         int grantResult = grantResults[i];
                         if (grantResult == PackageManager.PERMISSION_DENIED) { //这个是权限拒绝
                             String s = permissions[i];
-//                            Toast.makeText(this, s + "权限被拒绝了", Toast.LENGTH_SHORT).show();
-                            T.showToastSafe("请先授权");
+                            Toast.makeText(INDetailActivity.this, s + "请先授权", Toast.LENGTH_SHORT).show();
+//                            T.showToastSafe("请先授权");
                         } else { //授权成功了
                             //do Something
                             //扫一扫
@@ -338,11 +341,14 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
     }
 
     @Override
-    public void showSuccess(String t) {
-        if (t.equals("T")){//提交成功
-            T.showToastSafe("提交成功");
+    public void showSuccess(INDetailVO vDate) {
+        if (vDate.getSuccess().equals("T")){//提交成功
+//            T.showToastSafe("提交成功");
+            Toast.makeText(INDetailActivity.this,"提交成功",Toast.LENGTH_LONG).show();
+            finish();
         }else {
-            T.showToastSafe("提交失败");
+//            T.showToastSafe("提交失败");
+            Toast.makeText(INDetailActivity.this,vDate.getMessage()+"",Toast.LENGTH_LONG).show();
         }
 
     }

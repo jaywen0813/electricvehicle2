@@ -18,22 +18,18 @@ public interface LoginContract2 {
 
     interface View extends BaseViewInf {
 
-        String getUserName();
 
-        String getPassword();
 
         void onLoginSessce(LoginResultVO3 loginResultVO);
 
-        void showLoading();
 
-        void hideLoading();
 
         void loginToken();
     }
 
     interface Presenter {
 
-        void login();
+        void login(String userName,String passWord);
 
 
 

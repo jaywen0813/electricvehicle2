@@ -39,18 +39,18 @@ public class OUTPresenter extends BasePresenter<OUTContract.View> implements OUT
     @Override
     public void getUP(String outstoreCode,String freeLoc,String remark) {
         SortedMap<String, String> paramsMap = new TreeMap<>();
-//        paramsMap.put("outstoreCode", outstoreCode);
+//        paramsMap.put("packingCode", outstoreCode);
 //        paramsMap.put("storehouseId", storehouseId);
 //        paramsMap.put("storehouseName", storehouseName);
 //        paramsMap.put("freeLoc", freeLoc);
 //        paramsMap.put("packingListId", packingListId);
 //        paramsMap.put("remark", remark);
 
-        paramsMap.put("outstoreCode", "20191001001");
-        paramsMap.put("storehouseId", "55838525");
-        paramsMap.put("storehouseName", "500");
-        paramsMap.put("freeLoc", "AAA-02-002");
-        paramsMap.put("packingListId", "20191001001");
+        paramsMap.put("packingCode", "20191001001");
+//        paramsMap.put("storehouseId", "55838525");
+//        paramsMap.put("storehouseName", "500");
+        paramsMap.put("freeLoc", "AAA-02-014");
+//        paramsMap.put("packingListId", "20191001001");
 
 
 //        MainDataRepository.getInstance().OutdetailService(paramsMap)
@@ -95,9 +95,7 @@ public class OUTPresenter extends BasePresenter<OUTContract.View> implements OUT
 
                     @Override
                     public void onNext(OutDetailVO vDate) {
-                        if (vDate.getSuccess().equals("T")) {//如果是200，则代表退出成功了
-                            mView.showSuccess();
-                        }
+                            mView.showSuccess(vDate);
                     }
 
                     @Override

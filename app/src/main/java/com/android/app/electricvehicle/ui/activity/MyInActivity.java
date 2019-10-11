@@ -84,19 +84,20 @@ public class MyInActivity extends BaseListActivity<MYINContract.View, MyINPresen
     @Override
     protected void initDate() {
         super.initDate();
-        for (int i = 0; i <5 ; i++) {
-            MyInVO.DataBean.DataListBean ss=new MyInVO.DataBean.DataListBean();
-            ss.setId("11");
-            ss.setDataId("22");
-            activityVOList.add(ss);
-        }
+        //假数据
+//        for (int i = 0; i <5 ; i++) {
+//            MyInVO.DataBean.DataListBean ss=new MyInVO.DataBean.DataListBean();
+//            ss.setId("11");
+//            ss.setDataId("22");
+//            activityVOList.add(ss);
+//        }
 
     }
 
     @Override
     public void onResume() {
         super.onResume();
-//        onRefresh();
+        onRefresh();
     }
 
 

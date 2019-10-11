@@ -14,10 +14,12 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.app.electricvehicle.R;
 import com.android.app.electricvehicle.base.BaseMvpActivity;
 import com.android.app.electricvehicle.entity.ItemDetailOutVO;
+import com.android.app.electricvehicle.entity.OutDetailVO;
 import com.android.app.electricvehicle.model.main.contract.OUTContract;
 import com.android.app.electricvehicle.model.main.presenter.OUTPresenter;
 import com.android.app.electricvehicle.mvp.presenter.BasePresenter;
@@ -48,6 +50,7 @@ public class OUTDetailActivity extends BaseMvpActivity<OUTContract.View, OUTPres
     private TextView tvZxdid;
     private EditText etBz;
     private TextView tvTijiao;
+    private LinearLayout ll_detail;//查询详情成功以后展示
 
 
 
@@ -93,10 +96,10 @@ public class OUTDetailActivity extends BaseMvpActivity<OUTContract.View, OUTPres
                 String packingListId=tvZxdid.getText().toString();
                 String remark=etBz.getText().toString().trim();//备注
 
-//                if (Kits.Empty.check(outstoreCode)){
-//                    T.showToastSafe("出库号不能为空");
-//                    return;
-//                }
+                if (Kits.Empty.check(outstoreCode)){
+                    Toast.makeText(OUTDetailActivity.this,  "出库号不能为空", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 //
 //                if (Kits.Empty.check(storehouseId)){
 //                    T.showToastSafe("仓库ID不能为空");
@@ -106,10 +109,10 @@ public class OUTDetailActivity extends BaseMvpActivity<OUTContract.View, OUTPres
 //                    T.showToastSafe("仓库名称不能为空");
 //                    return;
 //                }
-//                if (Kits.Empty.check(freeLoc)){
-//                    T.showToastSafe("库位号不能为空");
-//                    return;
-//                }
+                if (Kits.Empty.check(freeLoc)){
+                    Toast.makeText(OUTDetailActivity.this,  "库位号不能为空", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 //                if (Kits.Empty.check(packingListId)){
 //                    T.showToastSafe("装箱单ID不能为空");
 //                    return;
@@ -148,6 +151,8 @@ public class OUTDetailActivity extends BaseMvpActivity<OUTContract.View, OUTPres
         tvZxdid = findViewById(R.id.tv_zxdid);//装箱单ID
         etBz = findViewById(R.id.et_bz);//备注
         tvTijiao = findViewById(R.id.tv_tijiao);//提交
+
+        ll_detail=findViewById(R.id.ll_detail);//查询详情成功以后展示
 
         llSaomiao.setOnClickListener(this);
         llSaomiao2.setOnClickListener(this);
@@ -234,7 +239,7 @@ public class OUTDetailActivity extends BaseMvpActivity<OUTContract.View, OUTPres
                     for (int i = 0; i < grantResults.length; i++) {
                         int grantResult = grantResults[i];
                         if (grantResult == PackageManager.PERMISSION_DENIED) { //这个是权限拒绝
-                            T.showToastSafe("请先授权");
+                            Toast.makeText(OUTDetailActivity.this,  "请先授权", Toast.LENGTH_SHORT).show();
                         } else { //授权成功了
                             //do Something
                             Intent intent = new Intent(this, ZxingActivity.class);
@@ -268,7 +273,7 @@ public class OUTDetailActivity extends BaseMvpActivity<OUTContract.View, OUTPres
                         if (grantResult == PackageManager.PERMISSION_DENIED) { //这个是权限拒绝
                             String s = permissions[i];
 //                            Toast.makeText(this, s + "权限被拒绝了", Toast.LENGTH_SHORT).show();
-                            T.showToastSafe("请先授权");
+                            Toast.makeText(OUTDetailActivity.this,  "请先授权", Toast.LENGTH_SHORT).show();
                         } else { //授权成功了
                             //do Something
                             //扫一扫
@@ -336,12 +341,22 @@ public class OUTDetailActivity extends BaseMvpActivity<OUTContract.View, OUTPres
 
     //提交成功以后的操作
     @Override
-    public void showSuccess() {
-        T.showToastSafe("提交成功");
+    public void showSuccess(OutDetailVO vDate) {
+//        T.showToastSafe("提交成功");
+
+        if (vDate.getSuccess().equals("T")){
+            Toast.makeText(OUTDetailActivity.this,"出库成功",Toast.LENGTH_LONG).show();
+        }else {
+            Toast.makeText(OUTDetailActivity.this,vDate.getMessage()+"",Toast.LENGTH_LONG).show();
+        }
+
+
     }
     //获取详情展示数据
     @Override
     public void showDetail(ItemDetailOutVO detailOutVO) {
+
+        ll_detail.setVisibility(View.VISIBLE);//展示详情
 
         if (!Kits.Empty.check(detailOutVO.getData().getStorehouseId())){
             tvCkid.setText(detailOutVO.getData().getStorehouseId());

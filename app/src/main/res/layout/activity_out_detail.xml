@@ -154,7 +154,13 @@
 
     </LinearLayout>
 
-
+<LinearLayout
+    android:id="@+id/ll_detail"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:visibility="gone"
+    >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_value_dp50"
@@ -236,6 +242,8 @@
 
 
     </LinearLayout>
+
+</LinearLayout>
 
     <View
         android:layout_width="match_parent"

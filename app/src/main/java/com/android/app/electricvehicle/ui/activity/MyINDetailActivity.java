@@ -71,8 +71,21 @@ public class MyINDetailActivity extends BaseMvpActivity<MyInDetailContract.View,
         StatusBarUtil.transparencyBar(this);//设置状态栏全透明
         StatusBarUtil.StatusBarLightMode(this);//设置状态栏黑色文字、图标，
 
+
+        tvLayerHead.setText("入库详情");
+
+
         id = getIntent().getStringExtra("id");
 
+
+
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        presenter.getUP(id);
     }
 
     @Override

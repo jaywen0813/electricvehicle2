@@ -37,6 +37,8 @@ public class MyINDetailPresenter extends BasePresenter<MyInDetailContract.View> 
     public void getUP(String id) {
         SortedMap<String, String> paramsMap = new TreeMap<>();
 
+        paramsMap.put("id",id);//备注，非必传
+
 //        paramsMap.put("instoreCode", instoreCode);//装箱单号  入库单号
 //        paramsMap.put("storehouseId", storehouseId);//仓库id
 //        paramsMap.put("storehouseName", storehouseName);//仓库名称
@@ -46,12 +48,12 @@ public class MyINDetailPresenter extends BasePresenter<MyInDetailContract.View> 
 //        paramsMap.put("remark",remark);//备注，非必传
 
 
-        paramsMap.put("instoreCode", "11118525");//装箱单号  入库单号
-        paramsMap.put("storehouseId", "55838525");//仓库id
-        paramsMap.put("storehouseName", "500");//仓库名称
-        paramsMap.put("freeLoc", "AAA-02-002");//库位编号
-        paramsMap.put("packingListId", "500");//装箱单ID
-        paramsMap.put("instoreState", "1");//状态（1，未出库，2已出库）
+//        paramsMap.put("instoreCode", "11118525");//装箱单号  入库单号
+//        paramsMap.put("storehouseId", "55838525");//仓库id
+//        paramsMap.put("storehouseName", "500");//仓库名称
+//        paramsMap.put("freeLoc", "AAA-02-002");//库位编号
+//        paramsMap.put("packingListId", "500");//装箱单ID
+//        paramsMap.put("instoreState", "1");//状态（1，未出库，2已出库）
 
 
 
@@ -117,48 +119,6 @@ public class MyINDetailPresenter extends BasePresenter<MyInDetailContract.View> 
 
 
 
-    /**
-     * 搜索
-     */
-//    @Override
-//    public void getSousuo(String ss,String currentPage) {
-//        SortedMap<String, String> paramsMap = new TreeMap<>();
-//        paramsMap.put("param", ss);
-//        paramsMap.put("currentPage", currentPage);
-//        paramsMap.put("pageSize", "10");
-//
-//        MainDataRepository.getInstance().sousuo(paramsMap)
-//                .subscribeOn(Schedulers.io())//网络是耗时操作,所以在io线程中去执行
-//                .observeOn(AndroidSchedulers.mainThread())//请求成功后回到主线程中
-//                .subscribe(new Observer<ActivityVO>() {
-//                    @Override
-//                    public void onSubscribe(Disposable d) {
-//                        addDisposable(d);
-//                    }
-//
-//                    @Override
-//                    public void onNext(ActivityVO vDate) {
-//                        if (vDate.getCode().equals("00000")) {
-////                            if (vDate.getResult().getActivict() != null) {
-////                                mView.showActivityList();
-////                            }
-//                            if (vDate.getResult()!=null &&vDate.getResult().getResult()!=null){
-//                                mView.showActivityList((List<ActivityVO.ResultBeanX.ResultBean>) vDate.getResult().getResult());
-//                            }
-//
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onError(Throwable e) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onComplete() {
-//                        //请求完成
-//                    }
-//                });
-//    }
+
 
 }

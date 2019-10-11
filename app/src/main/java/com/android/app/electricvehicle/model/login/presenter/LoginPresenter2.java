@@ -74,19 +74,19 @@ public class LoginPresenter2 extends BasePresenter<LoginContract2.View> implemen
 
 
     @Override
-    public void login() {
-//        String userName = mView.getUserName();
-//        String passWord = mView.getPassword();
-        SortedMap<String, String> paramsMap = new TreeMap<>();
-//        paramsMap.put("username", userName);
-//        paramsMap.put("password", MD5.GetMD5Code(passWord));
+    public void login(String userName,String passWord) {
 
+        SortedMap<String, String> paramsMap = new TreeMap<>();
+        paramsMap.put("username", userName);
+//        paramsMap.put("password", MD5.GetMD5Code(passWord));
+        paramsMap.put("password", passWord);
 
         paramsMap.put("client_id", "3000a5643db6eb1fbc7f839a24f0b526");
         paramsMap.put("client_secret","300364848938e580db770920c304aaf6");
         paramsMap.put("grant_type", "password");
-        paramsMap.put("password", "123456");
-        paramsMap.put("username", "interroll");
+
+//        paramsMap.put("password", "123456");
+//        paramsMap.put("username", "interroll");
 
 //        MainApplication.LOGINRESULTVO2.setUserName(userName);
 //        if (userName.isEmpty()) {
@@ -121,13 +121,14 @@ public class LoginPresenter2 extends BasePresenter<LoginContract2.View> implemen
                     public void onNext(LoginResultVO3 loginBean) {
                         if (loginBean.getSuccess().equals("T")) {
 
-                            T.showToastSafe("登录成功");
+//                            T.showToastSafe("登录成功");
                             mView.onLoginSessce(loginBean);
                             MainApplication.LOGINRESULTVO3.setAccess_token(loginBean.getData().getAccess_token());
                             Log.e("qqqqq--",loginBean.getData().getAccess_token());
 
                         } else {
-                            T.showToastSafe("登录失败");
+//                            T.showToastSafe("登录失败");
+                            mView.onLoginSessce(loginBean);
                         }
                     }
 

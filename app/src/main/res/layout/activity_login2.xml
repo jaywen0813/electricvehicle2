@@ -44,6 +44,7 @@
             android:textColorHint="@color/white"
             android:textSize="@dimen/dimen_value_sp14"
             android:digits="0123456789abcdefghijklmnopqrstuvwxyz"
+            android:text="interroll"
             />
         <ImageView
             android:id="@+id/showphone"
@@ -84,7 +85,9 @@
             android:maxLength="20"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
-            android:textSize="@dimen/dimen_value_sp14" />
+            android:textSize="@dimen/dimen_value_sp14"
+            android:text="123456"
+            />
 
         <ImageView
             android:id="@+id/showpassword"
