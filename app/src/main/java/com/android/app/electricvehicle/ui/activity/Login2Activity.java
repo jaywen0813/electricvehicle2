@@ -79,6 +79,7 @@ public class Login2Activity extends BaseMvpActivity<LoginContract2.View, LoginPr
 
         if (resultVO3.getSuccess().equals("T")){
             MainApplication.LOGINRESULTVO3.setAccess_token(resultVO3.getData().getAccess_token());
+            Log.e("qqqqq--",resultVO3.getData().getAccess_token());
             Toast.makeText(Login2Activity.this,"登录成功",Toast.LENGTH_LONG).show();
             startActivity(new Intent(this, Main3Activity.class));
             finish();

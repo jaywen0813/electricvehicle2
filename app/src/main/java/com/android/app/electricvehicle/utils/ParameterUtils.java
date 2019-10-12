@@ -60,7 +60,7 @@ public class ParameterUtils {
 //        map.put("deviceType", AppConstants.DEVICETYPE);
         map.put("token", MainApplication.LOGINRESULTVO3.getAccess_token());
 //        map.put("userId",MainApplication.LOGINRESULTVO2.getId());
-//        map.put("siteNo",MainApplication.LOGINRESULTVO2.getUnicomNumber());
+//        map.put("X-Token","3S1x6eFpMGoSfB8gi5XOphGzaONvFVhphB2cjfFxSg6YYxD6fGpiudYaeidfDxJb");
         map.put("X-Token",MainApplication.LOGINRESULTVO3.getAccess_token());
         return map;
     }

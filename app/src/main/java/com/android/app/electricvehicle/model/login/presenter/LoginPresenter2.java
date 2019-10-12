@@ -100,7 +100,7 @@ public class LoginPresenter2 extends BasePresenter<LoginContract2.View> implemen
 //            return;
 //        }
 //        MainApplication.LOGINRESULTVO2.setToken("5nAmzLfdxtSc0hIOO3d8bTtCmrnSPNC132Jk3ZLB7qFm7uS47lsGfZJw7cdNgLfd");
-//        MainApplication.LOGINRESULTVO3.getData().setAccess_token("");
+        MainApplication.LOGINRESULTVO3.setAccess_token("");
 
 //        MainApplication.LOGINRESULTVO2.setLdcSysUser(new LoginResultVO2.LdcSysUserBean());
 //        MainApplication.LOGINRESULTVO2.getLdcSysUser().setId("");//userId
@@ -124,7 +124,7 @@ public class LoginPresenter2 extends BasePresenter<LoginContract2.View> implemen
 //                            T.showToastSafe("登录成功");
                             mView.onLoginSessce(loginBean);
                             MainApplication.LOGINRESULTVO3.setAccess_token(loginBean.getData().getAccess_token());
-                            Log.e("qqqqq--",loginBean.getData().getAccess_token());
+                            Log.e("qqqqq11",loginBean.getData().getAccess_token());
 
                         } else {
 //                            T.showToastSafe("登录失败");

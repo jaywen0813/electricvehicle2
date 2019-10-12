@@ -20,6 +20,7 @@ public interface OUTContract {
         //提交成功
         void showSuccess(OutDetailVO vDate);
 
+
         //查询到详情以后返回的数据
         void  showDetail(ItemDetailOutVO detailOutVO);
 
@@ -28,7 +29,7 @@ public interface OUTContract {
 
     interface Presenter {
         //网络请求。提交数据
-        void getUP(String outstoreCode,String freeLoc,String remark);
+        void getUP(String outstoreCode,String freeLoc);
         //通过库位查询信息
         void getZXD(String zxd);
 

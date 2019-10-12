@@ -30,6 +30,7 @@ import com.android.app.electricvehicle.utils.T;
 import com.yzq.zxinglibrary.bean.ZxingConfig;
 import com.yzq.zxinglibrary.common.Constant;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,14 +44,32 @@ public class OUTDetailActivity extends BaseMvpActivity<OUTContract.View, OUTPres
     private TextView farmInputSave;
     private EditText etNumber;
     private LinearLayout llSaomiao;
-    private TextView tvCkid;
-    private TextView tvCkmc;
     private EditText etKwNumber;
     private LinearLayout llSaomiao2;
+    private LinearLayout ll_detail;
+    private TextView tvZhid;
+    private TextView tvGzdh;
+    private TextView tvDate;
+    private TextView tvNumber;
     private TextView tvZxdid;
-    private EditText etBz;
+    private TextView tvCkmc;
+    private TextView tvCkid;
+    private TextView tvKwNumber;
+    private TextView tvDjx;
+    private TextView tvGjx;
+    private TextView tvChang;
+    private TextView tvKuan;
+    private TextView tvGao;
+    private TextView tvJingzhong;
+    private TextView tvMaozhong;
+    private TextView tvZhuangtai;
+    private TextView tvDjgd;
+    private TextView tvDjdy;
+    private TextView tvDycs;
+    private TextView tvBz;
     private TextView tvTijiao;
-    private LinearLayout ll_detail;//查询详情成功以后展示
+
+
 
 
 
@@ -90,11 +109,9 @@ public class OUTDetailActivity extends BaseMvpActivity<OUTContract.View, OUTPres
             case R.id.tv_tijiao://提交按钮
 
                 String outstoreCode=etNumber.getText().toString().trim();
-                String storehouseId=tvCkid.getText().toString();
-                String storehouseName=tvCkmc.getText().toString();
                 String freeLoc=etKwNumber.getText().toString().trim();
-                String packingListId=tvZxdid.getText().toString();
-                String remark=etBz.getText().toString().trim();//备注
+
+
 
                 if (Kits.Empty.check(outstoreCode)){
                     Toast.makeText(OUTDetailActivity.this,  "出库号不能为空", Toast.LENGTH_SHORT).show();
@@ -120,7 +137,7 @@ public class OUTDetailActivity extends BaseMvpActivity<OUTContract.View, OUTPres
 
                 //网络请求  提交数据
 
-                outPresenter.getUP(outstoreCode,freeLoc,remark);
+                outPresenter.getUP(outstoreCode,freeLoc);
 
 //                T.showToastSafe("出库成功");
                 break;
@@ -142,23 +159,38 @@ public class OUTDetailActivity extends BaseMvpActivity<OUTContract.View, OUTPres
         tvLayerHead = findViewById(R.id.tv_layer_head);
         navigationUserLayout = findViewById(R.id.navigation_user_layout);
         farmInputSave = findViewById(R.id.farm_input_save);
-        etNumber = findViewById(R.id.et_number);//出库单号
-        llSaomiao = findViewById(R.id.ll_saomiao);//出库单扫描
-        tvCkid = findViewById(R.id.tv_ckid);//仓库ID
-        tvCkmc = findViewById(R.id.tv_ckmc);//仓库名称
-        etKwNumber = findViewById(R.id.et_kw_number);//库位号
-        llSaomiao2 = findViewById(R.id.ll_saomiao2);//库位单扫码
-        tvZxdid = findViewById(R.id.tv_zxdid);//装箱单ID
-        etBz = findViewById(R.id.et_bz);//备注
-        tvTijiao = findViewById(R.id.tv_tijiao);//提交
+        etNumber = findViewById(R.id.et_number);
+        llSaomiao = findViewById(R.id.ll_saomiao);
+        etKwNumber = findViewById(R.id.et_kw_number);
+        llSaomiao2 = findViewById(R.id.ll_saomiao2);
+        ll_detail = findViewById(R.id.ll_detail);
+        tvZhid = findViewById(R.id.tv_zhid);
+        tvGzdh = findViewById(R.id.tv_gzdh);
+        tvDate = findViewById(R.id.tv_date);
+        tvNumber = findViewById(R.id.tv_number);
+        tvZxdid = findViewById(R.id.tv_zxdid);
+        tvCkmc = findViewById(R.id.tv_ckmc);
+        tvCkid = findViewById(R.id.tv_ckid);
+        tvKwNumber = findViewById(R.id.tv_kw_number);
+        tvDjx = findViewById(R.id.tv_djx);
+        tvGjx = findViewById(R.id.tv_gjx);
+        tvChang = findViewById(R.id.tv_chang);
+        tvKuan = findViewById(R.id.tv_kuan);
+        tvGao = findViewById(R.id.tv_gao);
+        tvJingzhong = findViewById(R.id.tv_jingzhong);
+        tvMaozhong = findViewById(R.id.tv_maozhong);
+        tvZhuangtai = findViewById(R.id.tv_zhuangtai);
+        tvDjgd = findViewById(R.id.tv_djgd);
+        tvDjdy = findViewById(R.id.tv_djdy);
+        tvDycs = findViewById(R.id.tv_dycs);
+        tvBz = findViewById(R.id.tv_bz);
+        tvTijiao = findViewById(R.id.tv_tijiao);
 
-        ll_detail=findViewById(R.id.ll_detail);//查询详情成功以后展示
 
         llSaomiao.setOnClickListener(this);
         llSaomiao2.setOnClickListener(this);
         backLayout.setOnClickListener(this);
         tvTijiao.setOnClickListener(this);
-
 
         tvLayerHead.setText("出库单信息");
 
@@ -196,8 +228,6 @@ public class OUTDetailActivity extends BaseMvpActivity<OUTContract.View, OUTPres
                 requestPermissions(permissionList.toArray(new String[permissionList.size()]), 2);
             }
         } else { //所有的权限都已经授权过了
-
-
 
 
             Intent intent = new Intent(this, ZxingActivity.class);
@@ -354,31 +384,134 @@ public class OUTDetailActivity extends BaseMvpActivity<OUTContract.View, OUTPres
     }
     //获取详情展示数据
     @Override
-    public void showDetail(ItemDetailOutVO detailOutVO) {
+    public void showDetail(ItemDetailOutVO vDate) {
 
         ll_detail.setVisibility(View.VISIBLE);//展示详情
 
-        if (!Kits.Empty.check(detailOutVO.getData().getStorehouseId())){
-            tvCkid.setText(detailOutVO.getData().getStorehouseId());
+        //租户ID
+        if (!Kits.Empty.check(vDate.getData().getTenantId())){
+            tvZhid.setText(vDate.getData().getTenantId());
+        }
+        //工作单号
+        if (!Kits.Empty.check(vDate.getData().getWorkCode())){
+            tvGzdh.setText(vDate.getData().getWorkCode());
+        }
+        //日期
+        if (!Kits.Empty.check(vDate.getData().getMadeTime())){
+
+            SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); //设置格式
+            String timeText=format.format(vDate.getData().getMadeTime());
+            tvDate.setText(timeText+"");
         }
 
-        if (!Kits.Empty.check(detailOutVO.getData().getStorehouseName())){
-            tvCkmc.setText(detailOutVO.getData().getStorehouseName());
+//        //装箱单号
+//        if (!Kits.Empty.check(vDate.getData().getPackingCode())) {
+//            tvNumber.setText(vDate.getData().getPackingCode());
+//        }
+//        //装箱单ID
+//        if (!Kits.Empty.check(vDate.getData().getPackingListItems().get(0).get.getPackingListId())) {
+//            tvZxdid.setText(vDate.get(0).getPackingListId());
+//        }
+//
+//        //仓库名称
+//        if (!Kits.Empty.check(vDate.getData().getStorehouseName())) {
+//            tvCkmc.setText(vDate.get(0).getStorehouseName());
+//        }
+//        //仓库ID
+//        if (!Kits.Empty.check(vDate.get(0).getStorehouseId())) {
+//            tvCkid.setText(vDate.get(0).getStorehouseId());
+//        }
+//
+//        //库位编号
+//        if (!Kits.Empty.check(vDate.get(0).getFreeLoc())) {
+//            tvKwNumber.setText(vDate.get(0).getFreeLoc());
+//        }
+
+        //第几箱
+        if (!Kits.Empty.check(vDate.getData().getRankNum())) {
+            tvDjx.setText("第  "+vDate.getData().getRankNum()+"  箱");
         }
 
-        if (!Kits.Empty.check(detailOutVO.getData().getPackingListId())){
-            tvZxdid.setText(detailOutVO.getData().getPackingListId());
+        //共几箱
+        if (!Kits.Empty.check(vDate.getData().getTotalNum())) {
+            tvGjx.setText("共  "+vDate.getData().getTotalNum()+"  箱");
         }
 
-        if (!Kits.Empty.check(detailOutVO.getData().getFreeLoc())){
-            etKwNumber.setText(detailOutVO.getData().getFreeLoc());
+        //长
+        if (!Kits.Empty.check(vDate.getData().getPackLength())) {
+            tvChang.setText("长："+vDate.getData().getPackLength());
         }
+        //宽
+        if (!Kits.Empty.check(vDate.getData().getPackwidth())) {
+            tvKuan.setText("宽："+vDate.getData().getPackwidth());
+        }
+        //高
+        if (!Kits.Empty.check(vDate.getData().getPackHeight())) {
+            tvGao.setText("高:"+vDate.getData().getPackHeight());
+        }
+        //净重
+        if (!Kits.Empty.check(vDate.getData().getNetWeight())) {
+            tvJingzhong.setText("净重："+vDate.getData().getNetWeight());
+        }
+        //毛重
+        if (!Kits.Empty.check(vDate.getData().getRoughWeight())) {
+            tvMaozhong.setText("毛重："+vDate.getData().getRoughWeight());
+        }
+
+
+        //状态(0暂存  1待入库  2已入库  3已出库)
+        if (!Kits.Empty.check(vDate.getData().getStoreState())) {
+            switch (vDate.getData().getStoreState()){
+                case "0":
+                    tvZhuangtai.setText("状态：暂存");
+                    break;
+
+                case "1":
+                    tvZhuangtai.setText("状态：待入库");
+                    break;
+                case "2":
+                    tvZhuangtai.setText("状态：已入库");
+                    break;
+                case "3":
+                    tvZhuangtai.setText("状态：已出库");
+                    break;
+
+            }
+
+
+        }
+
+        //单据归档 0否  1是
+        if (!Kits.Empty.check(vDate.getData().getBillArchived())) {
+            if (vDate.getData().getBillArchived().equals("0")){
+                tvDjgd.setText("单据归档：否");
+            }else if (vDate.getData().getBillArchived().equals("1")){
+                tvDjgd.setText("单据归档：是");
+            }
+
+        }
+
+        //单据打印
+        if (!Kits.Empty.check(vDate.getData().getBillPrString())) {
+            if (vDate.getData().getBillPrString().equals("0")){
+                tvDjdy.setText("单据打印：未打印");
+            }else if (vDate.getData().getBillPrString().equals("1")){
+                tvDjdy.setText("单据打印：已打印");
+            }else if (vDate.getData().getBillPrString().equals("2")){
+                tvDjdy.setText("单据打印：补打");
+            }
+
+        }
+        //打印次数
+        if (!Kits.Empty.check(vDate.getData().getPrStringTimes())) {
+            tvDycs.setText("打印次数："+vDate.getData().getPrStringTimes()+"次");
+        }
+
+
         //备注
-        if (!Kits.Empty.check(detailOutVO.getData().getRemark())){
-            etBz.setText(detailOutVO.getData().getRemark());
+        if (!Kits.Empty.check(vDate.getData().getRemark())){
+            tvBz.setText(vDate.getData().getRemark());
         }
-
-
 
 
 

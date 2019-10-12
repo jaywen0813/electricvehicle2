@@ -1,9 +1,13 @@
 package com.android.app.electricvehicle.model.main.presenter;
 
+import android.util.Log;
+
 import com.android.app.electricvehicle.entity.ItemDetailInVO;
 import com.android.app.electricvehicle.entity.ItemDetailOutVO;
+import com.android.app.electricvehicle.entity.MyOutDetailVO;
 import com.android.app.electricvehicle.model.main.contract.MyInDetailContract;
 import com.android.app.electricvehicle.model.main.contract.MyOutDetailContract;
+import com.android.app.electricvehicle.model.main.http.MainService;
 import com.android.app.electricvehicle.model.main.repository.MainDataRepository;
 import com.android.app.electricvehicle.model.main.repository.NetInstance;
 import com.android.app.electricvehicle.mvp.presenter.BasePresenter;
@@ -13,10 +17,14 @@ import com.orhanobut.logger.Logger;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
+import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * ================================================
@@ -55,60 +63,55 @@ public class MyOutDetailPresenter extends BasePresenter<MyOutDetailContract.View
 
 
 
-//        MainDataRepository.getInstance().MyOutDetailService(paramsMap)
-//                .subscribeOn(Schedulers.io())//网络是耗时操作,所以在io线程中去执行
-//                .observeOn(AndroidSchedulers.mainThread())//请求成功后回到主线程中
-//                .subscribe(new Observer<ItemDetailOutVO>() {
-//                    @Override
-//                    public void onSubscribe(Disposable d) {
-//                        addDisposable(d);
-//                    }
-//
-//                    @Override
-//                    public void onNext(ItemDetailOutVO vDate) {
-//                        if (vDate.getSuccess().equals("T")) {
-//                            mView.showSuccess(vDate);
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onError(Throwable e) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onComplete() {
-//                        //请求完成
-//                    }
-//                });
 
-        NetInstance.getEventsService().getMyOutdetail(ParameterUtils.getHeaser(paramsMap), ParameterUtils.getJsonBody(paramsMap)).
-                subscribeOn(Schedulers.io()).
-                observeOn(AndroidSchedulers.mainThread()).
-                subscribe(new Observer<ItemDetailOutVO>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-                        addDisposable(d);
-                    }
 
-                    @Override
-                    public void onNext(ItemDetailOutVO vDate) {
-                        if (vDate.getSuccess().equals("T")) {
-                            mView.showSuccess(vDate);
-                        }
-                    }
+
+
+        //GET请求
+        Retrofit retrofit = new Retrofit.Builder()
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                //baseUrl:参数之前的部分
+                .baseUrl("https://api.zrcloud.me/interroll/")
+                .build();
+        MainService services = retrofit.create(MainService.class);
+        //params1:所有参数进行拼接就可以
+        Observable<MyOutDetailVO> observable = services.getmyoutdetailpage(ParameterUtils.getHeaser(paramsMap),"packings/outstore/get/"+"5780b01ae92111e992930242ac110012");
+        observable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<MyOutDetailVO>() {
 
                     @Override
                     public void onError(Throwable e) {
-                        Logger.e(e.toString());
-
+                        Log.d("heihei", "onError: 失败");
+                        e.printStackTrace();
                     }
 
                     @Override
                     public void onComplete() {
 
                     }
+
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(MyOutDetailVO vDate) {
+
+
+
+                        Log.d("qqqqqq", "onNext: " + vDate);
+                        if (vDate.getSuccess().equals("T")) {
+                            mView.showSuccess(vDate);
+                        }else {
+                            Log.e("false",vDate.getMessage()+"");
+                        }
+                    }
                 });
+
+
     }
 
 

@@ -1,5 +1,7 @@
 package com.android.app.electricvehicle.model.main.presenter;
 
+import android.util.Log;
+
 import com.android.app.electricvehicle.entity.ActivityVO;
 import com.android.app.electricvehicle.entity.MyInVO;
 import com.android.app.electricvehicle.entity.OutVO;
@@ -99,7 +101,7 @@ public class MyINPresenter extends BasePresenter<MYINContract.View> implements M
                     @Override
                     public void onError(Throwable e) {
                         Logger.e(e.toString());
-
+                        Log.e("why",e.toString());
                     }
 
                     @Override
