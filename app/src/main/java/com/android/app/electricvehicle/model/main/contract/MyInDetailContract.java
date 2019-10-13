@@ -22,9 +22,11 @@ public interface MyInDetailContract {
         //查询成功
 //        void showSuccess(ItemDetailInVO vDate);
 
-
+        //成功
         void showSuccess(ItemDetailInVO result );
 
+        //失败
+        void showwsj();
     }
 
     interface Presenter {

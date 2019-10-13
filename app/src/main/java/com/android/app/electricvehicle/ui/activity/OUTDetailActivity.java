@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,7 +47,6 @@ public class OUTDetailActivity extends BaseMvpActivity<OUTContract.View, OUTPres
     private LinearLayout llSaomiao;
     private EditText etKwNumber;
     private LinearLayout llSaomiao2;
-    private LinearLayout ll_detail;
     private TextView tvZhid;
     private TextView tvGzdh;
     private TextView tvDate;
@@ -70,7 +70,8 @@ public class OUTDetailActivity extends BaseMvpActivity<OUTContract.View, OUTPres
 
 
 
-
+    private ScrollView scrollView;
+    private LinearLayout ll_wsj;
 
 
 
@@ -162,7 +163,6 @@ public class OUTDetailActivity extends BaseMvpActivity<OUTContract.View, OUTPres
         llSaomiao = findViewById(R.id.ll_saomiao);
         etKwNumber = findViewById(R.id.et_kw_number);
         llSaomiao2 = findViewById(R.id.ll_saomiao2);
-        ll_detail = findViewById(R.id.ll_detail);
         tvZhid = findViewById(R.id.tv_zhid);
         tvGzdh = findViewById(R.id.tv_gzdh);
         tvDate = findViewById(R.id.tv_date);
@@ -185,6 +185,8 @@ public class OUTDetailActivity extends BaseMvpActivity<OUTContract.View, OUTPres
         tvBz = findViewById(R.id.tv_bz);
         tvTijiao = findViewById(R.id.tv_tijiao);
 
+        scrollView=findViewById(R.id.scrollView);//有数据的时候显示
+        ll_wsj=findViewById(R.id.ll_wsj);//无数据
 
         llSaomiao.setOnClickListener(this);
         llSaomiao2.setOnClickListener(this);
@@ -353,7 +355,7 @@ public class OUTDetailActivity extends BaseMvpActivity<OUTContract.View, OUTPres
                 if (type==1){
                     etNumber.setText(content);//显示出来
 
-                    presenter.getZXD(content);
+                    presenter.getZXD(content,OUTDetailActivity.this);
 
 
                 }else if (type==2){
@@ -385,7 +387,13 @@ public class OUTDetailActivity extends BaseMvpActivity<OUTContract.View, OUTPres
     @Override
     public void showDetail(ItemDetailOutVO vDate) {
 
-        ll_detail.setVisibility(View.VISIBLE);//展示详情
+
+
+
+        if (!Kits.Empty.check(vDate.getData())){
+
+            scrollView.setVisibility(View.VISIBLE);
+            ll_wsj.setVisibility(View.GONE);
 
 //        //租户ID
 //        if (!Kits.Empty.check(vDate.getData().getTenantId())){
@@ -513,8 +521,17 @@ public class OUTDetailActivity extends BaseMvpActivity<OUTContract.View, OUTPres
         }
 
 
+        }
+
+    }
 
 
+
+    //没有查询到数据的时候
+    @Override
+    public void showwsj() {
+        scrollView.setVisibility(View.GONE);
+        ll_wsj.setVisibility(View.VISIBLE);
     }
 
     @Override

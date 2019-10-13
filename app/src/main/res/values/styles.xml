@@ -148,4 +148,49 @@
         <!--模糊-->
         <item name="android:backgroundDimEnabled">true</item>
     </style>
+
+
+
+
+    <style name="viewline_heng">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dimen_value_dp0.5</item>
+        <item name="android:background">@color/color_b3b3b3</item>
+
+
+    </style>
+
+
+    <style name="viewline_shu">
+        <item name="android:layout_width">@dimen/dimen_value_dp0.5</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/color_b3b3b3</item>
+        <item name="android:layout_marginRight">@dimen/dimen_value_dp5</item>
+
+    </style>
+
+    <style name="textviewdetailleftstyle">
+        <item name="android:layout_width">@dimen/dimen_value_dp80</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textColor">@color/color_3d3d3d</item>
+        <item name="android:textSize">@dimen/dimen_value_sp14</item>
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:gravity">center</item>
+
+    </style>
+
+
+    <style name="textviewdetailrightstyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">@color/color_3d3d3d</item>
+        <item name="android:textSize">@dimen/dimen_value_sp14</item>
+
+
+
+    </style>
+
+
 </resources>

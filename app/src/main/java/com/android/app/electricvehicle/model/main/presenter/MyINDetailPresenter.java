@@ -112,8 +112,8 @@ public class MyINDetailPresenter extends BasePresenter<MyInDetailContract.View> 
                 .build();
         MainService services = retrofit.create(MainService.class);
         //params1:所有参数进行拼接就可以
-        Observable<ItemDetailInVO> observable = services.getPage(ParameterUtils.getHeaser(paramsMap),"packings/instore/get/"+"ba8fc8a8ea9311e992930242ac110012");
-//        Observable<ItemDetailInVO> observable = services.getPage(paramsMap,"packings/instore/get/"+id);
+//        Observable<ItemDetailInVO> observable = services.getPage(ParameterUtils.getHeaser(paramsMap),"packings/instore/get/"+"ba8fc8a8ea9311e992930242ac110012");
+        Observable<ItemDetailInVO> observable = services.getPage(ParameterUtils.getHeaser(paramsMap),"packings/instore/get/"+id);
         observable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<ItemDetailInVO>() {
@@ -144,6 +144,7 @@ public class MyINDetailPresenter extends BasePresenter<MyInDetailContract.View> 
                             mView.showSuccess(vDate);
                         }else {
                             Log.e("false",vDate.getMessage()+"");
+                            mView.showwsj();
                         }
                     }
                 });

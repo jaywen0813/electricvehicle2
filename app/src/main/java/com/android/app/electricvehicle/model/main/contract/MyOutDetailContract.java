@@ -22,7 +22,8 @@ public interface MyOutDetailContract {
         void showSuccess(MyOutDetailVO vDate);
 
 
-
+        //失败
+        void showwsj();
     }
 
     interface Presenter {

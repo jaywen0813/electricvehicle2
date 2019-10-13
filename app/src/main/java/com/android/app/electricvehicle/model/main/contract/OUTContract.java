@@ -1,5 +1,7 @@
 package com.android.app.electricvehicle.model.main.contract;
 
+import android.content.Context;
+
 import com.android.app.electricvehicle.entity.ItemDetailOutVO;
 import com.android.app.electricvehicle.entity.OutDetailVO;
 import com.android.app.electricvehicle.mvp.view.BaseViewInf;
@@ -24,6 +26,9 @@ public interface OUTContract {
         //查询到详情以后返回的数据
         void  showDetail(ItemDetailOutVO detailOutVO);
 
+        //没有查询到详情的时候
+        void showwsj();
+
 
     }
 
@@ -31,7 +36,7 @@ public interface OUTContract {
         //网络请求。提交数据
         void getUP(String outstoreCode,String freeLoc);
         //通过库位查询信息
-        void getZXD(String zxd);
+        void getZXD(String zxd, Context context);
 
     }
 }

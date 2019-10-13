@@ -1,6 +1,8 @@
 package com.android.app.electricvehicle.model.main.presenter;
 
+import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.android.app.electricvehicle.entity.ItemDetailOutVO;
 import com.android.app.electricvehicle.entity.OutDetailVO;
@@ -120,7 +122,7 @@ public class OUTPresenter extends BasePresenter<OUTContract.View> implements OUT
 
     //出库单号查询信息
     @Override
-    public void getZXD(String zxd) {
+    public void getZXD(String zxd, Context context) {
         SortedMap<String, String> paramsMap = new TreeMap<>();
 //        paramsMap.put("authorityCode", MainApplication.LOGINRESULTVO.getAuthorityCode());
 
@@ -168,8 +170,8 @@ public class OUTPresenter extends BasePresenter<OUTContract.View> implements OUT
                 .build();
         MainService services = retrofit.create(MainService.class);
         //params1:所有参数进行拼接就可以
-        Observable<ItemDetailOutVO> observable = services.getoutPage(ParameterUtils.getHeaser(paramsMap),"packings/list/code/"+"1181913249818480640");
-//        Observable<ItemDetailOutVO> observable = services.getoutPage(ParameterUtils.getHeaser(paramsMap),"packings/list/code/"+zxd);
+//        Observable<ItemDetailOutVO> observable = services.getoutPage(ParameterUtils.getHeaser(paramsMap),"packings/list/code/"+"1181913249818480640");
+        Observable<ItemDetailOutVO> observable = services.getoutPage(ParameterUtils.getHeaser(paramsMap),"packings/list/code/"+zxd);
         observable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<ItemDetailOutVO>() {
@@ -200,6 +202,8 @@ public class OUTPresenter extends BasePresenter<OUTContract.View> implements OUT
                             mView.showDetail(vDate);
                         }else {
                             Log.e("false",vDate.getMessage()+"");
+                            Toast.makeText(context,"查询失败",Toast.LENGTH_LONG).show();
+                            mView.showwsj();//没有查询到数据的时候
                         }
                     }
                 });

@@ -441,7 +441,7 @@ public class MyOutDetailVO {
             private String tenantId;
             private String packingCode;
             private String workCode;
-            private long madeTime;
+            private String madeTime;
             private String packingMaterial;
             private String rankNum;
             private String totalNum;
@@ -597,11 +597,11 @@ public class MyOutDetailVO {
                 this.workCode = workCode;
             }
 
-            public long getMadeTime() {
+            public String getMadeTime() {
                 return madeTime;
             }
 
-            public void setMadeTime(long madeTime) {
+            public void setMadeTime(String madeTime) {
                 this.madeTime = madeTime;
             }
 
