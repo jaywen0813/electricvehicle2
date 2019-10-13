@@ -180,7 +180,7 @@ public interface MainService {
 
     //我的入库列表点击以后的详情展示
     @GET
-    Observable<ItemDetailInVO> getPage(@Url String url);
+    Observable<ItemDetailInVO> getPage(@HeaderMap Map<String, String> headerMap,@Url String url);
 
 
     //我的出库列表点击以后的详情展示

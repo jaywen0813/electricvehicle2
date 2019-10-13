@@ -6,14 +6,14 @@ public class ItemDetailOutVO {
 
 
     /**
-     * ticket : f2ae776bda533cfebcd26d93e07c7c5d
+     * ticket : d3fa066fdd083925a31784120db58e72
      * success : T
      * code : null
      * message : null
      * method : null
      * uri : null
-     * timestamp : 1570869816752
-     * data : {"id":"7eb0e96bea9211e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625052301,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625052301,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","packingCode":"1181913249818480640","workCode":"55896849","madeTime":1569501298656,"packingMaterial":1,"rankNum":1,"totalNum":1,"packLength":500,"packwidth":500,"packHeight":500,"netWeight":5000,"roughWeight":5200,"storeState":0,"billArchived":0,"billPrString":0,"prStringTimes":0,"remark":"","packingListItems":[{"id":"7eb760afea9211e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625052353,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625052353,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"7eb0e96bea9211e992930242ac110012","soItem":"100","material":"RD-89VHJ4A5PF","rl":100,"agl":200,"qty":300,"wtpc":0,"totalWeight":0,"enable":true}],"storeStateText":"暂存","billArchivedText":"未归档","billPrStringText":"未打印","enable":true}
+     * timestamp : 1570946069895
+     * data : {"id":"7eb0e96bea9211e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625052301,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625052301,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","packingCode":"1181913249818480640","workCode":"55896849","madeTime":1569501298656,"packingMaterial":1,"rankNum":1,"totalNum":1,"packLength":500,"packwidth":500,"packHeight":500,"netWeight":5000,"roughWeight":5200,"storeState":0,"billArchived":0,"billPrString":0,"prStringTimes":0,"remark":"","packingListItems":[{"id":"7eb760afea9211e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625052353,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625052353,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"7eb0e96bea9211e992930242ac110012","soItem":"100","material":"RD-89VHJ4A5PF","rl":100,"agl":200,"qty":300,"wtpc":0,"totalWeight":0,"enable":true}],"enable":true,"storeStateText":"暂存","billArchivedText":"未归档","billPrStringText":"未打印"}
      * args : null
      * moreinfo : null
      * detail : null
@@ -150,8 +150,8 @@ public class ItemDetailOutVO {
          * creatorId : a475d2268eb511e992930242ac110012
          * createdBy : 英特诺
          * createdTime : 1570625052301
-         * updaterId : 
-         * updatedBy : 
+         * updaterId :
+         * updatedBy :
          * dataId : null
          * isNew : null
          * logTime : null
@@ -171,12 +171,12 @@ public class ItemDetailOutVO {
          * billArchived : 0
          * billPrString : 0
          * prStringTimes : 0
-         * remark : 
+         * remark :
          * packingListItems : [{"id":"7eb760afea9211e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625052353,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625052353,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"7eb0e96bea9211e992930242ac110012","soItem":"100","material":"RD-89VHJ4A5PF","rl":100,"agl":200,"qty":300,"wtpc":0,"totalWeight":0,"enable":true}]
+         * enable : true
          * storeStateText : 暂存
          * billArchivedText : 未归档
          * billPrStringText : 未打印
-         * enable : true
          */
 
         private String id;
@@ -210,10 +210,10 @@ public class ItemDetailOutVO {
         private String billPrString;
         private String prStringTimes;
         private String remark;
+        private boolean enable;
         private String storeStateText;
         private String billArchivedText;
         private String billPrStringText;
-        private boolean enable;
         private List<PackingListItemsBean> packingListItems;
 
         public String getId() {
@@ -464,6 +464,14 @@ public class ItemDetailOutVO {
             this.remark = remark;
         }
 
+        public boolean isEnable() {
+            return enable;
+        }
+
+        public void setEnable(boolean enable) {
+            this.enable = enable;
+        }
+
         public String getStoreStateText() {
             return storeStateText;
         }
@@ -488,14 +496,6 @@ public class ItemDetailOutVO {
             this.billPrStringText = billPrStringText;
         }
 
-        public boolean isEnable() {
-            return enable;
-        }
-
-        public void setEnable(boolean enable) {
-            this.enable = enable;
-        }
-
         public List<PackingListItemsBean> getPackingListItems() {
             return packingListItems;
         }
@@ -515,8 +515,8 @@ public class ItemDetailOutVO {
              * creatorId : a475d2268eb511e992930242ac110012
              * createdBy : 英特诺
              * createdTime : 1570625052353
-             * updaterId : 
-             * updatedBy : 
+             * updaterId :
+             * updatedBy :
              * dataId : null
              * isNew : null
              * logTime : null

@@ -54,7 +54,6 @@ public class OUTDetailActivity extends BaseMvpActivity<OUTContract.View, OUTPres
     private TextView tvZxdid;
     private TextView tvCkmc;
     private TextView tvCkid;
-    private TextView tvKwNumber;
     private TextView tvDjx;
     private TextView tvGjx;
     private TextView tvChang;
@@ -171,7 +170,7 @@ public class OUTDetailActivity extends BaseMvpActivity<OUTContract.View, OUTPres
         tvZxdid = findViewById(R.id.tv_zxdid);
         tvCkmc = findViewById(R.id.tv_ckmc);
         tvCkid = findViewById(R.id.tv_ckid);
-        tvKwNumber = findViewById(R.id.tv_kw_number);
+
         tvDjx = findViewById(R.id.tv_djx);
         tvGjx = findViewById(R.id.tv_gjx);
         tvChang = findViewById(R.id.tv_chang);
@@ -388,10 +387,10 @@ public class OUTDetailActivity extends BaseMvpActivity<OUTContract.View, OUTPres
 
         ll_detail.setVisibility(View.VISIBLE);//展示详情
 
-        //租户ID
-        if (!Kits.Empty.check(vDate.getData().getTenantId())){
-            tvZhid.setText(vDate.getData().getTenantId());
-        }
+//        //租户ID
+//        if (!Kits.Empty.check(vDate.getData().getTenantId())){
+//            tvZhid.setText(vDate.getData().getTenantId());
+//        }
         //工作单号
         if (!Kits.Empty.check(vDate.getData().getWorkCode())){
             tvGzdh.setText(vDate.getData().getWorkCode());
@@ -404,25 +403,25 @@ public class OUTDetailActivity extends BaseMvpActivity<OUTContract.View, OUTPres
             tvDate.setText(timeText+"");
         }
 
-//        //装箱单号
-//        if (!Kits.Empty.check(vDate.getData().getPackingCode())) {
-//            tvNumber.setText(vDate.getData().getPackingCode());
-//        }
+        //装箱单号
+        if (!Kits.Empty.check(vDate.getData().getPackingCode())) {
+            tvNumber.setText(vDate.getData().getPackingCode());
+        }
 //        //装箱单ID
 //        if (!Kits.Empty.check(vDate.getData().getPackingListItems().get(0).get.getPackingListId())) {
 //            tvZxdid.setText(vDate.get(0).getPackingListId());
 //        }
-//
-//        //仓库名称
-//        if (!Kits.Empty.check(vDate.getData().getStorehouseName())) {
+
+        //仓库名称
+//        if (!Kits.Empty.check(vDate.getData().getPackingListItems().get(0))) {
 //            tvCkmc.setText(vDate.get(0).getStorehouseName());
 //        }
 //        //仓库ID
 //        if (!Kits.Empty.check(vDate.get(0).getStorehouseId())) {
 //            tvCkid.setText(vDate.get(0).getStorehouseId());
 //        }
-//
-//        //库位编号
+
+        //库位编号
 //        if (!Kits.Empty.check(vDate.get(0).getFreeLoc())) {
 //            tvKwNumber.setText(vDate.get(0).getFreeLoc());
 //        }

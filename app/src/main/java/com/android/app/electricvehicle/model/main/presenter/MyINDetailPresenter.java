@@ -104,83 +104,84 @@ public class MyINDetailPresenter extends BasePresenter<MyInDetailContract.View> 
 
 
 //GET请求
-//        Retrofit retrofit = new Retrofit.Builder()
-//                .addConverterFactory(GsonConverterFactory.create())
-//                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-//                //baseUrl:参数之前的部分
-//                .baseUrl("https://api.zrcloud.me/interroll/")
-//                .build();
-//        MainService services = retrofit.create(MainService.class);
-//        //params1:所有参数进行拼接就可以
-//        Observable<ItemDetailInVO> observable = services.getPage("packings/instore/get/"+id);
-//        observable.subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(new Observer<ItemDetailInVO>() {
-//
-//                    @Override
-//                    public void onError(Throwable e) {
-//                        Log.d("heihei", "onError: 失败");
-//                        e.printStackTrace();
-//                    }
-//
-//                    @Override
-//                    public void onComplete() {
-//
-//                    }
-//
-//                    @Override
-//                    public void onSubscribe(Disposable d) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onNext(ItemDetailInVO vDate) {
-//
-//
-//
-//                        Log.d("heihie", "onNext: " + vDate.getSuccess());
-//                        if (vDate.getSuccess().equals("T")) {
-//                            mView.showSuccess(vDate);
-//                        }else {
-//                            Log.e("false",vDate.getMessage()+"");
-//                        }
-//                    }
-//                });
-
-//和列表调用同一个接口，多传一个packingCode 就是这个装箱单的详情
-        NetInstance.getEventsService().myin(ParameterUtils.getHeaser(paramsMap), ParameterUtils.getJsonBody(paramsMap)).
-                subscribeOn(Schedulers.io()).
-                observeOn(AndroidSchedulers.mainThread()).
-                subscribe(new Observer<MyInVO>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-                        addDisposable(d);
-                    }
-
-                    @Override
-                    public void onNext(MyInVO vDate) {
-                        if (vDate.getSuccess().equals("T")) {
-                            if ((vDate.getData().getDataList() != null) && vDate.getData().getDataList().size()>0) {
-
-                                mView.showSuccess(vDate.getData().getDataList());
-
-
-                            }
-
-                        }
-                    }
+        Retrofit retrofit = new Retrofit.Builder()
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                //baseUrl:参数之前的部分
+                .baseUrl("https://api.zrcloud.me/interroll/")
+                .build();
+        MainService services = retrofit.create(MainService.class);
+        //params1:所有参数进行拼接就可以
+        Observable<ItemDetailInVO> observable = services.getPage(ParameterUtils.getHeaser(paramsMap),"packings/instore/get/"+"ba8fc8a8ea9311e992930242ac110012");
+//        Observable<ItemDetailInVO> observable = services.getPage(paramsMap,"packings/instore/get/"+id);
+        observable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<ItemDetailInVO>() {
 
                     @Override
                     public void onError(Throwable e) {
-                        Logger.e(e.toString());
-
+                        Log.d("heihei", "onError: 失败");
+                        e.printStackTrace();
                     }
 
                     @Override
                     public void onComplete() {
 
                     }
+
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(ItemDetailInVO vDate) {
+
+
+
+                        Log.d("heihie", "onNext: " + vDate.getSuccess());
+                        if (vDate.getSuccess().equals("T")) {
+                            mView.showSuccess(vDate);
+                        }else {
+                            Log.e("false",vDate.getMessage()+"");
+                        }
+                    }
                 });
+
+//和列表调用同一个接口，多传一个packingCode 就是这个装箱单的详情
+//        NetInstance.getEventsService().myin(ParameterUtils.getHeaser(paramsMap), ParameterUtils.getJsonBody(paramsMap)).
+//                subscribeOn(Schedulers.io()).
+//                observeOn(AndroidSchedulers.mainThread()).
+//                subscribe(new Observer<MyInVO>() {
+//                    @Override
+//                    public void onSubscribe(Disposable d) {
+//                        addDisposable(d);
+//                    }
+//
+//                    @Override
+//                    public void onNext(MyInVO vDate) {
+//                        if (vDate.getSuccess().equals("T")) {
+//                            if ((vDate.getData().getDataList() != null) && vDate.getData().getDataList().size()>0) {
+//
+//                                mView.showSuccess(vDate.getData().getDataList());
+//
+//
+//                            }
+//
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onError(Throwable e) {
+//                        Logger.e(e.toString());
+//
+//                    }
+//
+//                    @Override
+//                    public void onComplete() {
+//
+//                    }
+//                });
 
 
     }

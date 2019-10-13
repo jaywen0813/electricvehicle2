@@ -37,11 +37,11 @@ public class MyINListAdapter extends BaseQuickAdapter<MyInVO.DataBean.DataListBe
             helper.setText(R.id.tv_rkdh, "");
         }
 
-        //仓库ID
-        if (!(bean.getStorehouseId()==null || bean.getStorehouseId().equals(""))){
-            helper.setText(R.id.tv_ckid, "仓库ID："+bean.getStorehouseId());
+        //装箱单号
+        if (!(bean.getPackingCode()==null || bean.getPackingCode().equals(""))){
+            helper.setText(R.id.tv_ckid, "装箱单号："+bean.getPackingCode());
         }else {
-            helper.setText(R.id.tv_ckid, "仓库ID：");
+            helper.setText(R.id.tv_ckid, "装箱单号：");
         }
 
         //仓库名称
@@ -60,11 +60,11 @@ public class MyINListAdapter extends BaseQuickAdapter<MyInVO.DataBean.DataListBe
             helper.setText(R.id.tv_kwh,"库位号："+"");
         }
 
-        //装箱单ID
-        if (!(bean.getPackingListId()==null || bean.getPackingListId().equals(""))){
-            helper.setText(R.id.tv_zxdid,"装箱单ID："+bean.getPackingListId());
+        //备注
+        if (!(bean.getRemark()==null || bean.getRemark().equals(""))){
+            helper.setText(R.id.tv_zxdid,"备注："+bean.getRemark());
         }else {
-            helper.setText(R.id.tv_zxdid,"装箱单ID："+"");
+            helper.setText(R.id.tv_zxdid,"备注："+"");
         }
 
 

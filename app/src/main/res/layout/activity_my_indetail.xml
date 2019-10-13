@@ -29,14 +29,14 @@
                 android:layout_marginRight="@dimen/dimen_value_dp10"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:visibility="visible">
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="租户ID："
                     android:textColor="@color/color_3d3d3d"
-                    android:textSize="@dimen/dimen_value_dp15" />
+                    android:textSize="@dimen/dimen_value_sp14" />
 
                 <TextView
                     android:id="@+id/tv_zhid"
@@ -45,7 +45,7 @@
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:textColor="@color/color_3d3d3d"
-                    android:textSize="@dimen/dimen_value_sp13" />
+                    android:textSize="@dimen/dimen_value_sp14" />
 
 
             </LinearLayout>
@@ -64,7 +64,7 @@
                     android:layout_height="wrap_content"
                     android:text="工作单号："
                     android:textColor="@color/color_3d3d3d"
-                    android:textSize="@dimen/dimen_value_dp15" />
+                    android:textSize="@dimen/dimen_value_sp14" />
 
                 <TextView
                     android:id="@+id/tv_gzdh"
@@ -73,7 +73,7 @@
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:textColor="@color/color_3d3d3d"
-                    android:textSize="@dimen/dimen_value_sp13" />
+                    android:textSize="@dimen/dimen_value_sp14" />
 
 
             </LinearLayout>
@@ -92,7 +92,7 @@
                     android:layout_height="wrap_content"
                     android:text="日期："
                     android:textColor="@color/color_3d3d3d"
-                    android:textSize="@dimen/dimen_value_dp15" />
+                    android:textSize="@dimen/dimen_value_sp14" />
 
                 <TextView
                     android:id="@+id/tv_date"
@@ -101,7 +101,7 @@
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:textColor="@color/color_3d3d3d"
-                    android:textSize="@dimen/dimen_value_sp13" />
+                    android:textSize="@dimen/dimen_value_sp14" />
 
 
             </LinearLayout>
@@ -120,7 +120,7 @@
                     android:layout_height="wrap_content"
                     android:text="装箱单号："
                     android:textColor="@color/color_3d3d3d"
-                    android:textSize="@dimen/dimen_value_dp15" />
+                    android:textSize="@dimen/dimen_value_sp14" />
 
                 <TextView
                     android:id="@+id/tv_number"
@@ -129,7 +129,7 @@
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:textColor="@color/color_3d3d3d"
-                    android:textSize="@dimen/dimen_value_sp13" />
+                    android:textSize="@dimen/dimen_value_sp14" />
 
 
             </LinearLayout>
@@ -141,14 +141,14 @@
                 android:layout_marginRight="@dimen/dimen_value_dp10"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:visibility="visible">
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="装箱单ID："
                     android:textColor="@color/color_3d3d3d"
-                    android:textSize="@dimen/dimen_value_dp15" />
+                    android:textSize="@dimen/dimen_value_sp14" />
 
                 <TextView
                     android:id="@+id/tv_zxdid"
@@ -157,7 +157,7 @@
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:textColor="@color/color_3d3d3d"
-                    android:textSize="@dimen/dimen_value_sp13" />
+                    android:textSize="@dimen/dimen_value_sp14" />
 
 
             </LinearLayout>
@@ -177,7 +177,7 @@
                     android:layout_height="wrap_content"
                     android:text="仓库名称："
                     android:textColor="@color/color_3d3d3d"
-                    android:textSize="@dimen/dimen_value_dp15" />
+                    android:textSize="@dimen/dimen_value_sp14" />
 
                 <TextView
                     android:id="@+id/tv_ckmc"
@@ -186,7 +186,7 @@
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:textColor="@color/color_3d3d3d"
-                    android:textSize="@dimen/dimen_value_sp13" />
+                    android:textSize="@dimen/dimen_value_sp14" />
 
 
             </LinearLayout>
@@ -199,14 +199,14 @@
                 android:layout_marginRight="@dimen/dimen_value_dp10"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:visibility="visible">
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="仓库ID："
                     android:textColor="@color/color_3d3d3d"
-                    android:textSize="@dimen/dimen_value_dp15" />
+                    android:textSize="@dimen/dimen_value_sp14" />
 
                 <TextView
                     android:id="@+id/tv_ckid"
@@ -215,7 +215,7 @@
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:textColor="@color/color_3d3d3d"
-                    android:textSize="@dimen/dimen_value_sp13" />
+                    android:textSize="@dimen/dimen_value_sp14" />
 
 
             </LinearLayout>
@@ -233,7 +233,7 @@
                     android:layout_height="wrap_content"
                     android:text="库    位："
                     android:textColor="@color/color_3d3d3d"
-                    android:textSize="@dimen/dimen_value_dp15" />
+                    android:textSize="@dimen/dimen_value_sp14" />
 
                 <TextView
                     android:id="@+id/tv_kw_number"
@@ -242,7 +242,7 @@
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:textColor="@color/color_3d3d3d"
-                    android:textSize="@dimen/dimen_value_sp13" />
+                    android:textSize="@dimen/dimen_value_sp14" />
 
 
             </LinearLayout>
@@ -262,9 +262,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:text="第 1 箱"
+                    android:text="第  箱"
                     android:textColor="@color/color_3d3d3d"
-                    android:textSize="@dimen/dimen_value_sp15" />
+                    android:textSize="@dimen/dimen_value_sp14" />
 
                 <TextView
                     android:id="@+id/tv_gjx"
@@ -272,9 +272,9 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/dimen_value_dp10"
                     android:gravity="center"
-                    android:text="共 1 箱"
+                    android:text="共  箱"
                     android:textColor="@color/color_3d3d3d"
-                    android:textSize="@dimen/dimen_value_sp15"
+                    android:textSize="@dimen/dimen_value_sp14"
 
                     />
 
@@ -295,9 +295,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="长:100"
+                    android:text="长:"
                     android:textColor="@color/color_3d3d3d"
-                    android:textSize="@dimen/dimen_value_sp15" />
+                    android:textSize="@dimen/dimen_value_sp14" />
 
                 <TextView
                     android:id="@+id/tv_kuan"
@@ -305,9 +305,9 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/dimen_value_dp10"
                     android:gravity="center"
-                    android:text="宽:500"
+                    android:text="宽:"
                     android:textColor="@color/color_3d3d3d"
-                    android:textSize="@dimen/dimen_value_sp15" />
+                    android:textSize="@dimen/dimen_value_sp14" />
 
                 <TextView
                     android:id="@+id/tv_gao"
@@ -315,9 +315,9 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/dimen_value_dp10"
                     android:gravity="center"
-                    android:text="高:500"
+                    android:text="高:"
                     android:textColor="@color/color_3d3d3d"
-                    android:textSize="@dimen/dimen_value_sp15" />
+                    android:textSize="@dimen/dimen_value_sp14" />
             </LinearLayout>
 
 
@@ -335,9 +335,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="净重:100"
+                    android:text="净重:"
                     android:textColor="@color/color_3d3d3d"
-                    android:textSize="@dimen/dimen_value_sp15" />
+                    android:textSize="@dimen/dimen_value_sp14" />
 
                 <TextView
                     android:id="@+id/tv_maozhong"
@@ -345,9 +345,9 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/dimen_value_dp10"
                     android:gravity="center"
-                    android:text="毛重:500"
+                    android:text="毛重:"
                     android:textColor="@color/color_3d3d3d"
-                    android:textSize="@dimen/dimen_value_sp15" />
+                    android:textSize="@dimen/dimen_value_sp14" />
 
                 <TextView
                     android:id="@+id/tv_zhuangtai"
@@ -355,9 +355,9 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/dimen_value_dp10"
                     android:gravity="center"
-                    android:text="状态:暂存"
+                    android:text="状态:"
                     android:textColor="@color/color_3d3d3d"
-                    android:textSize="@dimen/dimen_value_sp15" />
+                    android:textSize="@dimen/dimen_value_sp14" />
             </LinearLayout>
 
 
@@ -375,9 +375,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="单据归档:是"
+                    android:text="单据归档:"
                     android:textColor="@color/color_3d3d3d"
-                    android:textSize="@dimen/dimen_value_sp15" />
+                    android:textSize="@dimen/dimen_value_sp14" />
 
                 <TextView
                     android:id="@+id/tv_djdy"
@@ -385,9 +385,9 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/dimen_value_dp10"
                     android:gravity="center"
-                    android:text="单据打印:未打印"
+                    android:text="单据打印:"
                     android:textColor="@color/color_3d3d3d"
-                    android:textSize="@dimen/dimen_value_sp15" />
+                    android:textSize="@dimen/dimen_value_sp14" />
 
                 <TextView
                     android:id="@+id/tv_dycs"
@@ -395,9 +395,9 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/dimen_value_dp10"
                     android:gravity="center"
-                    android:text="打印次数:2次"
+                    android:text="打印次数:"
                     android:textColor="@color/color_3d3d3d"
-                    android:textSize="@dimen/dimen_value_sp15" />
+                    android:textSize="@dimen/dimen_value_sp14" />
             </LinearLayout>
 
 
@@ -414,7 +414,7 @@
                     android:layout_height="wrap_content"
                     android:text="备    注："
                     android:textColor="@color/color_3d3d3d"
-                    android:textSize="@dimen/dimen_value_dp15" />
+                    android:textSize="@dimen/dimen_value_sp14" />
 
                 <TextView
                     android:id="@+id/tv_bz"

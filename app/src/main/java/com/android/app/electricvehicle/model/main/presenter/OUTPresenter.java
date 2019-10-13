@@ -169,6 +169,7 @@ public class OUTPresenter extends BasePresenter<OUTContract.View> implements OUT
         MainService services = retrofit.create(MainService.class);
         //params1:所有参数进行拼接就可以
         Observable<ItemDetailOutVO> observable = services.getoutPage(ParameterUtils.getHeaser(paramsMap),"packings/list/code/"+"1181913249818480640");
+//        Observable<ItemDetailOutVO> observable = services.getoutPage(ParameterUtils.getHeaser(paramsMap),"packings/list/code/"+zxd);
         observable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<ItemDetailOutVO>() {

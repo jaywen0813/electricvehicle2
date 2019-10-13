@@ -23,7 +23,7 @@ public interface MyInDetailContract {
 //        void showSuccess(ItemDetailInVO vDate);
 
 
-        void showSuccess(List<MyInVO.DataBean.DataListBean> result );
+        void showSuccess(ItemDetailInVO result );
 
     }
 

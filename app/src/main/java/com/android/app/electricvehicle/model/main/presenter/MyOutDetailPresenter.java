@@ -76,7 +76,8 @@ public class MyOutDetailPresenter extends BasePresenter<MyOutDetailContract.View
                 .build();
         MainService services = retrofit.create(MainService.class);
         //params1:所有参数进行拼接就可以
-        Observable<MyOutDetailVO> observable = services.getmyoutdetailpage(ParameterUtils.getHeaser(paramsMap),"packings/outstore/get/"+"5780b01ae92111e992930242ac110012");
+        Observable<MyOutDetailVO> observable = services.getmyoutdetailpage(ParameterUtils.getHeaser(paramsMap),"packings/outstore/get/"+"6df0e3ccea9411e992930242ac110012");
+//        Observable<MyOutDetailVO> observable = services.getmyoutdetailpage(ParameterUtils.getHeaser(paramsMap),"packings/outstore/get/"+id);
         observable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<MyOutDetailVO>() {
