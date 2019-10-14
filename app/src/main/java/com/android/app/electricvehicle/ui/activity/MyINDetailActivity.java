@@ -167,8 +167,10 @@ public class MyINDetailActivity extends BaseMvpActivity<MyInDetailContract.View,
                 //日期
                 if (!Kits.Empty.check(vDate.getData().getPackingList().getMadeTime())){
 
+                    long itime= Long.parseLong(vDate.getData().getPackingList().getMadeTime());
+
                     SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); //设置格式
-                    String timeText=format.format(vDate.getData().getPackingList().getMadeTime());
+                    String timeText=format.format(itime);
                     tvDate.setText(timeText+"");
                 }
 

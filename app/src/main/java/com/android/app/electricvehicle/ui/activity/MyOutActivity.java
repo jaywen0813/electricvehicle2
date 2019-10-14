@@ -136,8 +136,8 @@ public class MyOutActivity extends BaseListActivity<MYOutContract.View, MyOutPre
     @Override
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
         Intent intent=new Intent(this,MyOutDetailActivity.class);
-//        intent.putExtra("id",activityVOList.get(position).getId());
-        intent.putExtra("id",activityVOList.get(position).getPackingListId());
+        intent.putExtra("id",activityVOList.get(position).getId());
+//        intent.putExtra("id",activityVOList.get(position).getPackingListId());
         startActivity(intent);
 
     }
