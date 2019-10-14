@@ -406,8 +406,10 @@ public class OUTDetailActivity extends BaseMvpActivity<OUTContract.View, OUTPres
         //日期
         if (!Kits.Empty.check(vDate.getData().getMadeTime())){
 
+            long itime= Long.parseLong(vDate.getData().getMadeTime());
+
             SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); //设置格式
-            String timeText=format.format(vDate.getData().getMadeTime());
+            String timeText=format.format(itime);
             tvDate.setText(timeText+"");
         }
 
