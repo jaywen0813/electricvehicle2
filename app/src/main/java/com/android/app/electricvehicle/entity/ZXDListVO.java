@@ -311,7 +311,7 @@ public class ZXDListVO implements Serializable {
             private String version;
             private boolean locked;
             private long lastAccess;
-            private boolean disabled;
+            private String disabled;
             private String creatorId;
             private String createdBy;
             private long createdTime;
@@ -384,11 +384,12 @@ public class ZXDListVO implements Serializable {
                 this.lastAccess = lastAccess;
             }
 
-            public boolean isDisabled() {
+
+            public String getDisabled() {
                 return disabled;
             }
 
-            public void setDisabled(boolean disabled) {
+            public void setDisabled(String disabled) {
                 this.disabled = disabled;
             }
 

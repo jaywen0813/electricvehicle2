@@ -197,4 +197,16 @@ public interface MainService {
     //装箱单列表点击以后的详情展示
     @GET
     Observable<ZxdlrDetailVO> zxdDetail(@HeaderMap Map<String, String> headerMap,@Url String url);
+
+
+
+    //修改装箱单详情
+    @POST("packings/list/save")
+    Observable<ZxdDetailUpdateVO> updateDetail(@HeaderMap Map<String, String> headerMap,@Body RequestBody requestbody);
+
+
+    //删除作废装箱单详情
+    @POST
+    Observable<ZxdDetailDeleteVO> postdeletePage(@HeaderMap Map<String, String> headerMap,@Body RequestBody requestbody,@Url String url);
+
 }

@@ -62,6 +62,7 @@ public class Main3Activity extends BaseMvpActivity<MianContract3.View, MainPrese
     private ImageView img_main_bg;//首页的背景
 
     private LinearLayout ll_zxdlr;//装箱单录入
+    private LinearLayout ll_look_update_zxd;//装箱单的查询和修改
 
 
     // 抽屉菜单对象
@@ -105,7 +106,7 @@ public class Main3Activity extends BaseMvpActivity<MianContract3.View, MainPrese
                 startActivity(intent1);
                 break;
             case R.id.ll_zxdlr://装箱单录入
-                Intent intent4=new Intent(this,ZxdLookAndUpdateActivity.class);
+                Intent intent4=new Intent(this,ZxdLuRuActivity.class);
                 startActivity(intent4);
                 break;
             case R.id.ll_tuichu://退出帐号
@@ -126,6 +127,10 @@ public class Main3Activity extends BaseMvpActivity<MianContract3.View, MainPrese
             case R.id.ll_mychuku://我的出库
                 Intent intent3=new Intent(this,MyOutActivity.class);
                 startActivity(intent3);
+                break;
+            case R.id.ll_look_update_zxd://装箱单的查询和修改
+                Intent intent5=new Intent(this,ZxdLookAndUpdateActivity.class);
+                startActivity(intent5);
                 break;
         }
     }
@@ -152,9 +157,10 @@ public class Main3Activity extends BaseMvpActivity<MianContract3.View, MainPrese
         llWuliu2 = findViewById(R.id.ll_wuliu2);//出库
         ll_zxdlr=findViewById(R.id.ll_zxdlr);//装箱单录入
 
+
         ll_myruku=findViewById(R.id.ll_myruku);//我的入库列表
         ll_mychuku=findViewById(R.id.ll_mychuku);//我的出库列表
-
+        ll_look_update_zxd=findViewById(R.id.ll_look_update_zxd);//装箱单的查询和修改
 
         drawerLayout = (DrawerLayout) findViewById(R.id.main_drawer_layout);
         //设置菜单内容之外其他区域的背景色
@@ -174,7 +180,7 @@ public class Main3Activity extends BaseMvpActivity<MianContract3.View, MainPrese
 
         ll_myruku.setOnClickListener(this);
         ll_mychuku.setOnClickListener(this);
-
+        ll_look_update_zxd.setOnClickListener(this);
 
         llTuichu.setOnClickListener(this);//退出帐号的按钮
 
@@ -237,6 +243,7 @@ public class Main3Activity extends BaseMvpActivity<MianContract3.View, MainPrese
                 super.onDrawerOpened(drawerView);
                 llWuliu1.setEnabled(false);//打开的时候，屏蔽首页的按钮点击，否则会造成点击穿透
                 llWuliu2.setEnabled(false);
+                ll_zxdlr.setEnabled(false);
             }
 
             // 菜单关闭
@@ -245,6 +252,7 @@ public class Main3Activity extends BaseMvpActivity<MianContract3.View, MainPrese
                 super.onDrawerClosed(drawerView);
                 llWuliu1.setEnabled(true);//关闭以后给点击事件
                 llWuliu2.setEnabled(true);
+                ll_zxdlr.setEnabled(true);
             }
         };
 

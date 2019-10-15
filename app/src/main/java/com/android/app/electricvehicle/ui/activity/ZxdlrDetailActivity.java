@@ -5,21 +5,30 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.app.electricvehicle.R;
 import com.android.app.electricvehicle.base.BaseMvpActivity;
 import com.android.app.electricvehicle.entity.ItemDetailInVO;
+import com.android.app.electricvehicle.entity.PackingListItem;
+import com.android.app.electricvehicle.entity.ZxdDetailDeleteVO;
+import com.android.app.electricvehicle.entity.ZxdDetailUpdateVO;
 import com.android.app.electricvehicle.entity.ZxdlrDetailVO;
 import com.android.app.electricvehicle.model.main.contract.ZxdlrDetailContract;
 import com.android.app.electricvehicle.model.main.presenter.ZxdlrDetailPresenter;
+import com.android.app.electricvehicle.utils.DialogUtil;
 import com.android.app.electricvehicle.utils.Kits;
 import com.android.app.electricvehicle.utils.StatusBarUtil;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class ZxdlrDetailActivity extends BaseMvpActivity<ZxdlrDetailContract.View, ZxdlrDetailPresenter> implements ZxdlrDetailContract.View, View.OnClickListener {
 
@@ -52,12 +61,15 @@ public class ZxdlrDetailActivity extends BaseMvpActivity<ZxdlrDetailContract.Vie
     private TextView tvDycs;
     private TextView tvBz;
     private LinearLayout llWsj;
-
+    private ImageView img_delete;
 
     String id = "";
+    String disabled="";
     ZxdlrDetailPresenter presenter;
 
-    boolean aa=false;//用来判断是否可以点击的
+    boolean aa=false;//用来判断是否可以点击的编辑的
+
+    String baozhuangfangshi="";//用来记录后台返回的默认的包装方式
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,9 +114,11 @@ public class ZxdlrDetailActivity extends BaseMvpActivity<ZxdlrDetailContract.Vie
         tvDycs = findViewById(R.id.tv_dycs);
         tvBz = findViewById(R.id.tv_bz);
         llWsj = findViewById(R.id.ll_wsj);
+        img_delete=findViewById(R.id.img_delete);//删除按钮
 
         backLayout.setOnClickListener(this);
         farmInputSave.setOnClickListener(this);//修改按钮
+        img_delete.setOnClickListener(this);
 
         //状态栏
         //状态栏
@@ -116,7 +130,19 @@ public class ZxdlrDetailActivity extends BaseMvpActivity<ZxdlrDetailContract.Vie
 
 
         id = getIntent().getStringExtra("id");
+        disabled=getIntent().getStringExtra("disabled");
 
+
+        if (disabled.equals("true")){//代表作废
+           img_delete.setImageResource(R.mipmap.img_zuofei);
+           img_delete.setEnabled(false);
+            farmInputSave.setVisibility(View.INVISIBLE);//隐藏修改按钮
+
+        }else {//代表没有作废
+            img_delete.setImageResource(R.mipmap.img_delete);
+            img_delete.setEnabled(true);
+            farmInputSave.setVisibility(View.VISIBLE);//显示修改按钮
+        }
 
 //        id="5780b01ae92111e992930242ac110012";
 
@@ -144,12 +170,144 @@ public class ZxdlrDetailActivity extends BaseMvpActivity<ZxdlrDetailContract.Vie
                     if (aa){
                         chooseFlase();//不能点击
                         aa=false;
-                        farmInputSave.setText("修改");
+                        farmInputSave.setText("修改");//文字变成修改
+
+                        String madeTime= String.valueOf(new Date().getTime());//当前时间戳
+                        String packingMaterial=tvBzfs.getText().toString().trim();//包装方式 去除多余的空隙
+                        String rankNum=tvDjx.getText().toString();//第几箱
+                        String totalNum=tvGjx.getText().toString();//共几箱
+                        String packLength=tvChang.getText().toString();//长
+                        String packwidth=tvKuan.getText().toString();//宽
+                        String packHeight=tvGao.getText().toString();//高
+                        String netWeight=tvJingzhong.getText().toString();//净重
+                        String roughWeight=tvMaozhong.getText().toString();//毛重
+
+                        String soItem=tvSo.getText().toString();
+                        String material=tvMaterial.getText().toString();
+                        String rl=tvRl.getText().toString();
+                        String agl=tvAgl.getText().toString();
+                        String qty=tvQty.getText().toString();
+
+
+
+                        if (Kits.Empty.check(packingMaterial)) {
+                            Toast.makeText(ZxdlrDetailActivity.this,"包装方式不能为空",Toast.LENGTH_LONG).show();
+                            return;
+                        }else {
+                            if (packingMaterial.equals("纸箱")||packingMaterial.equals("0")){
+                                packingMaterial="0";
+                            }else if (packingMaterial.equals("木箱")||packingMaterial.equals("1")){
+                                packingMaterial="1";
+                            }else if (packingMaterial.equals("木托盘纸箱")||packingMaterial.equals("2")){
+                                packingMaterial="2";
+                            } else {
+                                packingMaterial=baozhuangfangshi;//如果识别不了就返回后台默认的
+                            }
+                        }
+
+
+                        if (Kits.Empty.check(rankNum)) {
+                            Toast.makeText(ZxdlrDetailActivity.this,"第几箱不能为空",Toast.LENGTH_LONG).show();
+                            return;
+                        }
+
+
+                        if (Kits.Empty.check(totalNum)) {
+                            Toast.makeText(ZxdlrDetailActivity.this,"共几箱不能为空",Toast.LENGTH_LONG).show();
+                            return;
+                        }
+
+
+
+                        if (Kits.Empty.check(packLength)) {
+                            Toast.makeText(ZxdlrDetailActivity.this,"请填写长度",Toast.LENGTH_LONG).show();
+                            return;
+                        }
+
+                        if (Kits.Empty.check(packwidth)) {
+                            Toast.makeText(ZxdlrDetailActivity.this,"请填写宽度",Toast.LENGTH_LONG).show();
+                            return;
+                        }
+
+
+                        if (Kits.Empty.check(packHeight)) {
+                            Toast.makeText(ZxdlrDetailActivity.this,"请填写高度",Toast.LENGTH_LONG).show();
+                            return;
+                        }
+
+                        if (Kits.Empty.check(netWeight)) {
+                            Toast.makeText(ZxdlrDetailActivity.this,"请填写净重",Toast.LENGTH_LONG).show();
+                            return;
+                        }
+
+                        if (Kits.Empty.check(roughWeight)) {
+                            Toast.makeText(ZxdlrDetailActivity.this,"请填写毛重",Toast.LENGTH_LONG).show();
+                            return;
+                        }
+
+
+                        if (Kits.Empty.check(soItem)) {
+                            Toast.makeText(ZxdlrDetailActivity.this,"请填写SO Item",Toast.LENGTH_LONG).show();
+                            return;
+                        }
+
+
+                        if (Kits.Empty.check(material)) {
+                            Toast.makeText(ZxdlrDetailActivity.this,"请填写Material",Toast.LENGTH_LONG).show();
+                            return;
+                        }
+
+
+                        if (Kits.Empty.check(rl)) {
+                            Toast.makeText(ZxdlrDetailActivity.this,"请填写RL",Toast.LENGTH_LONG).show();
+                            return;
+                        }
+
+                        if (Kits.Empty.check(agl)) {
+                            Toast.makeText(ZxdlrDetailActivity.this,"请填写AGL",Toast.LENGTH_LONG).show();
+                            return;
+                        }
+
+
+                        if (Kits.Empty.check(qty)) {
+                            Toast.makeText(ZxdlrDetailActivity.this,"请填写Qty",Toast.LENGTH_LONG).show();
+                            return;
+                        }
+
+                        List<PackingListItem> packingListItem =new ArrayList<>();
+                        PackingListItem plist=new PackingListItem();
+                        plist.setId(id);
+                        plist.setSoItem(soItem);
+                        plist.setMaterial(material);
+                        plist.setRl(rl);
+                        plist.setAgl(agl);
+                        plist.setQty(qty);
+
+                        packingListItem.add(plist);
+
+                        //修改的网络请求
+                        presenter.update(id,madeTime,packingMaterial,rankNum,totalNum,packLength,packwidth,packHeight,netWeight,roughWeight,packingListItem);
+
+
                     }else {
                         chooseTrue();//可以点击
                         aa=true;
                         farmInputSave.setText("完成");
+
+
+
                     }
+                break;
+            case R.id.img_delete://删除按钮
+                DialogUtil.showBasicDialog(this, "作废提示", "确定作废此条装箱单?", (dialog, confirm) -> {
+
+                    if (confirm) {
+                        //退出登录
+//                        loading("正在退出...");
+                        presenter.deleteThis(id);
+                    }
+                    dialog.dismiss();
+                });
                 break;
         }
     }
@@ -159,6 +317,21 @@ public class ZxdlrDetailActivity extends BaseMvpActivity<ZxdlrDetailContract.Vie
         if (!Kits.Empty.check(vDate.getData())) {
             scrollView.setVisibility(View.VISIBLE);
             llWsj.setVisibility(View.GONE);
+
+            //查询此单是否作废
+            if (!Kits.Empty.check(vDate.getData().getDisabled())){
+                if (vDate.getData().getDisabled().equals("true")){//代表作废
+                    //显示作废的图标，并不给点击事件
+                    img_delete.setImageResource(R.mipmap.img_zuofei);
+                    img_delete.setEnabled(false);
+                    farmInputSave.setVisibility(View.INVISIBLE);//隐藏修改按钮
+
+                }else {
+                    img_delete.setImageResource(R.mipmap.img_delete);//显示删除按钮
+                    img_delete.setEnabled(true);
+                    farmInputSave.setVisibility(View.VISIBLE);//显示修改按钮
+                }
+            }
 
 
             //工作单号
@@ -317,7 +490,7 @@ public class ZxdlrDetailActivity extends BaseMvpActivity<ZxdlrDetailContract.Vie
                         break;
                 }
 
-
+                 baozhuangfangshi=vDate.getData().getPackingMaterial();//用来记录后台返回的默认的包装方式
             }
 
 
@@ -327,11 +500,50 @@ public class ZxdlrDetailActivity extends BaseMvpActivity<ZxdlrDetailContract.Vie
             }
         }
     }
-
+    //没有获取到详情数据的时候
     @Override
     public void showwsj() {
         scrollView.setVisibility(View.GONE);
         llWsj.setVisibility(View.VISIBLE);
+    }
+
+    //修改成功以后的
+    @Override
+    public void showToast(ZxdDetailUpdateVO zxdDetailUpdateVO) {
+        if (!Kits.Empty.check(zxdDetailUpdateVO)){
+            if (!Kits.Empty.check(zxdDetailUpdateVO.getSuccess())){
+                if (zxdDetailUpdateVO.getSuccess().equals("T")){
+                    Toast.makeText(ZxdlrDetailActivity.this,"修改成功",Toast.LENGTH_LONG).show();
+                }else {
+                    Toast.makeText(ZxdlrDetailActivity.this,"修改失败",Toast.LENGTH_LONG).show();
+                }
+            }else {
+                Toast.makeText(ZxdlrDetailActivity.this,"修改失败",Toast.LENGTH_LONG).show();
+            }
+
+        }else {
+            Toast.makeText(ZxdlrDetailActivity.this,"修改失败",Toast.LENGTH_LONG).show();
+        }
+
+    }
+
+    //装箱单作废以后返回的方法
+    @Override
+    public void showdelete(ZxdDetailDeleteVO zxdDetailDeleteVO) {
+        if (!Kits.Empty.check(zxdDetailDeleteVO)){
+            if (!Kits.Empty.check(zxdDetailDeleteVO.getSuccess())){
+                if (zxdDetailDeleteVO.getSuccess().equals("T")){
+                    Toast.makeText(ZxdlrDetailActivity.this,"此单已作废",Toast.LENGTH_LONG).show();
+                }else {
+                    Toast.makeText(ZxdlrDetailActivity.this,"操作失败",Toast.LENGTH_LONG).show();
+                }
+            }else {
+                Toast.makeText(ZxdlrDetailActivity.this,"操作失败",Toast.LENGTH_LONG).show();
+            }
+
+        }else {
+            Toast.makeText(ZxdlrDetailActivity.this,"操作失败",Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override

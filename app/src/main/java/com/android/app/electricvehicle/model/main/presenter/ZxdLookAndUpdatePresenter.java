@@ -39,6 +39,7 @@ public class ZxdLookAndUpdatePresenter extends BasePresenter<ZxdLookAndUpdateCon
 
         paramsMap.put("pageNo", pageNo);
         paramsMap.put("pageSize", "10");
+        paramsMap.put("enable","1");//多传这个参数，返回结果就是作废和没有作废的都有,不传则返回没有作废的单
 //        MainDataRepository.getInstance().MyInService(paramsMap)
 //                .subscribeOn(Schedulers.io())//网络是耗时操作,所以在io线程中去执行
 //                .observeOn(AndroidSchedulers.mainThread())//请求成功后回到主线程中

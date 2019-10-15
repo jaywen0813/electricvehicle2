@@ -3,13 +3,19 @@ package com.android.app.electricvehicle.model.main.presenter;
 import android.util.Log;
 
 import com.android.app.electricvehicle.entity.ItemDetailInVO;
+import com.android.app.electricvehicle.entity.PackingListItem;
+import com.android.app.electricvehicle.entity.ZxdDetailDeleteVO;
+import com.android.app.electricvehicle.entity.ZxdDetailUpdateVO;
 import com.android.app.electricvehicle.entity.ZxdlrDetailVO;
 import com.android.app.electricvehicle.model.main.contract.MyInDetailContract;
 import com.android.app.electricvehicle.model.main.contract.ZxdlrDetailContract;
 import com.android.app.electricvehicle.model.main.http.MainService;
+import com.android.app.electricvehicle.model.main.repository.NetInstance;
 import com.android.app.electricvehicle.mvp.presenter.BasePresenter;
 import com.android.app.electricvehicle.utils.ParameterUtils;
+import com.orhanobut.logger.Logger;
 
+import java.util.List;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
@@ -36,7 +42,7 @@ public class ZxdlrDetailPresenter extends BasePresenter<ZxdlrDetailContract.View
 
 
 
-    //提交到后台
+    //提交到后台   查询详情
     @Override
     public void getUP(String id) {
         SortedMap<String, String> paramsMap = new TreeMap<>();
@@ -144,44 +150,106 @@ public class ZxdlrDetailPresenter extends BasePresenter<ZxdlrDetailContract.View
                     }
                 });
 
-//和列表调用同一个接口，多传一个packingCode 就是这个装箱单的详情
-//        NetInstance.getEventsService().myin(ParameterUtils.getHeaser(paramsMap), ParameterUtils.getJsonBody(paramsMap)).
-//                subscribeOn(Schedulers.io()).
-//                observeOn(AndroidSchedulers.mainThread()).
-//                subscribe(new Observer<MyInVO>() {
-//                    @Override
-//                    public void onSubscribe(Disposable d) {
-//                        addDisposable(d);
-//                    }
-//
-//                    @Override
-//                    public void onNext(MyInVO vDate) {
-//                        if (vDate.getSuccess().equals("T")) {
-//                            if ((vDate.getData().getDataList() != null) && vDate.getData().getDataList().size()>0) {
-//
-//                                mView.showSuccess(vDate.getData().getDataList());
-//
-//
-//                            }
-//
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onError(Throwable e) {
-//                        Logger.e(e.toString());
-//
-//                    }
-//
-//                    @Override
-//                    public void onComplete() {
-//
-//                    }
-//                });
 
 
     }
 
+    @Override    //修改详情
+    public void update(String id, String madeTime, String packingMaterial, String rankNum, String totalNum, String packLength, String packwidth,
+                       String packHeight, String netWeight, String roughWeight, List<PackingListItem> packingListItem){
+        SortedMap<String, Object> paramsMap = new TreeMap<>();
+
+        paramsMap.put("id",id);
+        paramsMap.put("madeTime",madeTime);
+        paramsMap.put("packingMaterial",packingMaterial);
+        paramsMap.put("rankNum",rankNum);
+        paramsMap.put("totalNum",totalNum);
+        paramsMap.put("packLength",packLength);
+        paramsMap.put("packwidth",packwidth);
+        paramsMap.put("packHeight",packHeight);
+        paramsMap.put("netWeight",netWeight);
+        paramsMap.put("roughWeight",roughWeight);
+        paramsMap.put("packingListItem",packingListItem);
+
+
+                //这里请求修改了头布为SortedMap<String, Object> 入参，添加的时候相同
+                NetInstance.getEventsService().updateDetail(ParameterUtils.getHead(paramsMap), ParameterUtils.getJsonBody(paramsMap)).
+                subscribeOn(Schedulers.io()).
+                observeOn(AndroidSchedulers.mainThread()).
+                subscribe(new Observer<ZxdDetailUpdateVO>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        addDisposable(d);
+                    }
+
+                    @Override
+                    public void onNext(ZxdDetailUpdateVO vDate) {
+
+                            mView.showToast(vDate);
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Logger.e(e.toString());
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
+
+    //删除
+    @Override
+    public void deleteThis(String id) {
+        Retrofit retrofit = new Retrofit.Builder()
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                //baseUrl:参数之前的部分
+                .baseUrl("https://api.zrcloud.me/interroll/").build();
+        MainService services = retrofit.create(MainService.class);
+
+
+        SortedMap<String, String> paramsMap = new TreeMap<>();
+        paramsMap.put("id",id);
+        //parames1:url传空字符串就可以，但是不能不写
+        Observable<ZxdDetailDeleteVO> postPage = services.postdeletePage(ParameterUtils.getHeaser(paramsMap),ParameterUtils.getJsonBody(paramsMap),"packings/list/disable/"+id+"/1");
+        postPage.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<ZxdDetailDeleteVO>() {
+
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.d("heihei", "onError: 失败");
+                        e.printStackTrace();
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(ZxdDetailDeleteVO pageBean) {
+                        Log.d("heihie", "onNext: " + pageBean.getMessage());
+                        mView.showdelete(pageBean);
+
+                        if (pageBean.getSuccess().equals("T")){//操作成功以后，刷新数据
+                            getUP(id);//再查询一次
+                        }
+                    }
+                });
+
+    }
 
 
 }

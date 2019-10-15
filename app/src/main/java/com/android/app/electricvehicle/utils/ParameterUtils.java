@@ -105,4 +105,43 @@ public class ParameterUtils {
         }
         return RequestBody.create(MediaType.parse("application/json"), json);
     }
+
+
+    //装箱单修改和添加的时候，传递数组给后台的时候用的
+    public static TreeMap<String, String> getHead(SortedMap<String, Object> parm) {
+        Date date = new Date();
+        String currentTimeStamp = date.getTime() + "";
+//        parm.put("currentTimeStamp", currentTimeStamp);
+//        String sign = MD5.GetMD5Code(getSecretStr(parm));
+
+        final String key = "1eX1XqE+8aRT3IjqEqay4yJnASE=";
+
+
+        Gson gson = new GsonBuilder().disableHtmlEscaping().create();
+        String s = gson.toJson(parm,Map.class);
+        if(s.equals("{}")){
+            s="";
+        }
+
+        final String sign = MD5.GetMD5Code(s+currentTimeStamp+key);
+        TreeMap<String, String> map = new TreeMap();
+        map.put("Content-Type", "application/json;charset=UTF-8");
+        map.put("Accept-Encoding", "gzip, deflate");
+//        map.put("Connection", "keep-alive");
+        map.put("Accept", "*/*");
+//        map.put("Cookie", "add cookies here");
+        map.put("timeStamp", currentTimeStamp);
+//        map.put("brandCode", AppConstants.BRANDCODE);
+        map.put("sign", sign);
+//        map.put("appId", AppConstants.APPID);
+//        map.put("loginName", MainApplication.LOGINRESULTVO2.getLdcSysUser().getLoginName());
+        map.put("appVersionNo", AppConstants.APPVERSIONNO);
+//        map.put("deviceNo", AppConstants.getMyUUID());
+//        map.put("deviceType", AppConstants.DEVICETYPE);
+        map.put("token", MainApplication.LOGINRESULTVO3.getAccess_token());
+//        map.put("userId",MainApplication.LOGINRESULTVO2.getId());
+//        map.put("X-Token","3S1x6eFpMGoSfB8gi5XOphGzaONvFVhphB2cjfFxSg6YYxD6fGpiudYaeidfDxJb");
+        map.put("X-Token",MainApplication.LOGINRESULTVO3.getAccess_token());
+        return map;
+    }
 }

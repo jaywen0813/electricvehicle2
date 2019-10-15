@@ -184,6 +184,7 @@ public class ZxdLookAndUpdateActivity extends BaseListActivity<ZxdLookAndUpdateC
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
         Intent intent=new Intent(this,ZxdlrDetailActivity.class);
         intent.putExtra("id",activityVOList.get(position).getId());
+        intent.putExtra("disabled",activityVOList.get(position).getDisabled());//判断是否作废
         startActivity(intent);
     }
 }
