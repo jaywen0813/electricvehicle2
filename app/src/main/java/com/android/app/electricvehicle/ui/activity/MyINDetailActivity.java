@@ -239,19 +239,19 @@ public class MyINDetailActivity extends BaseMvpActivity<MyInDetailContract.View,
                 }
 
                 //单据打印
-                if (!Kits.Empty.check(vDate.getData().getPackingList().getBillPrString())) {
-                    if (vDate.getData().getPackingList().getBillPrString().equals("0")){
+                if (!Kits.Empty.check(vDate.getData().getPackingList().getBillPrint())) {
+                    if (vDate.getData().getPackingList().getBillPrint().equals("0")){
                         tvDjdy.setText("单据打印：未打印");
-                    }else if (vDate.getData().getPackingList().getBillPrString().equals("1")){
+                    }else if (vDate.getData().getPackingList().getBillPrint().equals("1")){
                         tvDjdy.setText("单据打印：已打印");
-                    }else if (vDate.getData().getPackingList().getBillPrString().equals("2")){
+                    }else if (vDate.getData().getPackingList().getBillPrint().equals("2")){
                         tvDjdy.setText("单据打印：补打");
                     }
 
                 }
                 //打印次数
-                if (!Kits.Empty.check(vDate.getData().getPackingList().getPrStringTimes())) {
-                    tvDycs.setText("打印次数："+vDate.getData().getPackingList().getPrStringTimes()+"次");
+                if (!Kits.Empty.check(vDate.getData().getPackingList().getPrintTimes())) {
+                    tvDycs.setText("打印次数："+vDate.getData().getPackingList().getPrintTimes()+"次");
                 }
 
             }

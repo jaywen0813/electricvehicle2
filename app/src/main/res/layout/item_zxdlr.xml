@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+
+    <com.flyco.roundview.RoundLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_value_dp100"
+        android:layout_marginTop="@dimen/dimen_value_dp10"
+        android:orientation="vertical"
+        app:rv_backgroundColor="@color/color_DFF7F7"
+        app:rv_cornerRadius="@dimen/dimen_value_dp5">
+
+        <LinearLayout style="@style/LinearLayoutView">
+
+            <EditText
+                android:id="@+id/et_soitem"
+                style="@style/etTextView1"
+                android:hint="SO Item" />
+
+            <View style="@style/viewline_shu" />
+
+            <EditText
+                android:id="@+id/et_material"
+                style="@style/etTextView1"
+                android:hint="Material" />
+        </LinearLayout>
+
+        <View style="@style/viewline_heng" />
+
+        <LinearLayout style="@style/LinearLayoutView">
+
+            <EditText
+                android:id="@+id/et_rl"
+                style="@style/etTextView1"
+                android:hint="RL" />
+
+            <View style="@style/viewline_shu" />
+
+            <EditText
+                android:id="@+id/et_agl"
+                style="@style/etTextView1"
+                android:hint="AGL" />
+
+            <View style="@style/viewline_shu" />
+
+            <EditText
+                android:id="@+id/et_qty"
+                style="@style/etTextView1"
+                android:hint="Qty" />
+
+        </LinearLayout>
+
+
+    </com.flyco.roundview.RoundLinearLayout>
+
+</LinearLayout>

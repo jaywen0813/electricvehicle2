@@ -1,7 +1,7 @@
 package com.android.app.electricvehicle.model.main.contract;
 
-import com.android.app.electricvehicle.entity.ActivityVO;
-import com.android.app.electricvehicle.entity.MyOutVO;
+import com.android.app.electricvehicle.entity.MyInVO;
+import com.android.app.electricvehicle.entity.ZXDListVO;
 import com.android.app.electricvehicle.mvp.view.BaseViewInf;
 
 import java.util.List;
@@ -15,12 +15,12 @@ import java.util.List;
  * 修订历史：我的扫码入库订单
  * ================================================
  */
-public interface MYOutContract {
+public interface ZxdLookAndUpdateContract {
 
     interface View extends BaseViewInf {
 
         //提交成功
-        void showSuccess(List<MyOutVO.DataBean.DataListBean> result);
+        void showSuccess(List<ZXDListVO.DataBean.DataListBean> result);
 
         //取消进度条的
         void showComplete();

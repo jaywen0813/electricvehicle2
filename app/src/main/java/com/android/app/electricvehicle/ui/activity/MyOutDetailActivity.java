@@ -230,19 +230,19 @@ public class MyOutDetailActivity extends BaseMvpActivity<MyOutDetailContract.Vie
                 }
 
                 //单据打印
-                if (!(vDate.getData().getPackingList().getBillPrString()==null||vDate.getData().getPackingList().getBillPrString().equals(""))) {
-                    if (vDate.getData().getPackingList().getBillPrString().equals("0")){
+                if (!(vDate.getData().getPackingList().getBillPrint()==null||vDate.getData().getPackingList().getBillPrint().equals(""))) {
+                    if (vDate.getData().getPackingList().getBillPrint().equals("0")){
                         tvDjdy.setText("单据打印：未打印");
-                    }else if (vDate.getData().getPackingList().getBillPrString().equals("1")){
+                    }else if (vDate.getData().getPackingList().getBillPrint().equals("1")){
                         tvDjdy.setText("单据打印：已打印");
-                    }else if (vDate.getData().getPackingList().getBillPrString().equals("2")){
+                    }else if (vDate.getData().getPackingList().getBillPrint().equals("2")){
                         tvDjdy.setText("单据打印：补打");
                     }
 
                 }
                 //打印次数
-                if (!(vDate.getData().getPackingList().getPrStringTimes()==null||vDate.getData().getPackingList().getPrStringTimes().equals(""))) {
-                    tvDycs.setText("打印次数："+vDate.getData().getPackingList().getPrStringTimes()+"次");
+                if (!(vDate.getData().getPackingList().getPrintTimes()==null||vDate.getData().getPackingList().getPrintTimes().equals(""))) {
+                    tvDycs.setText("打印次数："+vDate.getData().getPackingList().getPrintTimes()+"次");
                 }
 
 

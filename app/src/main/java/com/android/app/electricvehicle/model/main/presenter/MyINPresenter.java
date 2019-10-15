@@ -109,7 +109,7 @@ public class MyINPresenter extends BasePresenter<MYINContract.View> implements M
 
                     @Override
                     public void onComplete() {
-
+                        mView.showComplete();//取消进度条的
                     }
                 });
     }

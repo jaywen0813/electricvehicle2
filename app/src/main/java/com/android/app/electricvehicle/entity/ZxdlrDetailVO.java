@@ -2,18 +2,18 @@ package com.android.app.electricvehicle.entity;
 
 import java.util.List;
 
-public class ItemDetailOutVO {
+public class ZxdlrDetailVO {
 
 
     /**
-     * ticket : d3fa066fdd083925a31784120db58e72
+     * ticket : a0b8e3e9cd1039b8a9bc5c03f53f26da
      * success : T
      * code : null
      * message : null
      * method : null
      * uri : null
-     * timestamp : 1570946069895
-     * data : {"id":"7eb0e96bea9211e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625052301,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625052301,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","packingCode":"1181913249818480640","workCode":"55896849","madeTime":1569501298656,"packingMaterial":1,"rankNum":1,"totalNum":1,"packLength":500,"packwidth":500,"packHeight":500,"netWeight":5000,"roughWeight":5200,"storeState":0,"billArchived":0,"billPrString":0,"prStringTimes":0,"remark":"","packingListItems":[{"id":"7eb760afea9211e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625052353,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625052353,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"7eb0e96bea9211e992930242ac110012","soItem":"100","material":"RD-89VHJ4A5PF","rl":100,"agl":200,"qty":300,"wtpc":0,"totalWeight":0,"enable":true}],"enable":true,"storeStateText":"暂存","billArchivedText":"未归档","billPrStringText":"未打印"}
+     * timestamp : 1571123813047
+     * data : {"id":"804cd05ceeea11e994c60242ac110018","tokenId":null,"version":2,"locked":false,"lastAccess":1571123801894,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1571102655377,"updaterId":"a475d2268eb511e992930242ac110012","updatedBy":"英特诺","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","packingCode":"1183916462314754048","workCode":"55873904","madeTime":1569501298656,"packingMaterial":1,"rankNum":1,"totalNum":1,"packLength":500,"packwidth":500,"packHeight":500,"netWeight":5000,"roughWeight":5200,"storeState":1,"billArchived":0,"billPrint":0,"printTimes":0,"remark":"","packingListItems":[{"id":"804d9467eeea11e994c60242ac110018","tokenId":null,"version":0,"locked":false,"lastAccess":1571102655383,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1571102655383,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"804cd05ceeea11e994c60242ac110018","soItem":"10","material":"RD-89VHJ4A5PF","rl":100,"agl":200,"qty":300,"wtpc":0,"totalWeight":0,"remark":"","enable":true}],"packingMaterialText":"Wooden case(木箱)","storeStateText":"待入库","billArchivedText":"未归档","billPrintText":"未打印","enable":true}
      * args : null
      * moreinfo : null
      * detail : null
@@ -141,23 +141,23 @@ public class ItemDetailOutVO {
 
     public static class DataBean {
         /**
-         * id : 7eb0e96bea9211e992930242ac110012
+         * id : 804cd05ceeea11e994c60242ac110018
          * tokenId : null
-         * version : 0
+         * version : 2
          * locked : false
-         * lastAccess : 1570625052301
+         * lastAccess : 1571123801894
          * disabled : false
          * creatorId : a475d2268eb511e992930242ac110012
          * createdBy : 英特诺
-         * createdTime : 1570625052301
-         * updaterId :
-         * updatedBy :
+         * createdTime : 1571102655377
+         * updaterId : a475d2268eb511e992930242ac110012
+         * updatedBy : 英特诺
          * dataId : null
          * isNew : null
          * logTime : null
          * tenantId : 304548c2ec8033f4917b18bfe144c569
-         * packingCode : 1181913249818480640
-         * workCode : 55896849
+         * packingCode : 1183916462314754048
+         * workCode : 55873904
          * madeTime : 1569501298656
          * packingMaterial : 1
          * rankNum : 1
@@ -167,21 +167,22 @@ public class ItemDetailOutVO {
          * packHeight : 500
          * netWeight : 5000
          * roughWeight : 5200
-         * storeState : 0
+         * storeState : 1
          * billArchived : 0
-         * billPrString : 0
-         * prStringTimes : 0
+         * billPrint : 0
+         * printTimes : 0
          * remark :
-         * packingListItems : [{"id":"7eb760afea9211e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625052353,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625052353,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"7eb0e96bea9211e992930242ac110012","soItem":"100","material":"RD-89VHJ4A5PF","rl":100,"agl":200,"qty":300,"wtpc":0,"totalWeight":0,"enable":true}]
-         * enable : true
-         * storeStateText : 暂存
+         * packingListItems : [{"id":"804d9467eeea11e994c60242ac110018","tokenId":null,"version":0,"locked":false,"lastAccess":1571102655383,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1571102655383,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"804cd05ceeea11e994c60242ac110018","soItem":"10","material":"RD-89VHJ4A5PF","rl":100,"agl":200,"qty":300,"wtpc":0,"totalWeight":0,"remark":"","enable":true}]
+         * packingMaterialText : Wooden case(木箱)
+         * storeStateText : 待入库
          * billArchivedText : 未归档
-         * billPrStringText : 未打印
+         * billPrintText : 未打印
+         * enable : true
          */
 
         private String id;
         private String tokenId;
-        private String version;
+        private int version;
         private boolean locked;
         private long lastAccess;
         private boolean disabled;
@@ -210,18 +211,99 @@ public class ItemDetailOutVO {
         private String billPrint;
         private String printTimes;
         private String remark;
-        private boolean enable;
+        private String packingMaterialText;
         private String storeStateText;
         private String billArchivedText;
         private String billPrintText;
+        private boolean enable;
         private List<PackingListItemsBean> packingListItems;
 
-        public String getPrintTimes() {
-            return printTimes;
+        public String getMadeTime() {
+            return madeTime;
         }
 
-        public void setPrintTimes(String printTimes) {
-            this.printTimes = printTimes;
+        public void setMadeTime(String madeTime) {
+            this.madeTime = madeTime;
+        }
+
+        public String getPackingMaterial() {
+            return packingMaterial;
+        }
+
+        public void setPackingMaterial(String packingMaterial) {
+            this.packingMaterial = packingMaterial;
+        }
+
+        public String getRankNum() {
+            return rankNum;
+        }
+
+        public void setRankNum(String rankNum) {
+            this.rankNum = rankNum;
+        }
+
+        public String getTotalNum() {
+            return totalNum;
+        }
+
+        public void setTotalNum(String totalNum) {
+            this.totalNum = totalNum;
+        }
+
+        public String getPackLength() {
+            return packLength;
+        }
+
+        public void setPackLength(String packLength) {
+            this.packLength = packLength;
+        }
+
+        public String getPackwidth() {
+            return packwidth;
+        }
+
+        public void setPackwidth(String packwidth) {
+            this.packwidth = packwidth;
+        }
+
+        public String getPackHeight() {
+            return packHeight;
+        }
+
+        public void setPackHeight(String packHeight) {
+            this.packHeight = packHeight;
+        }
+
+        public String getNetWeight() {
+            return netWeight;
+        }
+
+        public void setNetWeight(String netWeight) {
+            this.netWeight = netWeight;
+        }
+
+        public String getRoughWeight() {
+            return roughWeight;
+        }
+
+        public void setRoughWeight(String roughWeight) {
+            this.roughWeight = roughWeight;
+        }
+
+        public String getStoreState() {
+            return storeState;
+        }
+
+        public void setStoreState(String storeState) {
+            this.storeState = storeState;
+        }
+
+        public String getBillArchived() {
+            return billArchived;
+        }
+
+        public void setBillArchived(String billArchived) {
+            this.billArchived = billArchived;
         }
 
         public String getBillPrint() {
@@ -232,12 +314,12 @@ public class ItemDetailOutVO {
             this.billPrint = billPrint;
         }
 
-        public String getBillPrintText() {
-            return billPrintText;
+        public String getPrintTimes() {
+            return printTimes;
         }
 
-        public void setBillPrintText(String billPrintText) {
-            this.billPrintText = billPrintText;
+        public void setPrintTimes(String printTimes) {
+            this.printTimes = printTimes;
         }
 
         public String getId() {
@@ -256,11 +338,11 @@ public class ItemDetailOutVO {
             this.tokenId = tokenId;
         }
 
-        public String getVersion() {
+        public int getVersion() {
             return version;
         }
 
-        public void setVersion(String version) {
+        public void setVersion(int version) {
             this.version = version;
         }
 
@@ -376,96 +458,6 @@ public class ItemDetailOutVO {
             this.workCode = workCode;
         }
 
-        public String getMadeTime() {
-            return madeTime;
-        }
-
-        public void setMadeTime(String madeTime) {
-            this.madeTime = madeTime;
-        }
-
-        public String getPackingMaterial() {
-            return packingMaterial;
-        }
-
-        public void setPackingMaterial(String packingMaterial) {
-            this.packingMaterial = packingMaterial;
-        }
-
-        public String getRankNum() {
-            return rankNum;
-        }
-
-        public void setRankNum(String rankNum) {
-            this.rankNum = rankNum;
-        }
-
-        public String getTotalNum() {
-            return totalNum;
-        }
-
-        public void setTotalNum(String totalNum) {
-            this.totalNum = totalNum;
-        }
-
-        public String getPackLength() {
-            return packLength;
-        }
-
-        public void setPackLength(String packLength) {
-            this.packLength = packLength;
-        }
-
-        public String getPackwidth() {
-            return packwidth;
-        }
-
-        public void setPackwidth(String packwidth) {
-            this.packwidth = packwidth;
-        }
-
-        public String getPackHeight() {
-            return packHeight;
-        }
-
-        public void setPackHeight(String packHeight) {
-            this.packHeight = packHeight;
-        }
-
-        public String getNetWeight() {
-            return netWeight;
-        }
-
-        public void setNetWeight(String netWeight) {
-            this.netWeight = netWeight;
-        }
-
-        public String getRoughWeight() {
-            return roughWeight;
-        }
-
-        public void setRoughWeight(String roughWeight) {
-            this.roughWeight = roughWeight;
-        }
-
-        public String getStoreState() {
-            return storeState;
-        }
-
-        public void setStoreState(String storeState) {
-            this.storeState = storeState;
-        }
-
-        public String getBillArchived() {
-            return billArchived;
-        }
-
-        public void setBillArchived(String billArchived) {
-            this.billArchived = billArchived;
-        }
-
-
-
 
 
         public String getRemark() {
@@ -476,12 +468,12 @@ public class ItemDetailOutVO {
             this.remark = remark;
         }
 
-        public boolean isEnable() {
-            return enable;
+        public String getPackingMaterialText() {
+            return packingMaterialText;
         }
 
-        public void setEnable(boolean enable) {
-            this.enable = enable;
+        public void setPackingMaterialText(String packingMaterialText) {
+            this.packingMaterialText = packingMaterialText;
         }
 
         public String getStoreStateText() {
@@ -500,7 +492,21 @@ public class ItemDetailOutVO {
             this.billArchivedText = billArchivedText;
         }
 
+        public String getBillPrintText() {
+            return billPrintText;
+        }
 
+        public void setBillPrintText(String billPrintText) {
+            this.billPrintText = billPrintText;
+        }
+
+        public boolean isEnable() {
+            return enable;
+        }
+
+        public void setEnable(boolean enable) {
+            this.enable = enable;
+        }
 
         public List<PackingListItemsBean> getPackingListItems() {
             return packingListItems;
@@ -512,34 +518,35 @@ public class ItemDetailOutVO {
 
         public static class PackingListItemsBean {
             /**
-             * id : 7eb760afea9211e992930242ac110012
+             * id : 804d9467eeea11e994c60242ac110018
              * tokenId : null
              * version : 0
              * locked : false
-             * lastAccess : 1570625052353
+             * lastAccess : 1571102655383
              * disabled : false
              * creatorId : a475d2268eb511e992930242ac110012
              * createdBy : 英特诺
-             * createdTime : 1570625052353
+             * createdTime : 1571102655383
              * updaterId :
              * updatedBy :
              * dataId : null
              * isNew : null
              * logTime : null
-             * packingId : 7eb0e96bea9211e992930242ac110012
-             * soItem : 100
+             * packingId : 804cd05ceeea11e994c60242ac110018
+             * soItem : 10
              * material : RD-89VHJ4A5PF
              * rl : 100
              * agl : 200
              * qty : 300
              * wtpc : 0
              * totalWeight : 0
+             * remark :
              * enable : true
              */
 
             private String id;
             private String tokenId;
-            private String version;
+            private int version;
             private boolean locked;
             private long lastAccess;
             private boolean disabled;
@@ -559,7 +566,48 @@ public class ItemDetailOutVO {
             private String qty;
             private String wtpc;
             private String totalWeight;
+            private String remark;
             private boolean enable;
+
+            public String getRl() {
+                return rl;
+            }
+
+            public void setRl(String rl) {
+                this.rl = rl;
+            }
+
+            public String getAgl() {
+                return agl;
+            }
+
+            public void setAgl(String agl) {
+                this.agl = agl;
+            }
+
+            public String getQty() {
+                return qty;
+            }
+
+            public void setQty(String qty) {
+                this.qty = qty;
+            }
+
+            public String getWtpc() {
+                return wtpc;
+            }
+
+            public void setWtpc(String wtpc) {
+                this.wtpc = wtpc;
+            }
+
+            public String getTotalWeight() {
+                return totalWeight;
+            }
+
+            public void setTotalWeight(String totalWeight) {
+                this.totalWeight = totalWeight;
+            }
 
             public String getId() {
                 return id;
@@ -577,11 +625,11 @@ public class ItemDetailOutVO {
                 this.tokenId = tokenId;
             }
 
-            public String getVersion() {
+            public int getVersion() {
                 return version;
             }
 
-            public void setVersion(String version) {
+            public void setVersion(int version) {
                 this.version = version;
             }
 
@@ -697,44 +745,13 @@ public class ItemDetailOutVO {
                 this.material = material;
             }
 
-            public String getRl() {
-                return rl;
+
+            public String getRemark() {
+                return remark;
             }
 
-            public void setRl(String rl) {
-                this.rl = rl;
-            }
-
-            public String getAgl() {
-                return agl;
-            }
-
-            public void setAgl(String agl) {
-                this.agl = agl;
-            }
-
-            public String getQty() {
-                return qty;
-            }
-
-            public void setQty(String qty) {
-                this.qty = qty;
-            }
-
-            public String getWtpc() {
-                return wtpc;
-            }
-
-            public void setWtpc(String wtpc) {
-                this.wtpc = wtpc;
-            }
-
-            public String getTotalWeight() {
-                return totalWeight;
-            }
-
-            public void setTotalWeight(String totalWeight) {
-                this.totalWeight = totalWeight;
+            public void setRemark(String remark) {
+                this.remark = remark;
             }
 
             public boolean isEnable() {

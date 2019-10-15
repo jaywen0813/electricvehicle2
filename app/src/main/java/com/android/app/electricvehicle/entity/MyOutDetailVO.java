@@ -452,14 +452,39 @@ public class MyOutDetailVO {
             private String roughWeight;
             private String storeState;
             private String billArchived;
-            private String billPrString;
-            private String prStringTimes;
+            private String billPrint;
+            private String printTimes;
             private String remark;
             private boolean enable;
             private String storeStateText;
             private String billArchivedText;
-            private String billPrStringText;
+            private String billPrintText;
             private List<PackingListItemsBean> packingListItems;
+
+
+            public String getBillPrint() {
+                return billPrint;
+            }
+
+            public void setBillPrint(String billPrint) {
+                this.billPrint = billPrint;
+            }
+
+            public String getPrintTimes() {
+                return printTimes;
+            }
+
+            public void setPrintTimes(String printTimes) {
+                this.printTimes = printTimes;
+            }
+
+            public String getBillPrintText() {
+                return billPrintText;
+            }
+
+            public void setBillPrintText(String billPrintText) {
+                this.billPrintText = billPrintText;
+            }
 
             public String getId() {
                 return id;
@@ -685,21 +710,7 @@ public class MyOutDetailVO {
                 this.billArchived = billArchived;
             }
 
-            public String getBillPrString() {
-                return billPrString;
-            }
 
-            public void setBillPrString(String billPrString) {
-                this.billPrString = billPrString;
-            }
-
-            public String getPrStringTimes() {
-                return prStringTimes;
-            }
-
-            public void setPrStringTimes(String prStringTimes) {
-                this.prStringTimes = prStringTimes;
-            }
 
             public String getRemark() {
                 return remark;
@@ -733,13 +744,7 @@ public class MyOutDetailVO {
                 this.billArchivedText = billArchivedText;
             }
 
-            public String getBillPrStringText() {
-                return billPrStringText;
-            }
 
-            public void setBillPrStringText(String billPrStringText) {
-                this.billPrStringText = billPrStringText;
-            }
 
             public List<PackingListItemsBean> getPackingListItems() {
                 return packingListItems;

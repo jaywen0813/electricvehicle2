@@ -13,7 +13,7 @@ public class ItemDetailInVO {
      * method : null
      * uri : null
      * timestamp : 1570948823507
-     * data : {"id":"ba8fc8a8ea9311e992930242ac110012","tokenId":null,"version":1,"locked":false,"lastAccess":1570625883301,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625582254,"updaterId":"a475d2268eb511e992930242ac110012","updatedBy":"英特诺","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","instoreCode":"1181915472606662656","storehouseId":"45933d9fe07511e992930242ac110012","storehouseName":"T00012B00001","freeLoc":"AAA-02-014","packingListId":"7eb0e96bea9211e992930242ac110012","packingCode":"1181913249818480640","instoreState":1,"remark":"","packingList":{"id":"7eb0e96bea9211e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625052301,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625052301,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","packingCode":"1181913249818480640","workCode":"55896849","madeTime":1569501298656,"packingMaterial":1,"rankNum":1,"totalNum":1,"packLength":500,"packwidth":500,"packHeight":500,"netWeight":5000,"roughWeight":5200,"storeState":0,"billArchived":0,"billPrString":0,"prStringTimes":0,"remark":"","packingListItems":[{"id":"7eb760afea9211e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625052353,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625052353,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"7eb0e96bea9211e992930242ac110012","soItem":"100","material":"RD-89VHJ4A5PF","rl":100,"agl":200,"qty":300,"wtpc":0,"totalWeight":0,"enable":true}],"enable":true,"storeStateText":"暂存","billArchivedText":"未归档","billPrStringText":"未打印"},"enable":true,"instoreStateText":"已出库"}
+     * data : {"id":"ba8fc8a8ea9311e992930242ac110012","tokenId":null,"version":1,"locked":false,"lastAccess":1570625883301,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625582254,"updaterId":"a475d2268eb511e992930242ac110012","updatedBy":"英特诺","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","instoreCode":"1181915472606662656","storehouseId":"45933d9fe07511e992930242ac110012","storehouseName":"T00012B00001","freeLoc":"AAA-02-014","packingListId":"7eb0e96bea9211e992930242ac110012","packingCode":"1181913249818480640","instoreState":1,"remark":"","packingList":{"id":"7eb0e96bea9211e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625052301,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625052301,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","packingCode":"1181913249818480640","workCode":"55896849","madeTime":1569501298656,"packingMaterial":1,"rankNum":1,"totalNum":1,"packLength":500,"packwidth":500,"packHeight":500,"netWeight":5000,"roughWeight":5200,"storeState":0,"billArchived":0,"":0,"prStringTimes":0,"remark":"","packingListItems":[{"id":"7eb760afea9211e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625052353,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625052353,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"7eb0e96bea9211e992930242ac110012","soItem":"100","material":"RD-89VHJ4A5PF","rl":100,"agl":200,"qty":300,"wtpc":0,"totalWeight":0,"enable":true}],"enable":true,"storeStateText":"暂存","billArchivedText":"未归档","billPrStringText":"未打印"},"enable":true,"instoreStateText":"已出库"}
      * args : null
      * moreinfo : null
      * detail : null
@@ -472,14 +472,39 @@ public class ItemDetailInVO {
             private String roughWeight;
             private String storeState;
             private String billArchived;
-            private String billPrString;
-            private String prStringTimes;
+            private String billPrint;
+            private String printTimes;
             private String remark;
             private boolean enable;
             private String storeStateText;
             private String billArchivedText;
-            private String billPrStringText;
+            private String billPrintText;
             private List<PackingListItemsBean> packingListItems;
+
+
+            public String getBillPrint() {
+                return billPrint;
+            }
+
+            public void setBillPrint(String billPrint) {
+                this.billPrint = billPrint;
+            }
+
+            public String getPrintTimes() {
+                return printTimes;
+            }
+
+            public void setPrintTimes(String printTimes) {
+                this.printTimes = printTimes;
+            }
+
+            public String getBillPrintText() {
+                return billPrintText;
+            }
+
+            public void setBillPrintText(String billPrintText) {
+                this.billPrintText = billPrintText;
+            }
 
             public String getId() {
                 return id;
@@ -705,21 +730,7 @@ public class ItemDetailInVO {
                 this.billArchived = billArchived;
             }
 
-            public String getBillPrString() {
-                return billPrString;
-            }
 
-            public void setBillPrString(String billPrString) {
-                this.billPrString = billPrString;
-            }
-
-            public String getPrStringTimes() {
-                return prStringTimes;
-            }
-
-            public void setPrStringTimes(String prStringTimes) {
-                this.prStringTimes = prStringTimes;
-            }
 
             public String getRemark() {
                 return remark;
@@ -753,13 +764,7 @@ public class ItemDetailInVO {
                 this.billArchivedText = billArchivedText;
             }
 
-            public String getBillPrStringText() {
-                return billPrStringText;
-            }
 
-            public void setBillPrStringText(String billPrStringText) {
-                this.billPrStringText = billPrStringText;
-            }
 
             public List<PackingListItemsBean> getPackingListItems() {
                 return packingListItems;

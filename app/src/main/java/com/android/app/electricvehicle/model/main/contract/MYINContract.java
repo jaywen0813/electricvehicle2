@@ -22,7 +22,8 @@ public interface MYINContract {
         //提交成功
         void showSuccess(List<MyInVO.DataBean.DataListBean>  result);
 
-
+        //取消进度条的
+        void showComplete();
 
     }
 

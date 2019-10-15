@@ -242,6 +242,7 @@
                <!--android:scaleType="fitXY"-->
 
            <LinearLayout
+               android:id="@+id/ll_one"
                android:layout_width="match_parent"
                android:layout_height="@dimen/dimen_value_dp150"
                android:visibility="visible"
@@ -311,6 +312,70 @@
 
 
            </LinearLayout>
+
+
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="@dimen/dimen_value_dp150"
+               android:visibility="visible"
+               android:orientation="horizontal"
+               android:layout_marginTop="@dimen/dimen_value_dp10"
+               android:layout_below="@+id/ll_one"
+               >
+
+               <com.flyco.roundview.RoundLinearLayout
+                   android:id="@+id/ll_zxdlr"
+                   android:layout_width="0dp"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:orientation="vertical"
+                   android:gravity="center"
+                   app:rv_cornerRadius="@dimen/dimen_value_dp5"
+                   app:rv_backgroundColor="@color/color_DFF7F7"
+                   android:layout_marginLeft="@dimen/dimen_value_dp10"
+                   >
+                   <ImageView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:src="@mipmap/ludan"
+                       />
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="装箱单录入"
+                       android:textSize="@dimen/dimen_value_sp15"
+                       android:textColor="@color/color_3d3d3d"
+                       android:layout_marginTop="@dimen/dimen_value_dp10"
+                       />
+               </com.flyco.roundview.RoundLinearLayout>
+
+
+               <com.flyco.roundview.RoundLinearLayout
+
+                   android:layout_width="0dp"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:orientation="vertical"
+                   android:gravity="center"
+                   android:layout_toRightOf="@+id/ll_wuliu1"
+                   app:rv_backgroundColor="@color/color_fcab53"
+                   app:rv_cornerRadius="@dimen/dimen_value_dp5"
+                   android:layout_marginRight="@dimen/dimen_value_dp10"
+                   android:layout_marginLeft="@dimen/dimen_value_dp10"
+                   android:visibility="invisible"
+                   >
+
+               </com.flyco.roundview.RoundLinearLayout>
+
+
+
+
+
+
+
+           </LinearLayout>
+
 
 
        </RelativeLayout>
@@ -429,6 +494,37 @@
                     />
 
             </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_value_dp0.5"
+            android:background="@color/color_b3b3b3"
+            />
+
+
+        <LinearLayout
+            android:id="@+id/ll_look_update_zxd"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_value_dp50"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            >
+            <ImageView
+                android:layout_width="@dimen/dimen_value_dp20"
+                android:layout_height="@dimen/dimen_value_dp20"
+                android:src="@mipmap/ludan"
+                android:layout_marginLeft="@dimen/dimen_value_dp10"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="装箱单查询及修改"
+                android:textColor="@color/color_3d3d3d"
+                android:textSize="@dimen/dimen_value_sp14"
+                android:layout_marginLeft="@dimen/dimen_value_dp10"
+                />
+
+        </LinearLayout>
 
 
 

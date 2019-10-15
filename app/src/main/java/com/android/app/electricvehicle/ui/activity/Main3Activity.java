@@ -61,6 +61,9 @@ public class Main3Activity extends BaseMvpActivity<MianContract3.View, MainPrese
     private ImageView img_bg;//侧滑出来部分头部背景
     private ImageView img_main_bg;//首页的背景
 
+    private LinearLayout ll_zxdlr;//装箱单录入
+
+
     // 抽屉菜单对象
     private ActionBarDrawerToggle drawerbar;
     DrawerLayout drawerLayout;
@@ -93,13 +96,17 @@ public class Main3Activity extends BaseMvpActivity<MianContract3.View, MainPrese
             case R.id.back_layout://侧边栏
                 openLeftLayout(img_menu);
                 break;
-            case R.id.ll_wuliu1:
+            case R.id.ll_wuliu1://入库操作
                 Intent intent=new Intent(this,INDetailActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.ll_wuliu2:
+            case R.id.ll_wuliu2://出库操作
                 Intent intent1=new Intent(this,OUTDetailActivity.class);
                 startActivity(intent1);
+                break;
+            case R.id.ll_zxdlr://装箱单录入
+                Intent intent4=new Intent(this,ZxdLookAndUpdateActivity.class);
+                startActivity(intent4);
                 break;
             case R.id.ll_tuichu://退出帐号
                 DialogUtil.showBasicDialog(this, "退出提示", "确定退出当前账号?", (dialog, confirm) -> {
@@ -143,10 +150,11 @@ public class Main3Activity extends BaseMvpActivity<MianContract3.View, MainPrese
         img_bg=findViewById(R.id.img_bg);//侧滑出来的头部背景
         llWuliu1 = findViewById(R.id.ll_wuliu1);//入库
         llWuliu2 = findViewById(R.id.ll_wuliu2);//出库
+        ll_zxdlr=findViewById(R.id.ll_zxdlr);//装箱单录入
 
+        ll_myruku=findViewById(R.id.ll_myruku);//我的入库列表
+        ll_mychuku=findViewById(R.id.ll_mychuku);//我的出库列表
 
-        ll_myruku=findViewById(R.id.ll_myruku);
-        ll_mychuku=findViewById(R.id.ll_mychuku);
 
         drawerLayout = (DrawerLayout) findViewById(R.id.main_drawer_layout);
         //设置菜单内容之外其他区域的背景色
@@ -162,9 +170,11 @@ public class Main3Activity extends BaseMvpActivity<MianContract3.View, MainPrese
 
         llWuliu1.setOnClickListener(this);
         llWuliu2.setOnClickListener(this);
+        ll_zxdlr.setOnClickListener(this);
 
         ll_myruku.setOnClickListener(this);
         ll_mychuku.setOnClickListener(this);
+
 
         llTuichu.setOnClickListener(this);//退出帐号的按钮
 

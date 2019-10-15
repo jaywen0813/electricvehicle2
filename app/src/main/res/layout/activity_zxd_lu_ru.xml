@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_f5f5f5"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".ui.activity.ZxdLuRuActivity">
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/layer_header" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/include">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <EditText
+                android:id="@+id/et_gzdh"
+                style="@style/etTextView"
+                android:hint="工作单号" />
+
+            <View style="@style/viewline_heng" />
+
+            <EditText
+                android:id="@+id/et_bzfs"
+                style="@style/etTextView"
+                android:hint="包装方式" />
+
+
+            <View style="@style/viewline_heng" />
+
+
+            <LinearLayout style="@style/LinearLayoutView">
+
+                <TextView
+                    android:layout_width="@dimen/dimen_value_dp50"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/dimen_value_dp10"
+                    android:gravity="center"
+                    android:text="第"
+                    android:textColor="@color/color_3d3d3d"
+                    android:textSize="@dimen/dimen_value_sp14" />
+
+                <EditText
+                    android:id="@+id/et_djx"
+                    style="@style/etTextView1" />
+
+                <TextView
+                    android:layout_width="@dimen/dimen_value_dp50"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="箱"
+                    android:textColor="@color/color_3d3d3d"
+                    android:textSize="@dimen/dimen_value_sp14" />
+
+                <View style="@style/viewline_shu" />
+
+                <TextView
+                    android:layout_width="@dimen/dimen_value_dp50"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="共"
+                    android:textColor="@color/color_3d3d3d"
+                    android:textSize="@dimen/dimen_value_sp14" />
+
+                <EditText
+                    android:id="@+id/et_gjx"
+                    style="@style/etTextView1" />
+
+                <TextView
+                    android:layout_width="@dimen/dimen_value_dp50"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/dimen_value_dp10"
+                    android:gravity="center"
+                    android:text="箱"
+                    android:textColor="@color/color_3d3d3d"
+                    android:textSize="@dimen/dimen_value_sp14" />
+
+            </LinearLayout>
+
+            <View style="@style/viewline_heng" />
+
+            <LinearLayout style="@style/LinearLayoutView">
+
+                <EditText
+                    android:id="@+id/et_chang"
+                    style="@style/etTextView1"
+                    android:hint="箱长度" />
+
+                <View style="@style/viewline_shu" />
+
+                <EditText
+                    android:id="@+id/et_kuan"
+                    style="@style/etTextView1"
+                    android:hint="箱宽度" />
+
+                <View style="@style/viewline_shu" />
+
+                <EditText
+                    android:id="@+id/et_gao"
+                    style="@style/etTextView1"
+                    android:hint="箱高度" />
+            </LinearLayout>
+
+            <View style="@style/viewline_heng" />
+
+            <LinearLayout style="@style/LinearLayoutView">
+
+                <EditText
+                    android:id="@+id/et_jingzhong"
+                    style="@style/etTextView1"
+                    android:hint="净重" />
+
+                <View style="@style/viewline_shu" />
+
+                <EditText
+                    android:id="@+id/et_maozhong"
+                    style="@style/etTextView1"
+                    android:hint="毛重" />
+
+
+            </LinearLayout>
+
+            <View style="@style/viewline_heng" />
+
+
+            <com.flyco.roundview.RoundLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_value_dp100"
+                android:layout_marginTop="@dimen/dimen_value_dp10"
+                android:orientation="vertical"
+                app:rv_backgroundColor="@color/color_DFF7F7"
+                app:rv_cornerRadius="@dimen/dimen_value_dp5">
+
+                <LinearLayout style="@style/LinearLayoutView">
+
+                    <EditText
+                        android:id="@+id/et_soitem"
+                        style="@style/etTextView1"
+                        android:hint="SO Item" />
+
+                    <View style="@style/viewline_shu" />
+
+                    <EditText
+                        android:id="@+id/et_material"
+                        style="@style/etTextView1"
+                        android:hint="Material" />
+                </LinearLayout>
+
+                <View style="@style/viewline_heng" />
+
+                <LinearLayout style="@style/LinearLayoutView">
+
+                    <EditText
+                        android:id="@+id/et_rl"
+                        style="@style/etTextView1"
+                        android:hint="RL" />
+
+                    <View style="@style/viewline_shu" />
+
+                    <EditText
+                        android:id="@+id/et_agl"
+                        style="@style/etTextView1"
+                        android:hint="AGL" />
+
+                    <View style="@style/viewline_shu" />
+
+                    <EditText
+                        android:id="@+id/et_qty"
+                        style="@style/etTextView1"
+                        android:hint="Qty" />
+
+                </LinearLayout>
+
+
+            </com.flyco.roundview.RoundLinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+    <ImageView
+        android:id="@+id/img_add"
+        android:layout_width="@dimen/dimen_value_dp30"
+        android:layout_height="@dimen/dimen_value_dp30"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="@dimen/dimen_value_dp20"
+        android:layout_marginBottom="@dimen/dimen_value_dp20"
+        android:src="@mipmap/plus" />
+
+
+</RelativeLayout>

@@ -3,8 +3,9 @@ package com.android.app.electricvehicle.ui.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -12,23 +13,19 @@ import android.widget.TextView;
 
 import com.android.app.electricvehicle.R;
 import com.android.app.electricvehicle.base.BaseListActivity;
-import com.android.app.electricvehicle.entity.ActivityVO;
-import com.android.app.electricvehicle.entity.MyOutVO;
-import com.android.app.electricvehicle.model.main.contract.MYINContract;
-import com.android.app.electricvehicle.model.main.contract.MYOutContract;
-import com.android.app.electricvehicle.model.main.presenter.MyINPresenter;
-import com.android.app.electricvehicle.model.main.presenter.MyOutPresenter;
+import com.android.app.electricvehicle.entity.MyInVO;
+import com.android.app.electricvehicle.entity.ZXDListVO;
+import com.android.app.electricvehicle.model.main.contract.ZxdLookAndUpdateContract;
+import com.android.app.electricvehicle.model.main.presenter.ZxdLookAndUpdatePresenter;
 import com.android.app.electricvehicle.mvp.presenter.BasePresenter;
-import com.android.app.electricvehicle.ui.adapter.MyINListAdapter;
-import com.android.app.electricvehicle.ui.adapter.MyOutListAdapter;
+import com.android.app.electricvehicle.ui.adapter.ZXDListAdapter;
 import com.android.app.electricvehicle.utils.StatusBarUtil;
-import com.android.app.electricvehicle.utils.StatusBarUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyOutActivity extends BaseListActivity<MYOutContract.View, MyOutPresenter> implements MYOutContract.View,View.OnClickListener {
+public class ZxdLookAndUpdateActivity extends BaseListActivity<ZxdLookAndUpdateContract.View, ZxdLookAndUpdatePresenter> implements ZxdLookAndUpdateContract.View, View.OnClickListener  {
 
 
     private RelativeLayout titleLayoutRl;
@@ -44,15 +41,20 @@ public class MyOutActivity extends BaseListActivity<MYOutContract.View, MyOutPre
 
 
 
-    private List<MyOutVO.DataBean.DataListBean> activityVOList=new ArrayList<>();
-    MyOutPresenter presenter;
+    private List<ZXDListVO.DataBean.DataListBean> activityVOList=new ArrayList<>();
     private String pageNum = "1";//分页
 
+    ZxdLookAndUpdatePresenter presenter;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    }
     @Override
     protected int getLayoutById() {
-        return R.layout.activity_my_out;
+        return R.layout.activity_zxd_look_and_update;
     }
-
 
     @Override
     protected void initView() {
@@ -71,8 +73,8 @@ public class MyOutActivity extends BaseListActivity<MYOutContract.View, MyOutPre
 
         backLayout.setOnClickListener(this);
 
-        tvLayerHead.setText("我的出库单");
-        //状态栏
+        tvLayerHead.setText("装箱单列表");
+
         //状态栏
         StatusBarUtil.transparencyBar(this);//设置状态栏全透明
         StatusBarUtil.StatusBarLightMode(this);//设置状态栏黑色文字、图标，
@@ -80,18 +82,6 @@ public class MyOutActivity extends BaseListActivity<MYOutContract.View, MyOutPre
 
     }
 
-    @Override
-    protected void initDate() {
-        super.initDate();
-        //假数据
-//        for (int i = 0; i <5 ; i++) {
-//            MyOutVO.DataBean.DataListBean ss=new MyOutVO.DataBean.DataListBean();
-//            ss.setId("11");
-//            ss.setDataId("222");
-//            activityVOList.add(ss);
-//        }
-
-    }
 
     @Override
     public void onResume() {
@@ -111,13 +101,13 @@ public class MyOutActivity extends BaseListActivity<MYOutContract.View, MyOutPre
 
     @Override
     protected BasePresenter getPresenter() {
-        presenter=new MyOutPresenter();
+        presenter=new ZxdLookAndUpdatePresenter();
         return presenter;
     }
 
     @Override
     protected BaseQuickAdapter getRecyclerAdapter() {
-        return new MyOutListAdapter(activityVOList,this);
+        return new ZXDListAdapter(activityVOList,this);
     }
 
     @Override
@@ -133,17 +123,9 @@ public class MyOutActivity extends BaseListActivity<MYOutContract.View, MyOutPre
         presenter.getActivityList(page+"");
     }
 
+    //请求到列表以后的操作
     @Override
-    public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-        Intent intent=new Intent(this,MyOutDetailActivity.class);
-        intent.putExtra("id",activityVOList.get(position).getId());
-//        intent.putExtra("id",activityVOList.get(position).getPackingListId());
-        startActivity(intent);
-
-    }
-
-    @Override
-    public void showSuccess(List<MyOutVO.DataBean.DataListBean>  list) {
+    public void showSuccess(List<ZXDListVO.DataBean.DataListBean>   list) {
         srlList.setRefreshing(false);
 
         if (list == null || list.size() == 0) {
@@ -190,11 +172,18 @@ public class MyOutActivity extends BaseListActivity<MYOutContract.View, MyOutPre
 
     @Override
     public void showErr(String err) {
-        Log.e("error1",err);
+
     }
 
     @Override
     public Context getViewContext() {
         return this;
+    }
+
+    @Override
+    public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+        Intent intent=new Intent(this,ZxdlrDetailActivity.class);
+        intent.putExtra("id",activityVOList.get(position).getId());
+        startActivity(intent);
     }
 }

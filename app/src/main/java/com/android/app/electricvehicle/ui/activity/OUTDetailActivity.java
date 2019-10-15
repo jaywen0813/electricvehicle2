@@ -501,19 +501,19 @@ public class OUTDetailActivity extends BaseMvpActivity<OUTContract.View, OUTPres
         }
 
         //单据打印
-        if (!Kits.Empty.check(vDate.getData().getBillPrString())) {
-            if (vDate.getData().getBillPrString().equals("0")){
+        if (!Kits.Empty.check(vDate.getData().getBillPrint())) {
+            if (vDate.getData().getBillPrint().equals("0")){
                 tvDjdy.setText("单据打印：未打印");
-            }else if (vDate.getData().getBillPrString().equals("1")){
+            }else if (vDate.getData().getBillPrint().equals("1")){
                 tvDjdy.setText("单据打印：已打印");
-            }else if (vDate.getData().getBillPrString().equals("2")){
+            }else if (vDate.getData().getBillPrint().equals("2")){
                 tvDjdy.setText("单据打印：补打");
             }
 
         }
         //打印次数
-        if (!Kits.Empty.check(vDate.getData().getPrStringTimes())) {
-            tvDycs.setText("打印次数："+vDate.getData().getPrStringTimes()+"次");
+        if (!Kits.Empty.check(vDate.getData().getPrintTimes())) {
+            tvDycs.setText("打印次数："+vDate.getData().getPrintTimes()+"次");
         }
 
 

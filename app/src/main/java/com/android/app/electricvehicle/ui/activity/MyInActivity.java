@@ -184,6 +184,12 @@ public class MyInActivity extends BaseListActivity<MYINContract.View, MyINPresen
 
     }
 
+    //请求完成，取消进度条的
+    @Override
+    public void showComplete() {
+        srlList.setRefreshing(false);
+    }
+
     @Override
     public void showErr(String err) {
         Log.e("error1",err);

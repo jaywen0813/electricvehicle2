@@ -187,4 +187,14 @@ public interface MainService {
     @GET
     Observable<MyOutDetailVO> getmyoutdetailpage(@HeaderMap Map<String, String> headerMap,@Url String url);
 
+
+
+    //装箱单查询列表
+    @POST("packings/list/search")
+    Observable<ZXDListVO> zxdlist(@HeaderMap Map<String, String> headerMap, @Body RequestBody requestBody);
+
+
+    //装箱单列表点击以后的详情展示
+    @GET
+    Observable<ZxdlrDetailVO> zxdDetail(@HeaderMap Map<String, String> headerMap,@Url String url);
 }

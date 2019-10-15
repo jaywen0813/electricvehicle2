@@ -196,7 +196,6 @@ public class OUTPresenter extends BasePresenter<OUTContract.View> implements OUT
                     public void onNext(ItemDetailOutVO vDate) {
 
 
-
                         Log.d("qqqqqq", "onNext: " + vDate);
                         if (vDate.getSuccess().equals("T")) {
                             mView.showDetail(vDate);
