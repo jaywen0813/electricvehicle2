@@ -76,7 +76,7 @@
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
+        android:visibility="visible"
         android:layout_below="@+id/title_layout_rl"
         >
 
@@ -336,8 +336,22 @@
 
 
 
-                <View
-                    style="@style/viewline_shu"/>
+
+
+
+
+
+            </LinearLayout>
+            <View
+                style="@style/viewline_heng"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_value_dp50"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="visible">
 
 
                 <LinearLayout
@@ -355,110 +369,6 @@
                         android:text=""
                         android:textColor="@color/color_3d3d3d"
                         android:textSize="@dimen/dimen_value_sp14" />
-
-                </LinearLayout>
-
-
-            </LinearLayout>
-            <View
-                style="@style/viewline_heng"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_value_dp50"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:visibility="visible">
-                <LinearLayout
-                    style="@style/llView1">
-                    <TextView
-                        style="@style/tvTextView1"
-                        android:text="RL："
-                        />
-                    <EditText
-                        android:id="@+id/tv_rl"
-                        style="@style/etTextView1" />
-
-                </LinearLayout>
-
-
-                <View
-                    style="@style/viewline_shu"/>
-
-
-                <LinearLayout
-                    style="@style/llView1">
-                    <TextView
-                        style="@style/tvTextView1"
-                        android:text="AGL："
-                        />
-                    <EditText
-                        android:id="@+id/tv_agl"
-                        style="@style/etTextView1" />
-
-                </LinearLayout>
-
-
-
-                <View
-                    style="@style/viewline_shu"/>
-
-
-                <LinearLayout
-                    style="@style/llView1">
-                    <TextView
-                        style="@style/tvTextView1"
-                        android:text="Qty："
-                        />
-                    <EditText
-                        android:id="@+id/tv_qty"
-                        style="@style/etTextView1" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-
-            <View
-                style="@style/viewline_heng"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_value_dp50"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:visibility="visible">
-
-                <LinearLayout
-                    style="@style/llView1">
-                    <TextView
-                        android:text="SO Item:"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:textColor="@color/color_3d3d3d"
-                        android:textSize="@dimen/dimen_value_sp13"
-                        android:gravity="center_vertical"
-                        />
-                    <EditText
-                        android:id="@+id/tv_so"
-                        style="@style/etTextView1" />
-
-                </LinearLayout>
-
-                <View
-                    style="@style/viewline_shu"/>
-
-                <LinearLayout
-                    style="@style/llView1">
-                    <TextView
-                        android:text="material:"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:textColor="@color/color_3d3d3d"
-                        android:textSize="@dimen/dimen_value_sp13"
-                        android:gravity="center_vertical"
-                        />
-                    <EditText
-                        android:id="@+id/tv_material"
-                        style="@style/etTextView1" />
 
                 </LinearLayout>
 
@@ -529,12 +439,8 @@
             </LinearLayout>
 
 
-
-
             <View
                 style="@style/viewline_heng"/>
-
-
 
 
 
@@ -565,8 +471,112 @@
 
 
             </LinearLayout>
+            <View
+                style="@style/viewline_heng"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_value_dp50"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <LinearLayout
+                    style="@style/llView1">
+                    <TextView
+                        android:text="SO Item:"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textColor="@color/color_3d3d3d"
+                        android:textSize="@dimen/dimen_value_sp13"
+                        android:gravity="center_vertical"
+                        />
+                    <EditText
+                        android:id="@+id/tv_so"
+                        style="@style/etTextView1" />
+
+                </LinearLayout>
+
+                <View
+                    style="@style/viewline_shu"/>
+
+                <LinearLayout
+                    style="@style/llView1">
+                    <TextView
+                        android:text="material:"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textColor="@color/color_3d3d3d"
+                        android:textSize="@dimen/dimen_value_sp13"
+                        android:gravity="center_vertical"
+                        />
+                    <EditText
+                        android:id="@+id/tv_material"
+                        style="@style/etTextView1" />
+
+                </LinearLayout>
 
 
+
+            </LinearLayout>
+
+            <View
+                style="@style/viewline_heng"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_value_dp50"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="visible">
+                <LinearLayout
+                    style="@style/llView1">
+                    <TextView
+                        style="@style/tvTextView1"
+                        android:text="RL："
+                        />
+                    <EditText
+                        android:id="@+id/tv_rl"
+                        style="@style/etTextView1" />
+
+                </LinearLayout>
+
+
+                <View
+                    style="@style/viewline_shu"/>
+
+
+                <LinearLayout
+                    style="@style/llView1">
+                    <TextView
+                        style="@style/tvTextView1"
+                        android:text="AGL："
+                        />
+                    <EditText
+                        android:id="@+id/tv_agl"
+                        style="@style/etTextView1" />
+
+                </LinearLayout>
+
+
+
+                <View
+                    style="@style/viewline_shu"/>
+
+
+                <LinearLayout
+                    style="@style/llView1">
+                    <TextView
+                        style="@style/tvTextView1"
+                        android:text="Qty："
+                        />
+                    <EditText
+                        android:id="@+id/tv_qty"
+                        style="@style/etTextView1" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <View
+                style="@style/viewline_heng"/>
         </LinearLayout>
     </ScrollView>
 
