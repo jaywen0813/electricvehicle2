@@ -43,6 +43,7 @@ public class MyINPresenter extends BasePresenter<MYINContract.View> implements M
 
         paramsMap.put("pageNo", pageNo);
         paramsMap.put("pageSize", "10");
+        paramsMap.put("enable", "1");//传了以后可以查看到作废和没有作废的所有数据，不传的话只能看到没有作废的
 //        MainDataRepository.getInstance().MyInService(paramsMap)
 //                .subscribeOn(Schedulers.io())//网络是耗时操作,所以在io线程中去执行
 //                .observeOn(AndroidSchedulers.mainThread())//请求成功后回到主线程中

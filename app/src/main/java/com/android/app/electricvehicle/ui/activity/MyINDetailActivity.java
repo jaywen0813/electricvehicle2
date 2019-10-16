@@ -5,18 +5,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.app.electricvehicle.R;
 import com.android.app.electricvehicle.base.BaseMvpActivity;
+import com.android.app.electricvehicle.entity.DeleteInDetailVO;
 import com.android.app.electricvehicle.entity.ItemDetailInVO;
 import com.android.app.electricvehicle.entity.MyInVO;
 import com.android.app.electricvehicle.model.main.contract.MyInDetailContract;
 import com.android.app.electricvehicle.model.main.presenter.MyINDetailPresenter;
 import com.android.app.electricvehicle.mvp.presenter.BasePresenter;
+import com.android.app.electricvehicle.utils.DialogUtil;
 import com.android.app.electricvehicle.utils.Kits;
 import com.android.app.electricvehicle.utils.StatusBarUtil;
 import com.android.app.electricvehicle.utils.StatusBarUtils;
@@ -56,7 +60,7 @@ public class MyINDetailActivity extends BaseMvpActivity<MyInDetailContract.View,
 
     private ScrollView scrollView;
     private LinearLayout ll_wsj;
-
+    private ImageView img_delete;
 
 
 
@@ -106,8 +110,10 @@ public class MyINDetailActivity extends BaseMvpActivity<MyInDetailContract.View,
 
         scrollView=findViewById(R.id.scrollView);//有数据的时候显示
         ll_wsj=findViewById(R.id.ll_wsj);//无数据
+        img_delete=findViewById(R.id.img_delete);//删除按钮
 
         backLayout.setOnClickListener(this);
+        img_delete.setOnClickListener(this);
 
         //状态栏
         //状态栏
@@ -146,6 +152,17 @@ public class MyINDetailActivity extends BaseMvpActivity<MyInDetailContract.View,
             case R.id.back_layout:
                 finish();
                 break;
+            case R.id.img_delete://删除按钮
+                DialogUtil.showBasicDialog(this, "作废提示", "确定作废此条入库单?", (dialog, confirm) -> {
+
+                    if (confirm) {
+                        //退出登录
+//                        loading("正在退出...");
+                        presenter.deleteThis(id,packingCode);
+                    }
+                    dialog.dismiss();
+                });
+                break;
         }
     }
 
@@ -158,6 +175,24 @@ public class MyINDetailActivity extends BaseMvpActivity<MyInDetailContract.View,
         if (!Kits.Empty.check(vDate.getData())){
             scrollView.setVisibility(View.VISIBLE);
             ll_wsj.setVisibility(View.GONE);
+
+
+
+            //查询此单是否作废
+            if (!Kits.Empty.check(vDate.getData().getDisabled())){
+                if (vDate.getData().getDisabled().equals("true")){//代表作废
+                    //显示作废的图标，并不给点击事件
+                    img_delete.setImageResource(R.mipmap.img_zuofei);
+                    img_delete.setEnabled(false);
+
+
+                }else {
+                    img_delete.setImageResource(R.mipmap.img_delete);//显示删除按钮
+                    img_delete.setEnabled(true);
+
+                }
+            }
+
 
             if (!Kits.Empty.check(vDate.getData().getPackingList())){
                 //工作单号
@@ -303,6 +338,25 @@ public class MyINDetailActivity extends BaseMvpActivity<MyInDetailContract.View,
     public void showwsj() {
         scrollView.setVisibility(View.GONE);
         ll_wsj.setVisibility(View.VISIBLE);
+    }
+
+    //删除以后返回的方法
+    @Override
+    public void showdelete(DeleteInDetailVO result) {
+        if (!Kits.Empty.check(result)){
+            if (!Kits.Empty.check(result.getSuccess())){
+                if (result.getSuccess().equals("T")){
+                    Toast.makeText(MyINDetailActivity.this,"此单已作废",Toast.LENGTH_LONG).show();
+                }else {
+                    Toast.makeText(MyINDetailActivity.this,result.getMessage(),Toast.LENGTH_LONG).show();
+                }
+            }else {
+                Toast.makeText(MyINDetailActivity.this,"操作失败",Toast.LENGTH_LONG).show();
+            }
+
+        }else {
+            Toast.makeText(MyINDetailActivity.this,"操作失败",Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override

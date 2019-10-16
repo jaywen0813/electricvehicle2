@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,13 +10,16 @@
     tools:context=".ui.activity.MyINDetailActivity">
 
 
-    <include layout="@layout/layer_header" />
+    <include
+        android:id="@+id/include"
+        layout="@layout/layer_header" />
 
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone"
+        android:layout_below="@+id/include"
         >
 
         <LinearLayout
@@ -431,6 +434,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center"
+        android:layout_below="@+id/include"
         >
         <ImageView
             android:layout_width="wrap_content"
@@ -441,4 +445,16 @@
     </LinearLayout>
 
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/img_delete"
+        android:layout_width="@dimen/dimen_value_dp50"
+        android:layout_height="@dimen/dimen_value_dp50"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/dimen_value_dp20"
+        android:layout_marginBottom="@dimen/dimen_value_dp20"
+        android:src="@mipmap/img_delete"
+        />
+
+
+</RelativeLayout>

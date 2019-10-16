@@ -300,7 +300,7 @@ public class MyInVO implements Serializable {
             private String version;
             private boolean locked;
             private long lastAccess;
-            private boolean disabled;
+            private String disabled;
             private String creatorId;
             private String createdBy;
             private long createdTime;
@@ -321,6 +321,15 @@ public class MyInVO implements Serializable {
             private PackingListBean packingList;
             private boolean enable;
             private String instoreStateText;
+
+
+            public String getDisabled() {
+                return disabled;
+            }
+
+            public void setDisabled(String disabled) {
+                this.disabled = disabled;
+            }
 
             public String getId() {
                 return id;
@@ -362,13 +371,7 @@ public class MyInVO implements Serializable {
                 this.lastAccess = lastAccess;
             }
 
-            public boolean isDisabled() {
-                return disabled;
-            }
 
-            public void setDisabled(boolean disabled) {
-                this.disabled = disabled;
-            }
 
             public String getCreatorId() {
                 return creatorId;

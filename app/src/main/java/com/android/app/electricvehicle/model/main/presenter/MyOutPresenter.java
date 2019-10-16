@@ -39,6 +39,7 @@ public class MyOutPresenter extends BasePresenter<MYOutContract.View> implements
 
         paramsMap.put("pageNo", currentPage);
         paramsMap.put("pageSize", "10");
+        paramsMap.put("enable", "1");//传了就可以查看作废的单，不传的话只显示有效的单
 //        MainDataRepository.getInstance().MyOutService(paramsMap)
 //                .subscribeOn(Schedulers.io())//网络是耗时操作,所以在io线程中去执行
 //                .observeOn(AndroidSchedulers.mainThread())//请求成功后回到主线程中

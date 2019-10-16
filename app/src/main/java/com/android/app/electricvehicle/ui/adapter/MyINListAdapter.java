@@ -69,10 +69,15 @@ public class MyINListAdapter extends BaseQuickAdapter<MyInVO.DataBean.DataListBe
 
 
         //状态
-        if (!(bean.getInstoreState()==null || bean.getInstoreState().equals(""))){
-            if (bean.getInstoreState().equals("1")){//已完成   1未出库 2已出库
 
-                helper.setText(R.id.tv_wancheng,"未出库");
+        if (!(bean.getPackingList()==null ||bean.getPackingList().equals(""))){
+
+
+
+        if (!(bean.getPackingList().getStoreState()==null || bean.getPackingList().getStoreState().equals(""))){
+            if (bean.getInstoreState().equals("0")){//已完成  0暂存 1待入库 2已入库 3已出库
+
+                helper.setText(R.id.tv_wancheng,"暂存");
 
                 helper.setTextColor(R.id.tv_wancheng,mContext.getResources().getColor(R.color.color_21BFBF));
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -81,7 +86,29 @@ public class MyINListAdapter extends BaseQuickAdapter<MyInVO.DataBean.DataListBe
 
 //                helper.setVisible(R.id.tv_wancheng,View.VISIBLE);
 
-            }else {//未完成
+            }else  if (bean.getInstoreState().equals("1")){//已完成  0暂存 1待入库 2已入库 3已出库
+
+                helper.setText(R.id.tv_wancheng,"待入库");
+
+                helper.setTextColor(R.id.tv_wancheng,mContext.getResources().getColor(R.color.color_21BFBF));
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    helper.setBackgroundRes(R.id.tv_wancheng,R.drawable.shap_main_wwc2);
+                }
+
+//                helper.setVisible(R.id.tv_wancheng,View.VISIBLE);
+
+            }else  if (bean.getInstoreState().equals("2")){//已完成  0暂存 1待入库 2已入库 3已出库
+
+                helper.setText(R.id.tv_wancheng,"已入库");
+
+                helper.setTextColor(R.id.tv_wancheng,mContext.getResources().getColor(R.color.color_21BFBF));
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    helper.setBackgroundRes(R.id.tv_wancheng,R.drawable.shap_main_wwc2);
+                }
+
+//                helper.setVisible(R.id.tv_wancheng,View.VISIBLE);
+
+            }else {//已出库
                 helper.setText(R.id.tv_wancheng,"已出库");
                 helper.setTextColor(R.id.tv_wancheng,mContext.getResources().getColor(R.color.color_2282EE));
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -95,6 +122,7 @@ public class MyINListAdapter extends BaseQuickAdapter<MyInVO.DataBean.DataListBe
 //            holder.tvWancheng.setVisibility(View.INVISIBLE);
         }
 
+        }
 
     }
 }

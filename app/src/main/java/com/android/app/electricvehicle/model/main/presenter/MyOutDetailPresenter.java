@@ -2,6 +2,7 @@ package com.android.app.electricvehicle.model.main.presenter;
 
 import android.util.Log;
 
+import com.android.app.electricvehicle.entity.DeleteOUTdetailVO;
 import com.android.app.electricvehicle.entity.ItemDetailInVO;
 import com.android.app.electricvehicle.entity.ItemDetailOutVO;
 import com.android.app.electricvehicle.entity.MyOutDetailVO;
@@ -114,6 +115,57 @@ public class MyOutDetailPresenter extends BasePresenter<MyOutDetailContract.View
                 });
 
 
+    }
+
+
+
+
+    //作废
+    @Override
+    public void deleteThis(String id) {
+        Retrofit retrofit = new Retrofit.Builder()
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                //baseUrl:参数之前的部分
+                .baseUrl("https://api.zrcloud.me/interroll/").build();
+        MainService services = retrofit.create(MainService.class);
+
+
+        SortedMap<String, String> paramsMap = new TreeMap<>();
+        paramsMap.put("id",id);
+        //parames1:url传空字符串就可以，但是不能不写
+        Observable<DeleteOUTdetailVO> postPage = services.deleteOutDetail(ParameterUtils.getHeaser(paramsMap),ParameterUtils.getJsonBody(paramsMap),"packings/outstore/disable/"+id+"/1");
+        postPage.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<DeleteOUTdetailVO>() {
+
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.d("heihei", "onError: 失败");
+                        e.printStackTrace();
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(DeleteOUTdetailVO pageBean) {
+                        Log.d("heihie", "onNext: " + pageBean.getMessage());
+                        mView.showdelete(pageBean);
+
+                        if (pageBean.getSuccess().equals("T")){//操作成功以后，刷新数据
+                            getUP(id);//再查询一次
+                        }
+                    }
+                });
     }
 
 

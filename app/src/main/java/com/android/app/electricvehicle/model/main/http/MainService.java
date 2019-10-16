@@ -209,4 +209,12 @@ public interface MainService {
     @POST
     Observable<ZxdDetailDeleteVO> postdeletePage(@HeaderMap Map<String, String> headerMap,@Body RequestBody requestbody,@Url String url);
 
+
+    //入库详情作废
+    @POST
+    Observable<DeleteInDetailVO> deleteInDetail(@HeaderMap Map<String, String> headerMap,@Body RequestBody requestbody,@Url String url);
+
+    //出库详情作废
+    @POST
+    Observable<DeleteOUTdetailVO> deleteOutDetail(@HeaderMap Map<String, String> headerMap,@Body RequestBody requestbody,@Url String url);
 }
