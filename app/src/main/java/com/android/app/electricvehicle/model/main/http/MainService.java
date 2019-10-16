@@ -205,7 +205,7 @@ public interface MainService {
     Observable<ZxdDetailUpdateVO> updateDetail(@HeaderMap Map<String, String> headerMap,@Body RequestBody requestbody);
 
 
-    //删除作废装箱单详情
+    //装箱单详情作废
     @POST
     Observable<ZxdDetailDeleteVO> postdeletePage(@HeaderMap Map<String, String> headerMap,@Body RequestBody requestbody,@Url String url);
 
@@ -217,4 +217,9 @@ public interface MainService {
     //出库详情作废
     @POST
     Observable<DeleteOUTdetailVO> deleteOutDetail(@HeaderMap Map<String, String> headerMap,@Body RequestBody requestbody,@Url String url);
+
+
+    //添加装箱单信息
+    @POST("packings/list/save")
+    Observable<ZxdDetailAddVO> addzxdlr(@HeaderMap Map<String, String> headerMap,@Body RequestBody requestbody);
 }

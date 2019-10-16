@@ -515,7 +515,7 @@ public class ZxdlrDetailActivity extends BaseMvpActivity<ZxdlrDetailContract.Vie
                 if (zxdDetailUpdateVO.getSuccess().equals("T")){
                     Toast.makeText(ZxdlrDetailActivity.this,"修改成功",Toast.LENGTH_LONG).show();
                 }else {
-                    Toast.makeText(ZxdlrDetailActivity.this,"修改失败",Toast.LENGTH_LONG).show();
+                    Toast.makeText(ZxdlrDetailActivity.this,zxdDetailUpdateVO.getMessage(),Toast.LENGTH_LONG).show();
                 }
             }else {
                 Toast.makeText(ZxdlrDetailActivity.this,"修改失败",Toast.LENGTH_LONG).show();
@@ -535,7 +535,7 @@ public class ZxdlrDetailActivity extends BaseMvpActivity<ZxdlrDetailContract.Vie
                 if (zxdDetailDeleteVO.getSuccess().equals("T")){
                     Toast.makeText(ZxdlrDetailActivity.this,"此单已作废",Toast.LENGTH_LONG).show();
                 }else {
-                    Toast.makeText(ZxdlrDetailActivity.this,"操作失败",Toast.LENGTH_LONG).show();
+                    Toast.makeText(ZxdlrDetailActivity.this,zxdDetailDeleteVO.getMessage(),Toast.LENGTH_LONG).show();
                 }
             }else {
                 Toast.makeText(ZxdlrDetailActivity.this,"操作失败",Toast.LENGTH_LONG).show();

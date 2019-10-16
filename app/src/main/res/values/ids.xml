@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="text_tvSo" type="id">text_tvSo</item>
+    <item name="text_tvMaterial" type="id">text_tvMaterial</item>
+    <item name="text_tvRl" type="id">text_tvRl</item>
+    <item name="text_tvAgl" type="id">text_tvAgl</item>
+    <item name="text_tvQty" type="id">text_tvQty</item>
+
+</resources>

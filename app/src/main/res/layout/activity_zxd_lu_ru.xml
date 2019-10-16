@@ -9,14 +9,70 @@
     android:orientation="vertical"
     tools:context=".ui.activity.ZxdLuRuActivity">
 
-    <include
-        android:id="@+id/include"
-        layout="@layout/layer_header" />
+    <RelativeLayout
+        android:id="@+id/title_layout_rl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_value_dp50"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/back_layout"
+            android:layout_width="50dip"
+            android:layout_height="fill_parent"
+            android:layout_alignParentLeft="true">
+
+            <LinearLayout
+                android:layout_width="@dimen/dimen_value_dp15"
+                android:layout_height="@dimen/dimen_value_dp15"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/dimen_value_dp10"
+                android:background="@mipmap/jiantou_zuo"
+                android:gravity="center"
+                android:orientation="horizontal"></LinearLayout>
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tv_layer_head"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:textColor="@color/regis_title"
+            android:textSize="@dimen/dimen_value_dp20" />
+
+        <LinearLayout
+            android:id="@+id/navigation_user_layout"
+            android:layout_width="@dimen/dimen_value_dp60"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dimen_value_dp10"
+            android:gravity="center_vertical|right"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/farm_input_save"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:text="添加"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/dimen_value_dp15" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
 
     <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/include">
+        android:layout_below="@+id/title_layout_rl"
+        android:visibility="visible">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,166 +80,333 @@
             android:orientation="vertical">
 
 
-            <EditText
-                android:id="@+id/et_gzdh"
-                style="@style/etTextView"
-                android:hint="工作单号" />
-
-            <View style="@style/viewline_heng" />
-
-            <EditText
-                android:id="@+id/et_bzfs"
-                style="@style/etTextView"
-                android:hint="包装方式" />
-
-
-            <View style="@style/viewline_heng" />
-
-
-            <LinearLayout style="@style/LinearLayoutView">
-
-                <TextView
-                    android:layout_width="@dimen/dimen_value_dp50"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="@dimen/dimen_value_dp10"
-                    android:gravity="center"
-                    android:text="第"
-                    android:textColor="@color/color_3d3d3d"
-                    android:textSize="@dimen/dimen_value_sp14" />
-
-                <EditText
-                    android:id="@+id/et_djx"
-                    style="@style/etTextView1" />
-
-                <TextView
-                    android:layout_width="@dimen/dimen_value_dp50"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="箱"
-                    android:textColor="@color/color_3d3d3d"
-                    android:textSize="@dimen/dimen_value_sp14" />
-
-                <View style="@style/viewline_shu" />
-
-                <TextView
-                    android:layout_width="@dimen/dimen_value_dp50"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="共"
-                    android:textColor="@color/color_3d3d3d"
-                    android:textSize="@dimen/dimen_value_sp14" />
-
-                <EditText
-                    android:id="@+id/et_gjx"
-                    style="@style/etTextView1" />
-
-                <TextView
-                    android:layout_width="@dimen/dimen_value_dp50"
-                    android:layout_height="match_parent"
-                    android:layout_marginRight="@dimen/dimen_value_dp10"
-                    android:gravity="center"
-                    android:text="箱"
-                    android:textColor="@color/color_3d3d3d"
-                    android:textSize="@dimen/dimen_value_sp14" />
-
-            </LinearLayout>
-
-            <View style="@style/viewline_heng" />
-
-            <LinearLayout style="@style/LinearLayoutView">
-
-                <EditText
-                    android:id="@+id/et_chang"
-                    style="@style/etTextView1"
-                    android:hint="箱长度" />
-
-                <View style="@style/viewline_shu" />
-
-                <EditText
-                    android:id="@+id/et_kuan"
-                    style="@style/etTextView1"
-                    android:hint="箱宽度" />
-
-                <View style="@style/viewline_shu" />
-
-                <EditText
-                    android:id="@+id/et_gao"
-                    style="@style/etTextView1"
-                    android:hint="箱高度" />
-            </LinearLayout>
-
-            <View style="@style/viewline_heng" />
-
-            <LinearLayout style="@style/LinearLayoutView">
-
-                <EditText
-                    android:id="@+id/et_jingzhong"
-                    style="@style/etTextView1"
-                    android:hint="净重" />
-
-                <View style="@style/viewline_shu" />
-
-                <EditText
-                    android:id="@+id/et_maozhong"
-                    style="@style/etTextView1"
-                    android:hint="毛重" />
-
-
-            </LinearLayout>
-
-            <View style="@style/viewline_heng" />
-
-
-            <com.flyco.roundview.RoundLinearLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_value_dp100"
-                android:layout_marginTop="@dimen/dimen_value_dp10"
+                android:layout_height="@dimen/dimen_value_dp50"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <TextView
+                    style="@style/textviewdetailleftstyle"
+                    android:text="工作单号" />
+
+
+                <EditText
+                    android:id="@+id/tv_gzdh"
+                    style="@style/textviewdetailrightstyle" />
+
+
+            </LinearLayout>
+
+            <View style="@style/viewline_heng" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_value_dp50"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/textviewdetailleftstyle"
+                    android:text="日       期" />
+
+                <TextView
+                    android:id="@+id/tv_date"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/color_3d3d3d"
+                    android:textSize="@dimen/dimen_value_sp14" />
+
+
+            </LinearLayout>
+
+
+            <View style="@style/viewline_heng" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_value_dp50"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/textviewdetailleftstyle"
+                    android:text="包装方式" />
+
+                <EditText
+                    android:id="@+id/tv_bzfs"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:hint="0：纸箱；1：木箱；2：木托盘纸箱"
+                    android:textColor="@color/color_3d3d3d"
+                    android:textColorHint="@color/color_b3b3b3"
+                    android:textSize="@dimen/dimen_value_sp14" />
+
+
+            </LinearLayout>
+
+            <View style="@style/viewline_heng" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_value_dp50"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <LinearLayout style="@style/llView1">
+
+                    <TextView
+                        style="@style/tvTextView1"
+                        android:text="第" />
+
+                    <EditText
+                        android:id="@+id/tv_djx"
+                        style="@style/etTextView1" />
+
+                    <TextView
+                        style="@style/tvTextView1"
+                        android:text="箱" />
+
+                </LinearLayout>
+
+                <View style="@style/viewline_shu" />
+
+                <LinearLayout style="@style/llView1">
+
+                    <TextView
+                        style="@style/tvTextView1"
+                        android:text="共" />
+
+                    <EditText
+                        android:id="@+id/tv_gjx"
+                        style="@style/etTextView1" />
+
+                    <TextView
+                        style="@style/tvTextView1"
+                        android:text="箱" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View style="@style/viewline_heng" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_value_dp50"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <LinearLayout style="@style/llView1">
+
+                    <TextView
+                        style="@style/tvTextView1"
+                        android:text="长：" />
+
+                    <EditText
+                        android:id="@+id/tv_chang"
+                        style="@style/etTextView1" />
+
+                </LinearLayout>
+
+
+                <View style="@style/viewline_shu" />
+
+
+                <LinearLayout style="@style/llView1">
+
+                    <TextView
+                        style="@style/tvTextView1"
+                        android:text="宽：" />
+
+                    <EditText
+                        android:id="@+id/tv_kuan"
+                        style="@style/etTextView1" />
+
+                </LinearLayout>
+
+
+                <View style="@style/viewline_shu" />
+
+
+                <LinearLayout style="@style/llView1">
+
+                    <TextView
+                        style="@style/tvTextView1"
+                        android:text="高：" />
+
+                    <EditText
+                        android:id="@+id/tv_gao"
+                        style="@style/etTextView1" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <View style="@style/viewline_heng" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_value_dp50"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <LinearLayout style="@style/llView1">
+
+                    <TextView
+                        style="@style/tvTextView1"
+                        android:text="净重：" />
+
+                    <EditText
+                        android:id="@+id/tv_jingzhong"
+                        style="@style/etTextView1" />
+
+                </LinearLayout>
+
+
+                <View style="@style/viewline_shu" />
+
+
+                <LinearLayout style="@style/llView1">
+
+                    <TextView
+                        style="@style/tvTextView1"
+                        android:text="毛重：" />
+
+                    <EditText
+                        android:id="@+id/tv_maozhong"
+                        style="@style/etTextView1" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <View style="@style/viewline_heng" />
+
+
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="@dimen/dimen_value_dp50"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:visibility="visible">-->
+
+                <!--<LinearLayout style="@style/llView1">-->
+
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:gravity="center_vertical"-->
+                        <!--android:text="SO Item:"-->
+                        <!--android:textColor="@color/color_3d3d3d"-->
+                        <!--android:textSize="@dimen/dimen_value_sp13" />-->
+
+                    <!--<EditText-->
+                        <!--android:id="@+id/tv_so"-->
+                        <!--style="@style/etTextView1" />-->
+
+                <!--</LinearLayout>-->
+
+                <!--<View style="@style/viewline_shu" />-->
+
+                <!--<LinearLayout style="@style/llView1">-->
+
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:gravity="center_vertical"-->
+                        <!--android:text="material:"-->
+                        <!--android:textColor="@color/color_3d3d3d"-->
+                        <!--android:textSize="@dimen/dimen_value_sp13" />-->
+
+                    <!--<EditText-->
+                        <!--android:id="@+id/tv_material"-->
+                        <!--style="@style/etTextView1" />-->
+
+                <!--</LinearLayout>-->
+
+
+            <!--</LinearLayout>-->
+
+
+            <!--<View style="@style/viewline_heng" />-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="@dimen/dimen_value_dp50"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:visibility="visible">-->
+
+                <!--<LinearLayout style="@style/llView1">-->
+
+                    <!--<TextView-->
+                        <!--style="@style/tvTextView1"-->
+                        <!--android:text="RL：" />-->
+
+                    <!--<EditText-->
+                        <!--android:id="@+id/tv_rl"-->
+                        <!--style="@style/etTextView1" />-->
+
+                <!--</LinearLayout>-->
+
+
+                <!--<View style="@style/viewline_shu" />-->
+
+
+                <!--<LinearLayout style="@style/llView1">-->
+
+                    <!--<TextView-->
+                        <!--style="@style/tvTextView1"-->
+                        <!--android:text="AGL：" />-->
+
+                    <!--<EditText-->
+                        <!--android:id="@+id/tv_agl"-->
+                        <!--style="@style/etTextView1" />-->
+
+                <!--</LinearLayout>-->
+
+
+                <!--<View style="@style/viewline_shu" />-->
+
+
+                <!--<LinearLayout style="@style/llView1">-->
+
+                    <!--<TextView-->
+                        <!--style="@style/tvTextView1"-->
+                        <!--android:text="Qty：" />-->
+
+                    <!--<EditText-->
+                        <!--android:id="@+id/tv_qty"-->
+                        <!--style="@style/etTextView1" />-->
+
+                <!--</LinearLayout>-->
+
+            <!--</LinearLayout>-->
+
+
+            <!--<View style="@style/viewline_heng" />-->
+
+            <LinearLayout
+                android:id="@+id/ll_add"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:orientation="vertical"
-                app:rv_backgroundColor="@color/color_DFF7F7"
-                app:rv_cornerRadius="@dimen/dimen_value_dp5">
+                ></LinearLayout>
 
-                <LinearLayout style="@style/LinearLayoutView">
-
-                    <EditText
-                        android:id="@+id/et_soitem"
-                        style="@style/etTextView1"
-                        android:hint="SO Item" />
-
-                    <View style="@style/viewline_shu" />
-
-                    <EditText
-                        android:id="@+id/et_material"
-                        style="@style/etTextView1"
-                        android:hint="Material" />
-                </LinearLayout>
-
-                <View style="@style/viewline_heng" />
-
-                <LinearLayout style="@style/LinearLayoutView">
-
-                    <EditText
-                        android:id="@+id/et_rl"
-                        style="@style/etTextView1"
-                        android:hint="RL" />
-
-                    <View style="@style/viewline_shu" />
-
-                    <EditText
-                        android:id="@+id/et_agl"
-                        style="@style/etTextView1"
-                        android:hint="AGL" />
-
-                    <View style="@style/viewline_shu" />
-
-                    <EditText
-                        android:id="@+id/et_qty"
-                        style="@style/etTextView1"
-                        android:hint="Qty" />
-
-                </LinearLayout>
-
-
-            </com.flyco.roundview.RoundLinearLayout>
 
 
         </LinearLayout>

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
 
     <com.flyco.roundview.RoundLinearLayout
@@ -17,41 +16,88 @@
 
         <LinearLayout style="@style/LinearLayoutView">
 
-            <EditText
-                android:id="@+id/et_soitem"
-                style="@style/etTextView1"
-                android:hint="SO Item" />
+            <LinearLayout style="@style/llView1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="SO Item:"
+                    android:textColor="@color/color_3d3d3d"
+                    android:textSize="@dimen/dimen_value_sp13" />
+
+                <EditText
+                    android:id="@+id/tv_so"
+                    style="@style/etTextView1" />
+
+            </LinearLayout>
 
             <View style="@style/viewline_shu" />
 
-            <EditText
-                android:id="@+id/et_material"
-                style="@style/etTextView1"
-                android:hint="Material" />
+            <LinearLayout style="@style/llView1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="material:"
+                    android:textColor="@color/color_3d3d3d"
+                    android:textSize="@dimen/dimen_value_sp13" />
+
+                <EditText
+                    android:id="@+id/tv_material"
+                    style="@style/etTextView1" />
+
+            </LinearLayout>
         </LinearLayout>
 
         <View style="@style/viewline_heng" />
 
         <LinearLayout style="@style/LinearLayoutView">
 
-            <EditText
-                android:id="@+id/et_rl"
-                style="@style/etTextView1"
-                android:hint="RL" />
+            <LinearLayout style="@style/llView1">
+
+                <TextView
+                    style="@style/tvTextView1"
+                    android:text="RL：" />
+
+                <EditText
+                    android:id="@+id/tv_rl"
+                    style="@style/etTextView1" />
+
+            </LinearLayout>
+
 
             <View style="@style/viewline_shu" />
 
-            <EditText
-                android:id="@+id/et_agl"
-                style="@style/etTextView1"
-                android:hint="AGL" />
+
+            <LinearLayout style="@style/llView1">
+
+                <TextView
+                    style="@style/tvTextView1"
+                    android:text="AGL：" />
+
+                <EditText
+                    android:id="@+id/tv_agl"
+                    style="@style/etTextView1" />
+
+            </LinearLayout>
+
 
             <View style="@style/viewline_shu" />
 
-            <EditText
-                android:id="@+id/et_qty"
-                style="@style/etTextView1"
-                android:hint="Qty" />
+
+            <LinearLayout style="@style/llView1">
+
+                <TextView
+                    style="@style/tvTextView1"
+                    android:text="Qty：" />
+
+                <EditText
+                    android:id="@+id/tv_qty"
+                    style="@style/etTextView1" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
