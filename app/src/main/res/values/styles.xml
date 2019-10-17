@@ -174,7 +174,6 @@
         <item name="android:layout_height">match_parent</item>
         <item name="android:textColor">@color/color_3d3d3d</item>
         <item name="android:textSize">@dimen/dimen_value_sp14</item>
-        <item name="android:background">@color/colorPrimary</item>
         <item name="android:gravity">center</item>
 
     </style>

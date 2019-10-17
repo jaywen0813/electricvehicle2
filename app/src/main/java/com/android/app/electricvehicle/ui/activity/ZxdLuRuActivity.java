@@ -141,8 +141,6 @@ public class ZxdLuRuActivity extends BaseMvpActivity<ZxdlrAddContract.View, Zxdl
 
 
 
-
-
                 break;
             case R.id.farm_input_save://提交按钮
 

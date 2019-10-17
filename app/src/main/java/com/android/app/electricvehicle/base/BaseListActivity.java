@@ -142,7 +142,7 @@ public abstract class BaseListActivity<V, T extends BasePresenter<V>> extends Ba
         if (mTvEmpty != null) {
             mTvEmpty.setText(UIUtils.getString(R.string.base_load_empty));
             mTvEmpty.setVisibility(View.INVISIBLE);
-            mEmptyIm.setVisibility(View.VISIBLE);
+            mEmptyIm.setVisibility(View.INVISIBLE);//这里先隐藏
         }
     }
 

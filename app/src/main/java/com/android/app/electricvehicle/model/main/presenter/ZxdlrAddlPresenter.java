@@ -58,7 +58,7 @@ public class ZxdlrAddlPresenter extends BasePresenter<ZxdlrAddContract.View> imp
         paramsMap.put("packHeight",packHeight);
         paramsMap.put("netWeight",netWeight);
         paramsMap.put("roughWeight",roughWeight);
-        paramsMap.put("packingListItem",packingListItem);
+        paramsMap.put("packingListItems",packingListItem);
 
 
                 //这里请求修改了头布为SortedMap<String, Object> 入参，添加的时候相同
@@ -74,6 +74,9 @@ public class ZxdlrAddlPresenter extends BasePresenter<ZxdlrAddContract.View> imp
                     @Override
                     public void onNext(ZxdDetailAddVO vDate) {
 
+                        if(vDate.getSuccess().equals("T")){
+
+                        }
                             mView.showToast(vDate);
 
                     }

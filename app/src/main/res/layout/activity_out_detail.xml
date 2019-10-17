@@ -22,6 +22,7 @@
             style="@style/textviewdetailleftstyle"
             android:text="出库单号" />
 
+        <View style="@style/viewline_shu" />
         <EditText
             android:id="@+id/et_number"
             android:layout_width="0dp"
@@ -56,7 +57,7 @@
         <TextView
             style="@style/textviewdetailleftstyle"
             android:text="库    位" />
-
+        <View style="@style/viewline_shu" />
         <EditText
             android:id="@+id/et_kw_number"
             android:layout_width="0dp"

@@ -4,613 +4,609 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/color_f5f5f5"
     android:fitsSystemWindows="true"
+    android:orientation="vertical"
     tools:context=".ui.activity.ZxdlrDetailActivity">
 
 
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:id="@+id/title_layout_rl"
-        android:layout_height="@dimen/dimen_value_dp50"
-        android:background="@color/white"
-        android:orientation="horizontal">
-
-        <LinearLayout
-            android:id="@+id/back_layout"
-            android:layout_width="50dip"
-            android:layout_height="fill_parent"
-            android:layout_alignParentLeft="true">
-
-            <LinearLayout
-                android:layout_width="@dimen/dimen_value_dp15"
-                android:layout_height="@dimen/dimen_value_dp15"
-                android:layout_gravity="center"
-                android:layout_marginLeft="@dimen/dimen_value_dp10"
-                android:background="@mipmap/jiantou_zuo"
-                android:gravity="center"
-                android:orientation="horizontal">
-            </LinearLayout>
-        </LinearLayout>
-
-
-        <TextView
-            android:id="@+id/tv_layer_head"
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:layout_centerInParent="true"
-            android:gravity="center"
-            android:textColor="@color/regis_title"
-            android:textSize="@dimen/dimen_value_dp20"/>
-
-        <LinearLayout
-            android:id="@+id/navigation_user_layout"
-            android:layout_width="@dimen/dimen_value_dp60"
-            android:layout_height="fill_parent"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="@dimen/dimen_value_dp10"
-            android:visibility="visible"
-            android:gravity="center_vertical|right"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/farm_input_save"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_alignParentRight="true"
-                android:text="修改"
-                android:textColor="@color/colorPrimary"
-                android:gravity="center"
-                android:textSize="@dimen/dimen_value_dp15"/>
-        </LinearLayout>
-
-
-    </RelativeLayout>
-
-
-
-
-    <ScrollView
-        android:id="@+id/scrollView"
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/srl_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible"
-        android:layout_below="@+id/title_layout_rl"
-        >
+        android:background="@color/color_efefef">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
-
-
-
-            <LinearLayout
+            <RelativeLayout
+                android:id="@+id/title_layout_rl"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimen_value_dp50"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:visibility="visible">
-
-                <TextView
-                    android:text="工作单号"
-                    style="@style/textviewdetailleftstyle"
-                    />
-
-
-                <TextView
-                    android:id="@+id/tv_gzdh"
-                    style="@style/textviewdetailrightstyle" />
-
-
-            </LinearLayout>
-
-            <View
-                style="@style/viewline_heng"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_value_dp50"
-
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:visibility="visible">
-
-                <TextView
-                    android:text="日       期"
-                    style="@style/textviewdetailleftstyle" />
-
-                <TextView
-                    android:id="@+id/tv_date"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:textColor="@color/color_3d3d3d"
-                    android:textSize="@dimen/dimen_value_sp14" />
-
-
-            </LinearLayout>
-
-            <View
-                style="@style/viewline_heng"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_value_dp50"
-                android:gravity="center_vertical"
+                android:background="@color/white"
                 android:orientation="horizontal">
 
+                <LinearLayout
+                    android:id="@+id/back_layout"
+                    android:layout_width="50dip"
+                    android:layout_height="fill_parent"
+                    android:layout_alignParentLeft="true">
+
+                    <LinearLayout
+                        android:layout_width="@dimen/dimen_value_dp15"
+                        android:layout_height="@dimen/dimen_value_dp15"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/dimen_value_dp10"
+                        android:background="@mipmap/jiantou_zuo"
+                        android:gravity="center"
+                        android:orientation="horizontal"></LinearLayout>
+                </LinearLayout>
+
+
                 <TextView
-                    android:text="装箱单号"
-                    style="@style/textviewdetailleftstyle" />
+                    android:id="@+id/tv_layer_head"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:textColor="@color/regis_title"
+                    android:textSize="@dimen/dimen_value_dp20" />
 
-                <TextView
-                    android:id="@+id/tv_number"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:textColor="@color/color_3d3d3d"
-                    android:textSize="@dimen/dimen_value_sp14" />
+                <LinearLayout
+                    android:id="@+id/navigation_user_layout"
+                    android:layout_width="@dimen/dimen_value_dp60"
+                    android:layout_height="fill_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/dimen_value_dp10"
+                    android:gravity="center_vertical|right"
+                    android:orientation="horizontal"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/farm_input_save"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_alignParentRight="true"
+                        android:gravity="center"
+                        android:text="修改"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/dimen_value_dp15" />
+                </LinearLayout>
 
 
-            </LinearLayout>
-            <View
-                style="@style/viewline_heng"/>
+            </RelativeLayout>
 
 
-            <LinearLayout
+            <ScrollView
+                android:id="@+id/scrollView"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_value_dp50"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:text="包装方式"
-                    style="@style/textviewdetailleftstyle" />
-
-                <EditText
-                    android:id="@+id/tv_bzfs"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:textColor="@color/color_3d3d3d"
-                    android:textSize="@dimen/dimen_value_sp14"
-                    android:textColorHint="@color/color_b3b3b3"
-                    android:hint="0：纸箱；1：木箱；2：木托盘纸箱"
-                    android:background="@null"
-                    />
-
-
-            </LinearLayout>
-            <View
-                style="@style/viewline_heng"/>
-
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_value_dp50"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/title_layout_rl"
+                android:layout_marginTop="0dp"
                 android:visibility="visible">
 
                 <LinearLayout
-                    style="@style/llView1"
-                    >
-                    <TextView
-                        android:text="第"
-                        style="@style/tvTextView1"
-                        />
-                    <EditText
-                        android:id="@+id/tv_djx"
-                        style="@style/etTextView1" />
-                    <TextView
-                        android:text="箱"
-                        style="@style/tvTextView1"
-                        />
-
-                </LinearLayout>
-
-                <View
-                    style="@style/viewline_shu"/>
-
-                <LinearLayout
-                    style="@style/llView1"
-                    >
-                    <TextView
-                        android:text="共"
-                        style="@style/tvTextView1"
-                        />
-                    <EditText
-                        android:id="@+id/tv_gjx"
-                        style="@style/etTextView1"
-
-                        />
-                    <TextView
-                        android:text="箱"
-                        style="@style/tvTextView1"
-                        />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <View
-                style="@style/viewline_heng"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_value_dp50"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:visibility="visible">
-
-                <LinearLayout
-                    style="@style/llView1">
-                    <TextView
-                        style="@style/tvTextView1"
-                        android:text="长："
-                        />
-                    <EditText
-                        android:id="@+id/tv_chang"
-                        style="@style/etTextView1" />
-
-                </LinearLayout>
-
-
-                <View
-                    style="@style/viewline_shu"/>
-
-
-                <LinearLayout
-                    style="@style/llView1">
-                    <TextView
-                        style="@style/tvTextView1"
-                        android:text="宽："
-                        />
-                    <EditText
-                        android:id="@+id/tv_kuan"
-                        style="@style/etTextView1" />
-
-                </LinearLayout>
-
-
-
-                <View
-                    style="@style/viewline_shu"/>
-
-
-                <LinearLayout
-                    style="@style/llView1">
-                    <TextView
-                        style="@style/tvTextView1"
-                        android:text="高："
-                        />
-                    <EditText
-                        android:id="@+id/tv_gao"
-                        style="@style/etTextView1" />
-
-                </LinearLayout>
-            </LinearLayout>
-
-            <View
-                style="@style/viewline_heng"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_value_dp50"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:visibility="visible">
-                <LinearLayout
-                    style="@style/llView1">
-                    <TextView
-                        style="@style/tvTextView1"
-                        android:text="净重："
-                        />
-                    <EditText
-                        android:id="@+id/tv_jingzhong"
-                        style="@style/etTextView1" />
-
-                </LinearLayout>
-
-
-                <View
-                    style="@style/viewline_shu"/>
-
-
-                <LinearLayout
-                    style="@style/llView1">
-                    <TextView
-                        style="@style/tvTextView1"
-                        android:text="毛重："
-                        />
-                    <EditText
-                        android:id="@+id/tv_maozhong"
-                        style="@style/etTextView1" />
-
-                </LinearLayout>
-
-
-
-
-
-
-
-
-            </LinearLayout>
-            <View
-                style="@style/viewline_heng"/>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_value_dp50"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:visibility="visible">
-
-
-                <LinearLayout
-                    style="@style/llView1">
-                    <TextView
-                        style="@style/tvTextView1"
-                        android:text="状态："
-                        />
-                    <TextView
-                        android:id="@+id/tv_zhuangtai"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="match_parent"
-                        android:gravity="left|center_vertical"
-                        android:text=""
-                        android:textColor="@color/color_3d3d3d"
-                        android:textSize="@dimen/dimen_value_sp14" />
-
-                </LinearLayout>
-
-
-                <View
-                    style="@style/viewline_shu"/>
-
-                <LinearLayout
-                    style="@style/llView1">
-                    <TextView
-                        style="@style/tvTextView1"
-                        android:text="总重量:"
-                        />
-                    <TextView
-                        android:id="@+id/tv_totalWeight"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="match_parent"
-                        android:gravity="left|center_vertical"
-                        android:text=""
-                        android:textColor="@color/color_3d3d3d"
-                        android:textSize="@dimen/dimen_value_sp14" />
-
-                </LinearLayout>
-            </LinearLayout>
-
-
-            <View
-                style="@style/viewline_heng"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_value_dp50"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:visibility="visible">
-
-                <TextView
-                    android:id="@+id/tv_djgd"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="left|center_vertical"
-                    android:text="单据归档:"
-                    android:textColor="@color/color_3d3d3d"
-                    android:textSize="@dimen/dimen_value_sp14" />
-                <View
-                    style="@style/viewline_shu"/>
-                <TextView
-                    android:id="@+id/tv_djdy"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="match_parent"
-                    android:gravity="left|center_vertical"
-                    android:text="单据打印:"
-                    android:textColor="@color/color_3d3d3d"
-                    android:textSize="@dimen/dimen_value_sp14" />
-                <View
-                    style="@style/viewline_shu"/>
-                <TextView
-                    android:id="@+id/tv_dycs"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="match_parent"
-                    android:gravity="left|center_vertical"
-                    android:text="打印次数:"
-                    android:textColor="@color/color_3d3d3d"
-                    android:textSize="@dimen/dimen_value_sp14" />
-            </LinearLayout>
+                    android:orientation="vertical">
 
 
-            <View
-                style="@style/viewline_heng"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_value_dp50"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:visibility="visible">
+
+                        <TextView
+                            style="@style/textviewdetailleftstyle"
+                            android:text="工作单号" />
+
+                        <View style="@style/viewline_shu" />
+                        <TextView
+                            android:id="@+id/tv_gzdh"
+                            style="@style/textviewdetailrightstyle" />
 
 
+                    </LinearLayout>
+
+                    <View style="@style/viewline_heng" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_value_dp50"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:visibility="visible">
+
+                        <TextView
+                            style="@style/textviewdetailleftstyle"
+                            android:text="日       期" />
+
+                        <View style="@style/viewline_shu" />
+                        <TextView
+                            android:id="@+id/tv_date"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:textColor="@color/color_3d3d3d"
+                            android:textSize="@dimen/dimen_value_sp14" />
+
+
+                    </LinearLayout>
+
+                    <View style="@style/viewline_heng" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_value_dp50"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/textviewdetailleftstyle"
+                            android:text="装箱单号" />
+                        <View style="@style/viewline_shu" />
+
+                        <TextView
+                            android:id="@+id/tv_number"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:textColor="@color/color_3d3d3d"
+                            android:textSize="@dimen/dimen_value_sp14" />
+
+
+                    </LinearLayout>
+
+                    <View style="@style/viewline_heng" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_value_dp50"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/textviewdetailleftstyle"
+                            android:text="包装方式" />
+
+                        <View style="@style/viewline_shu" />
+                        <EditText
+                            android:id="@+id/tv_bzfs"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:gravity="center_vertical"
+                            android:hint="0：纸箱；1：木箱；2：木托盘纸箱"
+                            android:textColor="@color/color_3d3d3d"
+                            android:textColorHint="@color/color_b3b3b3"
+                            android:textSize="@dimen/dimen_value_sp14" />
+
+
+                    </LinearLayout>
+
+                    <View style="@style/viewline_heng" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_value_dp50"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:visibility="visible">
+
+                        <LinearLayout style="@style/llView1">
+
+                            <TextView
+                                style="@style/tvTextView1"
+                                android:text="第" />
+
+                            <EditText
+                                android:id="@+id/tv_djx"
+                                style="@style/etTextView1" />
+
+                            <TextView
+                                style="@style/tvTextView1"
+                                android:text="箱" />
+
+                        </LinearLayout>
+
+                        <View style="@style/viewline_shu" />
+
+                        <LinearLayout style="@style/llView1">
+
+                            <TextView
+                                style="@style/tvTextView1"
+                                android:text="共" />
+
+                            <EditText
+                                android:id="@+id/tv_gjx"
+                                style="@style/etTextView1"
+
+                                />
+
+                            <TextView
+                                style="@style/tvTextView1"
+                                android:text="箱" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <View style="@style/viewline_heng" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_value_dp50"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:visibility="visible">
+
+                        <LinearLayout style="@style/llView1">
+
+                            <TextView
+                                style="@style/tvTextView1"
+                                android:text="长：" />
+
+                            <EditText
+                                android:id="@+id/tv_chang"
+                                style="@style/etTextView1" />
+
+                        </LinearLayout>
+
+
+                        <View style="@style/viewline_shu" />
+
+
+                        <LinearLayout style="@style/llView1">
+
+                            <TextView
+                                style="@style/tvTextView1"
+                                android:text="宽：" />
+
+                            <EditText
+                                android:id="@+id/tv_kuan"
+                                style="@style/etTextView1" />
+
+                        </LinearLayout>
+
+
+                        <View style="@style/viewline_shu" />
+
+
+                        <LinearLayout style="@style/llView1">
+
+                            <TextView
+                                style="@style/tvTextView1"
+                                android:text="高：" />
+
+                            <EditText
+                                android:id="@+id/tv_gao"
+                                style="@style/etTextView1" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <View style="@style/viewline_heng" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_value_dp50"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:visibility="visible">
+
+                        <LinearLayout style="@style/llView1">
+
+                            <TextView
+                                style="@style/tvTextView1"
+                                android:text="净重：" />
+
+                            <EditText
+                                android:id="@+id/tv_jingzhong"
+                                style="@style/etTextView1" />
+
+                        </LinearLayout>
+
+
+                        <View style="@style/viewline_shu" />
+
+
+                        <LinearLayout style="@style/llView1">
+
+                            <TextView
+                                style="@style/tvTextView1"
+                                android:text="毛重：" />
+
+                            <EditText
+                                android:id="@+id/tv_maozhong"
+                                style="@style/etTextView1" />
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <View style="@style/viewline_heng" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_value_dp50"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:visibility="visible">
+
+
+                        <LinearLayout style="@style/llView1">
+
+                            <TextView
+                                style="@style/tvTextView1"
+                                android:text="状态：" />
+
+                            <TextView
+                                android:id="@+id/tv_zhuangtai"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="left|center_vertical"
+                                android:text=""
+                                android:textColor="@color/color_3d3d3d"
+                                android:textSize="@dimen/dimen_value_sp14" />
+
+                        </LinearLayout>
+
+
+                        <View style="@style/viewline_shu" />
+
+                        <LinearLayout style="@style/llView1">
+
+                            <TextView
+                                style="@style/tvTextView1"
+                                android:text="总重量:" />
+
+                            <TextView
+                                android:id="@+id/tv_totalWeight"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="left|center_vertical"
+                                android:text=""
+                                android:textColor="@color/color_3d3d3d"
+                                android:textSize="@dimen/dimen_value_sp14" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                    <View style="@style/viewline_heng" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_value_dp50"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:visibility="visible">
+
+                        <TextView
+                            android:id="@+id/tv_djgd"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="left|center_vertical"
+                            android:text="单据归档:"
+                            android:textColor="@color/color_3d3d3d"
+                            android:textSize="@dimen/dimen_value_sp14" />
+
+                        <View style="@style/viewline_shu" />
+
+                        <TextView
+                            android:id="@+id/tv_djdy"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="left|center_vertical"
+                            android:text="单据打印:"
+                            android:textColor="@color/color_3d3d3d"
+                            android:textSize="@dimen/dimen_value_sp14" />
+
+                        <View style="@style/viewline_shu" />
+
+                        <TextView
+                            android:id="@+id/tv_dycs"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="left|center_vertical"
+                            android:text="打印次数:"
+                            android:textColor="@color/color_3d3d3d"
+                            android:textSize="@dimen/dimen_value_sp14" />
+                    </LinearLayout>
+
+
+                    <View style="@style/viewline_heng" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_value_dp10"
+                        android:minHeight="@dimen/dimen_value_dp50"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="备    注："
+                            android:textColor="@color/color_3d3d3d"
+                            android:textSize="@dimen/dimen_value_sp14" />
+
+                        <TextView
+                            android:id="@+id/tv_bz"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:inputType="textMultiLine"
+                            android:lines="4"
+                            android:minLines="1"
+                            android:text=""
+                            android:textColor="@color/color_3d3d3d" />
+
+
+                    </LinearLayout>
+
+
+
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rv_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="vertical">
+
+                    </android.support.v7.widget.RecyclerView>
+
+
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="@dimen/dimen_value_dp50"-->
+                        <!--android:gravity="center_vertical"-->
+                        <!--android:orientation="horizontal"-->
+                        <!--android:visibility="gone">-->
+
+                        <!--<LinearLayout style="@style/llView1">-->
+
+                            <!--<TextView-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="match_parent"-->
+                                <!--android:gravity="center_vertical"-->
+                                <!--android:text="SO Item:"-->
+                                <!--android:textColor="@color/color_3d3d3d"-->
+                                <!--android:textSize="@dimen/dimen_value_sp13" />-->
+
+                            <!--<EditText-->
+                                <!--android:id="@+id/tv_so"-->
+                                <!--style="@style/etTextView1" />-->
+
+                        <!--</LinearLayout>-->
+
+                        <!--<View style="@style/viewline_shu" />-->
+
+                        <!--<LinearLayout style="@style/llView1">-->
+
+                            <!--<TextView-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="match_parent"-->
+                                <!--android:gravity="center_vertical"-->
+                                <!--android:text="material:"-->
+                                <!--android:textColor="@color/color_3d3d3d"-->
+                                <!--android:textSize="@dimen/dimen_value_sp13" />-->
+
+                            <!--<EditText-->
+                                <!--android:id="@+id/tv_material"-->
+                                <!--style="@style/etTextView1" />-->
+
+                        <!--</LinearLayout>-->
+
+
+                    <!--</LinearLayout>-->
+
+                    <!--<View style="@style/viewline_heng" />-->
+
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="@dimen/dimen_value_dp50"-->
+                        <!--android:gravity="center_vertical"-->
+                        <!--android:orientation="horizontal"-->
+                        <!--android:visibility="gone">-->
+
+                        <!--<LinearLayout style="@style/llView1">-->
+
+                            <!--<TextView-->
+                                <!--style="@style/tvTextView1"-->
+                                <!--android:text="RL：" />-->
+
+                            <!--<EditText-->
+                                <!--android:id="@+id/tv_rl"-->
+                                <!--style="@style/etTextView1" />-->
+
+                        <!--</LinearLayout>-->
+
+
+                        <!--<View style="@style/viewline_shu" />-->
+
+
+                        <!--<LinearLayout style="@style/llView1">-->
+
+                            <!--<TextView-->
+                                <!--style="@style/tvTextView1"-->
+                                <!--android:text="AGL：" />-->
+
+                            <!--<EditText-->
+                                <!--android:id="@+id/tv_agl"-->
+                                <!--style="@style/etTextView1" />-->
+
+                        <!--</LinearLayout>-->
+
+
+                        <!--<View style="@style/viewline_shu" />-->
+
+
+                        <!--<LinearLayout style="@style/llView1">-->
+
+                            <!--<TextView-->
+                                <!--style="@style/tvTextView1"-->
+                                <!--android:text="Qty：" />-->
+
+                            <!--<EditText-->
+                                <!--android:id="@+id/tv_qty"-->
+                                <!--style="@style/etTextView1" />-->
+
+                        <!--</LinearLayout>-->
+
+                    <!--</LinearLayout>-->
+
+                    <!--<View style="@style/viewline_heng" />-->
+                </LinearLayout>
+            </ScrollView>
 
             <LinearLayout
+                android:id="@+id/ll_wsj"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dimen_value_dp10"
-                android:minHeight="@dimen/dimen_value_dp50"
-                android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:layout_below="@+id/title_layout_rl"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
 
-                <TextView
+                <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="备    注："
-                    android:textColor="@color/color_3d3d3d"
-                    android:textSize="@dimen/dimen_value_sp14" />
-
-                <TextView
-                    android:id="@+id/tv_bz"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:inputType="textMultiLine"
-                    android:lines="4"
-                    android:minLines="1"
-                    android:text=""
-                    android:textColor="@color/color_3d3d3d" />
-
+                    android:src="@mipmap/empty_im" />
 
             </LinearLayout>
-            <View
-                style="@style/viewline_heng"/>
-            <LinearLayout
-                android:layout_width="match_parent"
+
+
+
+
+            <ImageView
+                android:id="@+id/img_delete"
+                android:layout_width="@dimen/dimen_value_dp50"
                 android:layout_height="@dimen/dimen_value_dp50"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:visibility="visible">
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="@dimen/dimen_value_dp20"
+                android:layout_marginBottom="@dimen/dimen_value_dp20"
+                android:src="@mipmap/img_delete"
 
-                <LinearLayout
-                    style="@style/llView1">
-                    <TextView
-                        android:text="SO Item:"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:textColor="@color/color_3d3d3d"
-                        android:textSize="@dimen/dimen_value_sp13"
-                        android:gravity="center_vertical"
-                        />
-                    <EditText
-                        android:id="@+id/tv_so"
-                        style="@style/etTextView1" />
+                />
 
-                </LinearLayout>
-
-                <View
-                    style="@style/viewline_shu"/>
-
-                <LinearLayout
-                    style="@style/llView1">
-                    <TextView
-                        android:text="material:"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:textColor="@color/color_3d3d3d"
-                        android:textSize="@dimen/dimen_value_sp13"
-                        android:gravity="center_vertical"
-                        />
-                    <EditText
-                        android:id="@+id/tv_material"
-                        style="@style/etTextView1" />
-
-                </LinearLayout>
-
-
-
-            </LinearLayout>
-
-            <View
-                style="@style/viewline_heng"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_value_dp50"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:visibility="visible">
-                <LinearLayout
-                    style="@style/llView1">
-                    <TextView
-                        style="@style/tvTextView1"
-                        android:text="RL："
-                        />
-                    <EditText
-                        android:id="@+id/tv_rl"
-                        style="@style/etTextView1" />
-
-                </LinearLayout>
-
-
-                <View
-                    style="@style/viewline_shu"/>
-
-
-                <LinearLayout
-                    style="@style/llView1">
-                    <TextView
-                        style="@style/tvTextView1"
-                        android:text="AGL："
-                        />
-                    <EditText
-                        android:id="@+id/tv_agl"
-                        style="@style/etTextView1" />
-
-                </LinearLayout>
-
-
-
-                <View
-                    style="@style/viewline_shu"/>
-
-
-                <LinearLayout
-                    style="@style/llView1">
-                    <TextView
-                        style="@style/tvTextView1"
-                        android:text="Qty："
-                        />
-                    <EditText
-                        android:id="@+id/tv_qty"
-                        style="@style/etTextView1" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-            <View
-                style="@style/viewline_heng"/>
-        </LinearLayout>
-    </ScrollView>
-
-    <LinearLayout
-        android:id="@+id/ll_wsj"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:layout_below="@+id/title_layout_rl"
-        android:visibility="visible"
-        >
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/empty_im"
-            />
-
-    </LinearLayout>
-
-
-
-
-    <ImageView
-        android:id="@+id/img_delete"
-        android:layout_width="@dimen/dimen_value_dp50"
-        android:layout_height="@dimen/dimen_value_dp50"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="@dimen/dimen_value_dp20"
-        android:layout_marginBottom="@dimen/dimen_value_dp20"
-        android:src="@mipmap/img_delete"
-
-        />
-
-
+        </RelativeLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
 </RelativeLayout>

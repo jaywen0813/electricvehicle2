@@ -170,7 +170,9 @@
 
                     <EditText
                         android:id="@+id/tv_djx"
-                        style="@style/etTextView1" />
+                        style="@style/etTextView1"
+                        android:inputType="number"
+                        />
 
                     <TextView
                         style="@style/tvTextView1"
@@ -188,7 +190,9 @@
 
                     <EditText
                         android:id="@+id/tv_gjx"
-                        style="@style/etTextView1" />
+                        style="@style/etTextView1"
+                        android:inputType="number"
+                        />
 
                     <TextView
                         style="@style/tvTextView1"
@@ -211,7 +215,9 @@
 
                     <TextView
                         style="@style/tvTextView1"
-                        android:text="长：" />
+                        android:text="长："
+                        android:inputType="number"
+                        />
 
                     <EditText
                         android:id="@+id/tv_chang"
@@ -227,7 +233,9 @@
 
                     <TextView
                         style="@style/tvTextView1"
-                        android:text="宽：" />
+                        android:text="宽："
+                        android:inputType="number"
+                        />
 
                     <EditText
                         android:id="@+id/tv_kuan"
@@ -243,7 +251,9 @@
 
                     <TextView
                         style="@style/tvTextView1"
-                        android:text="高：" />
+                        android:text="高："
+                        android:inputType="number"
+                        />
 
                     <EditText
                         android:id="@+id/tv_gao"
@@ -265,7 +275,9 @@
 
                     <TextView
                         style="@style/tvTextView1"
-                        android:text="净重：" />
+                        android:text="净重："
+                        android:inputType="number"
+                        />
 
                     <EditText
                         android:id="@+id/tv_jingzhong"
@@ -281,7 +293,9 @@
 
                     <TextView
                         style="@style/tvTextView1"
-                        android:text="毛重：" />
+                        android:text="毛重："
+                        android:inputType="number"
+                        />
 
                     <EditText
                         android:id="@+id/tv_maozhong"

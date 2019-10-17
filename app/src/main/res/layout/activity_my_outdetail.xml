@@ -69,7 +69,7 @@
                 android:text="工作单号"
                 style="@style/textviewdetailleftstyle"
                 />
-
+            <View style="@style/viewline_shu" />
 
             <TextView
                 android:id="@+id/tv_gzdh"
@@ -92,7 +92,7 @@
             <TextView
                 android:text="日       期"
                 style="@style/textviewdetailleftstyle" />
-
+            <View style="@style/viewline_shu" />
             <TextView
                 android:id="@+id/tv_date"
                 android:layout_width="0dp"
@@ -116,7 +116,7 @@
             <TextView
                 android:text="装箱单号"
                 style="@style/textviewdetailleftstyle" />
-
+            <View style="@style/viewline_shu" />
             <TextView
                 android:id="@+id/tv_number"
                 android:layout_width="0dp"
@@ -145,7 +145,7 @@
                 android:text="装箱单ID："
                 android:textColor="@color/color_3d3d3d"
                 android:textSize="@dimen/dimen_value_sp14" />
-
+            <View style="@style/viewline_shu" />
             <TextView
                 android:id="@+id/tv_zxdid"
                 android:layout_width="0dp"
@@ -170,7 +170,7 @@
             <TextView
                 android:text="仓库名称"
                 style="@style/textviewdetailleftstyle" />
-
+            <View style="@style/viewline_shu" />
             <TextView
                 android:id="@+id/tv_ckmc"
                 android:layout_width="0dp"
@@ -200,7 +200,7 @@
                 android:text="仓库ID："
                 android:textColor="@color/color_3d3d3d"
                 android:textSize="@dimen/dimen_value_sp14" />
-
+            <View style="@style/viewline_shu" />
             <TextView
                 android:id="@+id/tv_ckid"
                 android:layout_width="0dp"
@@ -222,7 +222,7 @@
             <TextView
                 android:text="库       位"
                 style="@style/textviewdetailleftstyle"/>
-
+            <View style="@style/viewline_shu" />
             <TextView
                 android:id="@+id/tv_kw_number"
                 android:layout_width="0dp"
