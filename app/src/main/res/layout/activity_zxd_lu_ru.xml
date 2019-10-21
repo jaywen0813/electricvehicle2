@@ -333,7 +333,107 @@
 
             <View style="@style/viewline_heng" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_value_dp50"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="gone">
 
+                <LinearLayout style="@style/llView1">
+
+                    <TextView
+                        style="@style/tvTextView1"
+                        android:text="SalesOrder"
+                        />
+
+                    <EditText
+                        android:id="@+id/tv_order"
+                        style="@style/etTextView1"
+                        android:inputType="number"
+                        android:digits="1234567890"
+                        />
+
+                </LinearLayout>
+
+
+                <View style="@style/viewline_shu" />
+
+
+                <LinearLayout style="@style/llView1">
+
+                    <TextView
+                        style="@style/tvTextView1"
+                        android:text="comments"
+
+                        />
+
+                    <EditText
+                        android:id="@+id/tv_comments"
+                        style="@style/etTextView1"
+                        android:inputType="number"
+                        android:digits="1234567890"
+                        />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <View
+                style="@style/viewline_heng" android:visibility="gone"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_value_dp50"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <LinearLayout style="@style/llView1">
+
+                    <TextView
+                        style="@style/tvTextView1"
+                        android:text="组装日期"
+                        />
+
+                    <EditText
+                        android:id="@+id/tv_zzrq"
+                        style="@style/etTextView1"
+                        android:inputType="number"
+                        android:digits="1234567890"
+                        />
+
+                </LinearLayout>
+
+
+                <View style="@style/viewline_shu" />
+
+
+                <LinearLayout style="@style/llView1">
+
+                    <TextView
+                        style="@style/tvTextView1"
+                        android:text="订单交货期"
+
+                        />
+
+                    <EditText
+                        android:id="@+id/tv_ddjhq"
+                        style="@style/etTextView1"
+                        android:inputType="number"
+                        android:digits="1234567890"
+                        />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <View
+                style="@style/viewline_heng"
+                android:visibility="gone"
+                />
 
             <!--<LinearLayout-->
                 <!--android:layout_width="match_parent"-->
