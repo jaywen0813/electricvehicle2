@@ -6,11 +6,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,7 +50,7 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
     private TextView tvGzdh;
     private TextView tvDate;
     private TextView tvNumber;
-    private EditText tvBzfs;
+    private Spinner sp_bzfs;
     private EditText tvDjx;
     private EditText tvGjx;
     private EditText tvChang;
@@ -68,6 +71,7 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
     private TextView tvBz;
     private LinearLayout llWsj;
     private ImageView img_delete;
+    private TextView tv_delete;
 
     private SwipeRefreshLayout srlList;
     private RecyclerView rvList;
@@ -93,6 +97,7 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
     EditText tvAgl;
     EditText tvQty;
 
+    String packingMaterial="";//包装方式
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -116,7 +121,7 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
         tvGzdh = findViewById(R.id.tv_gzdh);
         tvDate = findViewById(R.id.tv_date);
         tvNumber = findViewById(R.id.tv_number);
-        tvBzfs = findViewById(R.id.tv_bzfs);//包装方式
+        sp_bzfs=findViewById(R.id.sp_bzfs);
         tvDjx = findViewById(R.id.tv_djx);
         tvGjx = findViewById(R.id.tv_gjx);
         tvChang = findViewById(R.id.tv_chang);
@@ -125,6 +130,7 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
         tvJingzhong = findViewById(R.id.tv_jingzhong);
         tvMaozhong = findViewById(R.id.tv_maozhong);
         tvZhuangtai = findViewById(R.id.tv_zhuangtai);
+        tv_delete=findViewById(R.id.tv_delete);//作废按钮
 //        tvRl = findViewById(R.id.tv_rl);
 //        tvAgl = findViewById(R.id.tv_agl);
 //        tvQty = findViewById(R.id.tv_qty);
@@ -136,14 +142,15 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
         tvDycs = findViewById(R.id.tv_dycs);
         tvBz = findViewById(R.id.tv_bz);
         llWsj = findViewById(R.id.ll_wsj);
-        img_delete = findViewById(R.id.img_delete);//删除按钮
+        img_delete = findViewById(R.id.img_delete);//作废图标
 
         srlList = findViewById(R.id.srl_list);
         rvList = findViewById(R.id.rv_list);
 
         backLayout.setOnClickListener(this);
         farmInputSave.setOnClickListener(this);//修改按钮
-        img_delete.setOnClickListener(this);
+        tv_delete.setOnClickListener(this);//作废按钮
+
 
         //状态栏
         //状态栏
@@ -160,18 +167,52 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
 
         if (disabled.equals("true")) {//代表作废
             img_delete.setImageResource(R.mipmap.img_zuofei);
-            img_delete.setEnabled(false);
+            img_delete.setVisibility(View.VISIBLE);//显示作废图标
+            tv_delete.setEnabled(false);
+            tv_delete.setVisibility(View.INVISIBLE);//隐藏作废按钮
             farmInputSave.setVisibility(View.INVISIBLE);//隐藏修改按钮
 
         } else {//代表没有作废
-            img_delete.setImageResource(R.mipmap.img_delete);
-            img_delete.setEnabled(true);
+            img_delete.setVisibility(View.INVISIBLE);//隐藏作废图标
+            tv_delete.setEnabled(true);
+            tv_delete.setVisibility(View.VISIBLE);//显示作废按钮
             farmInputSave.setVisibility(View.VISIBLE);//显示修改按钮
         }
 
 //        id="5780b01ae92111e992930242ac110012";
 
         presenter.getUP(id);
+
+
+
+
+
+        sp_bzfs.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int pos, long id) {
+
+                String[] languages = getResources().getStringArray(R.array.baozhuangfangshi);
+//                Toast.makeText(ZxdLuRuActivity.this, "你点击的是:"+languages[pos], Toast.LENGTH_LONG).show();
+
+                packingMaterial=languages[pos];
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Another interface callback
+            }
+        });
+
+        String[] spinnerItems = {"纸箱","木箱","木托盘纸箱"};
+        //自定义选择填充后的字体样式
+        //只能是textview样式，否则报错：ArrayAdapter requires the resource ID to be a TextView
+        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(this,
+                R.layout.item_select, spinnerItems);
+        //自定义下拉的字体样式
+        spinnerAdapter.setDropDownViewResource(R.layout.item_drop);
+        //这个在不同的Theme下，显示的效果是不同的
+        //spinnerAdapter.setDropDownViewTheme(Theme.LIGHT);
+        sp_bzfs.setAdapter(spinnerAdapter);
 
 
         //一开始不让修改
@@ -214,7 +255,7 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
                     farmInputSave.setText("修改");//文字变成修改
 
                     String madeTime = String.valueOf(new Date().getTime());//当前时间戳
-                    String packingMaterial = tvBzfs.getText().toString().trim();//包装方式 去除多余的空隙
+//                    String packingMaterial = tvBzfs.getText().toString().trim();//包装方式 去除多余的空隙
                     String rankNum = tvDjx.getText().toString();//第几箱
                     String totalNum = tvGjx.getText().toString();//共几箱
                     String packLength = tvChang.getText().toString();//长
@@ -292,11 +333,11 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
                             tvAgl = childAt.findViewById(R.id.tv_agl);
                             tvQty = childAt.findViewById(R.id.tv_qty);
 
-                            String soItem = tvSo.getText().toString();
-                            String material = tvMaterial.getText().toString();
-                            String rl = tvRl.getText().toString();
-                            String agl = tvAgl.getText().toString();
-                            String qty = tvQty.getText().toString();
+                            String soItem = tvSo.getText().toString()==null?"":tvSo.getText().toString();
+                            String material = tvMaterial.getText().toString()==null?"":tvMaterial.getText().toString();
+                            String rl = tvRl.getText().toString()==null?"":tvRl.getText().toString();
+                            String agl = tvAgl.getText().toString()==null?"":tvAgl.getText().toString();
+                            String qty = tvQty.getText().toString()==null?"":tvQty.getText().toString();
 
                             if (Kits.Empty.check(soItem)) {
                                 Toast.makeText(ZxdlrDetailActivity.this, "请填写SO Item", Toast.LENGTH_LONG).show();
@@ -354,7 +395,7 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
 
                 }
                 break;
-            case R.id.img_delete://删除按钮
+            case R.id.tv_delete://删除按钮
                 DialogUtil.showBasicDialog(this, "作废提示", "确定作废此条装箱单?", (dialog, confirm) -> {
 
                     if (confirm) {
@@ -379,14 +420,16 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
             //查询此单是否作废
             if (!Kits.Empty.check(vDate.getData().getDisabled())) {
                 if (vDate.getData().getDisabled().equals("true")) {//代表作废
-                    //显示作废的图标，并不给点击事件
                     img_delete.setImageResource(R.mipmap.img_zuofei);
-                    img_delete.setEnabled(false);
+                    img_delete.setVisibility(View.VISIBLE);//显示作废图标
+                    tv_delete.setEnabled(false);
+                    tv_delete.setVisibility(View.INVISIBLE);//隐藏作废按钮
                     farmInputSave.setVisibility(View.INVISIBLE);//隐藏修改按钮
 
                 } else {
-                    img_delete.setImageResource(R.mipmap.img_delete);//显示删除按钮
-                    img_delete.setEnabled(true);
+                    img_delete.setVisibility(View.INVISIBLE);//隐藏作废图标
+                    tv_delete.setEnabled(true);
+                    tv_delete.setVisibility(View.VISIBLE);//显示作废按钮
                     farmInputSave.setVisibility(View.VISIBLE);//显示修改按钮
                 }
             }
@@ -546,16 +589,19 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
             if (!Kits.Empty.check(vDate.getData().getPackingMaterial())) {
                 switch (vDate.getData().getPackingMaterial()) {
                     case "0":
-                        tvBzfs.setText("纸箱");
+//                        tvBzfs.setText("纸箱");
+                        sp_bzfs.setSelection(0,true);
                         break;
                     case "1":
-                        tvBzfs.setText("木箱");
+//                        tvBzfs.setText("木箱");
+                        sp_bzfs.setSelection(1,true);
                         break;
                     case "2":
-                        tvBzfs.setText("木托盘纸箱");
+//                        tvBzfs.setText("木托盘纸箱");
+                        sp_bzfs.setSelection(2,true);
                         break;
                     default:
-                        tvBzfs.setText("");
+//                        tvBzfs.setText("");
                         break;
                 }
 
@@ -629,7 +675,7 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
 
     //可以编辑
     public void chooseTrue() {
-        tvBzfs.setEnabled(true);
+        sp_bzfs.setEnabled(true);
         tvDjx.setEnabled(true);
         tvGjx.setEnabled(true);
         tvChang.setEnabled(true);
@@ -646,7 +692,7 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
 
     //不可以编辑
     public void chooseFlase() {
-        tvBzfs.setEnabled(false);
+        sp_bzfs.setEnabled(false);
         tvDjx.setEnabled(false);
         tvGjx.setEnabled(false);
         tvChang.setEnabled(false);

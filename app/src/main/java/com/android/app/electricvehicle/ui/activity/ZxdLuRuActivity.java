@@ -3,13 +3,18 @@ package com.android.app.electricvehicle.ui.activity;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,7 +42,8 @@ public class ZxdLuRuActivity extends BaseMvpActivity<ZxdlrAddContract.View, Zxdl
     private ScrollView scrollView;
     private EditText tvGzdh;
     private TextView tvDate;
-    private EditText tvBzfs;
+
+    private Spinner sp_bzfs;
     private EditText tvDjx;
     private EditText tvGjx;
     private EditText tvChang;
@@ -61,6 +67,10 @@ public class ZxdLuRuActivity extends BaseMvpActivity<ZxdlrAddContract.View, Zxdl
 
     List<PackingListItems> packingListItem =new ArrayList<>();//用来存储入参的
 
+
+
+    String packingMaterial="";//包装方式
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,7 +93,7 @@ public class ZxdLuRuActivity extends BaseMvpActivity<ZxdlrAddContract.View, Zxdl
         scrollView = findViewById(R.id.scrollView);
         tvGzdh = findViewById(R.id.tv_gzdh);
         tvDate = findViewById(R.id.tv_date);
-        tvBzfs = findViewById(R.id.tv_bzfs);
+        sp_bzfs=findViewById(R.id.sp_bzfs);
         tvDjx = findViewById(R.id.tv_djx);
         tvGjx = findViewById(R.id.tv_gjx);
         tvChang = findViewById(R.id.tv_chang);
@@ -100,6 +110,41 @@ public class ZxdLuRuActivity extends BaseMvpActivity<ZxdlrAddContract.View, Zxdl
 
         tvLayerHead.setText("添加装箱单");
         addViewItem();//先添加一条
+
+        sp_bzfs.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int pos, long id) {
+
+                String[] languages = getResources().getStringArray(R.array.baozhuangfangshi);
+//                Toast.makeText(ZxdLuRuActivity.this, "你点击的是:"+languages[pos], Toast.LENGTH_LONG).show();
+
+                packingMaterial=languages[pos];
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Another interface callback
+            }
+        });
+
+        String[] spinnerItems = {"纸箱","木箱","木托盘纸箱"};
+        //自定义选择填充后的字体样式
+        //只能是textview样式，否则报错：ArrayAdapter requires the resource ID to be a TextView
+        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(this,
+                R.layout.item_select, spinnerItems);
+        //自定义下拉的字体样式
+        spinnerAdapter.setDropDownViewResource(R.layout.item_drop);
+        //这个在不同的Theme下，显示的效果是不同的
+        //spinnerAdapter.setDropDownViewTheme(Theme.LIGHT);
+        sp_bzfs.setAdapter(spinnerAdapter);
+
+    }
+
+
+    @Override
+    protected void initDate() {
+        super.initDate();
+
     }
 
     @Override
@@ -147,7 +192,7 @@ public class ZxdLuRuActivity extends BaseMvpActivity<ZxdlrAddContract.View, Zxdl
                 String workCode=tvGzdh.getText().toString();//工作单号
                 String madeTime= String.valueOf(new Date().getTime());//当前时间戳
 
-                String packingMaterial=tvBzfs.getText().toString().trim();//包装方式 去除多余的空隙
+//                String packingMaterial=tvBzfs.getText().toString().trim();//包装方式 去除多余的空隙
 
                 String rankNum=tvDjx.getText().toString();//第几箱
                 String totalNum=tvGjx.getText().toString();//共几箱

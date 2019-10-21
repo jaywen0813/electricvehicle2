@@ -53,11 +53,17 @@ public class MyOutDetailActivity extends BaseMvpActivity<MyOutDetailContract.Vie
     private TextView tvDjdy;
     private TextView tvDycs;
     private TextView tvBz;
-
+    private TextView tv_delete;
 
     private ScrollView scrollView;
     private LinearLayout ll_wsj;
     private ImageView img_delete;
+
+    private TextView tv_order;
+    private TextView tv_comments;
+    private TextView tv_zzrq;
+    private TextView tv_ddjhq;
+
 
     MyOutDetailPresenter presenter;
 
@@ -101,13 +107,21 @@ public class MyOutDetailActivity extends BaseMvpActivity<MyOutDetailContract.Vie
         tvDjdy = findViewById(R.id.tv_djdy);
         tvDycs = findViewById(R.id.tv_dycs);
         tvBz = findViewById(R.id.tv_bz);
+        tv_delete=findViewById(R.id.tv_delete);//作废按钮
 
         scrollView=findViewById(R.id.scrollView);//有数据的时候显示
         ll_wsj=findViewById(R.id.ll_wsj);//无数据
-        img_delete=findViewById(R.id.img_delete);//删除按钮
+        img_delete=findViewById(R.id.img_delete);//作废按钮
+
+
+        tv_order=findViewById(R.id.tv_order);
+        tv_comments=findViewById(R.id.tv_comments);
+        tv_zzrq=findViewById(R.id.tv_zzrq);
+        tv_ddjhq=findViewById(R.id.tv_ddjhq);
+
 
         backLayout.setOnClickListener(this);
-        img_delete.setOnClickListener(this);
+        tv_delete.setOnClickListener(this);//作废按钮
         //状态栏
         //状态栏
         StatusBarUtil.transparencyBar(this);//设置状态栏全透明
@@ -133,7 +147,7 @@ public class MyOutDetailActivity extends BaseMvpActivity<MyOutDetailContract.Vie
             case R.id.back_layout:
                 finish();
                 break;
-            case R.id.img_delete://删除按钮
+            case R.id.tv_delete://删除按钮
                 DialogUtil.showBasicDialog(this, "作废提示", "确定作废此条出库单?", (dialog, confirm) -> {
 
                     if (confirm) {
@@ -163,13 +177,18 @@ public class MyOutDetailActivity extends BaseMvpActivity<MyOutDetailContract.Vie
             if (!Kits.Empty.check(vDate.getData().getDisabled())){
                 if (vDate.getData().getDisabled().equals("true")){//代表作废
                     //显示作废的图标，并不给点击事件
+
                     img_delete.setImageResource(R.mipmap.img_zuofei);
-                    img_delete.setEnabled(false);
+                    img_delete.setVisibility(View.VISIBLE);//显示作废图标
+                    tv_delete.setEnabled(false);
+                    tv_delete.setVisibility(View.INVISIBLE);//隐藏作废按钮
 
 
                 }else {
-                    img_delete.setImageResource(R.mipmap.img_delete);//显示删除按钮
-                    img_delete.setEnabled(true);
+                    img_delete.setVisibility(View.INVISIBLE);//隐藏作废图标
+                    tv_delete.setEnabled(true);
+                    tv_delete.setVisibility(View.VISIBLE);//显示作废按钮
+
 
                 }
             }
@@ -279,6 +298,37 @@ public class MyOutDetailActivity extends BaseMvpActivity<MyOutDetailContract.Vie
                     tvDycs.setText("打印次数："+vDate.getData().getPackingList().getPrintTimes()+"次");
                 }
 
+                //Sales order
+                if (!Kits.Empty.check(vDate.getData().getPackingList().getSalesOrder())) {
+                    tv_order.setText("Sales order："+vDate.getData().getPackingList().getSalesOrder());
+                }
+
+
+                //comments
+                if (!Kits.Empty.check(vDate.getData().getPackingList().getComments())) {
+                    tv_comments.setText("comments："+vDate.getData().getPackingList().getComments());
+                }
+
+                //组装日期
+                if (!Kits.Empty.check(vDate.getData().getPackingList().getInstallTime())) {
+
+                    long itimes= Long.parseLong(vDate.getData().getPackingList().getInstallTime());
+
+                    SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); //设置格式
+                    String timeText=format.format(itimes);
+                    tv_zzrq.setText("组装日期"+timeText+"");
+
+                }
+
+                //订单交货期
+                if (!Kits.Empty.check(vDate.getData().getPackingList().getDeliveryDate())) {
+
+                    long itimess= Long.parseLong(vDate.getData().getPackingList().getDeliveryDate());
+
+                    SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); //设置格式
+                    String timeText=format.format(itimess);
+                    tv_ddjhq.setText("订单交货期："+timeText+"");
+                }
 
             }
 

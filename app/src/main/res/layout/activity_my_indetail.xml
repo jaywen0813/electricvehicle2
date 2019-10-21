@@ -9,10 +9,76 @@
     android:orientation="vertical"
     tools:context=".ui.activity.MyINDetailActivity">
 
-
-    <include
+    <RelativeLayout
         android:id="@+id/include"
-        layout="@layout/layer_header" />
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_value_dp50"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/back_layout"
+            android:layout_width="50dip"
+            android:layout_height="fill_parent"
+            android:layout_alignParentLeft="true">
+
+            <LinearLayout
+                android:layout_width="@dimen/dimen_value_dp15"
+                android:layout_height="@dimen/dimen_value_dp15"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/dimen_value_dp10"
+                android:background="@mipmap/jiantou_zuo"
+                android:gravity="center"
+                android:orientation="horizontal"></LinearLayout>
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tv_layer_head"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:textColor="@color/regis_title"
+            android:textSize="@dimen/dimen_value_dp20" />
+
+        <LinearLayout
+            android:id="@+id/navigation_user_layout"
+            android:layout_width="@dimen/dimen_value_dp90"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dimen_value_dp10"
+            android:gravity="center_vertical|right"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/tv_delete"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="作废"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/dimen_value_dp15"
+                android:gravity="center"
+                android:layout_marginRight="@dimen/dimen_value_dp10"
+                />
+
+            <TextView
+                android:id="@+id/farm_input_save"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:text="修改"
+                android:visibility="gone"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/dimen_value_dp15" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -396,6 +462,78 @@
 
             <View
                 style="@style/viewline_heng"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_value_dp50"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+
+                <TextView
+                    android:id="@+id/tv_order"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Sales order"
+                    android:textColor="@color/color_3d3d3d"
+                    android:textSize="@dimen/dimen_value_sp14" />
+                <View
+                    style="@style/viewline_shu"/>
+                <TextView
+                    android:id="@+id/tv_comments"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="comments"
+                    android:textColor="@color/color_3d3d3d"
+                    android:textSize="@dimen/dimen_value_sp14"
+
+                    />
+
+            </LinearLayout>
+
+            <View
+                style="@style/viewline_heng"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_value_dp50"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+
+                <TextView
+                    android:id="@+id/tv_zzrq"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="组装日期"
+                    android:textColor="@color/color_3d3d3d"
+                    android:textSize="@dimen/dimen_value_sp14" />
+                <View
+                    style="@style/viewline_shu"/>
+                <TextView
+                    android:id="@+id/tv_ddjhq"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="订单交货期"
+                    android:textColor="@color/color_3d3d3d"
+                    android:textSize="@dimen/dimen_value_sp14"
+
+                    />
+
+            </LinearLayout>
+
+            <View
+                style="@style/viewline_heng"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -435,6 +573,7 @@
         android:orientation="vertical"
         android:gravity="center"
         android:layout_below="@+id/include"
+        android:visibility="gone"
         >
         <ImageView
             android:layout_width="wrap_content"
@@ -453,7 +592,6 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="@dimen/dimen_value_dp20"
         android:layout_marginBottom="@dimen/dimen_value_dp20"
-        android:src="@mipmap/img_delete"
         />
 
 

@@ -233,10 +233,10 @@
     <style name="tvTextView1">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
-        <item name="android:layout_weight">1</item>
+        <item name="android:layout_weight">0.5</item>
         <item name="android:textColor">@color/color_3d3d3d</item>
         <item name="android:textSize">@dimen/dimen_value_sp13</item>
-        <item name="android:gravity">center</item>
+        <item name="android:gravity">center|left</item>
     </style>
 
 </resources>

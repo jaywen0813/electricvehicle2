@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="baozhuangfangshi">
+        <item>纸箱</item>
+        <item>木箱</item>
+        <item>木托盘纸箱</item>
+    </string-array>
+
+</resources>

@@ -14,7 +14,7 @@
         android:id="@+id/srl_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/color_efefef">
+        android:background="@color/color_f5f5f5">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -55,7 +55,7 @@
 
                 <LinearLayout
                     android:id="@+id/navigation_user_layout"
-                    android:layout_width="@dimen/dimen_value_dp60"
+                    android:layout_width="@dimen/dimen_value_dp90"
                     android:layout_height="fill_parent"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="@dimen/dimen_value_dp10"
@@ -64,9 +64,22 @@
                     android:visibility="visible">
 
                     <TextView
+                        android:id="@+id/tv_delete"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="作废"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/dimen_value_dp15"
+                        android:gravity="center"
+                        android:layout_marginRight="@dimen/dimen_value_dp10"
+                        />
+
+                    <TextView
                         android:id="@+id/farm_input_save"
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
                         android:layout_alignParentRight="true"
                         android:gravity="center"
                         android:text="修改"
@@ -176,18 +189,26 @@
                             android:text="包装方式" />
 
                         <View style="@style/viewline_shu" />
-                        <EditText
-                            android:id="@+id/tv_bzfs"
-                            android:layout_width="0dp"
+                        <!--<EditText-->
+                            <!--android:id="@+id/tv_bzfs"-->
+                            <!--android:layout_width="0dp"-->
+                            <!--android:layout_height="match_parent"-->
+                            <!--android:layout_weight="1"-->
+                            <!--android:background="@null"-->
+                            <!--android:gravity="center_vertical"-->
+                            <!--android:hint="0：纸箱；1：木箱；2：木托盘纸箱"-->
+                            <!--android:textColor="@color/color_3d3d3d"-->
+                            <!--android:textColorHint="@color/color_b3b3b3"-->
+                            <!--android:textSize="@dimen/dimen_value_sp14" />-->
+                        <Spinner
+                            android:id="@+id/sp_bzfs"
+                            android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:background="@null"
-                            android:gravity="center_vertical"
-                            android:hint="0：纸箱；1：木箱；2：木托盘纸箱"
-                            android:textColor="@color/color_3d3d3d"
-                            android:textColorHint="@color/color_b3b3b3"
-                            android:textSize="@dimen/dimen_value_sp14" />
-
+                            android:entries="@array/baozhuangfangshi"
+                            android:popupBackground="@color/black"
+                            android:contextClickable="true"
+                            />
 
                     </LinearLayout>
 
@@ -209,7 +230,10 @@
 
                             <EditText
                                 android:id="@+id/tv_djx"
-                                style="@style/etTextView1" />
+                                style="@style/etTextView1"
+                                android:inputType="number"
+                                android:digits="1234567890"
+                                />
 
                             <TextView
                                 style="@style/tvTextView1"
@@ -228,7 +252,8 @@
                             <EditText
                                 android:id="@+id/tv_gjx"
                                 style="@style/etTextView1"
-
+                                android:inputType="number"
+                                android:digits="1234567890"
                                 />
 
                             <TextView
@@ -256,7 +281,10 @@
 
                             <EditText
                                 android:id="@+id/tv_chang"
-                                style="@style/etTextView1" />
+                                style="@style/etTextView1"
+                                android:inputType="number"
+                                android:digits="1234567890"
+                                />
 
                         </LinearLayout>
 
@@ -272,7 +300,10 @@
 
                             <EditText
                                 android:id="@+id/tv_kuan"
-                                style="@style/etTextView1" />
+                                style="@style/etTextView1"
+                                android:inputType="number"
+                                android:digits="1234567890"
+                                />
 
                         </LinearLayout>
 
@@ -288,7 +319,10 @@
 
                             <EditText
                                 android:id="@+id/tv_gao"
-                                style="@style/etTextView1" />
+                                style="@style/etTextView1"
+                                android:inputType="number"
+                                android:digits="1234567890"
+                                />
 
                         </LinearLayout>
                     </LinearLayout>
@@ -310,7 +344,10 @@
 
                             <EditText
                                 android:id="@+id/tv_jingzhong"
-                                style="@style/etTextView1" />
+                                style="@style/etTextView1"
+                                android:inputType="number"
+                                android:digits="1234567890"
+                                />
 
                         </LinearLayout>
 
@@ -326,7 +363,10 @@
 
                             <EditText
                                 android:id="@+id/tv_maozhong"
-                                style="@style/etTextView1" />
+                                style="@style/etTextView1"
+                                android:inputType="number"
+                                android:digits="1234567890"
+                                />
 
                         </LinearLayout>
 
@@ -603,7 +643,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginRight="@dimen/dimen_value_dp20"
                 android:layout_marginBottom="@dimen/dimen_value_dp20"
-                android:src="@mipmap/img_delete"
+              
 
                 />
 

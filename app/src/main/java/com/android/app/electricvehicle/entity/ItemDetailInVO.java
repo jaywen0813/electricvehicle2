@@ -474,6 +474,10 @@ public class ItemDetailInVO {
             private String billArchived;
             private String billPrint;
             private String printTimes;
+            private String salesOrder; //Sales order
+            private String comments; //comments
+            private String installTime; //组装日期
+            private String deliveryDate; //订单交货期
             private String remark;
             private boolean enable;
             private String storeStateText;
@@ -481,6 +485,38 @@ public class ItemDetailInVO {
             private String billPrintText;
             private List<PackingListItemsBean> packingListItems;
 
+
+            public String getSalesOrder() {
+                return salesOrder;
+            }
+
+            public void setSalesOrder(String salesOrder) {
+                this.salesOrder = salesOrder;
+            }
+
+            public String getComments() {
+                return comments;
+            }
+
+            public void setComments(String comments) {
+                this.comments = comments;
+            }
+
+            public String getInstallTime() {
+                return installTime;
+            }
+
+            public void setInstallTime(String installTime) {
+                this.installTime = installTime;
+            }
+
+            public String getDeliveryDate() {
+                return deliveryDate;
+            }
+
+            public void setDeliveryDate(String deliveryDate) {
+                this.deliveryDate = deliveryDate;
+            }
 
             public String getBillPrint() {
                 return billPrint;

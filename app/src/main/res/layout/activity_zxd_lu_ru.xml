@@ -138,16 +138,27 @@
                     style="@style/textviewdetailleftstyle"
                     android:text="包装方式" />
 
-                <EditText
-                    android:id="@+id/tv_bzfs"
-                    android:layout_width="0dp"
+                <!--<EditText-->
+                    <!--android:id="@+id/tv_bzfs"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:gravity="center_vertical"-->
+                    <!--android:hint="0：纸箱；1：木箱；2：木托盘纸箱"-->
+                    <!--android:textColor="@color/color_3d3d3d"-->
+                    <!--android:textColorHint="@color/color_b3b3b3"-->
+                    <!--android:textSize="@dimen/dimen_value_sp14" />-->
+
+
+                <Spinner
+                    android:id="@+id/sp_bzfs"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:hint="0：纸箱；1：木箱；2：木托盘纸箱"
-                    android:textColor="@color/color_3d3d3d"
-                    android:textColorHint="@color/color_b3b3b3"
-                    android:textSize="@dimen/dimen_value_sp14" />
+                    android:entries="@array/baozhuangfangshi"
+                    android:popupBackground="@color/black"
+                    android:contextClickable="true"
+                    />
 
 
             </LinearLayout>
@@ -172,6 +183,7 @@
                         android:id="@+id/tv_djx"
                         style="@style/etTextView1"
                         android:inputType="number"
+                        android:digits="1234567890"
                         />
 
                     <TextView
@@ -192,6 +204,7 @@
                         android:id="@+id/tv_gjx"
                         style="@style/etTextView1"
                         android:inputType="number"
+                        android:digits="1234567890"
                         />
 
                     <TextView
@@ -216,12 +229,13 @@
                     <TextView
                         style="@style/tvTextView1"
                         android:text="长："
-                        android:inputType="number"
                         />
 
                     <EditText
                         android:id="@+id/tv_chang"
-                        style="@style/etTextView1" />
+                        style="@style/etTextView1"
+                        android:inputType="number"
+                        android:digits="1234567890"/>
 
                 </LinearLayout>
 
@@ -234,12 +248,15 @@
                     <TextView
                         style="@style/tvTextView1"
                         android:text="宽："
-                        android:inputType="number"
+
                         />
 
                     <EditText
                         android:id="@+id/tv_kuan"
-                        style="@style/etTextView1" />
+                        style="@style/etTextView1"
+                        android:inputType="number"
+                        android:digits="1234567890"
+                        />
 
                 </LinearLayout>
 
@@ -252,12 +269,14 @@
                     <TextView
                         style="@style/tvTextView1"
                         android:text="高："
-                        android:inputType="number"
                         />
 
                     <EditText
                         android:id="@+id/tv_gao"
-                        style="@style/etTextView1" />
+                        style="@style/etTextView1"
+                        android:inputType="number"
+                        android:digits="1234567890"
+                        />
 
                 </LinearLayout>
             </LinearLayout>
@@ -276,12 +295,14 @@
                     <TextView
                         style="@style/tvTextView1"
                         android:text="净重："
-                        android:inputType="number"
                         />
 
                     <EditText
                         android:id="@+id/tv_jingzhong"
-                        style="@style/etTextView1" />
+                        style="@style/etTextView1"
+                        android:inputType="number"
+                        android:digits="1234567890"
+                        />
 
                 </LinearLayout>
 
@@ -294,12 +315,15 @@
                     <TextView
                         style="@style/tvTextView1"
                         android:text="毛重："
-                        android:inputType="number"
+
                         />
 
                     <EditText
                         android:id="@+id/tv_maozhong"
-                        style="@style/etTextView1" />
+                        style="@style/etTextView1"
+                        android:inputType="number"
+                        android:digits="1234567890"
+                        />
 
                 </LinearLayout>
 
