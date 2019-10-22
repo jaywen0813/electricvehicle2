@@ -314,7 +314,7 @@ public class MyOutDetailActivity extends BaseMvpActivity<MyOutDetailContract.Vie
 
                     long itimes= Long.parseLong(vDate.getData().getPackingList().getInstallTime());
 
-                    SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); //设置格式
+                    SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd"); //设置格式
                     String timeText=format.format(itimes);
                     tv_zzrq.setText("组装日期"+timeText+"");
 
@@ -325,7 +325,7 @@ public class MyOutDetailActivity extends BaseMvpActivity<MyOutDetailContract.Vie
 
                     long itimess= Long.parseLong(vDate.getData().getPackingList().getDeliveryDate());
 
-                    SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); //设置格式
+                    SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd"); //设置格式
                     String timeText=format.format(itimess);
                     tv_ddjhq.setText("订单交货期："+timeText+"");
                 }

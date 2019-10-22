@@ -612,7 +612,7 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
 
                 long itimes= Long.parseLong(vDate.getData().getInstallTime());
 
-                SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); //设置格式
+                SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd"); //设置格式
                 String timeText=format.format(itimes);
                 tv_zzrq.setText(timeText+"");
 
@@ -624,7 +624,7 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
 
                 long itimess= Long.parseLong(vDate.getData().getDeliveryDate());
 
-                SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); //设置格式
+                SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd"); //设置格式
                 String timeText=format.format(itimess);
                 tv_ddjhq.setText(timeText+"");
                 sjc2=vDate.getData().getDeliveryDate();
@@ -777,6 +777,8 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
         tvGao.setEnabled(true);
         tvJingzhong.setEnabled(true);
         tvMaozhong.setEnabled(true);
+        tv_order.setEnabled(true);
+        tv_comments.setEnabled(true);
         tv_zzrq.setEnabled(true);
         tv_ddjhq.setEnabled(true);
 //        tvRl.setEnabled(true);
@@ -796,6 +798,8 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
         tvGao.setEnabled(false);
         tvJingzhong.setEnabled(false);
         tvMaozhong.setEnabled(false);
+        tv_order.setEnabled(false);
+        tv_comments.setEnabled(false);
         tv_zzrq.setEnabled(false);
         tv_ddjhq.setEnabled(false);
 //        tvRl.setEnabled(false);
