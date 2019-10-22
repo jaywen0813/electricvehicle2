@@ -45,7 +45,7 @@ public class ZxdlrAddlPresenter extends BasePresenter<ZxdlrAddContract.View> imp
 
     @Override    //添加
     public void add(String workCode, String madeTime, String packingMaterial, String rankNum, String totalNum, String packLength, String packwidth,
-                       String packHeight, String netWeight, String roughWeight, List<PackingListItems> packingListItem){
+                       String packHeight, String netWeight, String roughWeight, List<PackingListItems> packingListItem,String salesOrder,String comments,String installTime,String deliveryDate){
         SortedMap<String, Object> paramsMap = new TreeMap<>();
 
         paramsMap.put("workCode",workCode);
@@ -59,6 +59,10 @@ public class ZxdlrAddlPresenter extends BasePresenter<ZxdlrAddContract.View> imp
         paramsMap.put("netWeight",netWeight);
         paramsMap.put("roughWeight",roughWeight);
         paramsMap.put("packingListItems",packingListItem);
+        paramsMap.put("salesOrder",salesOrder);
+        paramsMap.put("comments",comments);
+        paramsMap.put("installTime",installTime);
+        paramsMap.put("deliveryDate",deliveryDate);
 
 
                 //这里请求修改了头布为SortedMap<String, Object> 入参，添加的时候相同

@@ -156,7 +156,7 @@ public class ZxdlrDetailPresenter extends BasePresenter<ZxdlrDetailContract.View
 
     @Override    //修改详情
     public void update(String id, String madeTime, String packingMaterial, String rankNum, String totalNum, String packLength, String packwidth,
-                       String packHeight, String netWeight, String roughWeight, List<PackingListItem> packingListItem){
+                       String packHeight, String netWeight, String roughWeight, List<PackingListItem> packingListItem,String salesOrder,String comments,String installTime,String deliveryDate){
         SortedMap<String, Object> paramsMap = new TreeMap<>();
 
         paramsMap.put("id",id);
@@ -170,6 +170,10 @@ public class ZxdlrDetailPresenter extends BasePresenter<ZxdlrDetailContract.View
         paramsMap.put("netWeight",netWeight);
         paramsMap.put("roughWeight",roughWeight);
         paramsMap.put("packingListItem",packingListItem);
+        paramsMap.put("salesOrder",salesOrder);
+        paramsMap.put("comments",comments);
+        paramsMap.put("installTime",installTime);
+        paramsMap.put("deliveryDate",deliveryDate);
 
 
                 //这里请求修改了头布为SortedMap<String, Object> 入参，添加的时候相同

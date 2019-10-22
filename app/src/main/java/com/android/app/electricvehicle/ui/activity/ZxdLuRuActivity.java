@@ -1,6 +1,7 @@
 package com.android.app.electricvehicle.ui.activity;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,11 +26,20 @@ import com.android.app.electricvehicle.entity.ZxdDetailAddVO;
 import com.android.app.electricvehicle.model.main.contract.ZxdlrAddContract;
 import com.android.app.electricvehicle.model.main.presenter.ZxdlrAddlPresenter;
 import com.android.app.electricvehicle.mvp.presenter.BasePresenter;
+import com.android.app.electricvehicle.utils.DateTimeWheelDialog;
 import com.android.app.electricvehicle.utils.Kits;
+import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
+import com.bigkoo.pickerview.listener.CustomListener;
+import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
+import com.bigkoo.pickerview.view.OptionsPickerView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 //首页的
 public class ZxdLuRuActivity extends BaseMvpActivity<ZxdlrAddContract.View, ZxdlrAddlPresenter> implements ZxdlrAddContract.View, View.OnClickListener {
@@ -65,11 +75,23 @@ public class ZxdLuRuActivity extends BaseMvpActivity<ZxdlrAddContract.View, Zxdl
     EditText tvAgl ;
     EditText tvQty ;
 
+
+    EditText tv_order;
+    EditText tv_comments;
+    TextView tv_zzrq;
+    TextView tv_ddjhq;
+
     List<PackingListItems> packingListItem =new ArrayList<>();//用来存储入参的
 
 
 
     String packingMaterial="";//包装方式
+
+    DateTimeWheelDialog dialog3 = null;
+    DateTimeWheelDialog dialog4 = null;
+    String sjc="";//
+    String sjc2="";//订单交货期时间戳
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,11 +126,23 @@ public class ZxdLuRuActivity extends BaseMvpActivity<ZxdlrAddContract.View, Zxdl
         llAdd = findViewById(R.id.ll_add);
         imgAdd = findViewById(R.id.img_add);
 
+
+         tv_order= findViewById(R.id.tv_order);
+         tv_comments= findViewById(R.id.tv_comments);
+         tv_zzrq= findViewById(R.id.tv_zzrq);
+         tv_ddjhq= findViewById(R.id.tv_ddjhq);
+
         backLayout.setOnClickListener(this);
         farmInputSave.setOnClickListener(this);
         imgAdd.setOnClickListener(this);
+        tv_zzrq.setOnClickListener(this);
+        tv_ddjhq.setOnClickListener(this);
 
         tvLayerHead.setText("添加装箱单");
+
+
+
+
         addViewItem();//先添加一条
 
         sp_bzfs.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -161,13 +195,13 @@ public class ZxdLuRuActivity extends BaseMvpActivity<ZxdlrAddContract.View, Zxdl
                 break;
             case R.id.img_add://添加条目
 
-                childCount++;
+
+                childCount++;//记录加了几条
 
 
-                for (int i = 0; i <childCount ; i++) {
+                for (int i = 0; i <1 ; i++) {
                     View view2 = LayoutInflater.from(this).inflate(R.layout.item_zxdlr,null);
 //                    final View childAt = llAdd.getChildAt(i);
-
 
 
 //                    tvSo.setId(R.id.text_tvSo+i);//循环设置id
@@ -180,9 +214,6 @@ public class ZxdLuRuActivity extends BaseMvpActivity<ZxdlrAddContract.View, Zxdl
 
 
                 }
-
-
-
 
 
 
@@ -201,6 +232,10 @@ public class ZxdLuRuActivity extends BaseMvpActivity<ZxdlrAddContract.View, Zxdl
                 String packHeight=tvGao.getText().toString();//高
                 String netWeight=tvJingzhong.getText().toString();//净重
                 String roughWeight=tvMaozhong.getText().toString();//毛重
+                 String salesOrder=tv_order.getText().toString(); //Sales order
+                 String comments=tv_comments.getText().toString(); //comments
+                 String installTime=sjc; //组装日期
+                 String deliveryDate=sjc2; //订单交货期
 
 
                 if (Kits.Empty.check(workCode)) {
@@ -265,6 +300,28 @@ public class ZxdLuRuActivity extends BaseMvpActivity<ZxdlrAddContract.View, Zxdl
                     return;
                 }
 
+//------------------------
+                if (Kits.Empty.check(salesOrder)) {
+                    Toast.makeText(ZxdLuRuActivity.this,"请填写Sales Order",Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                if (Kits.Empty.check(comments)) {
+                    Toast.makeText(ZxdLuRuActivity.this,"请填写comments",Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                if (Kits.Empty.check(installTime)) {
+                    Toast.makeText(ZxdLuRuActivity.this,"请填写组装日期",Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                if (Kits.Empty.check(deliveryDate)) {
+                    Toast.makeText(ZxdLuRuActivity.this,"请填写订单交货期",Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+
 
                 for (int i = 0; i <childCount+1 ; i++) {//这里加1，因为一开始默认添加了一条
                     View childAt = llAdd.getChildAt(i);
@@ -321,14 +378,23 @@ public class ZxdLuRuActivity extends BaseMvpActivity<ZxdlrAddContract.View, Zxdl
                 }
 
 
-
-
-                presenter.add(workCode,madeTime,packingMaterial,rankNum,totalNum,packLength,packwidth,packHeight,netWeight,roughWeight,packingListItem);
-
+                presenter.add(workCode,madeTime,packingMaterial,rankNum,totalNum,packLength,packwidth,packHeight,netWeight,roughWeight,packingListItem,salesOrder,comments,installTime,deliveryDate);
 
 
 
+                break;
 
+            case R.id.tv_zzrq://组装日期
+                if (dialog3 == null)
+                    dialog3 = createDialog(3);
+                else
+                    dialog3.show(); //弹出自定义条件选择器
+                break;
+            case R.id.tv_ddjhq://订单交货期
+                if (dialog4 == null)
+                    dialog4 = createDialog2(3);
+                else
+                    dialog4.show(); //弹出自定义条件选择器
                 break;
         }
     }
@@ -370,9 +436,162 @@ public class ZxdLuRuActivity extends BaseMvpActivity<ZxdlrAddContract.View, Zxdl
     public void showErr(String err) {
 
     }
+    //组装日期
+    private DateTimeWheelDialog createDialog(int type) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.YEAR, 2000);
+        calendar.set(Calendar.MONTH, 0);
+        calendar.set(Calendar.DAY_OF_MONTH, 1);
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        Date startDate = calendar.getTime();
+        calendar = Calendar.getInstance();
+        calendar.set(Calendar.YEAR, 2049);
+        Date endDate = calendar.getTime();
+
+        DateTimeWheelDialog dialog = new DateTimeWheelDialog(this);
+//        dialog.setShowCount(7);
+//        dialog.setItemVerticalSpace(24);
+        dialog.show();
+        dialog.setTitle("选择时间");
+        int config = DateTimeWheelDialog.SHOW_YEAR_MONTH_DAY_HOUR_MINUTE;
+        switch (type) {
+            case 1:
+                config = DateTimeWheelDialog.SHOW_YEAR;
+                break;
+            case 2:
+                config = DateTimeWheelDialog.SHOW_YEAR_MONTH;
+                break;
+            case 3:
+                config = DateTimeWheelDialog.SHOW_YEAR_MONTH_DAY;
+                break;
+            case 4:
+                config = DateTimeWheelDialog.SHOW_YEAR_MONTH_DAY_HOUR;
+                break;
+            case 5:
+                config = DateTimeWheelDialog.SHOW_YEAR_MONTH_DAY_HOUR_MINUTE;
+                break;
+        }
+        dialog.configShowUI(config);
+        dialog.setCancelButton("取消", null);
+        dialog.setOKButton("确定", new DateTimeWheelDialog.OnClickCallBack() {
+            @Override
+            public boolean callBack(View v, @NonNull Date selectedDate) {
+//                tv_zzrq.setText(SimpleDateFormat.getInstance().format(selectedDate));
+
+
+
+                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+                String d = df.format(selectedDate);
+                tv_zzrq.setText(d+"");//显示出来的  年月日
+
+                SimpleDateFormat df2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+                String d2 = df2.format(selectedDate);
+
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+                Date date = new Date();
+                try {
+                    date = dateFormat.parse(d2);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                 sjc=date.getTime()+ "";//时间戳
+
+
+
+
+
+
+                return false;
+            }
+        });
+        dialog.setDateArea(startDate, endDate, true);
+        dialog.updateSelectedDate(new Date());
+        return dialog;
+    }
+
+
+    //订单交货期
+    private DateTimeWheelDialog createDialog2(int type) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.YEAR, 2000);
+        calendar.set(Calendar.MONTH, 0);
+        calendar.set(Calendar.DAY_OF_MONTH, 1);
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        Date startDate = calendar.getTime();
+        calendar = Calendar.getInstance();
+        calendar.set(Calendar.YEAR, 2049);
+        Date endDate = calendar.getTime();
+
+        DateTimeWheelDialog dialog = new DateTimeWheelDialog(this);
+//        dialog.setShowCount(7);
+//        dialog.setItemVerticalSpace(24);
+        dialog.show();
+        dialog.setTitle("选择时间");
+        int config = DateTimeWheelDialog.SHOW_YEAR_MONTH_DAY_HOUR_MINUTE;
+        switch (type) {
+            case 1:
+                config = DateTimeWheelDialog.SHOW_YEAR;
+                break;
+            case 2:
+                config = DateTimeWheelDialog.SHOW_YEAR_MONTH;
+                break;
+            case 3:
+                config = DateTimeWheelDialog.SHOW_YEAR_MONTH_DAY;
+                break;
+            case 4:
+                config = DateTimeWheelDialog.SHOW_YEAR_MONTH_DAY_HOUR;
+                break;
+            case 5:
+                config = DateTimeWheelDialog.SHOW_YEAR_MONTH_DAY_HOUR_MINUTE;
+                break;
+        }
+        dialog.configShowUI(config);
+        dialog.setCancelButton("取消", null);
+        dialog.setOKButton("确定", new DateTimeWheelDialog.OnClickCallBack() {
+            @Override
+            public boolean callBack(View v, @NonNull Date selectedDate) {
+//                tv_zzrq.setText(SimpleDateFormat.getInstance().format(selectedDate));
+
+
+
+                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+                String d = df.format(selectedDate);
+                tv_ddjhq.setText(d+"");//显示出来的  年月日
+
+                SimpleDateFormat df2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+                String d2 = df2.format(selectedDate);
+
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+                Date date = new Date();
+                try {
+                    date = dateFormat.parse(d2);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                 sjc2=date.getTime()+ "";//时间戳
+
+
+
+
+
+
+                return false;
+            }
+        });
+        dialog.setDateArea(startDate, endDate, true);
+        dialog.updateSelectedDate(new Date());
+        return dialog;
+    }
 
     @Override
     public Context getViewContext() {
         return this;
     }
+
+
+
+
+
 }

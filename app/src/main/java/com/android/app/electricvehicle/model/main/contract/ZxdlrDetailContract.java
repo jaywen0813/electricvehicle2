@@ -43,7 +43,7 @@ public interface ZxdlrDetailContract {
         void getUP(String id);
         //修改
         void update(String id, String madeTime, String packingMaterial, String rankNum, String totalNum, String packLength, String packwidth,
-                    String packHeight, String netWeight, String roughWeight, List<PackingListItem> packingListItem);
+                    String packHeight, String netWeight, String roughWeight, List<PackingListItem> packingListItem,String salesOrder,String comments,String installTime,String deliveryDate);
 
 
         //删除

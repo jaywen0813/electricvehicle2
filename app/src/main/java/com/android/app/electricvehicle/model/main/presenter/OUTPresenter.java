@@ -46,17 +46,17 @@ public class OUTPresenter extends BasePresenter<OUTContract.View> implements OUT
     @Override
     public void getUP(String outstoreCode,String freeLoc) {
         SortedMap<String, String> paramsMap = new TreeMap<>();
-//        paramsMap.put("packingCode", outstoreCode);
+        paramsMap.put("packingCode", outstoreCode);
 //        paramsMap.put("storehouseId", storehouseId);
 //        paramsMap.put("storehouseName", storehouseName);
-//        paramsMap.put("freeLoc", freeLoc);
+        paramsMap.put("freeLoc", freeLoc);
 //        paramsMap.put("packingListId", packingListId);
 //        paramsMap.put("remark", remark);
 
-        paramsMap.put("packingCode", "20191001001");
+//        paramsMap.put("packingCode", "20191001001");
 //        paramsMap.put("storehouseId", "55838525");
 //        paramsMap.put("storehouseName", "500");
-        paramsMap.put("freeLoc", "AAA-02-014");
+//        paramsMap.put("freeLoc", "AAA-02-014");
 //        paramsMap.put("packingListId", "20191001001");
 
 
