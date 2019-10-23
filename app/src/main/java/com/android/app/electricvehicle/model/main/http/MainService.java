@@ -222,4 +222,8 @@ public interface MainService {
     //添加装箱单信息
     @POST("packings/list/save")
     Observable<ZxdDetailAddVO> addzxdlr(@HeaderMap Map<String, String> headerMap,@Body RequestBody requestbody);
+
+    //入库扫码以后查询详情返回数据的接口
+    @GET
+    Observable<ShowInDetailEntity> getINDetail(@HeaderMap Map<String, String> headerMap,@Url String url);
 }

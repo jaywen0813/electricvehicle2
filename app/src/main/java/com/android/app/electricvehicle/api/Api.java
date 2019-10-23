@@ -1,5 +1,9 @@
 package com.android.app.electricvehicle.api;
 
+import com.android.app.electricvehicle.MainApplication;
+import com.android.app.electricvehicle.model.setting.LoginAddress;
+import com.android.app.electricvehicle.mvp.presenter.BasePresenter;
+
 /**
  * ================================================
  * 作   者：
@@ -41,17 +45,10 @@ public class Api {
 
 //    public static final String BASE_URL = "http://123.125.218.28:8030/eweb/api/e-mobile/";//测试环境
 
-    public static final String BASE_URL = "https://api.zrcloud.me/interroll/";
+//    public static final String BASE_URL ="https://api.zrcloud.me/interroll/";
 
 
-
-
-
-
-
-
-
-
+    public static final String BASE_URL = MainApplication.ApiAddress;
 
 
 }

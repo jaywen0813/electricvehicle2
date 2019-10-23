@@ -22,6 +22,8 @@ import com.android.app.electricvehicle.entity.LoginResultVO2;
 import com.android.app.electricvehicle.entity.LoginResultVO3;
 import com.android.app.electricvehicle.model.login.contract.LoginContract2;
 import com.android.app.electricvehicle.model.login.presenter.LoginPresenter2;
+import com.android.app.electricvehicle.model.setting.LoginAddress;
+import com.android.app.electricvehicle.model.setting.LoginSettingActivity;
 import com.android.app.electricvehicle.utils.DialogUtil;
 import com.android.app.electricvehicle.utils.Kits;
 import com.android.app.electricvehicle.utils.PreferenceUtils;
@@ -37,7 +39,7 @@ public class Login2Activity extends BaseMvpActivity<LoginContract2.View, LoginPr
     ImageView showpassword1;
     private Button loginBt;
 
-
+    private ImageView img_shezhi;//设置按钮
 
     @Override
     protected void initView() {
@@ -56,11 +58,13 @@ public class Login2Activity extends BaseMvpActivity<LoginContract2.View, LoginPr
         loginBt = findViewById(R.id.login_bt);//登录按钮
 
         showpassword1=findViewById(R.id.showpassword1);
+        img_shezhi=findViewById(R.id.img_shezhi);//设置按钮
 
         showphone.setOnClickListener(this);
         showpassword.setOnClickListener(this);
         loginBt.setOnClickListener(this);
         showpassword1.setOnClickListener(this);
+        img_shezhi.setOnClickListener(this);
 
 
 //        if (!(MainApplication.LOGINRESULTVO3.getData().getAccess_token()==null||MainApplication.LOGINRESULTVO3.getData().getAccess_token().equals(""))){
@@ -166,7 +170,10 @@ public class Login2Activity extends BaseMvpActivity<LoginContract2.View, LoginPr
 
 //                startActivity(new Intent(this, Main3Activity.class));
                 break;
-
+            case R.id.img_shezhi://设置按钮
+                Intent intent=new Intent(this, LoginSettingActivity.class);
+                startActivity(intent);
+                break;
 
         }
     }

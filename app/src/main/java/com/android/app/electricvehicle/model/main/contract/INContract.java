@@ -2,6 +2,7 @@ package com.android.app.electricvehicle.model.main.contract;
 
 import com.android.app.electricvehicle.entity.DetailVO;
 import com.android.app.electricvehicle.entity.INDetailVO;
+import com.android.app.electricvehicle.entity.ShowInDetailEntity;
 import com.android.app.electricvehicle.mvp.view.BaseViewInf;
 
 import java.util.List;
@@ -23,14 +24,16 @@ public interface INContract {
         void showSuccess(INDetailVO vDate);
 
 
-
+        //扫码以后返回的详情数据
+        void showInDetail(ShowInDetailEntity showInDetailEntity);
     }
 
     interface Presenter {
         //网络请求。提交数据
         void getUP(String instoreCode,String freeLoc,String remark);
 
-
+        //用来提交到后台获取详情的
+        void getInDetail(String packingCode);
 
     }
 }

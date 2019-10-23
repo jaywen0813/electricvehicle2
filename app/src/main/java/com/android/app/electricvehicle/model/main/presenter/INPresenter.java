@@ -7,6 +7,7 @@ import com.android.app.electricvehicle.MainApplication;
 import com.android.app.electricvehicle.api.Api;
 import com.android.app.electricvehicle.entity.INDetailVO;
 import com.android.app.electricvehicle.entity.OutVO;
+import com.android.app.electricvehicle.entity.ShowInDetailEntity;
 import com.android.app.electricvehicle.model.main.contract.INContract;
 import com.android.app.electricvehicle.model.main.contract.MianContract3;
 import com.android.app.electricvehicle.model.main.http.MainService;
@@ -20,6 +21,7 @@ import com.orhanobut.logger.Logger;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
+import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -28,6 +30,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -133,6 +136,58 @@ public class INPresenter extends BasePresenter<INContract.View> implements INCon
 
     }
 
+    @Override
+    public void getInDetail(String packingCode) {
+        SortedMap<String, String> paramsMap = new TreeMap<>();
+
+
+        //GET请求
+        Retrofit retrofit = new Retrofit.Builder()
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                //baseUrl:参数之前的部分
+                .baseUrl("https://api.zrcloud.me/interroll/")
+                .build();
+        MainService services = retrofit.create(MainService.class);
+        //params1:所有参数进行拼接就可以
+//        Observable<ItemDetailInVO> observable = services.getPage(ParameterUtils.getHeaser(paramsMap),"packings/instore/get/"+"ba8fc8a8ea9311e992930242ac110012");
+        Observable<ShowInDetailEntity> observable = services.getINDetail(ParameterUtils.getHeaser(paramsMap),"packings/list/code/"+packingCode);
+        observable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<ShowInDetailEntity>() {
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.d("heihei", "onError: 失败");
+                        e.printStackTrace();
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(ShowInDetailEntity vDate) {
+
+
+
+                        Log.d("heihie", "onNext: " + vDate.getSuccess());
+//                        if (vDate.getSuccess().equals("T")) {
+                            mView.showInDetail(vDate);
+//                        }else {
+//                            Log.e("false",vDate.getMessage()+"");
+//                            mView.showInDetail(vDate);
+//                        }
+                    }
+                });
+
+    }
 
 
 

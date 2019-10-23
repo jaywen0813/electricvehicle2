@@ -75,6 +75,25 @@ public class MainApplication extends Application {
 
     public static boolean isMainActivityStart = false;//是否从首页进去
 
+    public static String ApiAddress="https://api.zrcloud.me/interroll/";//请求的头部地址，默认给这个，后面如果修改就替换掉
+
+
+
+    //把API存起来
+    public static String getApiAddress() {
+        if (ApiAddress.isEmpty()) {
+            String ss = PreferenceUtils.getInstance(MainApplication.getContext()).getString("api");
+            ApiAddress = Kits.Empty.check(ss) ? ApiAddress : ss;//如果缓存中clientId为空,则取clientId
+        }
+        return ApiAddress;
+    }
+
+    public static void setApiAddress(String apiAddress) {
+        MainApplication.ApiAddress = apiAddress;
+
+        PreferenceUtils.getInstance(MainApplication.getContext()).setString("api", apiAddress);
+    }
+
     //推送的clientId
     public static String clientId = "";
     //推送相关
@@ -108,6 +127,8 @@ public class MainApplication extends Application {
         mActivityList = new ArrayList<>();
         initLogger();
 //        initActivityLifecycle();
+
+        PreferenceUtils.getInstance(MainApplication.getContext()).setString("api", ApiAddress);//先存一个
     }
 
     /**

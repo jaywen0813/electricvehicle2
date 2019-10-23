@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.android.app.electricvehicle.R;
 import com.android.app.electricvehicle.base.BaseMvpActivity;
 import com.android.app.electricvehicle.entity.INDetailVO;
+import com.android.app.electricvehicle.entity.ShowInDetailEntity;
 import com.android.app.electricvehicle.model.main.contract.INContract;
 import com.android.app.electricvehicle.model.main.presenter.INPresenter;
 import com.android.app.electricvehicle.mvp.presenter.BasePresenter;
@@ -328,7 +329,8 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
                 String content = data.getStringExtra(Constant.CODED_CONTENT);
                 etNumber.setText(content);//显示出来
 
-
+                //请求后台是否有装箱单的数据
+                presenter.getInDetail(content);
 
             }
         }else if (requestCode == 1123 && resultCode == 10086){//库位
@@ -350,6 +352,12 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
 //            T.showToastSafe("提交失败");
             Toast.makeText(INDetailActivity.this,vDate.getMessage()+"",Toast.LENGTH_LONG).show();
         }
+
+    }
+
+    //扫码到装箱单以后，返回的结果
+    @Override
+    public void showInDetail(ShowInDetailEntity showInDetailEntity) {
 
     }
 
