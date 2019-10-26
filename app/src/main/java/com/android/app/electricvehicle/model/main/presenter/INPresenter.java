@@ -6,6 +6,7 @@ import android.widget.Toast;
 import com.android.app.electricvehicle.MainApplication;
 import com.android.app.electricvehicle.api.Api;
 import com.android.app.electricvehicle.entity.INDetailVO;
+import com.android.app.electricvehicle.entity.INDetail_RuKu;
 import com.android.app.electricvehicle.entity.OutVO;
 import com.android.app.electricvehicle.entity.ShowInDetailEntity;
 import com.android.app.electricvehicle.model.main.contract.INContract;
@@ -47,9 +48,9 @@ public class INPresenter extends BasePresenter<INContract.View> implements INCon
 
 
 
-    //提交到后台
+    //提交到后台  有详情数据的时候，提交
     @Override
-    public void getUP(String instoreCode,String freeLoc,String remark) {
+    public void getUP(String instoreCode,String freeLoc) {
         SortedMap<String, String> paramsMap = new TreeMap<>();
 
         paramsMap.put("packingCode", instoreCode);//装箱单号  入库单号
@@ -136,6 +137,95 @@ public class INPresenter extends BasePresenter<INContract.View> implements INCon
 
     }
 
+
+
+    //没有详情数据的时候的提交
+    @Override
+    public void getUP2(String instoreCode, String freeLoc, INDetail_RuKu.PackingListBean inDetail_ruKu) {
+        SortedMap<String, String> paramsMap = new TreeMap<>();
+
+        paramsMap.put("packingCode", instoreCode);//装箱单号  入库单号
+        paramsMap.put("freeLoc", freeLoc);//库位编号
+
+
+
+//        paramsMap.put("packingCode", "122191324981180640");//装箱单号  入库单号
+//        paramsMap.put("freeLoc", "AAA-02-088");//库位编号
+
+
+
+
+//        MainDataRepository.getInstance().INdetailService(paramsMap)
+//                .subscribeOn(Schedulers.io())//网络是耗时操作,所以在io线程中去执行
+//                .observeOn(AndroidSchedulers.mainThread())//请求成功后回到主线程中
+//                .subscribe(new Observer<INDetailVO>() {
+//                    @Override
+//                    public void onSubscribe(Disposable d) {
+//                        addDisposable(d);
+//                    }
+//
+//                    @Override
+//                    public void onNext(INDetailVO vDate) {
+//                        if (vDate.getSuccess().equals("T")) {
+//                            mView.showSuccess("T");
+//                            Log.e("qqqq", "onNext: 成功" );
+//                        }else {
+//                            mView.showSuccess("F");
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onError(Throwable e) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onComplete() {
+//                        //请求完成
+//                    }
+//                });
+
+
+        NetInstance.getEventsService().indetail(ParameterUtils.getHeaser(paramsMap), ParameterUtils.getJsonBody(paramsMap)).
+                subscribeOn(Schedulers.io()).
+                observeOn(AndroidSchedulers.mainThread()).
+                subscribe(new Observer<INDetailVO>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        addDisposable(d);
+                    }
+
+                    @Override
+                    public void onNext(INDetailVO vDate) {
+                        if (vDate.getSuccess().equals("T")) {
+                            mView.showSuccess(vDate);
+                            Log.e("qqqq", "onNext: 成功" );
+                        }else {
+                            mView.showSuccess(vDate);
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Logger.e(e.toString());
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+
+
+
+
+
+
+    }
+
+
+    //获取详情
     @Override
     public void getInDetail(String packingCode) {
         SortedMap<String, String> paramsMap = new TreeMap<>();

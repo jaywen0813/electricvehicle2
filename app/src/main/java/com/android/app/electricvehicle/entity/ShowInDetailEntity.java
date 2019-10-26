@@ -342,8 +342,8 @@ public class ShowInDetailEntity {
             private String printTimes;
             private String salesOrder;
             private String comments;
-            private long installTime;
-            private long deliveryDate;
+            private String installTime;
+            private String deliveryDate;
             private String remark;
             private String packingMaterialText;
             private String storeStateText;
@@ -610,19 +610,19 @@ public class ShowInDetailEntity {
                 this.comments = comments;
             }
 
-            public long getInstallTime() {
+            public String getInstallTime() {
                 return installTime;
             }
 
-            public void setInstallTime(long installTime) {
+            public void setInstallTime(String installTime) {
                 this.installTime = installTime;
             }
 
-            public long getDeliveryDate() {
+            public String getDeliveryDate() {
                 return deliveryDate;
             }
 
-            public void setDeliveryDate(long deliveryDate) {
+            public void setDeliveryDate(String deliveryDate) {
                 this.deliveryDate = deliveryDate;
             }
 

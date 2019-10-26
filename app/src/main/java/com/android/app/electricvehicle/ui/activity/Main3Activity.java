@@ -102,7 +102,7 @@ public class Main3Activity extends BaseMvpActivity<MianContract3.View, MainPrese
                 startActivity(intent);
                 break;
             case R.id.ll_wuliu2://出库操作
-                Intent intent1=new Intent(this,OUTDetailActivity.class);
+                Intent intent1=new Intent(this,OUTDetailActivity2.class);
                 startActivity(intent1);
                 break;
             case R.id.ll_zxdlr://装箱单录入

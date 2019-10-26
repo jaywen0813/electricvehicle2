@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/regis_bg"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.activity.OUTDetailActivity2">
+
+    <include
+        layout="@layout/layer_header"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:layout_marginTop="@dimen/dimen_value_dp2"
+            >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:layout_height="@dimen/dimen_value_dp45"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:id="@+id/tv_tuijian1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="@dimen/dimen_value_sp15"
+                    android:textColor="@color/colorPrimary"
+                    android:gravity="center"
+                    android:text="装箱单号"/>
+                <TextView
+                    android:id="@+id/tv_tuijian2"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/colorPrimary"
+                    android:layout_gravity="bottom"
+                    android:layout_marginLeft="@dimen/dimen_value_dp15"
+                    android:layout_marginRight="@dimen/dimen_value_dp15"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:layout_height="@dimen/dimen_value_dp45"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:id="@+id/tv_zhihuan1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="@dimen/dimen_value_sp15"
+                    android:textColor="@color/color_3d3d3d"
+                    android:gravity="center"
+                    android:text="SO出库"/>
+                <TextView
+                    android:id="@+id/tv_zhihuan2"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginLeft="@dimen/dimen_value_dp15"
+                    android:layout_marginRight="@dimen/dimen_value_dp15"
+                    />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            ></android.support.v4.view.ViewPager>
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

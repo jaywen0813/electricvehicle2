@@ -7,11 +7,9 @@ import android.widget.Toast;
 import com.android.app.electricvehicle.entity.ItemDetailOutVO;
 import com.android.app.electricvehicle.entity.ItemDetailOutVO2;
 import com.android.app.electricvehicle.entity.OutDetailVO;
-import com.android.app.electricvehicle.entity.OutVO;
-import com.android.app.electricvehicle.model.main.contract.MianContract3;
 import com.android.app.electricvehicle.model.main.contract.OUTContract;
+import com.android.app.electricvehicle.model.main.contract.OUTContract2;
 import com.android.app.electricvehicle.model.main.http.MainService;
-import com.android.app.electricvehicle.model.main.repository.MainDataRepository;
 import com.android.app.electricvehicle.model.main.repository.NetInstance;
 import com.android.app.electricvehicle.mvp.presenter.BasePresenter;
 import com.android.app.electricvehicle.utils.ParameterUtils;
@@ -38,7 +36,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * 修订历史：
  * ================================================
  */
-public class OUTPresenter extends BasePresenter<OUTContract.View> implements OUTContract.Presenter {
+public class OUTPresenter2 extends BasePresenter<OUTContract2.View> implements OUTContract2.Presenter {
 
 
 
@@ -61,34 +59,6 @@ public class OUTPresenter extends BasePresenter<OUTContract.View> implements OUT
 //        paramsMap.put("packingListId", "20191001001");
 
 
-//        MainDataRepository.getInstance().OutdetailService(paramsMap)
-//                .subscribeOn(Schedulers.io())//网络是耗时操作,所以在io线程中去执行
-//                .observeOn(AndroidSchedulers.mainThread())//请求成功后回到主线程中
-//                .subscribe(new Observer<OutDetailVO>() {
-//                    @Override
-//                    public void onSubscribe(Disposable d) {
-//                        addDisposable(d);
-//                    }
-//
-//                    @Override
-//                    public void onNext(OutDetailVO vDate) {
-//                        if (vDate.getSuccess().equals("T")) {//如果是200，则代表退出成功了
-//                            mView.showSuccess();
-//                        }else {//token失效等,需要手动退出
-//                            mView.showSuccess();
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onError(Throwable e) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onComplete() {
-//                        //请求完成
-//                    }
-//                });
 
 
 
@@ -203,7 +173,7 @@ public class OUTPresenter extends BasePresenter<OUTContract.View> implements OUT
                         }else {
                             Log.e("false",vDate.getMessage()+"");
                             Toast.makeText(context,"查询失败",Toast.LENGTH_LONG).show();
-                            mView.showwsj();//没有查询到数据的时候
+
                         }
                     }
                 });
@@ -211,57 +181,6 @@ public class OUTPresenter extends BasePresenter<OUTContract.View> implements OUT
     }
 
 
-    //SO查询详细信息
-    @Override
-    public void getOutDetail(String salesOrder, String  soItem) {
 
-        SortedMap<String, String> paramsMap = new TreeMap<>();
-
-        //GET请求
-        Retrofit retrofit = new Retrofit.Builder()
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                //baseUrl:参数之前的部分
-                .baseUrl("https://api.zrcloud.me/interroll/")
-                .build();
-        MainService services = retrofit.create(MainService.class);
-        //params1:所有参数进行拼接就可以
-//        Observable<ItemDetailOutVO> observable = services.getoutPage(ParameterUtils.getHeaser(paramsMap),"packings/list/code/"+"1181913249818480640");
-        Observable<ItemDetailOutVO2> observable = services.getoutPage2(ParameterUtils.getHeaser(paramsMap),"packings/list?"+salesOrder+"=&"+soItem);
-        observable.subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<ItemDetailOutVO2>() {
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Log.d("heihei", "onError: 失败");
-                        e.printStackTrace();
-                    }
-
-                    @Override
-                    public void onComplete() {
-
-                    }
-
-                    @Override
-                    public void onSubscribe(Disposable d) {
-
-                    }
-
-                    @Override
-                    public void onNext(ItemDetailOutVO2 vDate) {
-
-
-                        Log.d("qqqqqq", "onNext: " + vDate);
-                        if (vDate.getSuccess().equals("T")) {
-                            mView.showDetail2(vDate);
-                        }else {
-                            Log.e("false",vDate.getMessage()+"");
-//                            Toast.makeText(context,"查询失败",Toast.LENGTH_LONG).show();
-                            mView.showwsj();//没有查询到数据的时候
-                        }
-                    }
-                });
-    }
 
 }

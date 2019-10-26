@@ -174,9 +174,13 @@ public interface MainService {
 
 
 
-    //出库时的详情展示
+    //出库时通过出库号的详情展示
     @GET
     Observable<ItemDetailOutVO> getoutPage(@HeaderMap Map<String, String> headerMap,@Url String url);
+
+    //出库时通过SO展示的详情
+    @GET
+    Observable<ItemDetailOutVO2> getoutPage2(@HeaderMap Map<String, String> headerMap,@Url String url);
 
     //我的入库列表点击以后的详情展示
     @GET

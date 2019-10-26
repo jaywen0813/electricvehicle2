@@ -16,7 +16,7 @@ import com.android.app.electricvehicle.mvp.view.BaseViewInf;
  * 修订历史：
  * ================================================
  */
-public interface OUTContract {
+public interface OUTContract2 {
 
     interface View extends BaseViewInf {
 
@@ -28,23 +28,17 @@ public interface OUTContract {
         void  showDetail(ItemDetailOutVO detailOutVO);
 
 
-        //通过SO查询到详情以后返回的数据
-        void  showDetail2(ItemDetailOutVO2 detailOutVO);
 
-
-        //没有查询到详情的时候
-        void showwsj();
 
 
     }
 
     interface Presenter {
         //网络请求。提交数据
-        void getUP(String outstoreCode,String freeLoc);
+        void getUP(String outstoreCode, String freeLoc);
         //通过装箱单号查询详情信息
         void getZXD(String zxd, Context context);
-        //通过SO查询详细信息
-        void getOutDetail(String salesOrder, String  soItem);
+
 
 
     }
