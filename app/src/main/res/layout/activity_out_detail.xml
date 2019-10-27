@@ -98,8 +98,7 @@
         <EditText
             android:id="@+id/tv_order"
             style="@style/etTextView1"
-            android:digits="1234567890"
-            android:inputType="number" />
+             />
 
     </LinearLayout>
     <View style="@style/viewline_heng" />
@@ -121,8 +120,7 @@
         <EditText
             android:id="@+id/tv_so"
             style="@style/etTextView1"
-            android:digits="1234567890"
-            android:inputType="number" />
+             />
 
     </LinearLayout>
     <View style="@style/viewline_heng" />

@@ -343,7 +343,7 @@ public class ZXDoutFragment extends BaseMvpFragment<OUTContract2.View, OUTPresen
         }
     }
 
-
+    //扫码获取装箱单号以后的详情
     @Override
     public void showDetail(ItemDetailOutVO vDate) {
 
@@ -430,16 +430,21 @@ public class ZXDoutFragment extends BaseMvpFragment<OUTContract2.View, OUTPresen
                 switch (vDate.getData().getStoreState()){
                     case "0":
                         tvZhuangtai.setText("状态：暂存");
+                        tvTijiao.setVisibility(View.INVISIBLE);
                         break;
 
                     case "1":
                         tvZhuangtai.setText("状态：待入库");
+                        tvTijiao.setVisibility(View.INVISIBLE);
                         break;
                     case "2":
                         tvZhuangtai.setText("状态：已入库");
+
+                        tvTijiao.setVisibility(View.VISIBLE);//这个时候才能显示出库按钮，否则不显示
                         break;
                     case "3":
                         tvZhuangtai.setText("状态：已出库");
+                        tvTijiao.setVisibility(View.INVISIBLE);
                         break;
 
                 }

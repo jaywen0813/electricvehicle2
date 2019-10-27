@@ -369,8 +369,7 @@
                         <EditText
                             android:id="@+id/tv_order"
                             style="@style/etTextView1"
-                            android:digits="1234567890"
-                            android:inputType="number" />
+                             />
 
                     </LinearLayout>
 
@@ -389,8 +388,7 @@
                         <EditText
                             android:id="@+id/tv_comments"
                             style="@style/etTextView1"
-                            android:digits="1234567890"
-                            android:inputType="number" />
+                             />
 
                     </LinearLayout>
 
@@ -415,8 +413,7 @@
                         <TextView
                             android:id="@+id/tv_zzrq"
                             style="@style/etTextView1"
-                            android:digits="1234567890"
-                            android:inputType="number" />
+                             />
 
                     </LinearLayout>
 
@@ -435,8 +432,7 @@
                         <TextView
                             android:id="@+id/tv_ddjhq"
                             style="@style/etTextView1"
-                            android:digits="1234567890"
-                            android:inputType="number" />
+                             />
 
                     </LinearLayout>
 

@@ -1,14 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/color_f5f5f5"
     tools:context=".ui.fragment.SOOutFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_value_dp50"
+        android:gravity="center_vertical"
+
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/textviewdetailleftstyle"
+            android:text="SalesOrder" />
+        <View style="@style/viewline_shu" />
+
+        <EditText
+            android:id="@+id/tv_order"
+            style="@style/etTextView1"
+            />
+
+    </LinearLayout>
+    <View style="@style/viewline_heng" />
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_value_dp50"
+        android:gravity="center_vertical"
+
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/textviewdetailleftstyle"
+            android:text="SO Item" />
+        <View style="@style/viewline_shu" />
+
+        <EditText
+            android:id="@+id/tv_so"
+            style="@style/etTextView1"
+            />
+
+        <com.flyco.roundview.RoundTextView
+            android:id="@+id/tv_chaxun"
+            android:layout_width="@dimen/dimen_value_dp100"
+            android:layout_height="@dimen/dimen_value_dp50"
+            app:rv_cornerRadius="@dimen/dimen_value_dp5"
+            android:text="查  询"
+            app:rv_backgroundColor="@color/colorPrimary"
+            android:gravity="center"
+            android:textSize="@dimen/dimen_value_sp15"
+            android:layout_marginRight="@dimen/dimen_value_dp10"
+            />
+
+    </LinearLayout>
+    <View style="@style/viewline_heng" />
+
+    <ListView
+        android:id="@+id/lv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:dividerHeight="@dimen/dimen_value_dp5"
+        />
 
-</FrameLayout>
+
+
+
+</LinearLayout>
