@@ -478,6 +478,100 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_value_dp50"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <LinearLayout style="@style/llView1">
+
+                    <TextView
+                        style="@style/tvTextView1"
+                        android:text="SalesOrder"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_order"
+                        style="@style/etTextView1"
+                        />
+
+                </LinearLayout>
+
+
+                <View style="@style/viewline_shu" />
+
+
+                <LinearLayout style="@style/llView1">
+
+                    <TextView
+                        style="@style/tvTextView1"
+                        android:text="comments"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_comments"
+                        style="@style/etTextView1"
+                        />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <View
+                style="@style/viewline_heng" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_value_dp50"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <LinearLayout style="@style/llView1">
+
+                    <TextView
+                        style="@style/tvTextView1"
+                        android:text="组装日期"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_zzrq"
+                        style="@style/etTextView1"
+                        />
+
+                </LinearLayout>
+
+
+                <View style="@style/viewline_shu" />
+
+
+                <LinearLayout style="@style/llView1">
+
+                    <TextView
+                        style="@style/tvTextView1"
+                        android:text="订单交货期"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_ddjhq"
+                        style="@style/etTextView1"
+                        />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <View
+                style="@style/viewline_heng"
+                android:visibility="visible"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dimen_value_dp10"
                 android:minHeight="@dimen/dimen_value_dp50"

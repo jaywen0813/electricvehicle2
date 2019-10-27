@@ -168,13 +168,13 @@ public class OUTPresenter2 extends BasePresenter<OUTContract2.View> implements O
 
 
                         Log.d("qqqqqq", "onNext: " + vDate);
-                        if (vDate.getSuccess().equals("T")) {
+//                        if (vDate.getSuccess().equals("T")) {
                             mView.showDetail(vDate);
-                        }else {
-                            Log.e("false",vDate.getMessage()+"");
-                            Toast.makeText(context,"查询失败",Toast.LENGTH_LONG).show();
-
-                        }
+//                        }else {
+//                            Log.e("false",vDate.getMessage()+"");
+//                            Toast.makeText(context,"查询失败",Toast.LENGTH_LONG).show();
+//
+//                        }
                     }
                 });
 

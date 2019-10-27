@@ -30,13 +30,20 @@ import com.android.app.electricvehicle.model.main.presenter.OUTPresenter2;
 import com.android.app.electricvehicle.ui.activity.OUTDetailActivity;
 import com.android.app.electricvehicle.ui.activity.OUTDetailActivity2;
 import com.android.app.electricvehicle.ui.activity.ZxingActivity;
+import com.android.app.electricvehicle.utils.DateTimeWheelDialog;
 import com.android.app.electricvehicle.utils.Kits;
 import com.yzq.zxinglibrary.bean.ZxingConfig;
 import com.yzq.zxinglibrary.common.Constant;
 
+import org.w3c.dom.Text;
+
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 
 public class ZXDoutFragment extends BaseMvpFragment<OUTContract2.View, OUTPresenter2> implements OUTContract2.View,View.OnClickListener {
@@ -72,6 +79,13 @@ public class ZXDoutFragment extends BaseMvpFragment<OUTContract2.View, OUTPresen
     int type=0;//用来区分是扫装箱单 还是扫库位   默认为0，装箱单为1，库位为2
 
 
+    TextView tv_order;
+    TextView tv_comments;
+    TextView tv_zzrq;
+    TextView tv_ddjhq;
+
+
+
 
 
 
@@ -104,11 +118,21 @@ public class ZXDoutFragment extends BaseMvpFragment<OUTContract2.View, OUTPresen
         tvBz = view.findViewById(R.id.tv_bz);
         tvTijiao = view.findViewById(R.id.tv_tijiao);
 
+        tv_order= view.findViewById(R.id.tv_order);
+        tv_comments= view.findViewById(R.id.tv_comments);
+        tv_zzrq= view.findViewById(R.id.tv_zzrq);
+        tv_ddjhq= view.findViewById(R.id.tv_ddjhq);
+
 
 
         llSaomiao.setOnClickListener(this);
         llSaomiao2.setOnClickListener(this);
         tvTijiao.setOnClickListener(this);
+
+        tv_zzrq.setOnClickListener(this);
+        tv_ddjhq.setOnClickListener(this);
+
+
     }
 
     @Override
@@ -138,25 +162,20 @@ public class ZXDoutFragment extends BaseMvpFragment<OUTContract2.View, OUTPresen
                 String freeLoc=etKwNumber.getText().toString().trim();
 
 
+                    if (Kits.Empty.check(outstoreCode)){
+                        Toast.makeText(getContext(),  "出库号不能为空", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
 
-                if (Kits.Empty.check(outstoreCode)){
-                    Toast.makeText(getContext(),  "出库号不能为空", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+                    //网络请求  提交数据
 
-//                if (Kits.Empty.check(salesOrder)){
-//                    T.showToastSafe("仓库ID不能为空");
-//                    return;
-//                }
-//
-//                if (Kits.Empty.check(soItem)){
-//                    T.showToastSafe("装箱单ID不能为空");
-//                    return;
-//                }
+                    presenter.getUP(outstoreCode,freeLoc);
 
-                //网络请求  提交数据
 
-                presenter.getUP(outstoreCode,freeLoc);
+
+
+
+
                 break;
         }
     }
@@ -347,7 +366,9 @@ public class ZXDoutFragment extends BaseMvpFragment<OUTContract2.View, OUTPresen
     @Override
     public void showDetail(ItemDetailOutVO vDate) {
 
-        if (!Kits.Empty.check(vDate.getData())){
+        if (vDate.getSuccess().equals("T")){
+
+            if (!Kits.Empty.check(vDate.getData())){
 
             scrollView.setVisibility(View.VISIBLE);
 
@@ -479,12 +500,51 @@ public class ZXDoutFragment extends BaseMvpFragment<OUTContract2.View, OUTPresen
             }
 
 
+            //Sales order
+            if (!Kits.Empty.check(vDate.getData().getSalesOrder())) {
+                tv_order.setText(vDate.getData().getSalesOrder());
+            }
+
+
+            //comments
+            if (!Kits.Empty.check(vDate.getData().getComments())) {
+                tv_comments.setText(vDate.getData().getComments());
+            }
+
+            //组装日期
+            if (!Kits.Empty.check(vDate.getData().getInstallTime())) {
+
+                long itimes= Long.parseLong(vDate.getData().getInstallTime());
+
+                SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd"); //设置格式
+                String timeText=format.format(itimes);
+                tv_zzrq.setText(timeText+"");
+
+
+            }
+
+            //订单交货期
+            if (!Kits.Empty.check(vDate.getData().getDeliveryDate())) {
+
+                long itimess= Long.parseLong(vDate.getData().getDeliveryDate());
+
+                SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd"); //设置格式
+                String timeText=format.format(itimess);
+                tv_ddjhq.setText(timeText+"");
+
+            }
+
+
+
             //备注
             if (!Kits.Empty.check(vDate.getData().getRemark())){
                 tvBz.setText(vDate.getData().getRemark());
             }
 
+        }
 
+        }else {
+            Toast.makeText(getContext(),vDate.getMessage(),Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -497,4 +557,5 @@ public class ZXDoutFragment extends BaseMvpFragment<OUTContract2.View, OUTPresen
     public Context getViewContext() {
         return getContext();
     }
+
 }

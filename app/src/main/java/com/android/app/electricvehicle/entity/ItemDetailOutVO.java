@@ -216,6 +216,43 @@ public class ItemDetailOutVO {
         private String billPrintText;
         private List<PackingListItemsBean> packingListItems;
 
+        private String salesOrder;
+        private String comments;
+        private String installTime;
+        private String deliveryDate;
+
+        public String getSalesOrder() {
+            return salesOrder;
+        }
+
+        public void setSalesOrder(String salesOrder) {
+            this.salesOrder = salesOrder;
+        }
+
+        public String getComments() {
+            return comments;
+        }
+
+        public void setComments(String comments) {
+            this.comments = comments;
+        }
+
+        public String getInstallTime() {
+            return installTime;
+        }
+
+        public void setInstallTime(String installTime) {
+            this.installTime = installTime;
+        }
+
+        public String getDeliveryDate() {
+            return deliveryDate;
+        }
+
+        public void setDeliveryDate(String deliveryDate) {
+            this.deliveryDate = deliveryDate;
+        }
+
         public String getPrintTimes() {
             return printTimes;
         }

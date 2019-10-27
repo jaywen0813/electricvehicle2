@@ -54,6 +54,7 @@ public class SOOutAdapter extends BaseAdapter {
             viewHolder=new ViewHolder();
             viewHolder.tvGzdh = convertView.findViewById(R.id.tv_gzdh);
             viewHolder.tvDate = convertView.findViewById(R.id.tv_date);
+            viewHolder.tvNumber = convertView.findViewById(R.id.tvNumber);
             viewHolder.tvKwNumber = convertView.findViewById(R.id.tv_kw_number);
             viewHolder.tvDjx = convertView.findViewById(R.id.tv_djx);
             viewHolder.tvGjx = convertView.findViewById(R.id.tv_gjx);
@@ -66,7 +67,10 @@ public class SOOutAdapter extends BaseAdapter {
             viewHolder.tvDjgd = convertView.findViewById(R.id.tv_djgd);
             viewHolder.tvDjdy = convertView.findViewById(R.id.tv_djdy);
             viewHolder.tvDycs = convertView.findViewById(R.id.tv_dycs);
-            viewHolder.tvNumber=convertView.findViewById(R.id.tvNumber);
+            viewHolder.tvOrder = convertView.findViewById(R.id.tv_order);
+            viewHolder.tvComments = convertView.findViewById(R.id.tv_comments);
+            viewHolder.tvZzrq = convertView.findViewById(R.id.tv_zzrq);
+            viewHolder.tvDdjhq = convertView.findViewById(R.id.tv_ddjhq);
 
             convertView.setTag(viewHolder);
         } else {
@@ -180,10 +184,43 @@ public class SOOutAdapter extends BaseAdapter {
         if (!Kits.Empty.check(item.getPrintTimes())) {
             viewHolder.tvDycs.setText("打印次数："+item.getPrintTimes()+"次");
         }
-       
 
 
-       
+
+        //Sales order
+        if (!Kits.Empty.check(item.getSalesOrder())) {
+            viewHolder.tvOrder.setText(item.getSalesOrder());
+        }
+
+
+        //comments
+        if (!Kits.Empty.check(item.getComments())) {
+            viewHolder.tvComments.setText(item.getComments());
+        }
+
+        //组装日期
+        if (!Kits.Empty.check(item.getInstallTime())) {
+
+            long itimes= Long.parseLong(item.getInstallTime());
+
+            SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd"); //设置格式
+            String timeText=format.format(itimes);
+            viewHolder.tvZzrq.setText(timeText+"");
+
+
+        }
+
+        //订单交货期
+        if (!Kits.Empty.check(item.getDeliveryDate())) {
+
+            long itimess= Long.parseLong(item.getDeliveryDate());
+
+            SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd"); //设置格式
+            String timeText=format.format(itimess);
+            viewHolder.tvDdjhq.setText(timeText+"");
+
+        }
+
 
 
         return convertView;
@@ -193,6 +230,7 @@ public class SOOutAdapter extends BaseAdapter {
     private static class ViewHolder {
         TextView tvGzdh;
         TextView tvDate;
+        TextView tvNumber;
         TextView tvKwNumber;
         TextView tvDjx;
         TextView tvGjx;
@@ -205,8 +243,14 @@ public class SOOutAdapter extends BaseAdapter {
         TextView tvDjgd;
         TextView tvDjdy;
         TextView tvDycs;
-        TextView tvNumber;
-       
+        TextView tvOrder;
+        TextView tvComments;
+        TextView tvZzrq;
+        TextView tvDdjhq;
+
+        
+
+
 
 
 
