@@ -51,7 +51,7 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
     private TextView farmInputSave;
     private EditText etNumber;
     private LinearLayout llSaomiao;
-
+    private TextView tv_delete;//删除按钮
 
     private EditText etKwNumber;
     private LinearLayout llSaomiao2;
@@ -316,6 +316,7 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
                         plist.setAgl(agl);
                         plist.setQty(qty);
 
+
                         packingListItem.add(plist);
 
                     }
@@ -382,6 +383,33 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
 
                 presenter.getInDetail(instoreCode2);
                 break;
+            case R.id.tv_delete://删除条目的按钮
+                if (childCount>=1){//证明添加过，此时才能删除
+                    llAdd.removeAllViews();
+
+                    childCount=0; //并且归零
+
+                    for (int i = 0; i <1 ; i++) {//再重新添加一条
+                        View view2 = LayoutInflater.from(this).inflate(R.layout.item_zxdlr,null);
+
+                        tvSo = view2.findViewById(R.id.tv_so);
+                        tvMaterial = view2.findViewById(R.id.tv_material);
+                        tvRl = view2.findViewById(R.id.tv_rl);
+                        tvAgl = view2.findViewById(R.id.tv_agl);
+                        tvQty = view2.findViewById(R.id.tv_qty);
+
+
+                        llAdd.addView(view2);//动态添加view
+
+                    }
+                }
+
+                if (packingListItem!=null && packingListItem.size()>0){//清除数据
+                    packingListItem.clear();
+                }
+
+
+                break;
         }
     }
 
@@ -397,6 +425,9 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
         tvLayerHead = findViewById(R.id.tv_layer_head);
         navigationUserLayout = findViewById(R.id.navigation_user_layout);
         farmInputSave = findViewById(R.id.farm_input_save);
+
+        tv_delete=findViewById(R.id.tv_delete);//删除条目的按钮
+
         etNumber = findViewById(R.id.et_number);//装箱单号
         llSaomiao = findViewById(R.id.ll_saomiao);//装箱单扫描
         tv_shoudong=findViewById(R.id.tv_shoudong);//手动查询按钮
@@ -436,6 +467,7 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
         tvDdjhq.setOnClickListener(this);
 
         farmInputSave.setOnClickListener(this);
+        tv_delete.setOnClickListener(this);//删除条目
 
 
         tvLayerHead.setText("入库单信息");

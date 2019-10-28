@@ -20,6 +20,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.app.electricvehicle.MainApplication;
 import com.android.app.electricvehicle.R;
 import com.android.app.electricvehicle.base.BaseMvpFragment;
 import com.android.app.electricvehicle.entity.ItemDetailOutVO;
@@ -33,6 +34,7 @@ import com.android.app.electricvehicle.ui.activity.OUTDetailActivity2;
 import com.android.app.electricvehicle.ui.activity.ZxingActivity;
 import com.android.app.electricvehicle.ui.adapter.ZXDOutAdapter_SoItem;
 import com.android.app.electricvehicle.utils.DateTimeWheelDialog;
+import com.android.app.electricvehicle.utils.DialogUtil;
 import com.android.app.electricvehicle.utils.Kits;
 import com.flyco.roundview.RoundTextView;
 import com.yzq.zxinglibrary.bean.ZxingConfig;
@@ -81,9 +83,12 @@ public class ZXDoutFragment extends BaseMvpFragment<OUTContract2.View, OUTPresen
     private ListView lv;
 
     private RoundTextView tv_shoudong;//手动查询详情按钮
+    private EditText et_number2;//二次扫描装箱单
+    private LinearLayout ll_saomiao3;//扫描按钮
 
-    int type = 0;//用来区分是扫装箱单 还是扫库位   默认为0，装箱单为1，库位为2
 
+    int type = 0;//用来区分是扫装箱单 还是扫库位   默认为0，单据上的装箱单为1，库位为2，货物上的装箱单为3
+    String packingCode_danju="";//用来记录单据上面的装箱单号
 
     TextView tv_order;
     TextView tv_comments;
@@ -95,12 +100,15 @@ public class ZXDoutFragment extends BaseMvpFragment<OUTContract2.View, OUTPresen
     ZXDOutAdapter_SoItem adapter_soItem;
 
 
+
     @Override
     protected void initView(View view) {
         etNumber = view.findViewById(R.id.et_number);
         llSaomiao = view.findViewById(R.id.ll_saomiao);
         etKwNumber = view.findViewById(R.id.et_kw_number);
         llSaomiao2 = view.findViewById(R.id.ll_saomiao2);
+        et_number2=view.findViewById(R.id.et_number2);//二次扫描
+        ll_saomiao3=view.findViewById(R.id.ll_saomiao3);//扫描
         scrollView = view.findViewById(R.id.scrollView);
         tvZhid = view.findViewById(R.id.tv_zhid);
         tvGzdh = view.findViewById(R.id.tv_gzdh);
@@ -133,6 +141,7 @@ public class ZXDoutFragment extends BaseMvpFragment<OUTContract2.View, OUTPresen
 
         llSaomiao.setOnClickListener(this);
         llSaomiao2.setOnClickListener(this);
+        ll_saomiao3.setOnClickListener(this);
         tvTijiao.setOnClickListener(this);
 
         tv_zzrq.setOnClickListener(this);
@@ -155,7 +164,7 @@ public class ZXDoutFragment extends BaseMvpFragment<OUTContract2.View, OUTPresen
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.ll_saomiao://扫描装箱单号
+            case R.id.ll_saomiao://扫描单据上的装箱单号
                 type = 1;
                 requestPermissionsCamera();
                 break;
@@ -163,6 +172,13 @@ public class ZXDoutFragment extends BaseMvpFragment<OUTContract2.View, OUTPresen
                 type = 2;
                 requestPermissionsCamera();
                 break;
+
+            case R.id.ll_saomiao3://扫描货物上的装箱单号
+                type = 3;
+                requestPermissionsCamera();
+                break;
+
+
             case R.id.tv_tijiao://提交出库按钮
                 String outstoreCode = etNumber.getText().toString().trim();
                 String freeLoc = etKwNumber.getText().toString().trim();
@@ -332,15 +348,34 @@ public class ZXDoutFragment extends BaseMvpFragment<OUTContract2.View, OUTPresen
                 String content = data.getStringExtra(Constant.CODED_CONTENT);
 
 
-//                用来区分是扫装箱单 还是扫库位   默认为0，装箱单为1，库位为2
+//                用来区分是扫装箱单 还是扫库位   默认为0，单据上的装箱单为1，库位为2,货物上的装箱单为3
                 if (type == 1) {
                     etNumber.setText(content);//显示出来
 
                     presenter.getZXD(content, getContext());
 
+                    packingCode_danju=content;
 
                 } else if (type == 2) {
                     etKwNumber.setText(content);//扫码返回的库位号码
+
+                }else if (type==3){
+                    et_number2.setText(content);
+
+                    String outstoreCode = etNumber.getText().toString().trim();//防止用户是手动输入的上面的单号
+
+
+                    //当扫描货物和单据上面的装箱单号一样的时候，就可以调用出库的按钮了
+                    if (content.equals(packingCode_danju) || content.equals(outstoreCode)){
+                        DialogUtil.showBasicDialog(getActivity(), "出库提示", "装箱单号一致，确定将货物出库?", (dialog, confirm) -> {
+                            if (confirm) {
+                                String freeLoc = etKwNumber.getText().toString().trim();
+
+                                presenter.getUP(content, freeLoc);
+                            }
+                            dialog.dismiss();
+                        });
+                    }
 
                 }
 
@@ -568,6 +603,8 @@ public class ZXDoutFragment extends BaseMvpFragment<OUTContract2.View, OUTPresen
                     }
 
                 }
+            }else {
+                Toast.makeText(getContext(), "暂未查询到装箱单信息", Toast.LENGTH_SHORT).show();
             }
 
         } else {

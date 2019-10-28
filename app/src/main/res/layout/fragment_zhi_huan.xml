@@ -50,14 +50,16 @@
 
         <com.flyco.roundview.RoundTextView
             android:id="@+id/tv_chaxun"
-            android:layout_width="@dimen/dimen_value_dp100"
-            android:layout_height="@dimen/dimen_value_dp50"
+            android:layout_width="@dimen/dimen_value_dp60"
+            android:layout_height="@dimen/dimen_value_dp30"
+            android:layout_marginTop="@dimen/dimen_value_dp10"
+            android:layout_marginBottom="@dimen/dimen_value_dp10"
+            android:layout_marginRight="@dimen/dimen_value_dp5"
             app:rv_cornerRadius="@dimen/dimen_value_dp5"
             android:text="查  询"
             app:rv_backgroundColor="@color/colorPrimary"
             android:gravity="center"
             android:textSize="@dimen/dimen_value_sp15"
-            android:layout_marginRight="@dimen/dimen_value_dp10"
             />
 
     </LinearLayout>

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -19,11 +20,14 @@ import com.android.app.electricvehicle.model.main.contract.MyInDetailContract;
 import com.android.app.electricvehicle.model.main.contract.MyOutDetailContract;
 import com.android.app.electricvehicle.model.main.presenter.MyINDetailPresenter;
 import com.android.app.electricvehicle.model.main.presenter.MyOutDetailPresenter;
+import com.android.app.electricvehicle.ui.adapter.MyOutDetailAdapter_SoItem;
 import com.android.app.electricvehicle.utils.DialogUtil;
 import com.android.app.electricvehicle.utils.Kits;
 import com.android.app.electricvehicle.utils.StatusBarUtil;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 //我的入库单列表点进来的详情
 public class MyOutDetailActivity extends BaseMvpActivity<MyOutDetailContract.View, MyOutDetailPresenter> implements MyOutDetailContract.View, View.OnClickListener {
@@ -54,7 +58,7 @@ public class MyOutDetailActivity extends BaseMvpActivity<MyOutDetailContract.Vie
     private TextView tvDycs;
     private TextView tvBz;
     private TextView tv_delete;
-
+    private ListView lv;
     private ScrollView scrollView;
     private LinearLayout ll_wsj;
     private ImageView img_delete;
@@ -68,6 +72,10 @@ public class MyOutDetailActivity extends BaseMvpActivity<MyOutDetailContract.Vie
     MyOutDetailPresenter presenter;
 
     String id = "";
+
+
+    List<MyOutDetailVO.DataBean.PackingListBean.PackingListItemsBean> list = new ArrayList<>();
+    MyOutDetailAdapter_SoItem adapter_soItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,7 +116,7 @@ public class MyOutDetailActivity extends BaseMvpActivity<MyOutDetailContract.Vie
         tvDycs = findViewById(R.id.tv_dycs);
         tvBz = findViewById(R.id.tv_bz);
         tv_delete=findViewById(R.id.tv_delete);//作废按钮
-
+        lv=findViewById(R.id.lv);
         scrollView=findViewById(R.id.scrollView);//有数据的时候显示
         ll_wsj=findViewById(R.id.ll_wsj);//无数据
         img_delete=findViewById(R.id.img_delete);//作废按钮
@@ -133,6 +141,9 @@ public class MyOutDetailActivity extends BaseMvpActivity<MyOutDetailContract.Vie
         id = getIntent().getStringExtra("id");
         presenter.getUP(id);
 
+
+        adapter_soItem = new MyOutDetailAdapter_SoItem(this, list);
+        lv.setAdapter(adapter_soItem);
     }
 
     @Override
@@ -360,6 +371,13 @@ public class MyOutDetailActivity extends BaseMvpActivity<MyOutDetailContract.Vie
                 tvBz.setText(vDate.getData().getRemark());
             }
 
+
+            //添加下面的列表
+            if (vDate.getData().getPackingList().getPackingListItems()!=null && vDate.getData().getPackingList().getPackingListItems().size()>0){
+                list.clear();
+                list.addAll(vDate.getData().getPackingList().getPackingListItems());
+                adapter_soItem.notifyDataSetChanged();
+            }
         }
 
 

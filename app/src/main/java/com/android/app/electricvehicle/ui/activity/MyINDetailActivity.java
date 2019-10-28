@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -20,6 +21,7 @@ import com.android.app.electricvehicle.entity.MyInVO;
 import com.android.app.electricvehicle.model.main.contract.MyInDetailContract;
 import com.android.app.electricvehicle.model.main.presenter.MyINDetailPresenter;
 import com.android.app.electricvehicle.mvp.presenter.BasePresenter;
+import com.android.app.electricvehicle.ui.adapter.MyInDetailAdapter_SoItem;
 import com.android.app.electricvehicle.utils.DialogUtil;
 import com.android.app.electricvehicle.utils.Kits;
 import com.android.app.electricvehicle.utils.StatusBarUtil;
@@ -27,6 +29,7 @@ import com.android.app.electricvehicle.utils.StatusBarUtils;
 import com.android.app.electricvehicle.utils.T;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 //我的入库单列表点进来的详情
@@ -57,6 +60,7 @@ public class MyINDetailActivity extends BaseMvpActivity<MyInDetailContract.View,
     private TextView tvDjdy;
     private TextView tvDycs;
     private TextView tvBz;
+    private ListView lv;
 
     private ScrollView scrollView;
     private LinearLayout ll_wsj;
@@ -72,6 +76,9 @@ public class MyINDetailActivity extends BaseMvpActivity<MyInDetailContract.View,
 
     String id = "";
     String packingCode="";
+
+    List<ItemDetailInVO.DataBean.PackingListBean.PackingListItemsBean> list = new ArrayList<>();
+    MyInDetailAdapter_SoItem adapter_soItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,6 +120,7 @@ public class MyINDetailActivity extends BaseMvpActivity<MyInDetailContract.View,
         tvBz = findViewById(R.id.tv_bz);
         tv_delete=findViewById(R.id.tv_delete);//作废按钮
 
+        lv = findViewById(R.id.lv);
         scrollView=findViewById(R.id.scrollView);//有数据的时候显示
         ll_wsj=findViewById(R.id.ll_wsj);//无数据
         img_delete=findViewById(R.id.img_delete);//删除按钮
@@ -142,6 +150,10 @@ public class MyINDetailActivity extends BaseMvpActivity<MyInDetailContract.View,
 //        id="5780b01ae92111e992930242ac110012";
 
         presenter.getUP(id,packingCode);
+
+
+        adapter_soItem = new MyInDetailAdapter_SoItem(this, list);
+        lv.setAdapter(adapter_soItem);
 
     }
 
@@ -377,6 +389,15 @@ public class MyINDetailActivity extends BaseMvpActivity<MyInDetailContract.View,
             if (!Kits.Empty.check(vDate.getData().getRemark())) {
                 tvBz.setText(vDate.getData().getRemark());
             }
+
+            //添加下面的列表
+            if (vDate.getData().getPackingList().getPackingListItems()!=null && vDate.getData().getPackingList().getPackingListItems().size()>0){
+                list.clear();
+                list.addAll(vDate.getData().getPackingList().getPackingListItems());
+                adapter_soItem.notifyDataSetChanged();
+            }
+
+
         }
 
 

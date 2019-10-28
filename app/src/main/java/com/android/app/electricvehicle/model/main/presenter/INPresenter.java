@@ -142,14 +142,12 @@ public class INPresenter extends BasePresenter<INContract.View> implements INCon
     //没有详情数据的时候的提交
     @Override
     public void getUP2(String instoreCode, String freeLoc, INDetail_RuKu.PackingListBean inDetail_ruKu) {
-        SortedMap<String, String> paramsMap = new TreeMap<>();
+        SortedMap<String, Object> paramsMap = new TreeMap<>();
 
         paramsMap.put("packingCode", instoreCode);//装箱单号  入库单号
         paramsMap.put("freeLoc", freeLoc);//库位编号
 
-
-
-//        paramsMap.put("packingCode", "122191324981180640");//装箱单号  入库单号
+        paramsMap.put("packingList", inDetail_ruKu);//装箱单号  入库单号
 //        paramsMap.put("freeLoc", "AAA-02-088");//库位编号
 
 
@@ -186,7 +184,7 @@ public class INPresenter extends BasePresenter<INContract.View> implements INCon
 //                });
 
 
-        NetInstance.getEventsService().indetail(ParameterUtils.getHeaser(paramsMap), ParameterUtils.getJsonBody(paramsMap)).
+        NetInstance.getEventsService().indetail(ParameterUtils.getHead(paramsMap), ParameterUtils.getJsonBody(paramsMap)).
                 subscribeOn(Schedulers.io()).
                 observeOn(AndroidSchedulers.mainThread()).
                 subscribe(new Observer<INDetailVO>() {

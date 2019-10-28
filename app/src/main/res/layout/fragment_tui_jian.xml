@@ -25,7 +25,11 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:textColor="@color/color_3d3d3d" />
+            android:textColor="@color/color_3d3d3d"
+            android:hint="请扫描单据上的单号"
+            android:textColorHint="@color/black_gray"
+            android:textSize="@dimen/dimen_value_sp13"
+            />
 
         <LinearLayout
             android:id="@+id/ll_saomiao"
@@ -42,15 +46,16 @@
 
         <com.flyco.roundview.RoundTextView
             android:id="@+id/tv_shoudong"
-            android:layout_width="@dimen/dimen_value_dp100"
+            android:layout_width="@dimen/dimen_value_dp60"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/dimen_value_dp5"
-            android:layout_marginBottom="@dimen/dimen_value_dp5"
+            android:layout_marginTop="@dimen/dimen_value_dp10"
+            android:layout_marginBottom="@dimen/dimen_value_dp10"
+            android:layout_marginRight="@dimen/dimen_value_dp5"
             app:rv_backgroundColor="@color/colorPrimary"
             app:rv_cornerRadius="@dimen/dimen_value_dp5"
             android:gravity="center"
             android:text="查   询"
-            android:textSize="@dimen/dimen_value_dp20"
+            android:textSize="@dimen/dimen_value_dp15"
             android:textColor="@color/white"
             />
 
@@ -93,6 +98,47 @@
 
     </LinearLayout>
 
+    <View style="@style/viewline_heng" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_value_dp50"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/textviewdetailleftstyle"
+            android:text="装箱单号" />
+
+        <View style="@style/viewline_shu" />
+        <EditText
+            android:id="@+id/et_number2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textColor="@color/color_3d3d3d"
+            android:hint="请扫描货物上的单号"
+            android:textColorHint="@color/black_gray"
+            android:textSize="@dimen/dimen_value_sp13"
+            />
+
+        <LinearLayout
+            android:id="@+id/ll_saomiao3"
+            android:layout_width="@dimen/dimen_value_dp50"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="@dimen/dimen_value_dp20"
+                android:layout_height="@dimen/dimen_value_dp20"
+                android:src="@mipmap/saoyisao" />
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
     <View style="@style/viewline_heng" />
 
     <com.android.app.electricvehicle.utils.EChangeScrollView
