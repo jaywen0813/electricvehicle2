@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,6 +31,7 @@ import com.android.app.electricvehicle.model.main.presenter.OUTPresenter2;
 import com.android.app.electricvehicle.ui.activity.OUTDetailActivity;
 import com.android.app.electricvehicle.ui.activity.OUTDetailActivity2;
 import com.android.app.electricvehicle.ui.activity.ZxingActivity;
+import com.android.app.electricvehicle.ui.adapter.ZXDOutAdapter_SoItem;
 import com.android.app.electricvehicle.utils.DateTimeWheelDialog;
 import com.android.app.electricvehicle.utils.Kits;
 import com.yzq.zxinglibrary.bean.ZxingConfig;
@@ -75,6 +77,7 @@ public class ZXDoutFragment extends BaseMvpFragment<OUTContract2.View, OUTPresen
     private TextView tvDycs;
     private TextView tvBz;
     private TextView tvTijiao;
+    private ListView lv;
 
     int type=0;//用来区分是扫装箱单 还是扫库位   默认为0，装箱单为1，库位为2
 
@@ -85,8 +88,8 @@ public class ZXDoutFragment extends BaseMvpFragment<OUTContract2.View, OUTPresen
     TextView tv_ddjhq;
 
 
-
-
+    List<ItemDetailOutVO.DataBean.PackingListItemsBean> list=new ArrayList<>();
+    ZXDOutAdapter_SoItem adapter_soItem;
 
 
     @Override
@@ -122,6 +125,7 @@ public class ZXDoutFragment extends BaseMvpFragment<OUTContract2.View, OUTPresen
         tv_comments= view.findViewById(R.id.tv_comments);
         tv_zzrq= view.findViewById(R.id.tv_zzrq);
         tv_ddjhq= view.findViewById(R.id.tv_ddjhq);
+        lv=view.findViewById(R.id.lv);
 
 
 
@@ -131,6 +135,7 @@ public class ZXDoutFragment extends BaseMvpFragment<OUTContract2.View, OUTPresen
 
         tv_zzrq.setOnClickListener(this);
         tv_ddjhq.setOnClickListener(this);
+
 
 
     }
@@ -170,9 +175,6 @@ public class ZXDoutFragment extends BaseMvpFragment<OUTContract2.View, OUTPresen
                     //网络请求  提交数据
 
                     presenter.getUP(outstoreCode,freeLoc);
-
-
-
 
 
 
@@ -540,6 +542,17 @@ public class ZXDoutFragment extends BaseMvpFragment<OUTContract2.View, OUTPresen
             if (!Kits.Empty.check(vDate.getData().getRemark())){
                 tvBz.setText(vDate.getData().getRemark());
             }
+
+
+                if (vDate.getData().getPackingListItems() != null && vDate.getData().getPackingListItems().size() > 0) {
+                    adapter_soItem=new ZXDOutAdapter_SoItem(getContext(),list);
+                    lv.setAdapter(adapter_soItem);
+                    //刷新
+                    list.clear();
+                    list.addAll(vDate.getData().getPackingListItems());
+                    adapter_soItem.notifyDataSetChanged();
+                }
+
 
         }
 

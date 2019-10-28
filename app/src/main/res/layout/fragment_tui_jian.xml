@@ -79,20 +79,20 @@
 
     <View style="@style/viewline_heng" />
 
-    <ScrollView
+    <com.android.app.electricvehicle.utils.EChangeScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:visibility="visible"
+        android:visibility="invisible"
         >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:background="@color/white"
             >
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -599,25 +599,33 @@
             </LinearLayout>
 
 
+            <ListView
+                android:id="@+id/lv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+                android:id="@+id/tv_tijiao"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_value_dp50"
+                android:layout_marginLeft="@dimen/dimen_value_dp10"
+                android:layout_marginRight="@dimen/dimen_value_dp10"
+                android:layout_marginBottom="@dimen/dimen_value_dp20"
+                android:background="@drawable/shape_tv_back_bg3"
+                android:gravity="center"
+                android:text="出      库"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dimen_value_sp18"
+                android:visibility="visible"
+                />
+
         </LinearLayout>
 
 
 
 
+    </com.android.app.electricvehicle.utils.EChangeScrollView>
 
-    </ScrollView>
-
-    <TextView
-        android:id="@+id/tv_tijiao"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dimen_value_dp50"
-        android:layout_marginLeft="@dimen/dimen_value_dp10"
-        android:layout_marginRight="@dimen/dimen_value_dp10"
-        android:layout_marginBottom="@dimen/dimen_value_dp20"
-        android:background="@drawable/shape_tv_back_bg3"
-        android:gravity="center"
-        android:text="出      库"
-        android:textColor="@color/white"
-        android:textSize="@dimen/dimen_value_sp18" />
 
 </LinearLayout>

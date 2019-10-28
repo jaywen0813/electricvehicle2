@@ -2,9 +2,9 @@ package com.android.app.electricvehicle.model.main.contract;
 
 import android.content.Context;
 
-import com.android.app.electricvehicle.entity.ItemDetailOutVO;
-import com.android.app.electricvehicle.entity.ItemDetailOutVO2;
+
 import com.android.app.electricvehicle.entity.OutDetailVO;
+import com.android.app.electricvehicle.entity.OutDetailVO2;
 import com.android.app.electricvehicle.mvp.view.BaseViewInf;
 
 /**
@@ -25,7 +25,7 @@ public interface OUTContractSO2 {
 
 
         //通过SO查询到详情以后返回的数据
-        void  showDetail(ItemDetailOutVO2 detailOutVO);
+        void  showDetail(OutDetailVO2 detailOutVO);
 
 
 

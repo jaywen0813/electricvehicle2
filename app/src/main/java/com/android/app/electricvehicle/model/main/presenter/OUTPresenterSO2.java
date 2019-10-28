@@ -7,6 +7,7 @@ import android.widget.Toast;
 import com.android.app.electricvehicle.entity.ItemDetailOutVO;
 import com.android.app.electricvehicle.entity.ItemDetailOutVO2;
 import com.android.app.electricvehicle.entity.OutDetailVO;
+import com.android.app.electricvehicle.entity.OutDetailVO2;
 import com.android.app.electricvehicle.model.main.contract.OUTContract2;
 import com.android.app.electricvehicle.model.main.contract.OUTContractSO2;
 import com.android.app.electricvehicle.model.main.http.MainService;
@@ -104,10 +105,10 @@ public class OUTPresenterSO2 extends BasePresenter<OUTContractSO2.View> implemen
         MainService services = retrofit.create(MainService.class);
         //params1:所有参数进行拼接就可以
 //        Observable<ItemDetailOutVO> observable = services.getoutPage(ParameterUtils.getHeaser(paramsMap),"packings/list/code/"+"1181913249818480640");
-        Observable<ItemDetailOutVO2> observable = services.getoutPage2(ParameterUtils.getHeaser(paramsMap),"packings/list?"+salesOrder+"=&"+soItem);
+        Observable<OutDetailVO2> observable = services.getoutPage3(ParameterUtils.getHeaser(paramsMap),"packings/instore?instoreState=1&salesOrder="+salesOrder+"&soItem="+soItem);
         observable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<ItemDetailOutVO2>() {
+                .subscribe(new Observer<OutDetailVO2>() {
 
                     @Override
                     public void onError(Throwable e) {
@@ -126,17 +127,16 @@ public class OUTPresenterSO2 extends BasePresenter<OUTContractSO2.View> implemen
                     }
 
                     @Override
-                    public void onNext(ItemDetailOutVO2 vDate) {
+                    public void onNext(OutDetailVO2 vDate) {
 
 
                         Log.d("qqqqqq", "onNext: " + vDate);
-                        if (vDate.getSuccess().equals("T")) {
+//                        if (vDate.getSuccess().equals("T")) {
                             mView.showDetail(vDate);
-                        }else {
+//                        }else {
                             Log.e("false",vDate.getMessage()+"");
 //                            Toast.makeText(context,"查询失败",Toast.LENGTH_LONG).show();
-
-                        }
+//                        }
                     }
                 });
 

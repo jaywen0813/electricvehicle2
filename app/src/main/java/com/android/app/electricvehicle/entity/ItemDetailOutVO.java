@@ -6,14 +6,14 @@ public class ItemDetailOutVO {
 
 
     /**
-     * ticket : d3fa066fdd083925a31784120db58e72
+     * ticket : 9624ac769cdc36b1bef9f55f4c5d73e1
      * success : T
      * code : null
      * message : null
      * method : null
      * uri : null
-     * timestamp : 1570946069895
-     * data : {"id":"7eb0e96bea9211e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625052301,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625052301,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","packingCode":"1181913249818480640","workCode":"55896849","madeTime":1569501298656,"packingMaterial":1,"rankNum":1,"totalNum":1,"packLength":500,"packwidth":500,"packHeight":500,"netWeight":5000,"roughWeight":5200,"storeState":0,"billArchived":0,"billPrString":0,"prStringTimes":0,"remark":"","packingListItems":[{"id":"7eb760afea9211e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625052353,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625052353,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"7eb0e96bea9211e992930242ac110012","soItem":"100","material":"RD-89VHJ4A5PF","rl":100,"agl":200,"qty":300,"wtpc":0,"totalWeight":0,"enable":true}],"enable":true,"storeStateText":"暂存","billArchivedText":"未归档","billPrStringText":"未打印"}
+     * timestamp : 1572246359615
+     * data : {"id":"8b88edb0f56611e9a72d0242ac110004","tokenId":null,"version":0,"locked":false,"lastAccess":1571815638798,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1571815638798,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","packingCode":"1186906931529388032","workCode":"4444","madeTime":1571815638532,"packingMaterial":0,"rankNum":77555,"totalNum":55554,"packLength":7885,"packwidth":885,"packHeight":844,"netWeight":855,"roughWeight":57,"storeState":1,"billArchived":0,"billPrint":0,"printTimes":0,"salesOrder":"885","comments":"885","installTime":1571815620000,"deliveryDate":1571815622000,"remark":"","packingListItems":[{"id":"8b89b984f56611e9a72d0242ac110004","tokenId":null,"version":0,"locked":false,"lastAccess":1571815638803,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1571815638803,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"8b88edb0f56611e9a72d0242ac110004","soItem":"路","material":"888","rl":888,"agl":888,"qty":888,"wtpc":0,"totalWeight":0,"remark":"","enable":true}],"packingMaterialText":"Carton(纸箱)","storeStateText":"待入库","billPrintText":"未打印","installTimeText":"2019-10-23","deliveryDateText":"2019-10-23","enable":true,"billArchivedText":"未归档"}
      * args : null
      * moreinfo : null
      * detail : null
@@ -141,47 +141,54 @@ public class ItemDetailOutVO {
 
     public static class DataBean {
         /**
-         * id : 7eb0e96bea9211e992930242ac110012
+         * id : 8b88edb0f56611e9a72d0242ac110004
          * tokenId : null
          * version : 0
          * locked : false
-         * lastAccess : 1570625052301
+         * lastAccess : 1571815638798
          * disabled : false
          * creatorId : a475d2268eb511e992930242ac110012
          * createdBy : 英特诺
-         * createdTime : 1570625052301
+         * createdTime : 1571815638798
          * updaterId :
          * updatedBy :
          * dataId : null
          * isNew : null
          * logTime : null
          * tenantId : 304548c2ec8033f4917b18bfe144c569
-         * packingCode : 1181913249818480640
-         * workCode : 55896849
-         * madeTime : 1569501298656
-         * packingMaterial : 1
-         * rankNum : 1
-         * totalNum : 1
-         * packLength : 500
-         * packwidth : 500
-         * packHeight : 500
-         * netWeight : 5000
-         * roughWeight : 5200
-         * storeState : 0
+         * packingCode : 1186906931529388032
+         * workCode : 4444
+         * madeTime : 1571815638532
+         * packingMaterial : 0
+         * rankNum : 77555
+         * totalNum : 55554
+         * packLength : 7885
+         * packwidth : 885
+         * packHeight : 844
+         * netWeight : 855
+         * roughWeight : 57
+         * storeState : 1
          * billArchived : 0
-         * billPrString : 0
-         * prStringTimes : 0
+         * billPrint : 0
+         * printTimes : 0
+         * salesOrder : 885
+         * comments : 885
+         * installTime : 1571815620000
+         * deliveryDate : 1571815622000
          * remark :
-         * packingListItems : [{"id":"7eb760afea9211e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625052353,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625052353,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"7eb0e96bea9211e992930242ac110012","soItem":"100","material":"RD-89VHJ4A5PF","rl":100,"agl":200,"qty":300,"wtpc":0,"totalWeight":0,"enable":true}]
+         * packingListItems : [{"id":"8b89b984f56611e9a72d0242ac110004","tokenId":null,"version":0,"locked":false,"lastAccess":1571815638803,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1571815638803,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"8b88edb0f56611e9a72d0242ac110004","soItem":"路","material":"888","rl":888,"agl":888,"qty":888,"wtpc":0,"totalWeight":0,"remark":"","enable":true}]
+         * packingMaterialText : Carton(纸箱)
+         * storeStateText : 待入库
+         * billPrintText : 未打印
+         * installTimeText : 2019-10-23
+         * deliveryDateText : 2019-10-23
          * enable : true
-         * storeStateText : 暂存
          * billArchivedText : 未归档
-         * billPrStringText : 未打印
          */
 
         private String id;
         private String tokenId;
-        private String version;
+        private int version;
         private boolean locked;
         private long lastAccess;
         private boolean disabled;
@@ -209,73 +216,19 @@ public class ItemDetailOutVO {
         private String billArchived;
         private String billPrint;
         private String printTimes;
-        private String remark;
-        private boolean enable;
-        private String storeStateText;
-        private String billArchivedText;
-        private String billPrintText;
-        private List<PackingListItemsBean> packingListItems;
-
         private String salesOrder;
         private String comments;
         private String installTime;
         private String deliveryDate;
-
-        public String getSalesOrder() {
-            return salesOrder;
-        }
-
-        public void setSalesOrder(String salesOrder) {
-            this.salesOrder = salesOrder;
-        }
-
-        public String getComments() {
-            return comments;
-        }
-
-        public void setComments(String comments) {
-            this.comments = comments;
-        }
-
-        public String getInstallTime() {
-            return installTime;
-        }
-
-        public void setInstallTime(String installTime) {
-            this.installTime = installTime;
-        }
-
-        public String getDeliveryDate() {
-            return deliveryDate;
-        }
-
-        public void setDeliveryDate(String deliveryDate) {
-            this.deliveryDate = deliveryDate;
-        }
-
-        public String getPrintTimes() {
-            return printTimes;
-        }
-
-        public void setPrintTimes(String printTimes) {
-            this.printTimes = printTimes;
-        }
-
-        public String getBillPrint() {
-            return billPrint;
-        }
-
-        public void setBillPrint(String billPrint) {
-            this.billPrint = billPrint;
-        }
-
-        public String getBillPrintText() {
-            return billPrintText;
-        }
-
-        public void setBillPrintText(String billPrintText) {
-            this.billPrintText = billPrintText;
-        }
+        private String remark;
+        private String packingMaterialText;
+        private String storeStateText;
+        private String billPrintText;
+        private String installTimeText;
+        private String deliveryDateText;
+        private boolean enable;
+        private String billArchivedText;
+        private List<PackingListItemsBean> packingListItems;
 
         public String getId() {
             return id;
@@ -293,11 +246,11 @@ public class ItemDetailOutVO {
             this.tokenId = tokenId;
         }
 
-        public String getVersion() {
+        public int getVersion() {
             return version;
         }
 
-        public void setVersion(String version) {
+        public void setVersion(int version) {
             this.version = version;
         }
 
@@ -413,6 +366,24 @@ public class ItemDetailOutVO {
             this.workCode = workCode;
         }
 
+
+
+        public String getSalesOrder() {
+            return salesOrder;
+        }
+
+        public void setSalesOrder(String salesOrder) {
+            this.salesOrder = salesOrder;
+        }
+
+        public String getComments() {
+            return comments;
+        }
+
+        public void setComments(String comments) {
+            this.comments = comments;
+        }
+
         public String getMadeTime() {
             return madeTime;
         }
@@ -501,9 +472,37 @@ public class ItemDetailOutVO {
             this.billArchived = billArchived;
         }
 
+        public String getBillPrint() {
+            return billPrint;
+        }
 
+        public void setBillPrint(String billPrint) {
+            this.billPrint = billPrint;
+        }
 
+        public String getPrintTimes() {
+            return printTimes;
+        }
 
+        public void setPrintTimes(String printTimes) {
+            this.printTimes = printTimes;
+        }
+
+        public String getInstallTime() {
+            return installTime;
+        }
+
+        public void setInstallTime(String installTime) {
+            this.installTime = installTime;
+        }
+
+        public String getDeliveryDate() {
+            return deliveryDate;
+        }
+
+        public void setDeliveryDate(String deliveryDate) {
+            this.deliveryDate = deliveryDate;
+        }
 
         public String getRemark() {
             return remark;
@@ -513,12 +512,12 @@ public class ItemDetailOutVO {
             this.remark = remark;
         }
 
-        public boolean isEnable() {
-            return enable;
+        public String getPackingMaterialText() {
+            return packingMaterialText;
         }
 
-        public void setEnable(boolean enable) {
-            this.enable = enable;
+        public void setPackingMaterialText(String packingMaterialText) {
+            this.packingMaterialText = packingMaterialText;
         }
 
         public String getStoreStateText() {
@@ -529,6 +528,38 @@ public class ItemDetailOutVO {
             this.storeStateText = storeStateText;
         }
 
+        public String getBillPrintText() {
+            return billPrintText;
+        }
+
+        public void setBillPrintText(String billPrintText) {
+            this.billPrintText = billPrintText;
+        }
+
+        public String getInstallTimeText() {
+            return installTimeText;
+        }
+
+        public void setInstallTimeText(String installTimeText) {
+            this.installTimeText = installTimeText;
+        }
+
+        public String getDeliveryDateText() {
+            return deliveryDateText;
+        }
+
+        public void setDeliveryDateText(String deliveryDateText) {
+            this.deliveryDateText = deliveryDateText;
+        }
+
+        public boolean isEnable() {
+            return enable;
+        }
+
+        public void setEnable(boolean enable) {
+            this.enable = enable;
+        }
+
         public String getBillArchivedText() {
             return billArchivedText;
         }
@@ -536,8 +567,6 @@ public class ItemDetailOutVO {
         public void setBillArchivedText(String billArchivedText) {
             this.billArchivedText = billArchivedText;
         }
-
-
 
         public List<PackingListItemsBean> getPackingListItems() {
             return packingListItems;
@@ -549,34 +578,35 @@ public class ItemDetailOutVO {
 
         public static class PackingListItemsBean {
             /**
-             * id : 7eb760afea9211e992930242ac110012
+             * id : 8b89b984f56611e9a72d0242ac110004
              * tokenId : null
              * version : 0
              * locked : false
-             * lastAccess : 1570625052353
+             * lastAccess : 1571815638803
              * disabled : false
              * creatorId : a475d2268eb511e992930242ac110012
              * createdBy : 英特诺
-             * createdTime : 1570625052353
+             * createdTime : 1571815638803
              * updaterId :
              * updatedBy :
              * dataId : null
              * isNew : null
              * logTime : null
-             * packingId : 7eb0e96bea9211e992930242ac110012
-             * soItem : 100
-             * material : RD-89VHJ4A5PF
-             * rl : 100
-             * agl : 200
-             * qty : 300
+             * packingId : 8b88edb0f56611e9a72d0242ac110004
+             * soItem : 路
+             * material : 888
+             * rl : 888
+             * agl : 888
+             * qty : 888
              * wtpc : 0
              * totalWeight : 0
+             * remark :
              * enable : true
              */
 
             private String id;
             private String tokenId;
-            private String version;
+            private int version;
             private boolean locked;
             private long lastAccess;
             private boolean disabled;
@@ -596,6 +626,7 @@ public class ItemDetailOutVO {
             private String qty;
             private String wtpc;
             private String totalWeight;
+            private String remark;
             private boolean enable;
 
             public String getId() {
@@ -614,11 +645,11 @@ public class ItemDetailOutVO {
                 this.tokenId = tokenId;
             }
 
-            public String getVersion() {
+            public int getVersion() {
                 return version;
             }
 
-            public void setVersion(String version) {
+            public void setVersion(int version) {
                 this.version = version;
             }
 
@@ -772,6 +803,14 @@ public class ItemDetailOutVO {
 
             public void setTotalWeight(String totalWeight) {
                 this.totalWeight = totalWeight;
+            }
+
+            public String getRemark() {
+                return remark;
+            }
+
+            public void setRemark(String remark) {
+                this.remark = remark;
             }
 
             public boolean isEnable() {

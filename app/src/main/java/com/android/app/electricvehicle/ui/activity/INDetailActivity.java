@@ -658,9 +658,13 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
         if (result.getSuccess().equals("T")){//证明有数据
             ll_detail.setVisibility(View.VISIBLE);//显示出详情
 
-             type_f=0;//type_f 为0的时候，代表返回了详情，为1的时候代表没有返回详情，此时提交给后台出库的数据不一样
+
 
             if (!Kits.Empty.check(result.getData())) {
+
+
+                type_f=0;//type_f 为0的时候，代表返回了详情，为1的时候代表没有返回详情，此时提交给后台出库的数据不一样
+
                 //证明有数据
                if (result.getData().getDataList()!=null&&result.getData().getDataList().size()>0 ){
                    if (!Kits.Empty.check(result.getData().getDataList().get(0).getWorkCode())) {
@@ -768,12 +772,14 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
                    }
 
 
-
                }
 
+            }else {//证明返回的T，但是data为空
+                ll_detail.setVisibility(View.VISIBLE);//显示出详情//这个时候可以编辑了
+                chooseTrue();//此时可以修改
+                navigationUserLayout.setVisibility(View.VISIBLE);//此时显示添加SO Item按钮
+                type_f=1;//type_f 为0的时候，代表返回了详情，为1的时候代表没有返回详情，此时提交给后台出库的数据不一样
             }
-
-
 
 
         }else {//证明返回的F，此时是查不到详情，证明没有装箱单

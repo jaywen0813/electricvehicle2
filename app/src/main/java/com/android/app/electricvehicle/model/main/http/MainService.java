@@ -178,9 +178,13 @@ public interface MainService {
     @GET
     Observable<ItemDetailOutVO> getoutPage(@HeaderMap Map<String, String> headerMap,@Url String url);
 
-    //出库时通过SO展示的详情
+    //出库时通过SO展示的详情  //2019年10月28日 14:33:59  暂时没有用上，作废了
     @GET
     Observable<ItemDetailOutVO2> getoutPage2(@HeaderMap Map<String, String> headerMap,@Url String url);
+
+    //出库时通过SO展示的详情
+    @GET
+    Observable<OutDetailVO2> getoutPage3(@HeaderMap Map<String, String> headerMap,@Url String url);
 
     //我的入库列表点击以后的详情展示
     @GET
