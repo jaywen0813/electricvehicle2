@@ -426,7 +426,7 @@
                     android:layout_weight="1"
                     android:gravity="left|center_vertical"
                     android:text="状态:"
-                    android:textColor="@color/color_3d3d3d"
+                    android:textColor="@color/recommend_red"
                     android:textSize="@dimen/dimen_value_sp14" />
             </LinearLayout>
 

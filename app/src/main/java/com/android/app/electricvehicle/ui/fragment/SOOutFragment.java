@@ -262,27 +262,27 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
                             switch (item.getData().get(0).getPackingList().getStoreState()){
                                 case "0":
                                     tvZhuangtai.setText("状态：暂存");
-                                    tvZhuangtai.setTextColor(getContext().getResources().getColor(R.color.color_3d3d3d));
+
 
                                     tvTijiao.setVisibility(View.INVISIBLE);
                                     break;
 
                                 case "1":
                                     tvZhuangtai.setText("状态：待入库");
-                                    tvZhuangtai.setTextColor(getContext().getResources().getColor(R.color.color_3d3d3d));
+
 
                                     tvTijiao.setVisibility(View.INVISIBLE);
 
                                     break;
                                 case "2":
                                     tvZhuangtai.setText("状态：已入库");
-                                    tvZhuangtai.setTextColor(getContext().getResources().getColor(R.color.recommend_red));
+
 
                                     tvTijiao.setVisibility(View.VISIBLE);//已出库的才有出库按钮
                                     break;
                                 case "3":
                                     tvZhuangtai.setText("状态：已出库");
-                                    tvZhuangtai.setTextColor(getContext().getResources().getColor(R.color.color_3d3d3d));
+
 
                                     tvTijiao.setVisibility(View.INVISIBLE);
                                     break;
