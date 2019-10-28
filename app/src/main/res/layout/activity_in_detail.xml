@@ -58,6 +58,22 @@
 
                 </LinearLayout>
 
+
+                <com.flyco.roundview.RoundTextView
+                    android:id="@+id/tv_shoudong"
+                    android:layout_width="@dimen/dimen_value_dp100"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/dimen_value_dp5"
+                    android:layout_marginBottom="@dimen/dimen_value_dp5"
+                    app:rv_backgroundColor="@color/colorPrimary"
+                    app:rv_cornerRadius="@dimen/dimen_value_dp5"
+                    android:gravity="center"
+                    android:text="查   询"
+                    android:textSize="@dimen/dimen_value_dp20"
+                    android:textColor="@color/white"
+                    />
+
+
             </LinearLayout>
 
             <View style="@style/viewline_heng" />
@@ -107,7 +123,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:visibility="visible"
+                android:visibility="invisible"
                 >
 
                 <LinearLayout

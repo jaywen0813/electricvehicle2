@@ -30,6 +30,7 @@ import com.android.app.electricvehicle.model.main.presenter.INPresenter;
 import com.android.app.electricvehicle.utils.DateTimeWheelDialog;
 import com.android.app.electricvehicle.utils.Kits;
 import com.android.app.electricvehicle.utils.StatusBarUtil;
+import com.flyco.roundview.RoundTextView;
 import com.yzq.zxinglibrary.bean.ZxingConfig;
 import com.yzq.zxinglibrary.common.Constant;
 
@@ -73,7 +74,7 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
     private EditText tvComments;
     private TextView tvZzrq;
     private TextView tvDdjhq;
-
+    private RoundTextView tv_shoudong;//手动查询详情按钮
 
     private LinearLayout ll_detail;//扫码以后显示详情的
     private LinearLayout llAdd;
@@ -268,11 +269,11 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
                     for (int i = 0; i <childCount+1 ; i++) {//这里加1，因为一开始默认添加了一条
                         View childAt = llAdd.getChildAt(i);
 
-                        tvSo = childAt.findViewById(R.id.tv_so);
-                        tvMaterial = childAt.findViewById(R.id.tv_material);
-                        tvRl = childAt.findViewById(R.id.tv_rl);
-                        tvAgl = childAt.findViewById(R.id.tv_agl);
-                        tvQty = childAt.findViewById(R.id.tv_qty);
+//                        tvSo = childAt.findViewById(R.id.tv_so);
+//                        tvMaterial = childAt.findViewById(R.id.tv_material);
+//                        tvRl = childAt.findViewById(R.id.tv_rl);
+//                        tvAgl = childAt.findViewById(R.id.tv_agl);
+//                        tvQty = childAt.findViewById(R.id.tv_qty);
 
                         String soItem=tvSo.getText().toString();
                         String material=tvMaterial.getText().toString();
@@ -354,6 +355,11 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
                     View view2 = LayoutInflater.from(this).inflate(R.layout.item_zxdlr,null);
 //                    final View childAt = llAdd.getChildAt(i);
 
+                    tvSo = view2.findViewById(R.id.tv_so);
+                    tvMaterial = view2.findViewById(R.id.tv_material);
+                    tvRl = view2.findViewById(R.id.tv_rl);
+                    tvAgl = view2.findViewById(R.id.tv_agl);
+                    tvQty = view2.findViewById(R.id.tv_qty);
 
 //                    tvSo.setId(R.id.text_tvSo+i);//循环设置id
 //                    tvMaterial.setId(R.id.text_tvMaterial+i);
@@ -367,6 +373,14 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
                 }
 
 
+                break;
+            case R.id.tv_shoudong://手动查询详情按钮
+
+                String instoreCode2=etNumber.getText().toString().trim();
+                String freeLoc2=etKwNumber.getText().toString().trim();
+
+
+                presenter.getInDetail(instoreCode2);
                 break;
         }
     }
@@ -385,7 +399,7 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
         farmInputSave = findViewById(R.id.farm_input_save);
         etNumber = findViewById(R.id.et_number);//装箱单号
         llSaomiao = findViewById(R.id.ll_saomiao);//装箱单扫描
-
+        tv_shoudong=findViewById(R.id.tv_shoudong);//手动查询按钮
 
         etKwNumber = findViewById(R.id.et_kw_number);//库位号
         llSaomiao2 = findViewById(R.id.ll_saomiao2);//扫描库位
@@ -413,6 +427,7 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
 
         llAdd=findViewById(R.id.ll_add);
 
+        tv_shoudong.setOnClickListener(this);
         llSaomiao.setOnClickListener(this);
         llSaomiao2.setOnClickListener(this);
         backLayout.setOnClickListener(this);
@@ -779,6 +794,20 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
                 chooseTrue();//此时可以修改
                 navigationUserLayout.setVisibility(View.VISIBLE);//此时显示添加SO Item按钮
                 type_f=1;//type_f 为0的时候，代表返回了详情，为1的时候代表没有返回详情，此时提交给后台出库的数据不一样
+
+
+                //默认添加一条So Item
+                for (int i = 0; i <1 ; i++) {
+                    View view2 = LayoutInflater.from(this).inflate(R.layout.item_zxdlr,null);
+
+                    tvSo = view2.findViewById(R.id.tv_so);
+                    tvMaterial = view2.findViewById(R.id.tv_material);
+                    tvRl = view2.findViewById(R.id.tv_rl);
+                    tvAgl = view2.findViewById(R.id.tv_agl);
+                    tvQty = view2.findViewById(R.id.tv_qty);
+
+                    llAdd.addView(view2);//动态添加view
+                }
             }
 
 
@@ -788,6 +817,19 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
             navigationUserLayout.setVisibility(View.VISIBLE);//此时显示添加SO Item按钮
              type_f=1;//type_f 为0的时候，代表返回了详情，为1的时候代表没有返回详情，此时提交给后台出库的数据不一样
 
+
+            //默认添加一条So Item
+            for (int i = 0; i <1 ; i++) {
+                View view2 = LayoutInflater.from(this).inflate(R.layout.item_zxdlr,null);
+
+                tvSo = view2.findViewById(R.id.tv_so);
+                tvMaterial = view2.findViewById(R.id.tv_material);
+                tvRl = view2.findViewById(R.id.tv_rl);
+                tvAgl = view2.findViewById(R.id.tv_agl);
+                tvQty = view2.findViewById(R.id.tv_qty);
+
+                llAdd.addView(view2);//动态添加view
+            }
         }
 
 
