@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.android.app.electricvehicle.R;
@@ -24,6 +25,9 @@ public class SOOutAdapter extends BaseAdapter {
 
     private Context context;
     private List<OutDetailVO2.DataBean> list;
+
+//    private List<OutDetailVO2.DataBean.PackingListBean.PackingListItemsBean> list_item=new ArrayList<>();//SOitem的列表
+//    SOOutAdapter_SoItem adapter_soItem;
 
 
     public SOOutAdapter(Context context, List<OutDetailVO2.DataBean> list) {
@@ -60,6 +64,7 @@ public class SOOutAdapter extends BaseAdapter {
             viewHolder.tvZhuangtai = convertView.findViewById(R.id.tv_zhuangtai);
             viewHolder.tvOrder = convertView.findViewById(R.id.tv_order);
             viewHolder.tvDdjhq = convertView.findViewById(R.id.tv_ddjhq);
+            viewHolder.lv=convertView.findViewById(R.id.lv);
 
             convertView.setTag(viewHolder);
         } else {
@@ -67,6 +72,19 @@ public class SOOutAdapter extends BaseAdapter {
         }
 
         final OutDetailVO2.DataBean item = list.get(position);
+
+
+//        adapter_soItem=new SOOutAdapter_SoItem(context,list_item);
+//        viewHolder.lv.setAdapter(adapter_soItem);
+//
+//        if (!Kits.Empty.check(item.getPackingList().getPackingListItems())){
+//
+//            if  (item.getPackingList().getPackingListItems().size()>0){
+//                list_item.clear();
+//                list_item.addAll(item.getPackingList().getPackingListItems());
+//                adapter_soItem.notifyDataSetChanged();
+//            }
+//        }
 
 
 
@@ -238,7 +256,7 @@ public class SOOutAdapter extends BaseAdapter {
         TextView tvOrder;
         TextView tvDdjhq;
 
-
+        ListView lv;
 
 
 

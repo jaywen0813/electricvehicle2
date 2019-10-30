@@ -236,15 +236,19 @@
 
         </LinearLayout>
 
+
+        <ListView
+            android:id="@+id/lv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+
         <View
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen_value_dp1"
             android:background="@color/color_3d3d3d"
             />
-
-
-
-
     </com.flyco.roundview.RoundLinearLayout>
 
 

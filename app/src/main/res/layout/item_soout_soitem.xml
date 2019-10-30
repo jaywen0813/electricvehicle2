@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <com.flyco.roundview.RoundLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:rv_backgroundColor="@color/white"
+        >
+        <View
+            style="@style/viewline_heng"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_value_dp20"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            >
+
+            <View
+                android:layout_width="@dimen/dimen_value_dp1"
+                android:layout_height="@dimen/dimen_value_dp20"
+                android:background="@color/color_3d3d3d"
+                />
+            <LinearLayout style="@style/llView1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="SO Item:"
+                    android:textColor="@color/recommend_red"
+                    android:textSize="@dimen/dimen_value_sp13" />
+
+                <TextView
+                    android:id="@+id/tv_so"
+                    style="@style/etTextView1"
+                    android:textColor="@color/recommend_red"
+                    />
+
+            </LinearLayout>
+
+            <View style="@style/viewline_shu" />
+
+            <LinearLayout style="@style/llView1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="material:"
+                    android:textColor="@color/color_3d3d3d"
+                    android:textSize="@dimen/dimen_value_sp13" />
+
+                <TextView
+                    android:id="@+id/tv_material"
+                    style="@style/etTextView1" />
+
+            </LinearLayout>
+            <View
+                android:layout_width="@dimen/dimen_value_dp1"
+                android:layout_height="@dimen/dimen_value_dp20"
+                android:background="@color/color_3d3d3d"
+                />
+        </LinearLayout>
+
+        <View style="@style/viewline_heng" />
+
+        <LinearLayout android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_value_dp20"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <View
+                android:layout_width="@dimen/dimen_value_dp1"
+                android:layout_height="@dimen/dimen_value_dp20"
+                android:background="@color/color_3d3d3d"
+                />
+            <LinearLayout style="@style/llView1">
+
+                <TextView
+                    style="@style/tvTextView1"
+                    android:text="RL：" />
+
+                <TextView
+                    android:id="@+id/tv_rl"
+                    style="@style/etTextView1" />
+
+            </LinearLayout>
+
+
+            <View style="@style/viewline_shu" />
+
+
+            <LinearLayout style="@style/llView1">
+
+                <TextView
+                    style="@style/tvTextView1"
+                    android:text="AGL：" />
+
+                <TextView
+                    android:id="@+id/tv_agl"
+                    style="@style/etTextView1" />
+
+            </LinearLayout>
+
+
+            <View style="@style/viewline_shu" />
+
+
+            <LinearLayout style="@style/llView1">
+
+                <TextView
+                    style="@style/tvTextView1"
+                    android:text="Qty：" />
+
+                <TextView
+                    android:id="@+id/tv_qty"
+                    style="@style/etTextView1" />
+
+            </LinearLayout>
+            <View
+                android:layout_width="@dimen/dimen_value_dp1"
+                android:layout_height="@dimen/dimen_value_dp20"
+                android:background="@color/color_3d3d3d"
+                />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_value_dp1"
+            android:background="@color/color_3d3d3d"
+            />
+
+    </com.flyco.roundview.RoundLinearLayout>
+
+</LinearLayout>

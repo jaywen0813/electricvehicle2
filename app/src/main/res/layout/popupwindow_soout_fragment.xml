@@ -5,9 +5,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <com.android.app.electricvehicle.utils.EChangeScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
     <com.flyco.roundview.RoundLinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dimen_value_dp320"
+        android:layout_height="@dimen/dimen_value_dp400"
         android:layout_marginLeft="@dimen/dimen_value_dp8"
         android:layout_marginRight="@dimen/dimen_value_dp8"
         app:rv_backgroundColor="@color/white"
@@ -558,6 +563,13 @@
                 android:layout_height="@dimen/dimen_value_dp1"
                 android:background="@color/color_3d3d3d"
                 />
+
+            <ListView
+                android:id="@+id/lv_soitem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
         </com.flyco.roundview.RoundLinearLayout>
 
 
@@ -619,5 +631,5 @@
 
     </com.flyco.roundview.RoundLinearLayout>
 
-
+    </com.android.app.electricvehicle.utils.EChangeScrollView>
 </LinearLayout>

@@ -44,7 +44,7 @@ public class SOOutAdapter_SoItem extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder = null;
         if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.item_zxdout_soitem,
+            convertView = LayoutInflater.from(context).inflate(R.layout.item_soout_soitem,
                     parent, false);
             viewHolder=new ViewHolder();
             viewHolder.tvSo = convertView.findViewById(R.id.tv_so);

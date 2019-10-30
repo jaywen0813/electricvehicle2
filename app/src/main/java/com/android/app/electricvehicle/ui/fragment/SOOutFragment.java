@@ -39,6 +39,7 @@ import com.android.app.electricvehicle.mvp.presenter.BasePresenter;
 import com.android.app.electricvehicle.ui.activity.OUTDetailActivity;
 import com.android.app.electricvehicle.ui.activity.ZxingActivity;
 import com.android.app.electricvehicle.ui.adapter.SOOutAdapter;
+
 import com.android.app.electricvehicle.ui.adapter.SOOutAdapter_SoItem;
 import com.android.app.electricvehicle.utils.DialogUtil;
 import com.android.app.electricvehicle.utils.Kits;
@@ -52,7 +53,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPresenterSO2> implements OUTContractSO2.View,View.OnClickListener {
+public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPresenterSO2> implements OUTContractSO2.View, View.OnClickListener {
 
 
     private EditText tvOrder;
@@ -93,14 +94,13 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
 //    List<OutDetailVO2.DataBean.PackingListBean.PackingListItemsBean> list=new ArrayList<>();
 //    SOOutAdapter_SoItem adapter_soItem;
 
-;
-    List<OutDetailVO2.DataBean> list=new ArrayList<>();
+    ;
+    List<OutDetailVO2.DataBean> list = new ArrayList<>();
     SOOutAdapter adapter;
 
 
-    int type_chaxun=0;//证明查询了数据，如果为1，代表查询到了装箱单号
-    String type_PackingCode="";//用来记录PackingCode
-
+    int type_chaxun = 0;//证明查询了数据，如果为1，代表查询到了装箱单号
+    String type_PackingCode = "";//用来记录PackingCode
 
 
     //弹出框
@@ -132,7 +132,11 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
     private TextView tvDdjhq0;
     private RoundTextView tv_saomiao_zxd;
     private RoundTextView tv_chuku_zxd;
+    private ListView lv_soitem;
 
+    //弹窗里面的SOitem列表
+    List<OutDetailVO2.DataBean.PackingListBean.PackingListItemsBean> list_item = new ArrayList<>();//SOitem的列表
+    SOOutAdapter_SoItem adapter_soItem;
 
 
     static Handler mHandler;//进度条的计时器  这里设置静态的防止removeCallbacks无法将updateThread从message queue中移除
@@ -165,19 +169,18 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
         tvDdjhq = view.findViewById(R.id.tv_ddjhq);
         tvTijiao = view.findViewById(R.id.tv_tijiao);
 
-        rll_detail=view.findViewById(R.id.rll_detail);
+        rll_detail = view.findViewById(R.id.rll_detail);
 
 
-        scrollView=view.findViewById(R.id.scrollView);
-        lv=view.findViewById(R.id.lv);
+        scrollView = view.findViewById(R.id.scrollView);
+        lv = view.findViewById(R.id.lv);
 
-        et_number2=view.findViewById(R.id.et_number2);//二次扫描
-        ll_saomiao3=view.findViewById(R.id.ll_saomiao3);//扫描
+        et_number2 = view.findViewById(R.id.et_number2);//二次扫描
+        ll_saomiao3 = view.findViewById(R.id.ll_saomiao3);//扫描
 
         tvChaxun.setOnClickListener(this);
         tvTijiao.setOnClickListener(this);
         ll_saomiao3.setOnClickListener(this);
-
 
 
         //切换爱车弹窗
@@ -217,20 +220,21 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
         tvComments0 = ppwView.findViewById(R.id.tv_comments);
         tvZzrq0 = ppwView.findViewById(R.id.tv_zzrq);
         tvDdjhq0 = ppwView.findViewById(R.id.tv_ddjhq);
-        tv_saomiao_zxd=ppwView.findViewById(R.id.tv_saomiao_zxd);
-        tv_chuku_zxd=ppwView.findViewById(R.id.tv_chuku_zxd);
-        tv_kwh0=ppwView.findViewById(R.id.tv_kwh);
+        tv_saomiao_zxd = ppwView.findViewById(R.id.tv_saomiao_zxd);
+        tv_chuku_zxd = ppwView.findViewById(R.id.tv_chuku_zxd);
+        tv_kwh0 = ppwView.findViewById(R.id.tv_kwh);
+        lv_soitem = ppwView.findViewById(R.id.lv_soitem);
+
         llDialogClose.setOnClickListener(this);//关闭弹窗的
         tv_saomiao_zxd.setOnClickListener(this);//扫码按钮
         tv_chuku_zxd.setOnClickListener(this);//出库按钮
 
 
-
         popupWindowShowDetail();
 
 
-
     }
+
     //点击列表以后
     private void popupWindowShowDetail() {
 
@@ -242,14 +246,14 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
 
 
                 //库位
-                if (!Kits.Empty.check(list.get(position).getFreeLoc())){
+                if (!Kits.Empty.check(list.get(position).getFreeLoc())) {
                     tv_kwh0.setText(list.get(position).getFreeLoc());
                 }
 
 
                 //状态
-                if (!Kits.Empty.check(list.get(position).getInstoreStateText())){
-                    tvZhuangtai0.setText("状态:"+list.get(position).getInstoreStateText());
+                if (!Kits.Empty.check(list.get(position).getInstoreStateText())) {
+                    tvZhuangtai0.setText("状态:" + list.get(position).getInstoreStateText());
 
 
                 }
@@ -309,8 +313,6 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
                     if (!Kits.Empty.check(list.get(position).getPackingList().getRoughWeight())) {
                         tvMaozhong0.setText("毛重：" + list.get(position).getPackingList().getRoughWeight());
                     }
-
-
 
 
                     //单据归档 0否  1是
@@ -373,10 +375,24 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
                         tvDdjhq0.setText(timeText + "");
 
                     }
+
+                    adapter_soItem = new SOOutAdapter_SoItem(getContext(), list_item);
+                    lv_soitem.setAdapter(adapter_soItem);
+
+
+                    if (!Kits.Empty.check(list.get(position).getPackingList().getPackingListItems())) {
+                        if (list.get(position).getPackingList().getPackingListItems().size() > 0) {
+
+                            list_item.clear();
+                            list_item.addAll(list.get(position).getPackingList().getPackingListItems());
+                            adapter_soItem.notifyDataSetChanged();
+                        }
+
+                    }
+
                 }
             }
         });
-
 
 
         //弹窗的关闭监听
@@ -423,14 +439,14 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.tv_chaxun:
-                String salesOrder=tvOrder.getText().toString().trim();
-                String soItem=tvSo.getText().toString().trim();
+                String salesOrder = tvOrder.getText().toString().trim();
+                String soItem = tvSo.getText().toString().trim();
 
-                if (Kits.Empty.check(salesOrder)){
+                if (Kits.Empty.check(salesOrder)) {
 //                        T.showToastSafe("仓库ID不能为空");
-                    Toast.makeText(getContext(),"SalesOrder不能为空",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), "SalesOrder不能为空", Toast.LENGTH_LONG).show();
                     return;
                 }
 
@@ -440,7 +456,7 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
 //                    return;
 //                }
 
-                presenter.getSO(salesOrder,soItem);
+                presenter.getSO(salesOrder, soItem);
                 break;
 
             case R.id.tv_tijiao:
@@ -450,7 +466,7 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
                     if (confirm) {
                         //退出登录
 //                        loading("正在退出...");
-                        presenter.getUP(type_PackingCode,tvKwh.getText().toString().trim());
+                        presenter.getUP(type_PackingCode, tvKwh.getText().toString().trim());
                     }
                     dialog.dismiss();
                 });
@@ -474,7 +490,7 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
                     if (confirm) {
                         //退出登录
 //                        loading("正在退出...");
-                        presenter.getUP(type_PackingCode,tvKwh.getText().toString().trim());
+                        presenter.getUP(type_PackingCode, tvKwh.getText().toString().trim());
                     }
                     dialog.dismiss();
                 });
@@ -485,35 +501,35 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
     //点击出库以后的操作
     @Override
     public void showSuccess(OutDetailVO vDate) {
-        if (vDate.getSuccess().equals("T")){
-            Toast.makeText(getContext(),"出库成功",Toast.LENGTH_LONG).show();
+        if (vDate.getSuccess().equals("T")) {
+            Toast.makeText(getContext(), "出库成功", Toast.LENGTH_LONG).show();
 //            clearAllView();//清空数据
             getActivity().finish();
-        }else {
-            Toast.makeText(getContext(),vDate.getMessage()+"",Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(getContext(), vDate.getMessage() + "", Toast.LENGTH_LONG).show();
         }
     }
-    public void clearAllView(){
+
+    public void clearAllView() {
         tvOrder.setText("");
         tvSo.setText("");
-        tvGzdh .setText("");
+        tvGzdh.setText("");
         tvKwh.setText("");
-        tvDate .setText("");
-        tvNumber .setText("");
+        tvDate.setText("");
+        tvNumber.setText("");
 
-        tvKwNumber .setText("");
-        tvDjx .setText("第  箱");
-        tvGjx .setText("共  箱");
-        tvChang .setText("长:");
-        tvKuan .setText("宽:");
-        tvGao .setText("高:");
+        tvKwNumber.setText("");
+        tvDjx.setText("第  箱");
+        tvGjx.setText("共  箱");
+        tvChang.setText("长:");
+        tvKuan.setText("宽:");
+        tvGao.setText("高:");
         tvJingzhong.setText("净重:");
-        tvMaozhong .setText("毛重:");
-        tvZhuangtai .setText("状态:");
-        tvDjgd .setText("单据归档:");
+        tvMaozhong.setText("毛重:");
+        tvZhuangtai.setText("状态:");
+        tvDjgd.setText("单据归档:");
         tvDjdy.setText("单据打印:");
-        tvDycs .setText("打印次数:");
-
+        tvDycs.setText("打印次数:");
 
 
         tvOrder1.setText("");
@@ -522,102 +538,100 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
         tvDdjhq.setText("");
 
 
-
 //        list.clear();
 //        adapter_soItem.notifyDataSetChanged();
 
 
     }
+
     //SO查询详细信息后返回的信息
     @Override
     public void showDetail(OutDetailVO2 item) {
 
-        if (item.getSuccess().equals("T")){
-            if (!(item.getData()==null ||item.getData().equals(""))){
+        if (item.getSuccess().equals("T")) {
+            if (!(item.getData() == null || item.getData().equals(""))) {
 
 
-
-                if (item.getData().size()>0){
+                if (item.getData().size() > 0) {
 
                     scrollView.setVisibility(View.VISIBLE);
                     rll_detail.setVisibility(View.GONE);//客户要求是列表点击
 
 
                     //库位
-                    if (!Kits.Empty.check(item.getData().get(0).getFreeLoc())){
+                    if (!Kits.Empty.check(item.getData().get(0).getFreeLoc())) {
                         tvKwh.setText(item.getData().get(0).getFreeLoc());
                     }
 
 
                     //状态
-                    if (!Kits.Empty.check(item.getData().get(0).getInstoreStateText())){
-                        tvZhuangtai.setText("状态:"+item.getData().get(0).getInstoreStateText());
+                    if (!Kits.Empty.check(item.getData().get(0).getInstoreStateText())) {
+                        tvZhuangtai.setText("状态:" + item.getData().get(0).getInstoreStateText());
 
-                        if (item.getData().get(0).getInstoreStateText().equals("已入库") || item.getData().get(0).getInstoreStateText().equals("未出库")){
+                        if (item.getData().get(0).getInstoreStateText().equals("已入库") || item.getData().get(0).getInstoreStateText().equals("未出库")) {
 //                            tvTijiao.setVisibility(View.VISIBLE);
 
                             tvTijiao.setVisibility(View.GONE);//2019年10月30日 17:21:40  改了需求 ，这里暂时不需要出库按钮
-                        }else {
+                        } else {
                             tvTijiao.setVisibility(View.GONE);
                         }
 
                     }
 
 
-                    if (!Kits.Empty.check(item.getData().get(0).getPackingList())){
+                    if (!Kits.Empty.check(item.getData().get(0).getPackingList())) {
                         //工作单号
-                        if (!Kits.Empty.check(item.getData().get(0).getPackingList().getWorkCode())){
+                        if (!Kits.Empty.check(item.getData().get(0).getPackingList().getWorkCode())) {
                             tvGzdh.setText(item.getData().get(0).getPackingList().getWorkCode());
                         }
 
 
-
                         //日期
-                        if (!Kits.Empty.check(item.getData().get(0).getPackingList().getMadeTime())){
+                        if (!Kits.Empty.check(item.getData().get(0).getPackingList().getMadeTime())) {
 
-                            long itime= Long.parseLong(item.getData().get(0).getPackingList().getMadeTime());
+                            long itime = Long.parseLong(item.getData().get(0).getPackingList().getMadeTime());
 
-                            SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); //设置格式
-                            String timeText=format.format(itime);
-                            tvDate.setText(timeText+"");
+                            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); //设置格式
+                            String timeText = format.format(itime);
+                            tvDate.setText(timeText + "");
                         }
 
                         //装箱单号
                         if (!Kits.Empty.check(item.getData().get(0).getPackingList().getPackingCode())) {
                             tvNumber.setText(item.getData().get(0).getPackingList().getPackingCode());
-                            type_PackingCode=item.getData().get(0).getPackingList().getPackingCode();
+                            type_PackingCode = item.getData().get(0).getPackingList().getPackingCode();
                         }
 
 
                         //第几箱
                         if (!Kits.Empty.check(item.getData().get(0).getPackingList().getRankNum())) {
-                            tvDjx.setText("第  "+item.getData().get(0).getPackingList().getRankNum()+"  箱");
+                            tvDjx.setText("第  " + item.getData().get(0).getPackingList().getRankNum() + "  箱");
                         }
 
                         //共几箱
                         if (!Kits.Empty.check(item.getData().get(0).getPackingList().getTotalNum())) {
-                            tvGjx.setText("共  "+item.getData().get(0).getPackingList().getTotalNum()+"  箱");
+                            tvGjx.setText("共  " + item.getData().get(0).getPackingList().getTotalNum() + "  箱");
                         }
 
                         //长
                         if (!Kits.Empty.check(item.getData().get(0).getPackingList().getPackLength())) {
-                            tvChang.setText("长："+item.getData().get(0).getPackingList().getPackLength());
+                            tvChang.setText("长：" + item.getData().get(0).getPackingList().getPackLength());
                         }
                         //宽
                         if (!Kits.Empty.check(item.getData().get(0).getPackingList().getPackwidth())) {
-                            tvKuan.setText("宽："+item.getData().get(0).getPackingList().getPackwidth());
+                            tvKuan.setText("宽：" + item.getData().get(0).getPackingList().getPackwidth());
                         }
                         //高
                         if (!Kits.Empty.check(item.getData().get(0).getPackingList().getPackHeight())) {
-                            tvGao.setText("高:"+item.getData().get(0).getPackingList().getPackHeight());
+                            tvGao.setText("高:" + item.getData().get(0).getPackingList().getPackHeight());
                         }
                         //净重
                         if (!Kits.Empty.check(item.getData().get(0).getPackingList().getNetWeight())) {
-                            tvJingzhong.setText("净重："+item.getData().get(0).getPackingList().getNetWeight());
+                            tvJingzhong.setText("净重：" + item.getData().get(0).getPackingList().getNetWeight());
                         }
                         //毛重
                         if (!Kits.Empty.check(item.getData().get(0).getPackingList().getRoughWeight())) {
-                            tvMaozhong.setText("毛重："+item.getData().get(0).getPackingList().getRoughWeight());
+                            tvMaozhong.setText("毛重：" + item.getData().get(0).getPackingList().getRoughWeight());
                         }
 
 
@@ -657,12 +671,11 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
 //                        }
 
 
-
                         //单据归档 0否  1是
                         if (!Kits.Empty.check(item.getData().get(0).getPackingList().getBillArchived())) {
-                            if (item.getData().get(0).getPackingList().getBillArchived().equals("0")){
+                            if (item.getData().get(0).getPackingList().getBillArchived().equals("0")) {
                                 tvDjgd.setText("单据归档：否");
-                            }else if (item.getData().get(0).getPackingList().getBillArchived().equals("1")){
+                            } else if (item.getData().get(0).getPackingList().getBillArchived().equals("1")) {
                                 tvDjgd.setText("单据归档：是");
                             }
 
@@ -670,20 +683,19 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
 
                         //单据打印
                         if (!Kits.Empty.check(item.getData().get(0).getPackingList().getBillPrint())) {
-                            if (item.getData().get(0).getPackingList().getBillPrint().equals("0")){
+                            if (item.getData().get(0).getPackingList().getBillPrint().equals("0")) {
                                 tvDjdy.setText("单据打印：未打印");
-                            }else if (item.getData().get(0).getPackingList().getBillPrint().equals("1")){
+                            } else if (item.getData().get(0).getPackingList().getBillPrint().equals("1")) {
                                 tvDjdy.setText("单据打印：已打印");
-                            }else if (item.getData().get(0).getPackingList().getBillPrint().equals("2")){
+                            } else if (item.getData().get(0).getPackingList().getBillPrint().equals("2")) {
                                 tvDjdy.setText("单据打印：补打");
                             }
 
                         }
                         //打印次数
                         if (!Kits.Empty.check(item.getData().get(0).getPackingList().getPrintTimes())) {
-                            tvDycs.setText("打印次数："+item.getData().get(0).getPackingList().getPrintTimes()+"次");
+                            tvDycs.setText("打印次数：" + item.getData().get(0).getPackingList().getPrintTimes() + "次");
                         }
-
 
 
                         //Sales order
@@ -700,11 +712,11 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
                         //组装日期
                         if (!Kits.Empty.check(item.getData().get(0).getPackingList().getInstallTime())) {
 
-                            long itimes= Long.parseLong(item.getData().get(0).getPackingList().getInstallTime());
+                            long itimes = Long.parseLong(item.getData().get(0).getPackingList().getInstallTime());
 
-                            SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd"); //设置格式
-                            String timeText=format.format(itimes);
-                            tvZzrq.setText(timeText+"");
+                            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd"); //设置格式
+                            String timeText = format.format(itimes);
+                            tvZzrq.setText(timeText + "");
 
 
                         }
@@ -712,18 +724,16 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
                         //订单交货期
                         if (!Kits.Empty.check(item.getData().get(0).getPackingList().getDeliveryDate())) {
 
-                            long itimess= Long.parseLong(item.getData().get(0).getPackingList().getDeliveryDate());
+                            long itimess = Long.parseLong(item.getData().get(0).getPackingList().getDeliveryDate());
 
-                            SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd"); //设置格式
-                            String timeText=format.format(itimess);
-                            tvDdjhq.setText(timeText+"");
+                            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd"); //设置格式
+                            String timeText = format.format(itimess);
+                            tvDdjhq.setText(timeText + "");
 
                         }
 
 
-
-                        type_chaxun=1;//证明查询到了数据
-
+                        type_chaxun = 1;//证明查询到了数据
 
 
                         //listview
@@ -741,7 +751,7 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
                     }
 
 
-                    adapter=new SOOutAdapter(getContext(),list);
+                    adapter = new SOOutAdapter(getContext(), list);
                     lv.setAdapter(adapter);
 
                     list.clear();
@@ -749,25 +759,22 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
                     adapter.notifyDataSetChanged();
 
 
-
-                }else {
-                    type_chaxun=0;//证明没有查询到数据
+                } else {
+                    type_chaxun = 0;//证明没有查询到数据
                     rll_detail.setVisibility(View.GONE);
                     scrollView.setVisibility(View.GONE);
 
                 }
 
 
-
-            }else {
-                type_chaxun=0;//证明没有查询到数据
+            } else {
+                type_chaxun = 0;//证明没有查询到数据
                 rll_detail.setVisibility(View.GONE);
                 scrollView.setVisibility(View.GONE);
             }
-        }else {
-            Toast.makeText(getContext(),item.getMessage(),Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(getContext(), item.getMessage(), Toast.LENGTH_LONG).show();
         }
-
 
 
     }
@@ -925,29 +932,28 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
                 String content = data.getStringExtra(Constant.CODED_CONTENT);
 
 
-                    et_number2.setText(content);
+                et_number2.setText(content);
 
 
+                //当扫描货物和单据上面的装箱单号一样的时候，就可以调用出库的按钮了
+                if (content.equals(type_PackingCode)) {
 
-                    //当扫描货物和单据上面的装箱单号一样的时候，就可以调用出库的按钮了
-                    if (content.equals(type_PackingCode) ){
-
-                        //关闭弹窗
-                        backgroundAlpha(1f, getActivity());
-                        ppw.dismiss();
+                    //关闭弹窗
+                    backgroundAlpha(1f, getActivity());
+                    ppw.dismiss();
 
 
-                        DialogUtil.showBasicDialog(getActivity(), "出库提示", "确定将装箱单号"+content+"的货物出库?", (dialog, confirm) -> {
-                            if (confirm) {
-                                String freeLoc = tvKwh.getText().toString().trim();
+                    DialogUtil.showBasicDialog(getActivity(), "出库提示", "确定将装箱单号" + content + "的货物出库?", (dialog, confirm) -> {
+                        if (confirm) {
+                            String freeLoc = tvKwh.getText().toString().trim();
 
-                                presenter.getUP(content, freeLoc);
-                            }
-                            dialog.dismiss();
-                        });
-                    }else {
-                        Toast.makeText(getContext(),"装箱单号不一致",Toast.LENGTH_LONG).show();
-                    }
+                            presenter.getUP(content, freeLoc);
+                        }
+                        dialog.dismiss();
+                    });
+                } else {
+                    Toast.makeText(getContext(), "装箱单号不一致", Toast.LENGTH_LONG).show();
+                }
 
 
             }
@@ -958,7 +964,6 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
     }
 
 
-
     //---------------------------------------------------------------------------------------------------
     //弹窗以后的背景颜色蒙板
     public void backgroundAlpha(float bgAlpha, Activity context) {
@@ -966,8 +971,6 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
         lp.alpha = bgAlpha; //0.0-1.0
         context.getWindow().setAttributes(lp);
     }
-
-
 
 
 }
