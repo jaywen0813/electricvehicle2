@@ -43,6 +43,7 @@
     <dimen name="dimen_value_dp250">250dp</dimen>
     <dimen name="dimen_value_dp270">270dp</dimen>
     <dimen name="dimen_value_dp320">320dp</dimen>
+    <dimen name="dimen_value_dp400">400dp</dimen>
     <!-- 文字的大小 -->
     <dimen name="dimen_value_sp10">10sp</dimen>
     <dimen name="dimen_value_sp12">12sp</dimen>

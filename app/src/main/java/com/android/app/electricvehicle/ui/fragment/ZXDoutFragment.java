@@ -182,16 +182,36 @@ public class ZXDoutFragment extends BaseMvpFragment<OUTContract2.View, OUTPresen
             case R.id.tv_tijiao://提交出库按钮
                 String outstoreCode = etNumber.getText().toString().trim();
                 String freeLoc = etKwNumber.getText().toString().trim();
-
+                String outstoreCode3=et_number2.getText().toString().trim();
 
                 if (Kits.Empty.check(outstoreCode)) {
-                    Toast.makeText(getContext(), "出库号不能为空", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "单据号不能为空", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 //网络请求  提交数据
 
-                presenter.getUP(outstoreCode, freeLoc);
+                if (Kits.Empty.check(outstoreCode3)) {
+                    Toast.makeText(getContext(), "货物单号不能为空", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (outstoreCode.equals(outstoreCode3)){//相同的话
+                    DialogUtil.showBasicDialog(getActivity(), "出库提示", "确定将装箱单号"+outstoreCode+"的货物出库?", (dialog, confirm) -> {
+                        if (confirm) {
+
+                            presenter.getUP(outstoreCode, freeLoc);
+                        }
+                        dialog.dismiss();
+
+                    });
+                }else {
+                    Toast.makeText(getContext(),"两次输入的装箱单号不一致",Toast.LENGTH_LONG).show();
+                }
+
+
+
+
 
 
                 break;
@@ -367,7 +387,7 @@ public class ZXDoutFragment extends BaseMvpFragment<OUTContract2.View, OUTPresen
 
                     //当扫描货物和单据上面的装箱单号一样的时候，就可以调用出库的按钮了
                     if (content.equals(packingCode_danju) || content.equals(outstoreCode)){
-                        DialogUtil.showBasicDialog(getActivity(), "出库提示", "装箱单号一致，确定将货物出库?", (dialog, confirm) -> {
+                        DialogUtil.showBasicDialog(getActivity(), "出库提示", "确定将装箱单号"+content+"的货物出库?", (dialog, confirm) -> {
                             if (confirm) {
                                 String freeLoc = etKwNumber.getText().toString().trim();
 
@@ -393,10 +413,54 @@ public class ZXDoutFragment extends BaseMvpFragment<OUTContract2.View, OUTPresen
 
         if (vDate.getSuccess().equals("T")) {
             Toast.makeText(getContext(), "出库成功", Toast.LENGTH_LONG).show();
+//            clearAllView();//清空所有的数据
+            getActivity().finish();
         } else {
             Toast.makeText(getContext(), vDate.getMessage() + "", Toast.LENGTH_LONG).show();
         }
     }
+
+
+    public void clearAllView(){
+        etNumber.setText("");
+
+        etKwNumber.setText("");
+
+        et_number2.setText("");//二次扫描
+
+
+        tvZhid.setText("");
+        tvGzdh .setText("");
+        tvDate .setText("");
+        tvNumber .setText("");
+        tvZxdid .setText("");
+        tvCkmc.setText("");
+        tvCkid .setText("");
+        tvKwNumber .setText("");
+        tvDjx .setText("第  箱");
+        tvGjx .setText("共  箱");
+        tvChang .setText("长:");
+        tvKuan .setText("宽:");
+        tvGao .setText("高:");
+        tvJingzhong.setText("净重:");
+        tvMaozhong .setText("毛重:");
+        tvZhuangtai .setText("状态:");
+        tvDjgd .setText("单据归档:");
+        tvDjdy.setText("单据打印:");
+        tvDycs .setText("打印次数:");
+        tvBz .setText("");
+
+
+        tv_order.setText("");
+        tv_comments.setText("");
+        tv_zzrq.setText("");
+        tv_ddjhq.setText("");
+
+        list.clear();
+        adapter_soItem.notifyDataSetChanged();
+    }
+
+
 
     //扫码获取装箱单号以后的详情
     @Override
@@ -415,6 +479,20 @@ public class ZXDoutFragment extends BaseMvpFragment<OUTContract2.View, OUTPresen
                     if (!Kits.Empty.check(vDate.getData().get(0).getFreeLoc())) {
                         etKwNumber.setText(vDate.getData().get(0).getFreeLoc());
                     }
+
+
+                    //状态
+                    if (!Kits.Empty.check(vDate.getData().get(0).getInstoreStateText())){
+                        tvZhuangtai.setText("状态:"+vDate.getData().get(0).getInstoreStateText());
+
+                        if (vDate.getData().get(0).getInstoreStateText().equals("已入库")|| vDate.getData().get(0).getInstoreStateText().equals("未出库")){
+                            tvTijiao.setVisibility(View.VISIBLE);
+                        }else {
+                            tvTijiao.setVisibility(View.INVISIBLE);
+                        }
+
+                    }
+
 
 
                     if (!Kits.Empty.check(vDate.getData().get(0).getPackingList())) {
@@ -490,38 +568,39 @@ public class ZXDoutFragment extends BaseMvpFragment<OUTContract2.View, OUTPresen
 
 
                         //状态(0暂存  1待入库  2已入库  3已出库)
-                        if (!Kits.Empty.check(vDate.getData().get(0).getPackingList().getStoreState())) {
-                            switch (vDate.getData().get(0).getPackingList().getStoreState()) {
-                                case "0":
-                                    tvZhuangtai.setText("状态：暂存");
+//                        if (!Kits.Empty.check(vDate.getData().get(0).getPackingList().getStoreState())) {
+//                            switch (vDate.getData().get(0).getPackingList().getStoreState()) {
+//                                case "0":
+//                                    tvZhuangtai.setText("状态：暂存");
+//
+//
+//                                    tvTijiao.setVisibility(View.INVISIBLE);
+//                                    break;
+//
+//                                case "1":
+//                                    tvZhuangtai.setText("状态：待入库");
+//
+//
+//                                    tvTijiao.setVisibility(View.INVISIBLE);
+//                                    break;
+//                                case "2":
+//                                    tvZhuangtai.setText("状态：已入库");
+//
+//
+//                                    tvTijiao.setVisibility(View.VISIBLE);//这个时候才能显示出库按钮，否则不显示
+//                                    break;
+//                                case "3":
+//                                    tvZhuangtai.setText("状态：已出库");
+//
+//
+//                                    tvTijiao.setVisibility(View.INVISIBLE);
+//                                    break;
+//
+//                            }
+//
+//
+//                        }
 
-
-                                    tvTijiao.setVisibility(View.INVISIBLE);
-                                    break;
-
-                                case "1":
-                                    tvZhuangtai.setText("状态：待入库");
-
-
-                                    tvTijiao.setVisibility(View.INVISIBLE);
-                                    break;
-                                case "2":
-                                    tvZhuangtai.setText("状态：已入库");
-
-
-                                    tvTijiao.setVisibility(View.VISIBLE);//这个时候才能显示出库按钮，否则不显示
-                                    break;
-                                case "3":
-                                    tvZhuangtai.setText("状态：已出库");
-
-
-                                    tvTijiao.setVisibility(View.INVISIBLE);
-                                    break;
-
-                            }
-
-
-                        }
 
                         //单据归档 0否  1是
                         if (!Kits.Empty.check(vDate.getData().get(0).getPackingList().getBillArchived())) {

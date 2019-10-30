@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.android.app.electricvehicle.R;
 import com.android.app.electricvehicle.entity.ItemDetailOutVO2;
+import com.android.app.electricvehicle.entity.OutDetailVO2;
 import com.android.app.electricvehicle.utils.Kits;
 
 import java.text.SimpleDateFormat;
@@ -22,10 +23,10 @@ public class SOOutAdapter extends BaseAdapter {
 
 
     private Context context;
-    private List<ItemDetailOutVO2.DataBean> list;
+    private List<OutDetailVO2.DataBean> list;
 
 
-    public SOOutAdapter(Context context, List<ItemDetailOutVO2.DataBean> list) {
+    public SOOutAdapter(Context context, List<OutDetailVO2.DataBean> list) {
         this.context = context;
         this.list = list;
     }
@@ -49,27 +50,15 @@ public class SOOutAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder = null;
         if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.item_soout_fragment,
+            convertView = LayoutInflater.from(context).inflate(R.layout.item_soout_fragment2,
                     parent, false);
             viewHolder=new ViewHolder();
-            viewHolder.tvGzdh = convertView.findViewById(R.id.tv_gzdh);
-            viewHolder.tvDate = convertView.findViewById(R.id.tv_date);
             viewHolder.tvNumber = convertView.findViewById(R.id.tvNumber);
+            viewHolder.tvDate = convertView.findViewById(R.id.tv_date);
             viewHolder.tvKwNumber = convertView.findViewById(R.id.tv_kw_number);
-            viewHolder.tvDjx = convertView.findViewById(R.id.tv_djx);
-            viewHolder.tvGjx = convertView.findViewById(R.id.tv_gjx);
-            viewHolder.tvChang = convertView.findViewById(R.id.tv_chang);
-            viewHolder.tvKuan = convertView.findViewById(R.id.tv_kuan);
-            viewHolder.tvGao = convertView.findViewById(R.id.tv_gao);
-            viewHolder.tvJingzhong = convertView.findViewById(R.id.tv_jingzhong);
-            viewHolder.tvMaozhong = convertView.findViewById(R.id.tv_maozhong);
-            viewHolder.tvZhuangtai = convertView.findViewById(R.id.tv_zhuangtai);
-            viewHolder.tvDjgd = convertView.findViewById(R.id.tv_djgd);
             viewHolder.tvDjdy = convertView.findViewById(R.id.tv_djdy);
-            viewHolder.tvDycs = convertView.findViewById(R.id.tv_dycs);
+            viewHolder.tvZhuangtai = convertView.findViewById(R.id.tv_zhuangtai);
             viewHolder.tvOrder = convertView.findViewById(R.id.tv_order);
-            viewHolder.tvComments = convertView.findViewById(R.id.tv_comments);
-            viewHolder.tvZzrq = convertView.findViewById(R.id.tv_zzrq);
             viewHolder.tvDdjhq = convertView.findViewById(R.id.tv_ddjhq);
 
             convertView.setTag(viewHolder);
@@ -77,17 +66,14 @@ public class SOOutAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        final ItemDetailOutVO2.DataBean item = list.get(position);
+        final OutDetailVO2.DataBean item = list.get(position);
 
 
-        //工作单号
-        if (!Kits.Empty.check(item.getWorkCode())){
-            viewHolder.tvGzdh.setText(item.getWorkCode());
-        }
+
         //日期
-        if (!Kits.Empty.check(item.getMadeTime())){
+        if (!Kits.Empty.check(item.getPackingList().getMadeTime())){
 
-            long itime= Long.parseLong(item.getMadeTime());
+            long itime= Long.parseLong(item.getPackingList().getMadeTime());
 
             SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); //设置格式
             String timeText=format.format(itime);
@@ -95,125 +81,141 @@ public class SOOutAdapter extends BaseAdapter {
         }
 
         //装箱单号
-        if (!Kits.Empty.check(item.getPackingCode())) {
-            viewHolder.tvNumber.setText(item.getPackingCode());
+        if (!Kits.Empty.check(item.getPackingList().getPackingCode())) {
+            viewHolder.tvNumber.setText(item.getPackingList().getPackingCode());
         }
 
 
-        //第几箱
-        if (!Kits.Empty.check(item.getRankNum())) {
-            viewHolder.tvDjx.setText("第  "+item.getRankNum()+"  箱");
-        }
-
-        //共几箱
-        if (!Kits.Empty.check(item.getTotalNum())) {
-            viewHolder.tvGjx.setText("共  "+item.getTotalNum()+"  箱");
-        }
-
-        //长
-        if (!Kits.Empty.check(item.getPackLength())) {
-            viewHolder.tvChang.setText("长："+item.getPackLength());
-        }
-        //宽
-        if (!Kits.Empty.check(item.getPackwidth())) {
-            viewHolder.tvKuan.setText("宽："+item.getPackwidth());
-        }
-        //高
-        if (!Kits.Empty.check(item.getPackHeight())) {
-            viewHolder.tvGao.setText("高:"+item.getPackHeight());
-        }
-        //净重
-        if (!Kits.Empty.check(item.getNetWeight())) {
-            viewHolder.tvJingzhong.setText("净重："+item.getNetWeight());
-        }
-        //毛重
-        if (!Kits.Empty.check(item.getRoughWeight())) {
-            viewHolder.tvMaozhong.setText("毛重："+item.getRoughWeight());
-        }
+//        //第几箱
+//        if (!Kits.Empty.check(item.getPackingList().getRankNum())) {
+//            viewHolder.tvDjx.setText("第  "+item.getPackingList().getRankNum()+"  箱");
+//        }
+//
+//        //共几箱
+//        if (!Kits.Empty.check(item.getPackingList().getTotalNum())) {
+//            viewHolder.tvGjx.setText("共  "+item.getPackingList().getTotalNum()+"  箱");
+//        }
+//
+//        //长
+//        if (!Kits.Empty.check(item.getPackingList().getPackLength())) {
+//            viewHolder.tvChang.setText("长："+item.getPackingList().getPackLength());
+//        }
+//        //宽
+//        if (!Kits.Empty.check(item.getPackingList().getPackwidth())) {
+//            viewHolder.tvKuan.setText("宽："+item.getPackingList().getPackwidth());
+//        }
+//        //高
+//        if (!Kits.Empty.check(item.getPackingList().getPackHeight())) {
+//            viewHolder.tvGao.setText("高:"+item.getPackingList().getPackHeight());
+//        }
+//        //净重
+//        if (!Kits.Empty.check(item.getPackingList().getNetWeight())) {
+//            viewHolder.tvJingzhong.setText("净重："+item.getPackingList().getNetWeight());
+//        }
+//        //毛重
+//        if (!Kits.Empty.check(item.getPackingList().getRoughWeight())) {
+//            viewHolder.tvMaozhong.setText("毛重："+item.getPackingList().getRoughWeight());
+//        }
 
 
         //状态(0暂存  1待入库  2已入库  3已出库)
-        if (!Kits.Empty.check(item.getStoreState())) {
-            switch (item.getStoreState()){
-                case "0":
-                    viewHolder.tvZhuangtai.setText("状态：暂存");
-                    viewHolder.tvZhuangtai.setTextColor(context.getResources().getColor(R.color.color_3d3d3d));
-                    break;
+//        if (!Kits.Empty.check(item.getPackingList().getStoreState())) {
+//            switch (item.getPackingList().getStoreState()){
+//                case "0":
+//                    viewHolder.tvZhuangtai.setText("状态：暂存");
+//                    viewHolder.tvZhuangtai.setTextColor(context.getResources().getColor(R.color.color_3d3d3d));
+//                    break;
+//
+//                case "1":
+//                    viewHolder.tvZhuangtai.setText("状态：待入库");
+//                    viewHolder.tvZhuangtai.setTextColor(context.getResources().getColor(R.color.color_3d3d3d));
+//
+//                    break;
+//                case "2":
+//                    viewHolder.tvZhuangtai.setText("状态：已入库");
+//                    viewHolder.tvZhuangtai.setTextColor(context.getResources().getColor(R.color.recommend_red));
+//                    break;
+//                case "3":
+//                    viewHolder.tvZhuangtai.setText("状态：已出库");
+//                    viewHolder.tvZhuangtai.setTextColor(context.getResources().getColor(R.color.color_3d3d3d));
+//                    break;
+//
+//            }
+//
+//
+//        }
 
-                case "1":
-                    viewHolder.tvZhuangtai.setText("状态：待入库");
-                    viewHolder.tvZhuangtai.setTextColor(context.getResources().getColor(R.color.color_3d3d3d));
+        //状态
+        if (!Kits.Empty.check(item.getInstoreStateText())){
 
-                    break;
-                case "2":
-                    viewHolder.tvZhuangtai.setText("状态：已入库");
-                    viewHolder.tvZhuangtai.setTextColor(context.getResources().getColor(R.color.recommend_red));
-                    break;
-                case "3":
-                    viewHolder.tvZhuangtai.setText("状态：已出库");
-                    viewHolder.tvZhuangtai.setTextColor(context.getResources().getColor(R.color.color_3d3d3d));
-                    break;
+            viewHolder.tvZhuangtai.setText("状态："+item.getInstoreStateText());
+            if (item.getInstoreStateText().equals("已入库") || item.getInstoreStateText().equals("未出库")){
 
+                viewHolder.tvZhuangtai.setTextColor(context.getResources().getColor(R.color.recommend_red));//2019年10月30日 17:21:40  改了需求 ，这里暂时不需要出库按钮
+            }else {
+                viewHolder.tvZhuangtai.setTextColor(context.getResources().getColor(R.color.color_3d3d3d));
             }
-
-
         }
+
+
+
+
 
         //单据归档 0否  1是
-        if (!Kits.Empty.check(item.getBillArchived())) {
-            if (item.getBillArchived().equals("0")){
-                viewHolder.tvDjgd.setText("单据归档：否");
-            }else if (item.getBillArchived().equals("1")){
-                viewHolder.tvDjgd.setText("单据归档：是");
-            }
-
-        }
+//        if (!Kits.Empty.check(item.getPackingList().getBillArchived())) {
+//            if (item.getPackingList().getBillArchived().equals("0")){
+//                viewHolder.tvDjgd.setText("单据归档：否");
+//            }else if (item.getPackingList().getBillArchived().equals("1")){
+//                viewHolder.tvDjgd.setText("单据归档：是");
+//            }
+//
+//        }
 
         //单据打印
-        if (!Kits.Empty.check(item.getBillPrint())) {
-            if (item.getBillPrint().equals("0")){
+        if (!Kits.Empty.check(item.getPackingList().getBillPrint())) {
+            if (item.getPackingList().getBillPrint().equals("0")){
                 viewHolder.tvDjdy.setText("单据打印：未打印");
-            }else if (item.getBillPrint().equals("1")){
+            }else if (item.getPackingList().getBillPrint().equals("1")){
                 viewHolder.tvDjdy.setText("单据打印：已打印");
-            }else if (item.getBillPrint().equals("2")){
+            }else if (item.getPackingList().getBillPrint().equals("2")){
                 viewHolder.tvDjdy.setText("单据打印：补打");
             }
 
         }
         //打印次数
-        if (!Kits.Empty.check(item.getPrintTimes())) {
-            viewHolder.tvDycs.setText("打印次数："+item.getPrintTimes()+"次");
-        }
+//        if (!Kits.Empty.check(item.getPackingList().getPrintTimes())) {
+//            viewHolder.tvDycs.setText("打印次数："+item.getPackingList().getPrintTimes()+"次");
+//        }
 
 
 
         //Sales order
-        if (!Kits.Empty.check(item.getSalesOrder())) {
-            viewHolder.tvOrder.setText(item.getSalesOrder());
+        if (!Kits.Empty.check(item.getPackingList().getSalesOrder())) {
+            viewHolder.tvOrder.setText(item.getPackingList().getSalesOrder());
         }
 
 
         //comments
-        if (!Kits.Empty.check(item.getComments())) {
-            viewHolder.tvComments.setText(item.getComments());
-        }
+//        if (!Kits.Empty.check(item.getPackingList().getComments())) {
+//            viewHolder.tvComments.setText(item.getPackingList().getComments());
+//        }
 
         //组装日期
-        if (!Kits.Empty.check(item.getInstallTime())) {
-
-            long itimes= Long.parseLong(item.getInstallTime());
-
-            SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd"); //设置格式
-            String timeText=format.format(itimes);
-            viewHolder.tvZzrq.setText(timeText+"");
-
-
-        }
+//        if (!Kits.Empty.check(item.getPackingList().getInstallTime())) {
+//
+//            long itimes= Long.parseLong(item.getPackingList().getInstallTime());
+//
+//            SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd"); //设置格式
+//            String timeText=format.format(itimes);
+//            viewHolder.tvZzrq.setText(timeText+"");
+//
+//
+//        }
 
         //订单交货期
-        if (!Kits.Empty.check(item.getDeliveryDate())) {
+        if (!Kits.Empty.check(item.getPackingList().getDeliveryDate())) {
 
-            long itimess= Long.parseLong(item.getDeliveryDate());
+            long itimess= Long.parseLong(item.getPackingList().getDeliveryDate());
 
             SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd"); //设置格式
             String timeText=format.format(itimess);
@@ -228,27 +230,18 @@ public class SOOutAdapter extends BaseAdapter {
 
 
     private static class ViewHolder {
-        TextView tvGzdh;
-        TextView tvDate;
         TextView tvNumber;
+        TextView tvDate;
         TextView tvKwNumber;
-        TextView tvDjx;
-        TextView tvGjx;
-        TextView tvChang;
-        TextView tvKuan;
-        TextView tvGao;
-        TextView tvJingzhong;
-        TextView tvMaozhong;
-        TextView tvZhuangtai;
-        TextView tvDjgd;
         TextView tvDjdy;
-        TextView tvDycs;
+        TextView tvZhuangtai;
         TextView tvOrder;
-        TextView tvComments;
-        TextView tvZzrq;
         TextView tvDdjhq;
 
-        
+
+
+
+
 
 
 

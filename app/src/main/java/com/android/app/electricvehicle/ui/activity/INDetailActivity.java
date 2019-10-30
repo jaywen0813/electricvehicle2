@@ -196,25 +196,25 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
                         }
                     }
 
-                    if (Kits.Empty.check(rankNum)) {
-                        Toast.makeText(INDetailActivity.this, "第几箱不能为空", Toast.LENGTH_LONG).show();
-                        return;
-                    }
-
-                    if (Kits.Empty.check(totalNum)) {
-                        Toast.makeText(INDetailActivity.this, "共几箱不能为空", Toast.LENGTH_LONG).show();
-                        return;
-                    }
-
-                    if (Kits.Empty.check(netWeight)) {
-                        Toast.makeText(INDetailActivity.this, "请填写净重", Toast.LENGTH_LONG).show();
-                        return;
-                    }
-
-                    if (Kits.Empty.check(roughWeight)) {
-                        Toast.makeText(INDetailActivity.this, "请填写毛重", Toast.LENGTH_LONG).show();
-                        return;
-                    }
+//                    if (Kits.Empty.check(rankNum)) {
+//                        Toast.makeText(INDetailActivity.this, "第几箱不能为空", Toast.LENGTH_LONG).show();
+//                        return;
+//                    }
+//
+//                    if (Kits.Empty.check(totalNum)) {
+//                        Toast.makeText(INDetailActivity.this, "共几箱不能为空", Toast.LENGTH_LONG).show();
+//                        return;
+//                    }
+//
+//                    if (Kits.Empty.check(netWeight)) {
+//                        Toast.makeText(INDetailActivity.this, "请填写净重", Toast.LENGTH_LONG).show();
+//                        return;
+//                    }
+//
+//                    if (Kits.Empty.check(roughWeight)) {
+//                        Toast.makeText(INDetailActivity.this, "请填写毛重", Toast.LENGTH_LONG).show();
+//                        return;
+//                    }
                     //------------------------
                     if (Kits.Empty.check(salesOrder)) {
                         Toast.makeText(INDetailActivity.this,"请填写Sales Order",Toast.LENGTH_LONG).show();
@@ -275,11 +275,17 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
 //                        tvAgl = childAt.findViewById(R.id.tv_agl);
 //                        tvQty = childAt.findViewById(R.id.tv_qty);
 
-                        String soItem=tvSo.getText().toString();
-                        String material=tvMaterial.getText().toString();
-                        String rl=tvRl.getText().toString();
-                        String agl=tvAgl.getText().toString();
-                        String qty=tvQty.getText().toString();
+                        String soItem="";
+                        String material="";
+                        String rl="";
+                        String agl="";
+                        String qty="";
+
+                         soItem=tvSo.getText().toString();
+                         material=tvMaterial.getText().toString();
+                         rl=tvRl.getText().toString();
+                         agl=tvAgl.getText().toString();
+                         qty=tvQty.getText().toString();
 
                         if (Kits.Empty.check(soItem)) {
                             Toast.makeText(INDetailActivity.this,"请填写SO Item",Toast.LENGTH_LONG).show();
@@ -287,27 +293,27 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
                         }
 
 
-                        if (Kits.Empty.check(material)) {
-                            Toast.makeText(INDetailActivity.this,"请填写Material",Toast.LENGTH_LONG).show();
-                            return;
-                        }
-
-
-                        if (Kits.Empty.check(rl)) {
-                            Toast.makeText(INDetailActivity.this,"请填写RL",Toast.LENGTH_LONG).show();
-                            return;
-                        }
-
-                        if (Kits.Empty.check(agl)) {
-                            Toast.makeText(INDetailActivity.this,"请填写AGL",Toast.LENGTH_LONG).show();
-                            return;
-                        }
-
-
-                        if (Kits.Empty.check(qty)) {
-                            Toast.makeText(INDetailActivity.this,"请填写Qty",Toast.LENGTH_LONG).show();
-                            return;
-                        }
+//                        if (Kits.Empty.check(material)) {
+//                            Toast.makeText(INDetailActivity.this,"请填写Material",Toast.LENGTH_LONG).show();
+//                            return;
+//                        }
+//
+//
+//                        if (Kits.Empty.check(rl)) {
+//                            Toast.makeText(INDetailActivity.this,"请填写RL",Toast.LENGTH_LONG).show();
+//                            return;
+//                        }
+//
+//                        if (Kits.Empty.check(agl)) {
+//                            Toast.makeText(INDetailActivity.this,"请填写AGL",Toast.LENGTH_LONG).show();
+//                            return;
+//                        }
+//
+//
+//                        if (Kits.Empty.check(qty)) {
+//                            Toast.makeText(INDetailActivity.this,"请填写Qty",Toast.LENGTH_LONG).show();
+//                            return;
+//                        }
 
                         INDetail_RuKu.PackingListBean.PackingListItemsBean plist=new INDetail_RuKu.PackingListBean.PackingListItemsBean();
                         plist.setSoItem(soItem);
@@ -377,11 +383,28 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
                 break;
             case R.id.tv_shoudong://手动查询详情按钮
 
+                //这里先清除之前的
+                if (childCount>=1){//证明添加过，此时才能删除
+                    llAdd.removeAllViews();
+
+                    childCount=0; //并且归零
+
+                }
+
+                if (packingListItem!=null && packingListItem.size()>0){//清除数据
+                    packingListItem.clear();
+                }
+
+
+
                 String instoreCode2=etNumber.getText().toString().trim();
                 String freeLoc2=etKwNumber.getText().toString().trim();
 
 
                 presenter.getInDetail(instoreCode2);
+
+
+
                 break;
             case R.id.tv_delete://删除条目的按钮
                 if (childCount>=1){//证明添加过，此时才能删除
@@ -400,7 +423,7 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
 
 
                         llAdd.addView(view2);//动态添加view
-
+                        childCount++;
                     }
                 }
 
@@ -706,7 +729,6 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
             ll_detail.setVisibility(View.VISIBLE);//显示出详情
 
 
-
             if (!Kits.Empty.check(result.getData())) {
 
 
@@ -819,6 +841,47 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
                    }
 
 
+                   //默认添加一条So Item
+                   for (int i = 0; i <1 ; i++) {
+                       View view2 = LayoutInflater.from(this).inflate(R.layout.item_zxdlr,null);
+
+                       tvSo = view2.findViewById(R.id.tv_so);
+                       tvMaterial = view2.findViewById(R.id.tv_material);
+                       tvRl = view2.findViewById(R.id.tv_rl);
+                       tvAgl = view2.findViewById(R.id.tv_agl);
+                       tvQty = view2.findViewById(R.id.tv_qty);
+
+                       //下面列表
+                       if (!Kits.Empty.check(result.getData().getDataList().get(0).getPackingListItems()) && result.getData().getDataList().get(0).getPackingListItems().size()>0 ){
+
+
+                           if (!Kits.Empty.check(result.getData().getDataList().get(0).getPackingListItems().get(0).getSoItem())){
+                               tvSo.setText(result.getData().getDataList().get(0).getPackingListItems().get(0).getSoItem());
+                           }
+
+                           if (!Kits.Empty.check(result.getData().getDataList().get(0).getPackingListItems().get(0).getMaterial())){
+                               tvMaterial.setText(result.getData().getDataList().get(0).getPackingListItems().get(0).getMaterial());
+                           }
+
+                           if (!Kits.Empty.check(result.getData().getDataList().get(0).getPackingListItems().get(0).getRl())){
+                               tvRl.setText(result.getData().getDataList().get(0).getPackingListItems().get(0).getRl());
+                           }
+
+                           if (!Kits.Empty.check(result.getData().getDataList().get(0).getPackingListItems().get(0).getAgl())){
+                               tvAgl.setText(result.getData().getDataList().get(0).getPackingListItems().get(0).getAgl());
+                           }
+
+                           if (!Kits.Empty.check(result.getData().getDataList().get(0).getPackingListItems().get(0).getQty())){
+                               tvQty.setText(result.getData().getDataList().get(0).getPackingListItems().get(0).getQty());
+                           }
+                       }
+
+
+                       llAdd.addView(view2);//动态添加view
+                       childCount++;
+                   }
+
+
                }
 
             }else {//证明返回的T，但是data为空
@@ -839,6 +902,7 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
                     tvQty = view2.findViewById(R.id.tv_qty);
 
                     llAdd.addView(view2);//动态添加view
+                    childCount++;
                 }
             }
 
@@ -861,6 +925,7 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
                 tvQty = view2.findViewById(R.id.tv_qty);
 
                 llAdd.addView(view2);//动态添加view
+                childCount++;
             }
         }
 
@@ -981,9 +1046,6 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
                     e.printStackTrace();
                 }
                 sjc=date.getTime()+ "";//时间戳
-
-
-
 
 
 

@@ -743,11 +743,11 @@ public class ShowInDetailEntity {
                 private String packingId;
                 private String soItem;
                 private String material;
-                private int rl;
-                private int agl;
-                private int qty;
-                private int wtpc;
-                private int totalWeight;
+                private String rl;
+                private String agl;
+                private String qty;
+                private String wtpc;
+                private String totalWeight;
                 private String remark;
                 private boolean enable;
 
@@ -887,43 +887,43 @@ public class ShowInDetailEntity {
                     this.material = material;
                 }
 
-                public int getRl() {
+                public String getRl() {
                     return rl;
                 }
 
-                public void setRl(int rl) {
+                public void setRl(String rl) {
                     this.rl = rl;
                 }
 
-                public int getAgl() {
+                public String getAgl() {
                     return agl;
                 }
 
-                public void setAgl(int agl) {
+                public void setAgl(String agl) {
                     this.agl = agl;
                 }
 
-                public int getQty() {
+                public String getQty() {
                     return qty;
                 }
 
-                public void setQty(int qty) {
+                public void setQty(String qty) {
                     this.qty = qty;
                 }
 
-                public int getWtpc() {
+                public String getWtpc() {
                     return wtpc;
                 }
 
-                public void setWtpc(int wtpc) {
+                public void setWtpc(String wtpc) {
                     this.wtpc = wtpc;
                 }
 
-                public int getTotalWeight() {
+                public String getTotalWeight() {
                     return totalWeight;
                 }
 
-                public void setTotalWeight(int totalWeight) {
+                public void setTotalWeight(String totalWeight) {
                     this.totalWeight = totalWeight;
                 }
 

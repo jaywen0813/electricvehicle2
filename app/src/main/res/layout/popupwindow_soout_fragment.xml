@@ -1,0 +1,623 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.flyco.roundview.RoundLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_value_dp320"
+        android:layout_marginLeft="@dimen/dimen_value_dp8"
+        android:layout_marginRight="@dimen/dimen_value_dp8"
+        app:rv_backgroundColor="@color/white"
+        app:rv_cornerRadius="@dimen/dimen_value_dp5"
+        android:orientation="vertical"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/color_3d3d3d"
+                android:textSize="@dimen/dimen_value_sp18"
+                android:layout_centerInParent="true"
+
+                />
+
+            <LinearLayout
+                android:id="@+id/ll_dialog_close"
+                android:layout_width="@dimen/dimen_value_dp25"
+                android:layout_height="@dimen/dimen_value_dp25"
+                android:gravity="center"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/dimen_value_dp10"
+                android:layout_marginTop="@dimen/dimen_value_dp5"
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/dialog_close"
+                    />
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+        <com.flyco.roundview.RoundLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:rv_cornerRadius="@dimen/dimen_value_dp5"
+            android:layout_marginRight="@dimen/dimen_value_dp10"
+            android:layout_marginLeft="@dimen/dimen_value_dp10"
+
+            >
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_value_dp1"
+                android:background="@color/color_3d3d3d"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <View
+                    android:layout_width="@dimen/dimen_value_dp1"
+                    android:layout_height="@dimen/dimen_value_dp20"
+                    android:background="@color/color_3d3d3d"
+                    />
+                <TextView
+                    style="@style/textviewdetailleftstyle"
+                    android:text="工作单号" />
+
+
+                <TextView
+                    android:id="@+id/tv_gzdh"
+                    style="@style/textviewdetailrightstyle" />
+
+                <View
+                    android:layout_width="@dimen/dimen_value_dp1"
+                    android:layout_height="@dimen/dimen_value_dp20"
+                    android:background="@color/color_3d3d3d"
+                    />
+            </LinearLayout>
+
+            <View style="@style/viewline_heng" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="visible">
+                <View
+                    android:layout_width="@dimen/dimen_value_dp1"
+                    android:layout_height="@dimen/dimen_value_dp20"
+                    android:background="@color/color_3d3d3d"
+                    />
+                <TextView
+                    style="@style/textviewdetailleftstyle"
+                    android:text="库位号" />
+
+
+                <TextView
+                    android:id="@+id/tv_kwh"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/recommend_red"
+                    android:textSize="@dimen/dimen_value_sp14"
+                    />
+
+                <View
+                    android:layout_width="@dimen/dimen_value_dp1"
+                    android:layout_height="@dimen/dimen_value_dp20"
+                    android:background="@color/color_3d3d3d"
+                    />
+            </LinearLayout>
+
+            <View style="@style/viewline_heng" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="visible">
+                <View
+                    android:layout_width="@dimen/dimen_value_dp1"
+                    android:layout_height="@dimen/dimen_value_dp20"
+                    android:background="@color/color_3d3d3d"
+                    />
+                <TextView
+                    style="@style/textviewdetailleftstyle"
+                    android:text="日       期" />
+
+                <TextView
+                    android:id="@+id/tv_date"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/color_3d3d3d"
+                    android:textSize="@dimen/dimen_value_sp14" />
+
+                <View
+                    android:layout_width="@dimen/dimen_value_dp1"
+                    android:layout_height="@dimen/dimen_value_dp20"
+                    android:background="@color/color_3d3d3d"
+                    />
+            </LinearLayout>
+
+
+            <View style="@style/viewline_heng"
+                />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="visible">
+                <View
+                    android:layout_width="@dimen/dimen_value_dp1"
+                    android:layout_height="@dimen/dimen_value_dp20"
+                    android:background="@color/color_3d3d3d"
+                    />
+                <TextView
+                    style="@style/textviewdetailleftstyle"
+                    android:text="装箱单号" />
+
+                <TextView
+                    android:id="@+id/tvNumber"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/recommend_red"
+                    android:textSize="@dimen/dimen_value_sp14" />
+
+                <View
+                    android:layout_width="@dimen/dimen_value_dp1"
+                    android:layout_height="@dimen/dimen_value_dp20"
+                    android:background="@color/color_3d3d3d"
+                    />
+            </LinearLayout>
+
+            <View style="@style/viewline_heng"
+
+                />
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_value_dp50"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="gone">
+                <View
+                    android:layout_width="@dimen/dimen_value_dp1"
+                    android:layout_height="@dimen/dimen_value_dp20"
+                    android:background="@color/color_3d3d3d"
+                    />
+                <TextView
+                    style="@style/textviewdetailleftstyle"
+                    android:text="库       位" />
+
+                <TextView
+                    android:id="@+id/tv_kw_number"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/color_3d3d3d"
+                    android:textSize="@dimen/dimen_value_sp14" />
+                <View
+                    android:layout_width="@dimen/dimen_value_dp1"
+                    android:layout_height="@dimen/dimen_value_dp20"
+                    android:background="@color/color_3d3d3d"
+                    />
+
+            </LinearLayout>
+
+            <View style="@style/viewline_heng"
+                android:visibility="gone"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="visible">
+                <View
+                    android:layout_width="@dimen/dimen_value_dp1"
+                    android:layout_height="@dimen/dimen_value_dp20"
+                    android:background="@color/color_3d3d3d"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_djx"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:text="第  箱"
+                    android:textColor="@color/color_3d3d3d"
+                    android:textSize="@dimen/dimen_value_sp14" />
+
+                <View style="@style/viewline_shu" />
+
+                <TextView
+                    android:id="@+id/tv_gjx"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:text="共  箱"
+                    android:textColor="@color/color_3d3d3d"
+                    android:textSize="@dimen/dimen_value_sp14"
+
+                    />
+                <View
+                    android:layout_width="@dimen/dimen_value_dp1"
+                    android:layout_height="@dimen/dimen_value_dp20"
+                    android:background="@color/color_3d3d3d"
+                    />
+            </LinearLayout>
+
+            <View style="@style/viewline_heng" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="visible">
+                <View
+                    android:layout_width="@dimen/dimen_value_dp1"
+                    android:layout_height="@dimen/dimen_value_dp20"
+                    android:background="@color/color_3d3d3d"
+                    />
+                <TextView
+                    android:id="@+id/tv_chang"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="left|center_vertical"
+                    android:text="长:"
+                    android:textColor="@color/color_3d3d3d"
+                    android:textSize="@dimen/dimen_value_sp14" />
+
+                <View style="@style/viewline_shu" />
+
+                <TextView
+                    android:id="@+id/tv_kuan"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="left|center_vertical"
+                    android:text="宽:"
+                    android:textColor="@color/color_3d3d3d"
+                    android:textSize="@dimen/dimen_value_sp14" />
+
+                <View style="@style/viewline_shu" />
+
+                <TextView
+                    android:id="@+id/tv_gao"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="left|center_vertical"
+                    android:text="高:"
+                    android:textColor="@color/color_3d3d3d"
+                    android:textSize="@dimen/dimen_value_sp14" />
+
+                <View
+                    android:layout_width="@dimen/dimen_value_dp1"
+                    android:layout_height="@dimen/dimen_value_dp20"
+                    android:background="@color/color_3d3d3d"
+                    />
+            </LinearLayout>
+
+            <View style="@style/viewline_heng" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="visible">
+                <View
+                    android:layout_width="@dimen/dimen_value_dp1"
+                    android:layout_height="@dimen/dimen_value_dp20"
+                    android:background="@color/color_3d3d3d"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_jingzhong"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="left|center_vertical"
+                    android:text="净重:"
+                    android:textColor="@color/color_3d3d3d"
+                    android:textSize="@dimen/dimen_value_sp14" />
+
+                <View style="@style/viewline_shu" />
+
+                <TextView
+                    android:id="@+id/tv_maozhong"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="left|center_vertical"
+                    android:text="毛重:"
+                    android:textColor="@color/color_3d3d3d"
+                    android:textSize="@dimen/dimen_value_sp14" />
+
+                <View style="@style/viewline_shu" />
+
+                <TextView
+                    android:id="@+id/tv_zhuangtai"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="left|center_vertical"
+                    android:text="状态:"
+                    android:textColor="@color/recommend_red"
+                    android:textSize="@dimen/dimen_value_sp14" />
+                <View
+                    android:layout_width="@dimen/dimen_value_dp1"
+                    android:layout_height="@dimen/dimen_value_dp20"
+                    android:background="@color/color_3d3d3d"
+                    />
+            </LinearLayout>
+
+            <View style="@style/viewline_heng" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="visible">
+                <View
+                    android:layout_width="@dimen/dimen_value_dp1"
+                    android:layout_height="@dimen/dimen_value_dp20"
+                    android:background="@color/color_3d3d3d"
+                    />
+                <TextView
+                    android:id="@+id/tv_djgd"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="left|center_vertical"
+                    android:text="单据归档:"
+                    android:textColor="@color/color_3d3d3d"
+                    android:textSize="@dimen/dimen_value_sp14" />
+
+                <View style="@style/viewline_shu" />
+
+                <TextView
+                    android:id="@+id/tv_djdy"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="left|center_vertical"
+                    android:text="单据打印:"
+                    android:textColor="@color/color_3d3d3d"
+                    android:textSize="@dimen/dimen_value_sp14" />
+
+                <View style="@style/viewline_shu" />
+
+                <TextView
+                    android:id="@+id/tv_dycs"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="left|center_vertical"
+                    android:text="打印次数:"
+                    android:textColor="@color/color_3d3d3d"
+                    android:textSize="@dimen/dimen_value_sp14" />
+
+                <View
+                    android:layout_width="@dimen/dimen_value_dp1"
+                    android:layout_height="@dimen/dimen_value_dp20"
+                    android:background="@color/color_3d3d3d"
+                    />
+            </LinearLayout>
+            <View
+                style="@style/viewline_heng" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_value_dp20"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="visible">
+                <View
+                    android:layout_width="@dimen/dimen_value_dp1"
+                    android:layout_height="@dimen/dimen_value_dp20"
+                    android:background="@color/color_3d3d3d"
+                    />
+                <LinearLayout style="@style/llView1">
+
+                    <TextView
+                        style="@style/tvTextView1"
+                        android:text="SalesOrder"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_order"
+                        style="@style/etTextView1"
+                        />
+
+                </LinearLayout>
+
+
+                <View style="@style/viewline_shu" />
+
+
+                <LinearLayout style="@style/llView1">
+
+                    <TextView
+                        style="@style/tvTextView1"
+                        android:text="comments"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_comments"
+                        style="@style/etTextView1"
+                        />
+
+                </LinearLayout>
+                <View
+                    android:layout_width="@dimen/dimen_value_dp1"
+                    android:layout_height="@dimen/dimen_value_dp20"
+                    android:background="@color/color_3d3d3d"
+                    />
+
+            </LinearLayout>
+
+            <View
+                style="@style/viewline_heng" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_value_dp20"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="visible">
+                <View
+                    android:layout_width="@dimen/dimen_value_dp1"
+                    android:layout_height="@dimen/dimen_value_dp20"
+                    android:background="@color/color_3d3d3d"
+                    />
+                <LinearLayout style="@style/llView1">
+
+                    <TextView
+                        style="@style/tvTextView1"
+                        android:text="组装日期"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_zzrq"
+                        style="@style/etTextView1"
+                        />
+
+                </LinearLayout>
+
+
+                <View style="@style/viewline_shu" />
+
+
+                <LinearLayout style="@style/llView1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textColor="@color/color_3d3d3d"
+                        android:textSize="@dimen/dimen_value_sp13"
+                        android:gravity="center|left"
+                        android:text="订单交货期"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_ddjhq"
+                        style="@style/etTextView1"
+                        />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="@dimen/dimen_value_dp1"
+                    android:layout_height="@dimen/dimen_value_dp20"
+                    android:background="@color/color_3d3d3d"
+                    />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_value_dp1"
+                android:background="@color/color_3d3d3d"
+                />
+        </com.flyco.roundview.RoundLinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_value_dp60"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
+            <View
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dimen_value_dp1"
+                android:layout_weight="1"
+                />
+            <com.flyco.roundview.RoundTextView
+                android:id="@+id/tv_saomiao_zxd"
+                android:layout_width="@dimen/dimen_value_dp100"
+                android:layout_height="@dimen/dimen_value_dp50"
+                app:rv_cornerRadius="@dimen/dimen_value_dp5"
+                android:textSize="@dimen/dimen_value_sp15"
+                android:textColor="@color/white"
+                app:rv_backgroundColor="@color/colorPrimary"
+                android:text="扫描装箱单号"
+                android:gravity="center"
+                android:layout_marginLeft="@dimen/dimen_value_dp10"
+
+                />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dimen_value_dp1"
+                android:layout_weight="1"
+                />
+
+            <com.flyco.roundview.RoundTextView
+                android:id="@+id/tv_chuku_zxd"
+                android:layout_width="@dimen/dimen_value_dp100"
+                android:layout_height="@dimen/dimen_value_dp50"
+                app:rv_cornerRadius="@dimen/dimen_value_dp5"
+                android:textSize="@dimen/dimen_value_sp15"
+                android:textColor="@color/white"
+                app:rv_backgroundColor="@color/recommend_red"
+                android:text="手动出库"
+                android:gravity="center"
+                android:layout_marginRight="@dimen/dimen_value_dp10"
+
+                />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dimen_value_dp1"
+                android:layout_weight="1"
+                />
+        </LinearLayout>
+
+
+
+
+
+
+    </com.flyco.roundview.RoundLinearLayout>
+
+
+</LinearLayout>

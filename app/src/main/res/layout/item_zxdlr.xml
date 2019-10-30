@@ -25,7 +25,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:text="SO Item:"
-                    android:textColor="@color/color_3d3d3d"
+                    android:textColor="@color/recommend_red"
                     android:textSize="@dimen/dimen_value_sp13" />
 
                 <EditText

@@ -104,7 +104,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="装箱单号"
-                    android:textColor="@color/color_3d3d3d"
+                    android:textColor="@color/recommend_red"
                     android:textSize="@dimen/dimen_value_dp15" />
 
                 <EditText
@@ -189,12 +189,71 @@
             <View style="@style/viewline_heng" />
 
             <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_value_dp50"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <LinearLayout style="@style/llView1">
+
+                    <TextView
+                        style="@style/tvTextView1"
+                        android:text="SalesOrder"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:textColor="@color/recommend_red"
+                        android:textSize="@dimen/dimen_value_sp13"
+                        android:gravity="center|left"
+                        />
+
+                    <EditText
+                        android:id="@+id/tv_order"
+                        style="@style/etTextView1"
+                        />
+
+                </LinearLayout>
+
+
+                <View style="@style/viewline_shu" />
+
+
+                <LinearLayout style="@style/llView1">
+
+                    <TextView
+                        style="@style/tvTextView1"
+                        android:text="comments"
+                        />
+
+                    <EditText
+                        android:id="@+id/tv_comments"
+                        style="@style/etTextView1"
+                        />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <View style="@style/viewline_heng" />
+
+            <LinearLayout
+                android:id="@+id/ll_add"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                />
+
+            <LinearLayout
                 android:id="@+id/ll_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:visibility="invisible"
+                android:visibility="visible"
                 >
+
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -439,49 +498,7 @@
 
                 <View style="@style/viewline_heng" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimen_value_dp50"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:visibility="visible">
 
-                    <LinearLayout style="@style/llView1">
-
-                        <TextView
-                            style="@style/tvTextView1"
-                            android:text="SalesOrder" />
-
-                        <EditText
-                            android:id="@+id/tv_order"
-                            style="@style/etTextView1"
-                             />
-
-                    </LinearLayout>
-
-
-                    <View style="@style/viewline_shu" />
-
-
-                    <LinearLayout style="@style/llView1">
-
-                        <TextView
-                            style="@style/tvTextView1"
-                            android:text="comments"
-
-                            />
-
-                        <EditText
-                            android:id="@+id/tv_comments"
-                            style="@style/etTextView1"
-                             />
-
-                    </LinearLayout>
-
-
-                </LinearLayout>
-
-                <View style="@style/viewline_heng" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -531,12 +548,7 @@
             </LinearLayout>
 
 
-            <LinearLayout
-                android:id="@+id/ll_add"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                ></LinearLayout>
+
 
 
 
