@@ -69,15 +69,16 @@
                 />
             <TextView
                 style="@style/textviewdetailleftstyle"
-                android:text="日       期" />
+                android:text="库位号"
+                />
 
             <TextView
-                android:id="@+id/tv_date"
+                android:id="@+id/tv_kwh"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
-                android:textColor="@color/color_3d3d3d"
+                android:textColor="@color/recommend_red"
                 android:textSize="@dimen/dimen_value_sp14" />
 
             <View
@@ -148,15 +149,19 @@
                 android:layout_height="@dimen/dimen_value_dp20"
                 android:background="@color/color_3d3d3d"
                 />
-            <TextView
-                android:id="@+id/tv_djdy"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="left|center_vertical"
-                android:text="单据打印:"
-                android:textColor="@color/color_3d3d3d"
-                android:textSize="@dimen/dimen_value_sp14" />
+            <LinearLayout style="@style/llView1">
+
+                <TextView
+                    style="@style/tvTextView1"
+                    android:text="SO Item"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_soItem"
+                    style="@style/etTextView1"
+                    />
+
+            </LinearLayout>
 
             <View style="@style/viewline_shu" />
 
@@ -247,19 +252,16 @@
                 android:layout_height="@dimen/dimen_value_dp20"
                 android:background="@color/color_3d3d3d"
                 />
-            <LinearLayout style="@style/llView1">
 
-                <TextView
-                    style="@style/tvTextView1"
-                    android:text="SO Item"
-                    />
-
-                <TextView
-                    android:id="@+id/tv_soItem"
-                    style="@style/etTextView1"
-                    />
-
-            </LinearLayout>
+            <TextView
+                android:id="@+id/tv_djdy"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left|center_vertical"
+                android:text="单据打印:"
+                android:textColor="@color/color_3d3d3d"
+                android:textSize="@dimen/dimen_value_sp14" />
 
 
             <View style="@style/viewline_shu" />
@@ -269,7 +271,7 @@
 
 
                 <TextView
-                    android:text="库位号"
+                    android:text="日 期"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:textColor="@color/color_3d3d3d"
@@ -278,7 +280,7 @@
                     />
 
                 <TextView
-                    android:id="@+id/tv_kwh"
+                    android:id="@+id/tv_date"
                     style="@style/etTextView1"
                     />
 

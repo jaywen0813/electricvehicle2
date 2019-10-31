@@ -559,6 +559,11 @@
             </LinearLayout>
 
             <View
+                style="@style/viewline_heng" />
+
+
+
+            <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimen_value_dp1"
                 android:background="@color/color_3d3d3d"
@@ -568,7 +573,61 @@
                 android:id="@+id/lv_soitem"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_value_dp30"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+                <View
+                    android:layout_width="@dimen/dimen_value_dp1"
+                    android:layout_height="@dimen/dimen_value_dp30"
+                    android:background="@color/color_3d3d3d"
+                    />
+                <TextView
+                    style="@style/textviewdetailleftstyle"
+                    android:text="装箱单号" />
 
+                <View style="@style/viewline_shu" />
+                <EditText
+                    android:id="@+id/et_popup"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textColor="@color/color_3d3d3d"
+                    android:hint="请扫描货物上的单号"
+                    android:textColorHint="@color/black_gray"
+                    android:textSize="@dimen/dimen_value_sp12"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical"
+                    android:background="@null"
+                    />
+
+                <LinearLayout
+                    android:id="@+id/tv_saomiao_zxd"
+                    android:layout_width="@dimen/dimen_value_dp30"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="@dimen/dimen_value_dp20"
+                        android:layout_height="@dimen/dimen_value_dp20"
+                        android:src="@mipmap/saoyisao" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="@dimen/dimen_value_dp1"
+                    android:layout_height="@dimen/dimen_value_dp30"
+                    android:background="@color/color_3d3d3d"
+                    />
+
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_value_dp1"
+                android:background="@color/color_3d3d3d"
+                />
 
         </com.flyco.roundview.RoundLinearLayout>
 
@@ -584,25 +643,7 @@
                 android:layout_height="@dimen/dimen_value_dp1"
                 android:layout_weight="1"
                 />
-            <com.flyco.roundview.RoundTextView
-                android:id="@+id/tv_saomiao_zxd"
-                android:layout_width="@dimen/dimen_value_dp100"
-                android:layout_height="@dimen/dimen_value_dp50"
-                app:rv_cornerRadius="@dimen/dimen_value_dp5"
-                android:textSize="@dimen/dimen_value_sp15"
-                android:textColor="@color/white"
-                app:rv_backgroundColor="@color/colorPrimary"
-                android:text="扫描装箱单号"
-                android:gravity="center"
-                android:layout_marginLeft="@dimen/dimen_value_dp10"
 
-                />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="@dimen/dimen_value_dp1"
-                android:layout_weight="1"
-                />
 
             <com.flyco.roundview.RoundTextView
                 android:id="@+id/tv_chuku_zxd"
@@ -612,7 +653,7 @@
                 android:textSize="@dimen/dimen_value_sp15"
                 android:textColor="@color/white"
                 app:rv_backgroundColor="@color/recommend_red"
-                android:text="手动出库"
+                android:text="出  库"
                 android:gravity="center"
                 android:layout_marginRight="@dimen/dimen_value_dp10"
 

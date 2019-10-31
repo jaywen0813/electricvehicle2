@@ -130,9 +130,10 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
     private TextView tvComments0;
     private TextView tvZzrq0;
     private TextView tvDdjhq0;
-    private RoundTextView tv_saomiao_zxd;
+    private LinearLayout tv_saomiao_zxd;
     private RoundTextView tv_chuku_zxd;
     private ListView lv_soitem;
+    private EditText et_popup;
 
     //弹窗里面的SOitem列表
     List<OutDetailVO2.DataBean.PackingListBean.PackingListItemsBean> list_item = new ArrayList<>();//SOitem的列表
@@ -141,6 +142,10 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
 
     static Handler mHandler;//进度条的计时器  这里设置静态的防止removeCallbacks无法将updateThread从message queue中移除
     static Runnable mRunnable;
+
+    //记录上面的两个输入框的数据的
+    String salesOrder;
+    String soItem;
 
     @Override
     protected void initView(View view) {
@@ -224,6 +229,7 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
         tv_chuku_zxd = ppwView.findViewById(R.id.tv_chuku_zxd);
         tv_kwh0 = ppwView.findViewById(R.id.tv_kwh);
         lv_soitem = ppwView.findViewById(R.id.lv_soitem);
+        et_popup=ppwView.findViewById(R.id.et_popup);
 
         llDialogClose.setOnClickListener(this);//关闭弹窗的
         tv_saomiao_zxd.setOnClickListener(this);//扫码按钮
@@ -421,7 +427,15 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
                 };
                 mHandler.postDelayed(mRunnable, 600);
 
+
+
+                //关闭弹窗的时候也刷新一次数据
+                salesOrder = tvOrder.getText().toString().trim();
+                presenter.getSO(salesOrder, soItem);
+
+
             }
+
         });
 
     }
@@ -441,8 +455,8 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv_chaxun:
-                String salesOrder = tvOrder.getText().toString().trim();
-                String soItem = tvSo.getText().toString().trim();
+                 salesOrder = tvOrder.getText().toString().trim();
+                 soItem = tvSo.getText().toString().trim();
 
                 if (Kits.Empty.check(salesOrder)) {
 //                        T.showToastSafe("仓库ID不能为空");
@@ -485,15 +499,28 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
                 requestPermissionsCamera();
                 break;
             case R.id.tv_chuku_zxd://出库按钮
-                DialogUtil.showBasicDialog(getActivity(), "出库提示", "确定将此单出库?", (dialog, confirm) -> {
 
-                    if (confirm) {
-                        //退出登录
-//                        loading("正在退出...");
-                        presenter.getUP(type_PackingCode, tvKwh.getText().toString().trim());
-                    }
-                    dialog.dismiss();
-                });
+                String et_string_pop=et_popup.getText().toString().trim();
+                //当扫描货物和单据上面的装箱单号一样的时候，就可以调用出库的按钮了
+                if (et_string_pop.equals(type_PackingCode)) {
+
+                    //关闭弹窗
+                    backgroundAlpha(1f, getActivity());
+                    ppw.dismiss();
+
+                    DialogUtil.showBasicDialog(getActivity(), "出库提示", "确定将装箱单号" + et_string_pop + "的货物出库?", (dialog, confirm) -> {
+                        if (confirm) {
+
+
+                            presenter.getUP(et_string_pop, tvKwh.getText().toString().trim());
+                        }
+                        dialog.dismiss();
+                    });
+                } else {
+                    Toast.makeText(getContext(), "装箱单号不一致", Toast.LENGTH_LONG).show();
+                }
+
+
                 break;
         }
     }
@@ -505,6 +532,18 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
             Toast.makeText(getContext(), "出库成功", Toast.LENGTH_LONG).show();
 //            clearAllView();//清空数据
 //            getActivity().finish();
+
+            //刷新数据
+            presenter.getSO(salesOrder, soItem);
+
+
+            if (ppw.isShowing()){
+                //关闭弹窗
+                backgroundAlpha(1f, getActivity());
+                ppw.dismiss();
+            }
+
+
         } else {
             Toast.makeText(getContext(), vDate.getMessage() + "", Toast.LENGTH_LONG).show();
         }
@@ -933,7 +972,7 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
 
 
                 et_number2.setText(content);
-
+                et_popup.setText(content);
 
                 //当扫描货物和单据上面的装箱单号一样的时候，就可以调用出库的按钮了
                 if (content.equals(type_PackingCode)) {

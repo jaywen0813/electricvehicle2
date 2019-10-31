@@ -264,7 +264,7 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
                     inDetail_ruKu.setDeliveryDate(deliveryDate);
 
 
-
+                    packingListItem.clear();//清一遍数据
 
                     for (int i = 0; i <childCount+1 ; i++) {//这里加1，因为一开始默认添加了一条
                         View childAt = llAdd.getChildAt(i);
@@ -287,10 +287,10 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
                          agl=tvAgl.getText().toString();
                          qty=tvQty.getText().toString();
 
-                        if (Kits.Empty.check(soItem)) {
-                            Toast.makeText(INDetailActivity.this,"请填写SO Item",Toast.LENGTH_LONG).show();
-                            return;
-                        }
+//                        if (Kits.Empty.check(soItem)) {
+//                            Toast.makeText(INDetailActivity.this,"请填写SO Item",Toast.LENGTH_LONG).show();
+//                            return;
+//                        }
 
 
 //                        if (Kits.Empty.check(material)) {
@@ -391,7 +391,7 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
 
                 }
 
-                if (packingListItem!=null && packingListItem.size()>0){//清除数据
+                if (packingListItem!=null || packingListItem.size()>0){//清除数据
                     packingListItem.clear();
                 }
 
@@ -425,11 +425,13 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
                         llAdd.addView(view2);//动态添加view
                         childCount++;
                     }
+
+
+                    if (packingListItem!=null || packingListItem.size()>0){//清除数据
+                        packingListItem.clear();
+                    }
                 }
 
-                if (packingListItem!=null && packingListItem.size()>0){//清除数据
-                    packingListItem.clear();
-                }
 
 
                 break;
@@ -713,7 +715,7 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
     public void showSuccess(INDetailVO vDate) {
         if (vDate.getSuccess().equals("T")){//提交成功
 //            T.showToastSafe("提交成功");
-            Toast.makeText(INDetailActivity.this,"提交成功",Toast.LENGTH_LONG).show();
+            Toast.makeText(INDetailActivity.this,"入库成功",Toast.LENGTH_LONG).show();
             finish();
         }else {
 //            T.showToastSafe("提交失败");
@@ -721,6 +723,11 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
         }
 
     }
+
+
+
+
+
 
     //扫码到装箱单以后，返回的结果
     @Override

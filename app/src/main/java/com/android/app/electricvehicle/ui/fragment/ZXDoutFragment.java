@@ -99,7 +99,7 @@ public class ZXDoutFragment extends BaseMvpFragment<OUTContract2.View, OUTPresen
     List<ItemDetailOutVO.DataBean.PackingListBean.PackingListItemsBean> list = new ArrayList<>();
     ZXDOutAdapter_SoItem adapter_soItem;
 
-
+    String outstoreCode2="";//记录输入框的
 
     @Override
     protected void initView(View view) {
@@ -217,7 +217,7 @@ public class ZXDoutFragment extends BaseMvpFragment<OUTContract2.View, OUTPresen
                 break;
             case R.id.tv_shoudong://手动查询按钮
 
-                String outstoreCode2 = etNumber.getText().toString().trim();
+                 outstoreCode2 = etNumber.getText().toString().trim();
 
                 presenter.getZXD(outstoreCode2, getContext());
                 break;
@@ -415,6 +415,9 @@ public class ZXDoutFragment extends BaseMvpFragment<OUTContract2.View, OUTPresen
             Toast.makeText(getContext(), "出库成功", Toast.LENGTH_LONG).show();
 //            clearAllView();//清空所有的数据
 //            getActivity().finish();
+            outstoreCode2 = etNumber.getText().toString().trim();
+
+            presenter.getZXD(outstoreCode2, getContext());//刷新数据
         } else {
             Toast.makeText(getContext(), vDate.getMessage() + "", Toast.LENGTH_LONG).show();
         }
@@ -684,10 +687,12 @@ public class ZXDoutFragment extends BaseMvpFragment<OUTContract2.View, OUTPresen
                 }
             }else {
                 Toast.makeText(getContext(), "暂未查询到装箱单信息", Toast.LENGTH_SHORT).show();
+                scrollView.setVisibility(View.INVISIBLE);//隐藏下面控件
             }
 
         } else {
             Toast.makeText(getContext(), vDate.getMessage(), Toast.LENGTH_SHORT).show();
+            scrollView.setVisibility(View.INVISIBLE);//隐藏下面控件
         }
     }
 
