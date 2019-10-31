@@ -19,6 +19,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -202,7 +203,8 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
         ppw = new PopupWindow(ppwView, WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT, true);
 
         ppw.setFocusable(true);//设置当前的PopupWindow是否获取焦点：true-获取焦点
-        ppw.setOutsideTouchable(true);//设置点击当前的popupWindow区域外的touch事件是否有效；
+
+//        ppw.setOutsideTouchable(true);//设置点击当前的popupWindow区域外的touch事件是否有效；
 
 
         llDialogClose = ppwView.findViewById(R.id.ll_dialog_close);
@@ -239,6 +241,9 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
         popupWindowShowDetail();
 
 
+
+
+
     }
 
     //点击列表以后
@@ -250,6 +255,8 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
                 backgroundAlpha(0.3f, getActivity());
                 ppw.showAtLocation(llDialogClose, Gravity.CENTER, 0, 10);
 
+                ppw.setFocusable(true);//给焦点
+
 
                 //库位
                 if (!Kits.Empty.check(list.get(position).getFreeLoc())) {
@@ -260,7 +267,6 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
                 //状态
                 if (!Kits.Empty.check(list.get(position).getInstoreStateText())) {
                     tvZhuangtai0.setText("状态:" + list.get(position).getInstoreStateText());
-
 
                 }
 
@@ -397,8 +403,13 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
                     }
 
                 }
+
+                et_popup.setText("");//点开的时候，默认为空
+
             }
         });
+
+
 
 
         //弹窗的关闭监听
@@ -408,7 +419,10 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
 
                 backgroundAlpha(1f, getActivity());
                 ppw.dismiss();
-                ppw.setFocusable(false);
+//                ppw.setFocusable(false);//这里不能取消焦点，否则EditTextView无法编辑
+
+
+
 
                 //先清除
                 if (mHandler != null) {
@@ -439,6 +453,24 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
         });
 
     }
+
+//    //收键盘
+//    public void hideKeyboard() {
+//        et_popup.setFocusable(false)
+//        et_popup.setFocusableInTouchMode(false)
+//        var imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+//        imm.hideSoftInputFromWindow(edit.windowToken, 0)
+//    }
+//
+//    //弹出键盘
+//    public void showKeyboard() {
+//        edit.setFocusable(true);
+//        edit.setFocusableInTouchMode(true)
+//        edit.requestFocus();
+//        var imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+//        imm.showSoftInput(edit, 0)
+//    }
+
 
     @Override
     protected OUTPresenterSO2 initPresenter() {
@@ -532,6 +564,9 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
             Toast.makeText(getContext(), "出库成功", Toast.LENGTH_LONG).show();
 //            clearAllView();//清空数据
 //            getActivity().finish();
+
+            list.clear();
+            list_item.clear();
 
             //刷新数据
             presenter.getSO(salesOrder, soItem);
