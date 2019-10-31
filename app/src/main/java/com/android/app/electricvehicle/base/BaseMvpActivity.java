@@ -1,6 +1,7 @@
 package com.android.app.electricvehicle.base;
 
 
+import android.app.Dialog;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,6 +13,7 @@ import com.android.app.electricvehicle.MainApplication;
 import com.android.app.electricvehicle.mvp.presenter.BasePresenter;
 import com.android.app.electricvehicle.mvp.view.BaseViewInf;
 import com.android.app.electricvehicle.utils.ActivityManager;
+import com.android.app.electricvehicle.utils.DialogUtil;
 
 /**
  * ================================================
@@ -25,6 +27,8 @@ import com.android.app.electricvehicle.utils.ActivityManager;
 public abstract class BaseMvpActivity<V, T extends BasePresenter<V>> extends AppCompatActivity {
 
     public T presenter;
+    //通用加载dialog
+    public Dialog mLoadingDialog;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -77,6 +81,10 @@ public abstract class BaseMvpActivity<V, T extends BasePresenter<V>> extends App
         if (presenter != null) {
             presenter.detachView();
         }
+        if (mLoadingDialog != null && mLoadingDialog.isShowing()) {
+            mLoadingDialog.dismiss();
+            mLoadingDialog = null;
+        }
         super.onDestroy();
     }
 
@@ -88,4 +96,30 @@ public abstract class BaseMvpActivity<V, T extends BasePresenter<V>> extends App
     protected boolean canSetFullScreen() {
         return true;
     }
+
+
+    /**
+     * 显示通用的加载中dialog
+     *
+     * @param text 显示的文本
+     */
+    public void loading(String text) {
+        if (mLoadingDialog == null) {
+            mLoadingDialog = DialogUtil.loading(this, text);
+        } else {
+            mLoadingDialog.show();
+        }
+    }
+
+    /**
+     * 加载完成
+     */
+    public void loadingComplete() {
+        if (mLoadingDialog != null) {
+            mLoadingDialog.dismiss();
+            mLoadingDialog = null;
+        }
+    }
+
+
 }

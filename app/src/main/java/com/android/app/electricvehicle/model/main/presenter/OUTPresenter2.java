@@ -44,6 +44,9 @@ public class OUTPresenter2 extends BasePresenter<OUTContract2.View> implements O
     //提交数据
     @Override
     public void getUP(String outstoreCode,String freeLoc) {
+
+        mView.loadingtext();
+
         SortedMap<String, String> paramsMap = new TreeMap<>();
         paramsMap.put("packingCode", outstoreCode);
 //        paramsMap.put("storehouseId", storehouseId);
@@ -79,12 +82,12 @@ public class OUTPresenter2 extends BasePresenter<OUTContract2.View> implements O
                     @Override
                     public void onError(Throwable e) {
                         Logger.e(e.toString());
-
+                        mView.loadWanCheng();
                     }
 
                     @Override
                     public void onComplete() {
-
+                        mView.loadWanCheng();
                     }
                 });
     }
@@ -94,6 +97,9 @@ public class OUTPresenter2 extends BasePresenter<OUTContract2.View> implements O
     //出库单号查询详细信息
     @Override
     public void getZXD(String zxd, Context context) {
+
+        mView.loadingtext();
+
         SortedMap<String, String> paramsMap = new TreeMap<>();
 //        paramsMap.put("authorityCode", MainApplication.LOGINRESULTVO.getAuthorityCode());
 
@@ -151,11 +157,12 @@ public class OUTPresenter2 extends BasePresenter<OUTContract2.View> implements O
                     public void onError(Throwable e) {
                         Log.d("heihei", "onError: 失败");
                         e.printStackTrace();
+                        mView.loadWanCheng();
                     }
 
                     @Override
                     public void onComplete() {
-
+                        mView.loadWanCheng();
                     }
 
                     @Override

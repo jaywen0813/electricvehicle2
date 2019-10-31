@@ -412,6 +412,16 @@ public class MyOutDetailActivity extends BaseMvpActivity<MyOutDetailContract.Vie
     }
 
     @Override
+    public void loadingtext() {
+        loading("正在加载...");
+    }
+
+    @Override
+    public void loadWanCheng() {
+        loadingComplete();
+    }
+
+    @Override
     public void showErr(String err) {
 
     }

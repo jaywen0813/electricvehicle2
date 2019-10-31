@@ -1011,5 +1011,13 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
         context.getWindow().setAttributes(lp);
     }
 
+    @Override
+    public void loadingtext() {
+        loading("正在加载...");
+    }
 
+    @Override
+    public void loadWanCheng() {
+        loadingComplete();
+    }
 }

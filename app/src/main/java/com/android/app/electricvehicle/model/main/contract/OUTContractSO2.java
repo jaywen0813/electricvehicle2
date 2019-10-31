@@ -29,8 +29,9 @@ public interface OUTContractSO2 {
 
 
 
+        void loadingtext();
 
-
+        void loadWanCheng();
     }
 
     interface Presenter {

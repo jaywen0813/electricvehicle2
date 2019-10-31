@@ -706,4 +706,15 @@ public class ZXDoutFragment extends BaseMvpFragment<OUTContract2.View, OUTPresen
         return getContext();
     }
 
+
+    @Override
+    public void loadingtext() {
+        loading("正在加载...");
+    }
+
+    @Override
+    public void loadWanCheng() {
+        loadingComplete();
+    }
+
 }

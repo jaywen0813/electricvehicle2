@@ -45,6 +45,10 @@ public class OUTPresenterSO2 extends BasePresenter<OUTContractSO2.View> implemen
     //提交数据  出库
     @Override
     public void getUP(String outstoreCode,String freeLoc) {
+
+
+        mView.loadingtext();
+
         SortedMap<String, String> paramsMap = new TreeMap<>();
         paramsMap.put("packingCode", outstoreCode);
 
@@ -72,12 +76,12 @@ public class OUTPresenterSO2 extends BasePresenter<OUTContractSO2.View> implemen
                     @Override
                     public void onError(Throwable e) {
                         Logger.e(e.toString());
-
+                        mView.loadWanCheng();
                     }
 
                     @Override
                     public void onComplete() {
-
+                        mView.loadWanCheng();
                     }
                 });
     }
@@ -87,6 +91,10 @@ public class OUTPresenterSO2 extends BasePresenter<OUTContractSO2.View> implemen
     //SO查询详细信息
     @Override
     public void getSO(String salesOrder, String soItem) {
+
+
+        mView.loadingtext();
+
         SortedMap<String, String> paramsMap = new TreeMap<>();
 
         paramsMap.put("salesOrder", salesOrder);
@@ -114,11 +122,12 @@ public class OUTPresenterSO2 extends BasePresenter<OUTContractSO2.View> implemen
                     public void onError(Throwable e) {
                         Log.d("heihei", "onError: 失败");
                         e.printStackTrace();
+                        mView.loadWanCheng();
                     }
 
                     @Override
                     public void onComplete() {
-
+                        mView.loadWanCheng();
                     }
 
                     @Override

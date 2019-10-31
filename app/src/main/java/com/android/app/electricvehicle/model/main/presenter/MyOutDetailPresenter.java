@@ -44,6 +44,9 @@ public class MyOutDetailPresenter extends BasePresenter<MyOutDetailContract.View
     //提交到后台
     @Override
     public void getUP(String id) {
+
+        mView.loadingtext();
+
         SortedMap<String, String> paramsMap = new TreeMap<>();
         paramsMap.put("id", id);
 //        paramsMap.put("instoreCode", instoreCode);//装箱单号  入库单号
@@ -87,11 +90,12 @@ public class MyOutDetailPresenter extends BasePresenter<MyOutDetailContract.View
                     public void onError(Throwable e) {
                         Log.d("heihei", "onError: 失败");
                         e.printStackTrace();
+                        mView.loadWanCheng();
                     }
 
                     @Override
                     public void onComplete() {
-
+                        mView.loadWanCheng();
                     }
 
                     @Override
@@ -123,6 +127,8 @@ public class MyOutDetailPresenter extends BasePresenter<MyOutDetailContract.View
     //作废
     @Override
     public void deleteThis(String id) {
+
+        mView.loadingtext();
         Retrofit retrofit = new Retrofit.Builder()
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
@@ -144,11 +150,12 @@ public class MyOutDetailPresenter extends BasePresenter<MyOutDetailContract.View
                     public void onError(Throwable e) {
                         Log.d("heihei", "onError: 失败");
                         e.printStackTrace();
+                        mView.loadWanCheng();
                     }
 
                     @Override
                     public void onComplete() {
-
+                        mView.loadWanCheng();
                     }
 
                     @Override

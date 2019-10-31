@@ -51,6 +51,9 @@ public class INPresenter extends BasePresenter<INContract.View> implements INCon
     //提交到后台  有详情数据的时候，提交
     @Override
     public void getUP(String instoreCode,String freeLoc) {
+
+        mView.loadingtext();
+
         SortedMap<String, String> paramsMap = new TreeMap<>();
 
         paramsMap.put("packingCode", instoreCode);//装箱单号  入库单号
@@ -121,12 +124,12 @@ public class INPresenter extends BasePresenter<INContract.View> implements INCon
                     @Override
                     public void onError(Throwable e) {
                         Logger.e(e.toString());
-
+                        mView.loadWanCheng();
                     }
 
                     @Override
                     public void onComplete() {
-
+                        mView.loadWanCheng();
                     }
                 });
 
@@ -142,6 +145,9 @@ public class INPresenter extends BasePresenter<INContract.View> implements INCon
     //没有详情数据的时候的提交
     @Override
     public void getUP2(String instoreCode, String freeLoc, INDetail_RuKu.PackingListBean inDetail_ruKu) {
+
+        mView.loadingtext();
+
         SortedMap<String, Object> paramsMap = new TreeMap<>();
 
         paramsMap.put("packingCode", instoreCode);//装箱单号  入库单号
@@ -206,12 +212,12 @@ public class INPresenter extends BasePresenter<INContract.View> implements INCon
                     @Override
                     public void onError(Throwable e) {
                         Logger.e(e.toString());
-
+                        mView.loadWanCheng();
                     }
 
                     @Override
                     public void onComplete() {
-
+                        mView.loadWanCheng();
                     }
                 });
 
@@ -226,6 +232,9 @@ public class INPresenter extends BasePresenter<INContract.View> implements INCon
     //获取详情
     @Override
     public void getInDetail(String packingCode) {
+
+        mView.loadingtext();
+
         SortedMap<String, String> paramsMap = new TreeMap<>();
 
 
@@ -248,11 +257,12 @@ public class INPresenter extends BasePresenter<INContract.View> implements INCon
                     public void onError(Throwable e) {
                         Log.d("heihei", "onError: 失败");
                         e.printStackTrace();
+                        mView.loadWanCheng();
                     }
 
                     @Override
                     public void onComplete() {
-
+                        mView.loadWanCheng();
                     }
 
                     @Override

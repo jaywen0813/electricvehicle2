@@ -28,9 +28,9 @@ public interface OUTContract2 {
         void  showDetail(ItemDetailOutVO detailOutVO);
 
 
+        void loadingtext();
 
-
-
+        void loadWanCheng();
     }
 
     interface Presenter {

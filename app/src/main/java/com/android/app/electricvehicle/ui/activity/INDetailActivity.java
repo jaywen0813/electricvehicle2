@@ -266,6 +266,10 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
 
                     packingListItem.clear();//清一遍数据
 
+
+                    INDetail_RuKu.PackingListBean.PackingListItemsBean plist=new INDetail_RuKu.PackingListBean.PackingListItemsBean();
+
+
                     for (int i = 0; i <childCount+1 ; i++) {//这里加1，因为一开始默认添加了一条
                         View childAt = llAdd.getChildAt(i);
 
@@ -315,7 +319,7 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
 //                            return;
 //                        }
 
-                        INDetail_RuKu.PackingListBean.PackingListItemsBean plist=new INDetail_RuKu.PackingListBean.PackingListItemsBean();
+
                         plist.setSoItem(soItem);
                         plist.setMaterial(material);
                         plist.setRl(rl);
@@ -410,7 +414,7 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
                 if (childCount>=1){//证明添加过，此时才能删除
                     llAdd.removeAllViews();
 
-                    childCount=0; //并且归零
+
 
                     for (int i = 0; i <1 ; i++) {//再重新添加一条
                         View view2 = LayoutInflater.from(this).inflate(R.layout.item_zxdlr,null);
@@ -426,7 +430,7 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
                         childCount++;
                     }
 
-
+                    childCount=0; //并且归零
                     if (packingListItem!=null || packingListItem.size()>0){//清除数据
                         packingListItem.clear();
                     }
@@ -940,6 +944,16 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
 
     }
 
+    @Override
+    public void loadingtext() {
+        loading("正在加载...");
+    }
+
+    @Override
+    public void loadWanCheng() {
+        loadingComplete();
+    }
+
 
     //可以编辑
     public void chooseTrue() {
@@ -1138,4 +1152,8 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
         dialog.updateSelectedDate(new Date());
         return dialog;
     }
+
+
+
+
 }

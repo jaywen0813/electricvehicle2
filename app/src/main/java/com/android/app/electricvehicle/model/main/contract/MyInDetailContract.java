@@ -32,6 +32,10 @@ public interface MyInDetailContract {
         void showdelete(DeleteInDetailVO result);
 
 
+        void loadingtext();
+
+        void loadWanCheng();
+
     }
 
     interface Presenter {

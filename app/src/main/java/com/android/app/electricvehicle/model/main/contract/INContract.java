@@ -27,6 +27,11 @@ public interface INContract {
 
         //扫码以后返回的详情数据
         void showInDetail(ShowInDetailEntity showInDetailEntity);
+
+
+        void loadingtext();
+
+        void loadWanCheng();
     }
 
     interface Presenter {

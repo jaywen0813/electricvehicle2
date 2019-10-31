@@ -28,6 +28,12 @@ public interface MyOutDetailContract {
 
         //删除成功以后返回的方法
         void showdelete(DeleteOUTdetailVO result);
+
+
+        void loadingtext();
+
+        void loadWanCheng();
+
     }
 
     interface Presenter {
