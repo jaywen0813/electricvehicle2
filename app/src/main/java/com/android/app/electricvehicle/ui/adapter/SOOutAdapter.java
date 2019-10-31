@@ -66,6 +66,10 @@ public class SOOutAdapter extends BaseAdapter {
             viewHolder.tvDdjhq = convertView.findViewById(R.id.tv_ddjhq);
             viewHolder.lv=convertView.findViewById(R.id.lv);
 
+
+            viewHolder.tv_soItem = convertView.findViewById(R.id.tv_soItem);
+            viewHolder.tv_kwh=convertView.findViewById(R.id.tv_kwh);
+
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
@@ -85,6 +89,19 @@ public class SOOutAdapter extends BaseAdapter {
 //                adapter_soItem.notifyDataSetChanged();
 //            }
 //        }
+        //库位号
+        if (!Kits.Empty.check(item.getFreeLoc())){
+            viewHolder.tv_kwh.setText(item.getFreeLoc());
+        }
+
+        if (!Kits.Empty.check(item.getPackingList().getPackingListItems())){
+            if (!Kits.Empty.check(item.getPackingList().getPackingListItems().size()>0)){
+                //SOItem
+                if (!Kits.Empty.check(item.getPackingList().getPackingListItems().get(0).getSoItem())){
+                    viewHolder.tv_soItem.setText(item.getPackingList().getPackingListItems().get(0).getSoItem());
+                }
+            }
+        }
 
 
 
@@ -258,7 +275,8 @@ public class SOOutAdapter extends BaseAdapter {
 
         ListView lv;
 
-
+        TextView tv_soItem;
+        TextView tv_kwh;//库位号
 
 
 

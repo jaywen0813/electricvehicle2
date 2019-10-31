@@ -235,6 +235,61 @@
                 />
 
         </LinearLayout>
+        <View style="@style/viewline_heng" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_value_dp20"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="visible">
+            <View
+                android:layout_width="@dimen/dimen_value_dp1"
+                android:layout_height="@dimen/dimen_value_dp20"
+                android:background="@color/color_3d3d3d"
+                />
+            <LinearLayout style="@style/llView1">
+
+                <TextView
+                    style="@style/tvTextView1"
+                    android:text="SO Item"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_soItem"
+                    style="@style/etTextView1"
+                    />
+
+            </LinearLayout>
+
+
+            <View style="@style/viewline_shu" />
+
+
+            <LinearLayout style="@style/llView1">
+
+
+                <TextView
+                    android:text="库位号"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/color_3d3d3d"
+                    android:textSize="@dimen/dimen_value_sp13"
+                    android:gravity="center|left"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_kwh"
+                    style="@style/etTextView1"
+                    />
+
+            </LinearLayout>
+            <View
+                android:layout_width="@dimen/dimen_value_dp1"
+                android:layout_height="@dimen/dimen_value_dp20"
+                android:background="@color/color_3d3d3d"
+                />
+
+        </LinearLayout>
 
 
         <ListView

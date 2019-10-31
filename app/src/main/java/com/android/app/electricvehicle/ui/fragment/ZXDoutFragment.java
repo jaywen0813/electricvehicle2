@@ -414,7 +414,7 @@ public class ZXDoutFragment extends BaseMvpFragment<OUTContract2.View, OUTPresen
         if (vDate.getSuccess().equals("T")) {
             Toast.makeText(getContext(), "出库成功", Toast.LENGTH_LONG).show();
 //            clearAllView();//清空所有的数据
-            getActivity().finish();
+//            getActivity().finish();
         } else {
             Toast.makeText(getContext(), vDate.getMessage() + "", Toast.LENGTH_LONG).show();
         }

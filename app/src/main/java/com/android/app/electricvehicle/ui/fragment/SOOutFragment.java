@@ -504,7 +504,7 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
         if (vDate.getSuccess().equals("T")) {
             Toast.makeText(getContext(), "出库成功", Toast.LENGTH_LONG).show();
 //            clearAllView();//清空数据
-            getActivity().finish();
+//            getActivity().finish();
         } else {
             Toast.makeText(getContext(), vDate.getMessage() + "", Toast.LENGTH_LONG).show();
         }
