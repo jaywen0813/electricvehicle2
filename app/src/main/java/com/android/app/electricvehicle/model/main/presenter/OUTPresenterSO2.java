@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.android.app.electricvehicle.api.Api;
 import com.android.app.electricvehicle.entity.ItemDetailOutVO;
 import com.android.app.electricvehicle.entity.ItemDetailOutVO2;
 import com.android.app.electricvehicle.entity.OutDetailVO;
@@ -108,7 +109,7 @@ public class OUTPresenterSO2 extends BasePresenter<OUTContractSO2.View> implemen
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 //baseUrl:参数之前的部分
-                .baseUrl("https://api.zrcloud.me/interroll/")
+                .baseUrl(Api.BASE_URL)
                 .build();
         MainService services = retrofit.create(MainService.class);
         //params1:所有参数进行拼接就可以

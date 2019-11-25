@@ -68,7 +68,7 @@ public class LoginSettingActivity extends BaseMvpActivity<LoginAddress.View, Log
                     return;
                 }
                 presenter.loginchoose(et);
-                MainApplication.setApiAddress("https://"+et);
+                MainApplication.setApiAddress(""+et);
 
                 break;
         }

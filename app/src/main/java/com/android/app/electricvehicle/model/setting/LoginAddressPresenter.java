@@ -18,7 +18,7 @@ public class LoginAddressPresenter extends BasePresenter<LoginAddress.View> impl
     @Override
     public void loginchoose(String net) {
 
-        MainApplication.setApiAddress("https://"+net);
+        MainApplication.setApiAddress(""+net);
 
         mView.OFFWindow();
     }

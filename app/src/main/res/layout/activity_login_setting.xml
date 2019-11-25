@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/color_3d3d3d"
             android:textSize="@dimen/dimen_value_sp14"
-            android:text="https://"
+            android:text=""
             android:layout_marginLeft="@dimen/dimen_value_dp10"
             />
         <EditText
@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/color_3d3d3d"
             android:textSize="@dimen/dimen_value_sp14"
-            android:text="api.zrcloud.me/interroll/"
+            android:text="https://api.zrcloud.me/interroll/"
             android:layout_marginRight="@dimen/dimen_value_dp10"
             />
 

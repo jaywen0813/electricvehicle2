@@ -2,6 +2,7 @@ package com.android.app.electricvehicle.model.main.presenter;
 
 import android.util.Log;
 
+import com.android.app.electricvehicle.api.Api;
 import com.android.app.electricvehicle.entity.DeleteOUTdetailVO;
 import com.android.app.electricvehicle.entity.ItemDetailInVO;
 import com.android.app.electricvehicle.entity.ItemDetailOutVO;
@@ -76,7 +77,7 @@ public class MyOutDetailPresenter extends BasePresenter<MyOutDetailContract.View
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 //baseUrl:参数之前的部分
-                .baseUrl("https://api.zrcloud.me/interroll/")
+                .baseUrl(Api.BASE_URL)
                 .build();
         MainService services = retrofit.create(MainService.class);
         //params1:所有参数进行拼接就可以
@@ -133,7 +134,7 @@ public class MyOutDetailPresenter extends BasePresenter<MyOutDetailContract.View
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 //baseUrl:参数之前的部分
-                .baseUrl("https://api.zrcloud.me/interroll/").build();
+                .baseUrl(Api.BASE_URL).build();
         MainService services = retrofit.create(MainService.class);
 
 
