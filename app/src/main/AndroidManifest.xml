@@ -65,6 +65,8 @@
             </intent-filter>
         </service>
 
+
+
         <receiver android:name="com.igexin.sdk.PushReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />

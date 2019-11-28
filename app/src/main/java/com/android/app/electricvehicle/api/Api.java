@@ -47,8 +47,8 @@ public class Api {
 
 //    public static final String BASE_URL ="https://api.zrcloud.me/interroll/";
 
-
-    public static final String BASE_URL = MainApplication.ApiAddress;
+    //动态地址，所以没有final
+    public  static  String BASE_URL = MainApplication.getApiAddress();
 
 
 }

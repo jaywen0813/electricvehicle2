@@ -1,9 +1,13 @@
 package com.android.app.electricvehicle.ui.activity;
 
+import android.annotation.SuppressLint;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,10 +28,12 @@ import com.android.app.electricvehicle.model.login.contract.LoginContract2;
 import com.android.app.electricvehicle.model.login.presenter.LoginPresenter2;
 import com.android.app.electricvehicle.model.setting.LoginAddress;
 import com.android.app.electricvehicle.model.setting.LoginSettingActivity;
+import com.android.app.electricvehicle.utils.ActivityManager;
 import com.android.app.electricvehicle.utils.DialogUtil;
 import com.android.app.electricvehicle.utils.Kits;
 import com.android.app.electricvehicle.utils.PreferenceUtils;
 import com.android.app.electricvehicle.utils.RegisterClientIdUtils;
+
 import com.android.app.electricvehicle.utils.T;
 
 public class Login2Activity extends BaseMvpActivity<LoginContract2.View, LoginPresenter2> implements LoginContract2.View, View.OnClickListener {
@@ -88,7 +94,8 @@ public class Login2Activity extends BaseMvpActivity<LoginContract2.View, LoginPr
             startActivity(new Intent(this, Main3Activity.class));
             finish();
         }else {
-            Toast.makeText(Login2Activity.this,resultVO3.getMessage()+"",Toast.LENGTH_LONG).show();
+//            Toast.makeText(Login2Activity.this,resultVO3.getMessage()+"",Toast.LENGTH_LONG).show();
+            Toast.makeText(Login2Activity.this,"请设置正确的地址",Toast.LENGTH_LONG).show();
         }
 
 
@@ -188,6 +195,7 @@ public class Login2Activity extends BaseMvpActivity<LoginContract2.View, LoginPr
     protected LoginPresenter2 initPresenter() {
         return new LoginPresenter2();
     }
+
 
 
 

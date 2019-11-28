@@ -12,6 +12,7 @@ import android.os.Process;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.Nullable;
 import android.support.multidex.MultiDex;
+import android.util.Log;
 
 import com.android.app.electricvehicle.entity.Constant;
 import com.android.app.electricvehicle.entity.ContentBean;
@@ -77,23 +78,30 @@ public class MainApplication extends Application {
 
 //    public static String ApiAddress="https://api.zrcloud.me/interroll/";//请求的头部地址，默认给这个，后面如果修改就替换掉
 
-    public static String ApiAddress=getApiAddress();//请求的头部地址，默认给这个，后面如果修改就替换掉
+
+
+
+    public static String ApiAddress="";//请求的头部地址，默认给这个，后面如果修改就替换掉
 
     //把API存起来
     public static String getApiAddress() {
-        if (ApiAddress.isEmpty()) {
+//        if (ApiAddress.isEmpty()) {
             String aa="https://api.zrcloud.me/interroll/";
 
             String ss = PreferenceUtils.getInstance(MainApplication.getContext()).getString("api");
-            ApiAddress = Kits.Empty.check(ss) ? aa : ss;//如果缓存中ss为空,则取默认的aa
-        }
+            ApiAddress = Kits.Empty.check(ss) ? aa : ss;//如果缓存中clientId为空,则取clientId
+            Log.e("qqq","输出地址ss="+ss+"    ;ApiAddress="+ApiAddress);
+//        }
         return ApiAddress;
     }
 
     public static void setApiAddress(String apiAddress) {
+
         MainApplication.ApiAddress = apiAddress;
+        PreferenceUtils.getInstance(MainApplication.getContext()).clear(MainApplication.getContext());
 
         PreferenceUtils.getInstance(MainApplication.getContext()).setString("api", apiAddress);
+        Log.e("qqq","输入地址="+apiAddress);
     }
 
     //推送的clientId
@@ -130,7 +138,12 @@ public class MainApplication extends Application {
         initLogger();
 //        initActivityLifecycle();
 
+
+        String qq = PreferenceUtils.getInstance(MainApplication.getContext()).getString("api");
+        ApiAddress = Kits.Empty.check(qq) ? ApiAddress : qq;//如果缓存中clientId为空,则取clientId
+
         PreferenceUtils.getInstance(MainApplication.getContext()).setString("api", ApiAddress);//先存一个
+
     }
 
     /**

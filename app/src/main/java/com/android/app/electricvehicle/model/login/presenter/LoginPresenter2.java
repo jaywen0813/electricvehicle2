@@ -7,6 +7,7 @@ import com.android.app.electricvehicle.BuildConfig;
 import com.android.app.electricvehicle.MainApplication;
 
 
+import com.android.app.electricvehicle.api.Api;
 import com.android.app.electricvehicle.entity.LoginBean2;
 
 import com.android.app.electricvehicle.entity.LoginResultVO2;
@@ -124,11 +125,18 @@ public class LoginPresenter2 extends BasePresenter<LoginContract2.View> implemen
 //                            T.showToastSafe("登录成功");
                             mView.onLoginSessce(loginBean);
                             MainApplication.LOGINRESULTVO3.setAccess_token(loginBean.getData().getAccess_token());
+
+
                             Log.e("qqqqq11",loginBean.getData().getAccess_token());
 
+                            Log.e("qqq","登录正确的地址"+MainApplication.getApiAddress());
                         } else {
 //                            T.showToastSafe("登录失败");
                             mView.onLoginSessce(loginBean);
+
+                            Log.e("qqq","是否为T"+loginBean.getSuccess());
+                            Log.e("qqq","登录错误的全部地址"+ Api.BASE_URL);
+                            Log.e("qqq","登录错误的地址"+MainApplication.getApiAddress());
                         }
                     }
 
