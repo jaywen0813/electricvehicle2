@@ -78,7 +78,7 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
     private ImageView img_delete;
     private TextView tv_delete;
 
-    private SwipeRefreshLayout srlList;
+//    private SwipeRefreshLayout srlList;
     private RecyclerView rvList;
 
     private List<ZxdlrDetailVO.DataBean.PackingListItemsBean> activityVOList = new ArrayList<>();
@@ -169,7 +169,7 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
         tv_ddjhq= findViewById(R.id.tv_ddjhq);
 
 
-        srlList = findViewById(R.id.srl_list);
+//        srlList = findViewById(R.id.srl_list);
         rvList = findViewById(R.id.rv_list);
 
         backLayout.setOnClickListener(this);
@@ -477,7 +477,7 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
             scrollView.setVisibility(View.VISIBLE);
             llWsj.setVisibility(View.GONE);
 
-            srlList.setRefreshing(false);//停止刷新
+//            srlList.setRefreshing(false);//停止刷新
 
             //查询此单是否作废
             if (!Kits.Empty.check(vDate.getData().getDisabled())) {

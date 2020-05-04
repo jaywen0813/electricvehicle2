@@ -578,9 +578,26 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
                 ppw.dismiss();
             }
 
+            DialogUtil.showBasicDialog(getActivity(), "提示", "是否继续出库下一单?", (dialog, confirm) -> {
+                if (confirm) {
+                    tvOrder.setText("");
+                    tvSo.setText("");
+                }
+                dialog.dismiss();
+            });
+
 
         } else {
             Toast.makeText(getContext(), vDate.getMessage() + "", Toast.LENGTH_LONG).show();
+
+            DialogUtil.showBasicDialog(getActivity(), "提示", "是否继续出库下一单?", (dialog, confirm) -> {
+                if (confirm) {
+                    tvOrder.setText("");
+                    tvSo.setText("");
+                }
+                dialog.dismiss();
+            });
+
         }
     }
 

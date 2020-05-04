@@ -10,11 +10,11 @@
     tools:context=".ui.activity.ZxdlrDetailActivity">
 
 
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/srl_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/color_f5f5f5">
+<!--    <android.support.v4.widget.SwipeRefreshLayout-->
+<!--        android:id="@+id/srl_list"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:background="@color/color_f5f5f5">-->
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -747,5 +747,5 @@
                 />
 
         </RelativeLayout>
-    </android.support.v4.widget.SwipeRefreshLayout>
+<!--    </android.support.v4.widget.SwipeRefreshLayout>-->
 </RelativeLayout>

@@ -418,8 +418,29 @@ public class ZXDoutFragment extends BaseMvpFragment<OUTContract2.View, OUTPresen
             outstoreCode2 = etNumber.getText().toString().trim();
 
             presenter.getZXD(outstoreCode2, getContext());//刷新数据
+
+            DialogUtil.showBasicDialog(getActivity(), "提示", "是否继续出库下一单?", (dialog, confirm) -> {
+                if (confirm) {
+                    etNumber.setText("");
+                    etKwNumber.setText("");
+                    et_number2.setText("");
+                }
+                dialog.dismiss();
+            });
+
+
         } else {
             Toast.makeText(getContext(), vDate.getMessage() + "", Toast.LENGTH_LONG).show();
+
+            DialogUtil.showBasicDialog(getActivity(), "提示", "是否继续出库下一单?", (dialog, confirm) -> {
+                if (confirm) {
+                    etNumber.setText("");
+                    etKwNumber.setText("");
+                    et_number2.setText("");
+                }
+                dialog.dismiss();
+            });
+
         }
     }
 

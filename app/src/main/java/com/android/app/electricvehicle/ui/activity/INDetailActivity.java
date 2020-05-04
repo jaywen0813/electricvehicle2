@@ -28,6 +28,7 @@ import com.android.app.electricvehicle.entity.ShowInDetailEntity;
 import com.android.app.electricvehicle.model.main.contract.INContract;
 import com.android.app.electricvehicle.model.main.presenter.INPresenter;
 import com.android.app.electricvehicle.utils.DateTimeWheelDialog;
+import com.android.app.electricvehicle.utils.DialogUtil;
 import com.android.app.electricvehicle.utils.Kits;
 import com.android.app.electricvehicle.utils.StatusBarUtil;
 import com.flyco.roundview.RoundTextView;
@@ -720,10 +721,29 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
         if (vDate.getSuccess().equals("T")){//提交成功
 //            T.showToastSafe("提交成功");
             Toast.makeText(INDetailActivity.this,"入库成功",Toast.LENGTH_LONG).show();
-            finish();
+
+            DialogUtil.showBasicDialog(this, "提示", "是否继续录入下一单?", (dialog, confirm) -> {
+                if (confirm) {
+                    etNumber.setText("");
+                    etKwNumber.setText("");
+                }
+                dialog.dismiss();
+            });
+
+
         }else {
 //            T.showToastSafe("提交失败");
             Toast.makeText(INDetailActivity.this,vDate.getMessage()+"",Toast.LENGTH_LONG).show();
+
+
+            DialogUtil.showBasicDialog(this, "提示", "是否继续录入下一单?", (dialog, confirm) -> {
+                if (confirm) {
+                    etNumber.setText("");
+                    etKwNumber.setText("");
+                }
+                dialog.dismiss();
+            });
+
         }
 
     }
