@@ -864,7 +864,7 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
                 scrollView.setVisibility(View.GONE);
             }
         } else {
-            Toast.makeText(getContext(), item.getMessage(), Toast.LENGTH_LONG).show();
+//            Toast.makeText(getContext(), item.getMessage(), Toast.LENGTH_LONG).show();
         }
 
 
