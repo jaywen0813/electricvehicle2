@@ -376,7 +376,78 @@
 
            </LinearLayout>
 
+           <LinearLayout
+               android:id="@+id/ll_two"
+               android:layout_width="match_parent"
+               android:layout_height="@dimen/dimen_value_dp150"
+               android:visibility="visible"
+               android:orientation="horizontal"
+               android:layout_marginTop="@dimen/dimen_value_dp10"
+               android:layout_below="@+id/ll_one"
+               >
 
+               <com.flyco.roundview.RoundLinearLayout
+                   android:id="@+id/ll_yiku"
+                   android:layout_width="0dp"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:orientation="vertical"
+                   android:gravity="center"
+                   app:rv_cornerRadius="@dimen/dimen_value_dp5"
+                   app:rv_backgroundColor="@color/color_1F8AB0"
+                   android:layout_marginLeft="@dimen/dimen_value_dp10"
+                   >
+                   <ImageView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:src="@mipmap/wuliu1"
+                       />
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="移 库"
+                       android:textSize="@dimen/dimen_value_sp15"
+                       android:textColor="@color/white"
+                       android:layout_marginTop="@dimen/dimen_value_dp10"
+                       />
+               </com.flyco.roundview.RoundLinearLayout>
+
+
+               <com.flyco.roundview.RoundLinearLayout
+                   android:id="@+id/ll_pandian"
+                   android:layout_width="0dp"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:orientation="vertical"
+                   android:gravity="center"
+                   android:layout_toRightOf="@+id/ll_yiku"
+                   app:rv_backgroundColor="@color/color_03d287"
+                   app:rv_cornerRadius="@dimen/dimen_value_dp5"
+                   android:layout_marginRight="@dimen/dimen_value_dp10"
+                   android:layout_marginLeft="@dimen/dimen_value_dp10"
+                   >
+                   <ImageView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:src="@mipmap/wuliu2"
+                       />
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="盘 点"
+                       android:textSize="@dimen/dimen_value_sp15"
+                       android:textColor="@color/white"
+                       android:layout_marginTop="@dimen/dimen_value_dp10"
+                       />
+               </com.flyco.roundview.RoundLinearLayout>
+
+
+
+
+
+
+
+           </LinearLayout>
 
        </RelativeLayout>
 

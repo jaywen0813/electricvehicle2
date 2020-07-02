@@ -439,10 +439,11 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:gravity="left|center_vertical"
+                            android:gravity="center_vertical"
                             android:text="单据归档:"
                             android:textColor="@color/color_3d3d3d"
-                            android:textSize="@dimen/dimen_value_sp14" />
+                            android:layout_marginLeft="@dimen/dimen_value_dp8"
+                            android:textSize="@dimen/dimen_value_sp12" />
 
                         <View style="@style/viewline_shu" />
 
@@ -451,10 +452,11 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:gravity="left|center_vertical"
+                            android:gravity="center_vertical"
                             android:text="单据打印:"
                             android:textColor="@color/color_3d3d3d"
-                            android:textSize="@dimen/dimen_value_sp14" />
+                            android:layout_marginLeft="@dimen/dimen_value_dp8"
+                            android:textSize="@dimen/dimen_value_sp12" />
 
                         <View style="@style/viewline_shu" />
 
@@ -463,10 +465,11 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:gravity="left|center_vertical"
+                            android:gravity="center_vertical"
                             android:text="打印次数:"
                             android:textColor="@color/color_3d3d3d"
-                            android:textSize="@dimen/dimen_value_sp14" />
+                            android:layout_marginLeft="@dimen/dimen_value_dp8"
+                            android:textSize="@dimen/dimen_value_sp12" />
                     </LinearLayout>
 
 
@@ -584,7 +587,8 @@
                             android:layout_height="wrap_content"
                             android:text="备    注："
                             android:textColor="@color/color_3d3d3d"
-                            android:textSize="@dimen/dimen_value_sp14" />
+                            android:layout_marginLeft="@dimen/dimen_value_dp8"
+                            android:textSize="@dimen/dimen_value_sp12" />
 
                         <TextView
                             android:id="@+id/tv_bz"

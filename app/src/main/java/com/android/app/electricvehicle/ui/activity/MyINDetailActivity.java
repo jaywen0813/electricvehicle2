@@ -391,11 +391,17 @@ public class MyINDetailActivity extends BaseMvpActivity<MyInDetailContract.View,
             }
 
             //添加下面的列表
-            if (vDate.getData().getPackingList().getPackingListItems()!=null && vDate.getData().getPackingList().getPackingListItems().size()>0){
-                list.clear();
-                list.addAll(vDate.getData().getPackingList().getPackingListItems());
-                adapter_soItem.notifyDataSetChanged();
+            if (vDate.getData().getPackingList()!=null){
+                if (vDate.getData().getPackingList().getPackingListItems()!=null  ){
+                    if (vDate.getData().getPackingList().getPackingListItems().size()>0){
+                        list.clear();
+                        list.addAll(vDate.getData().getPackingList().getPackingListItems());
+                        adapter_soItem.notifyDataSetChanged();
+                    }
+                }
             }
+
+
 
 
         }

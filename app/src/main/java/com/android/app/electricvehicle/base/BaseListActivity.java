@@ -51,8 +51,8 @@ public abstract class BaseListActivity<V, T extends BasePresenter<V>> extends Ba
         super.initView();
         srlList=findViewById(R.id.srl_list);
         rvList=findViewById(R.id.rv_list);
-        srlList.setColorSchemeColors(UIUtils.getColor(R.color.colorPrimary));
-        srlList.setOnRefreshListener(this);
+//        srlList.setColorSchemeColors(UIUtils.getColor(R.color.colorPrimary));
+//        srlList.setOnRefreshListener(this);
         rvList.setLayoutManager(getLayoutManager());
         adapter = getRecyclerAdapter();
         rvList.setAdapter(adapter);

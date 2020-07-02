@@ -55,6 +55,8 @@ public class Main3Activity extends BaseMvpActivity<MianContract3.View, MainPrese
     private LinearLayout llSousuo;
     private LinearLayout llWuliu1;
     private LinearLayout llWuliu2;
+    private LinearLayout ll_yiku;
+    private LinearLayout ll_pandian;
     private ImageView img_menu;
     private LinearLayout ll_myruku;
     private LinearLayout ll_mychuku;
@@ -104,6 +106,14 @@ public class Main3Activity extends BaseMvpActivity<MianContract3.View, MainPrese
             case R.id.ll_wuliu2://出库操作
                 Intent intent1=new Intent(this,OUTDetailActivity2.class);
                 startActivity(intent1);
+                break;
+            case R.id.ll_yiku://移库
+                Intent intent6=new Intent(this,YiKuActivity.class);
+                startActivity(intent6);
+                break;
+            case R.id.ll_pandian://盘点
+                Intent intent7=new Intent(this,PanDianActivity.class);
+                startActivity(intent7);
                 break;
             case R.id.ll_zxdlr://装箱单录入
                 Intent intent4=new Intent(this,ZxdLuRuActivity.class);
@@ -156,7 +166,8 @@ public class Main3Activity extends BaseMvpActivity<MianContract3.View, MainPrese
         llWuliu1 = findViewById(R.id.ll_wuliu1);//入库
         llWuliu2 = findViewById(R.id.ll_wuliu2);//出库
         ll_zxdlr=findViewById(R.id.ll_zxdlr);//装箱单录入
-
+        ll_yiku=findViewById(R.id.ll_yiku);//移库
+        ll_pandian=findViewById(R.id.ll_pandian);//盘点
 
         ll_myruku=findViewById(R.id.ll_myruku);//我的入库列表
         ll_mychuku=findViewById(R.id.ll_mychuku);//我的出库列表
@@ -176,6 +187,8 @@ public class Main3Activity extends BaseMvpActivity<MianContract3.View, MainPrese
 
         llWuliu1.setOnClickListener(this);
         llWuliu2.setOnClickListener(this);
+        ll_yiku.setOnClickListener(this);
+        ll_pandian.setOnClickListener(this);
         ll_zxdlr.setOnClickListener(this);
 
         ll_myruku.setOnClickListener(this);

@@ -173,9 +173,9 @@
         <item name="android:layout_width">@dimen/dimen_value_dp80</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:textColor">@color/color_3d3d3d</item>
-        <item name="android:textSize">@dimen/dimen_value_sp14</item>
-        <item name="android:gravity">center</item>
-
+        <item name="android:textSize">@dimen/dimen_value_sp13</item>
+        <item name="android:gravity">center|left</item>
+        <item name="android:layout_marginLeft">@dimen/dimen_value_dp8</item>
     </style>
 
     <!--入库单出库单详情右边名称的文字布局-->
@@ -235,8 +235,9 @@
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">0.5</item>
         <item name="android:textColor">@color/color_3d3d3d</item>
-        <item name="android:textSize">@dimen/dimen_value_sp13</item>
+        <item name="android:textSize">@dimen/dimen_value_sp12</item>
         <item name="android:gravity">center|left</item>
+        <item name="android:layout_marginLeft">@dimen/dimen_value_dp8</item>
     </style>
 
 </resources>
