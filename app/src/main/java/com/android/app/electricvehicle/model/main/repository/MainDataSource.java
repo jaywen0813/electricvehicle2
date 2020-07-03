@@ -16,6 +16,7 @@ import com.android.app.electricvehicle.entity.OutVO2;
 import com.android.app.electricvehicle.entity.Shangchuan;
 import com.android.app.electricvehicle.entity.SouSuo;
 
+import com.android.app.electricvehicle.entity.YiKuVO;
 import com.android.app.electricvehicle.mvp.model.BaseEntity;
 
 import io.reactivex.Observable;
@@ -81,7 +82,7 @@ public interface MainDataSource {
     Observable<ItemDetailOutVO> OutDetailService(SortedMap<String, String> pramas);
 
     //移库的时候修改库位号
-    Observable<ItemDetailOutVO> updatekwhService(SortedMap<String, String> pramas);
+    Observable<YiKuVO> updatekwhService(SortedMap<String, String> pramas);
 
     //我的入库列表点击进来以后的详情
     Observable<ItemDetailInVO> MyInDetailService(SortedMap<String, String> pramas);

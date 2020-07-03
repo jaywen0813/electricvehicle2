@@ -19,6 +19,7 @@ import com.android.app.electricvehicle.entity.OutDetailVO;
 import com.android.app.electricvehicle.entity.OutVO;
 import com.android.app.electricvehicle.entity.OutVO2;
 import com.android.app.electricvehicle.entity.Shangchuan;
+import com.android.app.electricvehicle.entity.YiKuVO;
 import com.android.app.electricvehicle.model.main.http.MainService;
 import com.android.app.electricvehicle.mvp.http.RetrofitFactory;
 import com.android.app.electricvehicle.mvp.model.BaseEntity;
@@ -167,7 +168,7 @@ public class MainDataRepository implements MainDataSource {
 
     //移库的时候修改库位号
     @Override
-    public Observable<ItemDetailOutVO> updatekwhService(SortedMap<String, String> pramas) {
+    public Observable<YiKuVO> updatekwhService(SortedMap<String, String> pramas) {
         String str = JSONObject.parseObject(JSON.toJSONString(pramas)).toString();
         RequestBody body = RequestBody.create(okhttp3.MediaType.parse("application/json;charset=UTF-8"), str);
         return RetrofitFactory.initService(Api.BASE_URL, MainService.class, pramas).updatekwh(body);

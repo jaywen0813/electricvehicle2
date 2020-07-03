@@ -126,8 +126,9 @@ public interface MainService {
     @POST("packings/outstore/get/")
     Observable<ItemDetailOutVO> getoutdetail(@Body RequestBody requestbody);
 
-
-
+    //移库的时候修改库位号
+    @POST("packings/instore/move/free/loc")
+    Observable<YiKuVO> updatekwh(@Body RequestBody requestbody);
 
     //我的入库列表点击以后的详情展示
     @GET("packings/instore/get/")
