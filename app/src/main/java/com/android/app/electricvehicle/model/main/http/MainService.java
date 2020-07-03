@@ -128,6 +128,7 @@ public interface MainService {
 
 
 
+
     //我的入库列表点击以后的详情展示
     @GET("packings/instore/get/")
     Observable<ItemDetailInVO> getMyIndetail(@Body RequestBody requestbody);
@@ -177,6 +178,11 @@ public interface MainService {
     //出库时通过出库号的详情展示
     @GET
     Observable<ItemDetailOutVO> getoutPage(@HeaderMap Map<String, String> headerMap,@Url String url);
+
+    //移库的时候修改库位号
+    @POST("packings/instore/move/free/loc")
+    Observable<YiKuVO> updatekwh(@HeaderMap Map<String, String> headerMap,@Body RequestBody requestbody);
+
 
     //出库时通过SO展示的详情  //2019年10月28日 14:33:59  暂时没有用上，作废了
     @GET

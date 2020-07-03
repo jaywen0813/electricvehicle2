@@ -28,6 +28,11 @@ public interface YiKuContract {
         void loadingtext();
 
         void loadWanCheng();
+
+        //移库的时候修改库位号成功的回调
+        void  yikuSuccess();
+        //移库操作失败的回调
+        void  yikuMiss();
     }
 
     interface Presenter {
@@ -36,6 +41,8 @@ public interface YiKuContract {
         //通过装箱单号查询详情信息
         void getZXD(String zxd, Context context);
 
+        //移库的时候修改库位号
+        void  getKWH(String id,String freeLoc);
 
     }
 }

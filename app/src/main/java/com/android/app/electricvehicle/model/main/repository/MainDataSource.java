@@ -80,6 +80,9 @@ public interface MainDataSource {
     //出库时扫码展示详情
     Observable<ItemDetailOutVO> OutDetailService(SortedMap<String, String> pramas);
 
+    //移库的时候修改库位号
+    Observable<ItemDetailOutVO> updatekwhService(SortedMap<String, String> pramas);
+
     //我的入库列表点击进来以后的详情
     Observable<ItemDetailInVO> MyInDetailService(SortedMap<String, String> pramas);
 

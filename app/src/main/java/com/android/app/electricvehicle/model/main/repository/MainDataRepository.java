@@ -165,6 +165,15 @@ public class MainDataRepository implements MainDataSource {
         return RetrofitFactory.initService(Api.BASE_URL, MainService.class, pramas).getoutdetail(body);
     }
 
+    //移库的时候修改库位号
+    @Override
+    public Observable<ItemDetailOutVO> updatekwhService(SortedMap<String, String> pramas) {
+        String str = JSONObject.parseObject(JSON.toJSONString(pramas)).toString();
+        RequestBody body = RequestBody.create(okhttp3.MediaType.parse("application/json;charset=UTF-8"), str);
+        return RetrofitFactory.initService(Api.BASE_URL, MainService.class, pramas).updatekwh(body);
+    }
+
+
     //我的入库列表点击进来以后的详情
     @Override
     public Observable<ItemDetailInVO> MyInDetailService(SortedMap<String, String> pramas) {
