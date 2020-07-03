@@ -76,7 +76,7 @@ public class OUTDetailActivity extends BaseMvpActivity<OUTContract.View, OUTPres
 
     private TextView tv_order;
     private TextView tv_so;
-
+    private LinearLayout ll_shanchu,ll_shanchu2;//清空扫码框的内容
 
     OUTPresenter outPresenter;
 
@@ -145,7 +145,12 @@ public class OUTDetailActivity extends BaseMvpActivity<OUTContract.View, OUTPres
                 type=2;
                 requestPermissionsCamera();
                 break;
-
+            case R.id.ll_shanchu:
+                etNumber.setText("");
+                break;
+            case R.id.ll_shanchu2:
+                etKwNumber.setText("");
+                break;
         }
     }
 
@@ -192,10 +197,16 @@ public class OUTDetailActivity extends BaseMvpActivity<OUTContract.View, OUTPres
         tv_order=findViewById(R.id.tv_order);//SalesOrder
         tv_so=findViewById(R.id.tv_so);//SO Item
 
+        ll_shanchu=findViewById(R.id.ll_shanchu);
+        ll_shanchu2=findViewById(R.id.ll_shanchu2);
+
         llSaomiao.setOnClickListener(this);
         llSaomiao2.setOnClickListener(this);
         backLayout.setOnClickListener(this);
         tvTijiao.setOnClickListener(this);
+
+        ll_shanchu.setOnClickListener(this);
+        ll_shanchu2.setOnClickListener(this);
 
         tvLayerHead.setText("出库单信息");
 

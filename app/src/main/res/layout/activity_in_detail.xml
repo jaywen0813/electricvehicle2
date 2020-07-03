@@ -114,6 +114,9 @@
                     android:layout_weight="1"
                     android:textColor="@color/color_3d3d3d" />
 
+
+
+
                 <LinearLayout
                     android:id="@+id/ll_saomiao"
                     android:layout_width="@dimen/dimen_value_dp50"
@@ -127,6 +130,20 @@
 
                 </LinearLayout>
 
+                <LinearLayout
+                    android:id="@+id/ll_shanchu"
+                    android:layout_width="@dimen/dimen_value_dp30"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    >
+                    <ImageView
+                        android:layout_width="@dimen/dimen_value_dp15"
+                        android:layout_height="@dimen/dimen_value_dp15"
+                        android:src="@mipmap/shanchu2"
+                        />
+
+                </LinearLayout>
 
                 <com.flyco.roundview.RoundTextView
                     android:id="@+id/tv_shoudong"
@@ -134,6 +151,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginTop="@dimen/dimen_value_dp10"
                     android:layout_marginBottom="@dimen/dimen_value_dp10"
+                    android:layout_marginLeft="@dimen/dimen_value_dp5"
                     android:layout_marginRight="@dimen/dimen_value_dp5"
                     app:rv_backgroundColor="@color/colorPrimary"
                     app:rv_cornerRadius="@dimen/dimen_value_dp5"
@@ -171,6 +189,7 @@
                     android:layout_weight="1"
                     android:textColor="@color/color_3d3d3d" />
 
+
                 <LinearLayout
                     android:id="@+id/ll_saomiao2"
                     android:layout_width="@dimen/dimen_value_dp50"
@@ -181,6 +200,21 @@
                         android:layout_width="@dimen/dimen_value_dp20"
                         android:layout_height="@dimen/dimen_value_dp20"
                         android:src="@mipmap/saoyisao" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_shanchu2"
+                    android:layout_width="@dimen/dimen_value_dp30"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    >
+                    <ImageView
+                        android:layout_width="@dimen/dimen_value_dp15"
+                        android:layout_height="@dimen/dimen_value_dp15"
+                        android:src="@mipmap/shanchu2"
+                        />
 
                 </LinearLayout>
 

@@ -64,6 +64,7 @@ public class YiKuActivity extends BaseMvpActivity<YiKuContract.View, YiKuPresent
     private TextView tvDdjhq;
     private TextView tvBz;
     private ListView lv;
+    private LinearLayout ll_shanchu,ll_shanchu2;//清空扫码框的内容
 
     List<ItemDetailOutVO.DataBean.PackingListBean.PackingListItemsBean> list = new ArrayList<>();
     ZXDOutAdapter_SoItem adapter_soItem;
@@ -113,6 +114,12 @@ public class YiKuActivity extends BaseMvpActivity<YiKuContract.View, YiKuPresent
         tvDdjhq = (TextView) findViewById(R.id.tv_ddjhq);
         tvBz = (TextView) findViewById(R.id.tv_bz);
         lv = (ListView) findViewById(R.id.lv);
+        ll_shanchu=findViewById(R.id.ll_shanchu);
+        ll_shanchu2=findViewById(R.id.ll_shanchu2);
+
+
+        ll_shanchu.setOnClickListener(this);
+        ll_shanchu2.setOnClickListener(this);
     }
 
     @Override
@@ -128,7 +135,14 @@ public class YiKuActivity extends BaseMvpActivity<YiKuContract.View, YiKuPresent
 
     @Override
     public void onClick(View v) {
-
+        switch (v.getId()){
+            case R.id.ll_shanchu:
+                etNumber.setText("");
+                break;
+            case R.id.ll_shanchu2:
+                etKwNumber.setText("");
+                break;
+        }
     }
 
     @Override

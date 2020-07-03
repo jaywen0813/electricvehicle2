@@ -81,6 +81,7 @@ public class ZXDoutFragment extends BaseMvpFragment<OUTContract2.View, OUTPresen
     private TextView tvBz;
     private TextView tvTijiao;
     private ListView lv;
+    private LinearLayout ll_shanchu,ll_shanchu2,ll_shanchu3;//清空扫码框的内容
 
     private RoundTextView tv_shoudong;//手动查询详情按钮
     private EditText et_number2;//二次扫描装箱单
@@ -139,6 +140,10 @@ public class ZXDoutFragment extends BaseMvpFragment<OUTContract2.View, OUTPresen
         lv = view.findViewById(R.id.lv);
         tv_shoudong=view.findViewById(R.id.tv_shoudong);
 
+        ll_shanchu=view.findViewById(R.id.ll_shanchu);
+        ll_shanchu2=view.findViewById(R.id.ll_shanchu2);
+        ll_shanchu3=view.findViewById(R.id.ll_shanchu3);
+
         llSaomiao.setOnClickListener(this);
         llSaomiao2.setOnClickListener(this);
         ll_saomiao3.setOnClickListener(this);
@@ -147,6 +152,10 @@ public class ZXDoutFragment extends BaseMvpFragment<OUTContract2.View, OUTPresen
         tv_zzrq.setOnClickListener(this);
         tv_ddjhq.setOnClickListener(this);
         tv_shoudong.setOnClickListener(this);
+
+        ll_shanchu.setOnClickListener(this);
+        ll_shanchu2.setOnClickListener(this);
+        ll_shanchu3.setOnClickListener(this);
 
     }
 
@@ -220,6 +229,16 @@ public class ZXDoutFragment extends BaseMvpFragment<OUTContract2.View, OUTPresen
                  outstoreCode2 = etNumber.getText().toString().trim();
 
                 presenter.getZXD(outstoreCode2, getContext());
+                break;
+            case R.id.ll_shanchu:
+                etNumber.setText("");
+                break;
+            case R.id.ll_shanchu2:
+                etKwNumber.setText("");
+                break;
+
+            case R.id.ll_shanchu3:
+                et_number2.setText("");
                 break;
         }
     }

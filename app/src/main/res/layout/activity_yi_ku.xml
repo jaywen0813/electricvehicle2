@@ -103,6 +103,21 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/ll_shanchu"
+            android:layout_width="@dimen/dimen_value_dp30"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
+            <ImageView
+                android:layout_width="@dimen/dimen_value_dp15"
+                android:layout_height="@dimen/dimen_value_dp15"
+                android:src="@mipmap/shanchu2"
+                />
+
+        </LinearLayout>
+
         <com.flyco.roundview.RoundTextView
             android:id="@+id/tv_shoudong"
             android:layout_width="@dimen/dimen_value_dp60"
@@ -154,6 +169,20 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/ll_shanchu2"
+            android:layout_width="@dimen/dimen_value_dp30"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
+            <ImageView
+                android:layout_width="@dimen/dimen_value_dp15"
+                android:layout_height="@dimen/dimen_value_dp15"
+                android:src="@mipmap/shanchu2"
+                />
+
+        </LinearLayout>
 
     </LinearLayout>
 

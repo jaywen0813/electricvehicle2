@@ -79,6 +79,7 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
 
     private LinearLayout ll_detail;//扫码以后显示详情的
     private LinearLayout llAdd;
+    private LinearLayout ll_shanchu,ll_shanchu2;//清空扫码框的内容
 
 
 
@@ -440,6 +441,12 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
 
 
                 break;
+            case R.id.ll_shanchu:
+                etNumber.setText("");
+                break;
+            case R.id.ll_shanchu2:
+                etKwNumber.setText("");
+                break;
         }
     }
 
@@ -488,6 +495,9 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
 
         llAdd=findViewById(R.id.ll_add);
 
+        ll_shanchu=findViewById(R.id.ll_shanchu);
+        ll_shanchu2=findViewById(R.id.ll_shanchu2);
+
         tv_shoudong.setOnClickListener(this);
         llSaomiao.setOnClickListener(this);
         llSaomiao2.setOnClickListener(this);
@@ -499,6 +509,8 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
         farmInputSave.setOnClickListener(this);
         tv_delete.setOnClickListener(this);//删除条目
 
+        ll_shanchu.setOnClickListener(this);
+        ll_shanchu2.setOnClickListener(this);
 
         tvLayerHead.setText("入库单信息");
         farmInputSave.setText("添加条目");
