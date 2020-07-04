@@ -12,6 +12,7 @@ import com.android.app.electricvehicle.R;
 import com.android.app.electricvehicle.base.BaseMvpActivity;
 import com.android.app.electricvehicle.mvp.presenter.BasePresenter;
 
+//此页面已经作废
 public class MainActivity extends BaseMvpActivity implements View.OnClickListener {
 
     private RelativeLayout titleLayoutRl;

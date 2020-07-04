@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:background="@color/regis_bg"
     android:fitsSystemWindows="true"
-    tools:context=".ui.activity.OUTDetailActivity2">
+    tools:context=".ui.activity.chuku.OUTDetailActivity2">
 
     <include
         layout="@layout/layer_header"/>

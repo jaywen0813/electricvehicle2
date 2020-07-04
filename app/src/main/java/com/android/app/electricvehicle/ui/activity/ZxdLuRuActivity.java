@@ -2,11 +2,8 @@ package com.android.app.electricvehicle.ui.activity;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -25,13 +22,8 @@ import com.android.app.electricvehicle.entity.PackingItems;
 import com.android.app.electricvehicle.entity.ZxdDetailAddVO;
 import com.android.app.electricvehicle.model.main.contract.ZxdlrAddContract;
 import com.android.app.electricvehicle.model.main.presenter.ZxdlrAddlPresenter;
-import com.android.app.electricvehicle.mvp.presenter.BasePresenter;
 import com.android.app.electricvehicle.utils.DateTimeWheelDialog;
 import com.android.app.electricvehicle.utils.Kits;
-import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
-import com.bigkoo.pickerview.listener.CustomListener;
-import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
-import com.bigkoo.pickerview.view.OptionsPickerView;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -41,7 +33,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-//首页的
+//首页的  已经作废  2020年7月4日 21:20:59
 public class ZxdLuRuActivity extends BaseMvpActivity<ZxdlrAddContract.View, ZxdlrAddlPresenter> implements ZxdlrAddContract.View, View.OnClickListener {
 
     private RelativeLayout titleLayoutRl;

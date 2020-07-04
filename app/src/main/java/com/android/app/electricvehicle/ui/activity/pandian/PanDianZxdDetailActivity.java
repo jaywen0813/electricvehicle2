@@ -1,10 +1,8 @@
-package com.android.app.electricvehicle.ui.activity;
+package com.android.app.electricvehicle.ui.activity.pandian;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
@@ -20,18 +18,15 @@ import android.widget.Toast;
 
 import com.android.app.electricvehicle.R;
 import com.android.app.electricvehicle.base.BaseListActivity;
-import com.android.app.electricvehicle.base.BaseMvpActivity;
-import com.android.app.electricvehicle.entity.ItemDetailInVO;
 import com.android.app.electricvehicle.entity.PackingItem;
 import com.android.app.electricvehicle.entity.ZxdDetailDeleteVO;
 import com.android.app.electricvehicle.entity.ZxdDetailUpdateVO;
 import com.android.app.electricvehicle.entity.ZxdlrDetailVO;
-import com.android.app.electricvehicle.model.main.contract.ZxdlrDetailContract;
-import com.android.app.electricvehicle.model.main.presenter.ZxdlrDetailPresenter;
+import com.android.app.electricvehicle.model.main.contract.PanDianZxdDetailContract;
+import com.android.app.electricvehicle.model.main.presenter.PanDianZxdDetailPresenter;
 import com.android.app.electricvehicle.mvp.presenter.BasePresenter;
 import com.android.app.electricvehicle.ui.adapter.ZXDDetailAdapter;
 import com.android.app.electricvehicle.utils.DateTimeWheelDialog;
-import com.android.app.electricvehicle.utils.DialogUtil;
 import com.android.app.electricvehicle.utils.Kits;
 import com.android.app.electricvehicle.utils.StatusBarUtil;
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -44,7 +39,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.View, ZxdlrDetailPresenter> implements ZxdlrDetailContract.View, View.OnClickListener {
+//盘点详情页
+public class PanDianZxdDetailActivity extends BaseListActivity<PanDianZxdDetailContract.View, PanDianZxdDetailPresenter> implements PanDianZxdDetailContract.View, View.OnClickListener {
 
     private RelativeLayout titleLayoutRl;
     private LinearLayout backLayout;
@@ -87,7 +83,7 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
 
     String id = "";
     String disabled = "";
-    ZxdlrDetailPresenter presenter;
+    PanDianZxdDetailPresenter presenter;
 
     boolean aa = false;//用来判断是否可以点击的编辑的
 
@@ -125,7 +121,7 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
 
     @Override
     protected int getLayoutById() {
-        return R.layout.activity_zxdlr_detail;
+        return R.layout.activity_pandianzxd_detail;
     }
 
     @Override
@@ -249,7 +245,7 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
 
     @Override
     protected BasePresenter getPresenter() {
-        presenter = new ZxdlrDetailPresenter();
+        presenter = new PanDianZxdDetailPresenter();
         return presenter;
     }
 
@@ -274,7 +270,7 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
             case R.id.back_layout:
                 finish();
                 break;
-            case R.id.farm_input_save:
+            case R.id.farm_input_save://此页面没有用到
                 if (aa) {
                     chooseFlase();//不能点击
                     aa = false;
@@ -296,7 +292,7 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
 
 
                     if (Kits.Empty.check(packingMaterial)) {
-                        Toast.makeText(ZxdlrDetailActivity.this, "包装方式不能为空", Toast.LENGTH_LONG).show();
+                        Toast.makeText(PanDianZxdDetailActivity.this, "包装方式不能为空", Toast.LENGTH_LONG).show();
                         return;
                     } else {
                         if (packingMaterial.equals("纸箱") || packingMaterial.equals("0")) {
@@ -312,60 +308,60 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
 
 
                     if (Kits.Empty.check(rankNum)) {
-                        Toast.makeText(ZxdlrDetailActivity.this, "第几箱不能为空", Toast.LENGTH_LONG).show();
+                        Toast.makeText(PanDianZxdDetailActivity.this, "第几箱不能为空", Toast.LENGTH_LONG).show();
                         return;
                     }
 
 
                     if (Kits.Empty.check(totalNum)) {
-                        Toast.makeText(ZxdlrDetailActivity.this, "共几箱不能为空", Toast.LENGTH_LONG).show();
+                        Toast.makeText(PanDianZxdDetailActivity.this, "共几箱不能为空", Toast.LENGTH_LONG).show();
                         return;
                     }
 
 
                     if (Kits.Empty.check(packLength)) {
-                        Toast.makeText(ZxdlrDetailActivity.this, "请填写长度", Toast.LENGTH_LONG).show();
+                        Toast.makeText(PanDianZxdDetailActivity.this, "请填写长度", Toast.LENGTH_LONG).show();
                         return;
                     }
 
                     if (Kits.Empty.check(packwidth)) {
-                        Toast.makeText(ZxdlrDetailActivity.this, "请填写宽度", Toast.LENGTH_LONG).show();
+                        Toast.makeText(PanDianZxdDetailActivity.this, "请填写宽度", Toast.LENGTH_LONG).show();
                         return;
                     }
 
 
                     if (Kits.Empty.check(packHeight)) {
-                        Toast.makeText(ZxdlrDetailActivity.this, "请填写高度", Toast.LENGTH_LONG).show();
+                        Toast.makeText(PanDianZxdDetailActivity.this, "请填写高度", Toast.LENGTH_LONG).show();
                         return;
                     }
 
                     if (Kits.Empty.check(netWeight)) {
-                        Toast.makeText(ZxdlrDetailActivity.this, "请填写净重", Toast.LENGTH_LONG).show();
+                        Toast.makeText(PanDianZxdDetailActivity.this, "请填写净重", Toast.LENGTH_LONG).show();
                         return;
                     }
 
                     if (Kits.Empty.check(roughWeight)) {
-                        Toast.makeText(ZxdlrDetailActivity.this, "请填写毛重", Toast.LENGTH_LONG).show();
+                        Toast.makeText(PanDianZxdDetailActivity.this, "请填写毛重", Toast.LENGTH_LONG).show();
                         return;
                     }
                     //------------------------
                     if (Kits.Empty.check(salesOrder)) {
-                        Toast.makeText(ZxdlrDetailActivity.this,"请填写Sales Order",Toast.LENGTH_LONG).show();
+                        Toast.makeText(PanDianZxdDetailActivity.this,"请填写Sales Order",Toast.LENGTH_LONG).show();
                         return;
                     }
 
                     if (Kits.Empty.check(comments)) {
-                        Toast.makeText(ZxdlrDetailActivity.this,"请填写comments",Toast.LENGTH_LONG).show();
+                        Toast.makeText(PanDianZxdDetailActivity.this,"请填写comments",Toast.LENGTH_LONG).show();
                         return;
                     }
 
                     if (Kits.Empty.check(installTime)) {
-                        Toast.makeText(ZxdlrDetailActivity.this,"请填写组装日期",Toast.LENGTH_LONG).show();
+                        Toast.makeText(PanDianZxdDetailActivity.this,"请填写组装日期",Toast.LENGTH_LONG).show();
                         return;
                     }
 
                     if (Kits.Empty.check(deliveryDate)) {
-                        Toast.makeText(ZxdlrDetailActivity.this,"请填写订单交货期",Toast.LENGTH_LONG).show();
+                        Toast.makeText(PanDianZxdDetailActivity.this,"请填写订单交货期",Toast.LENGTH_LONG).show();
                         return;
                     }
 
@@ -390,30 +386,30 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
                             String qty = tvQty.getText().toString()==null?"":tvQty.getText().toString();
 
                             if (Kits.Empty.check(soItem)) {
-                                Toast.makeText(ZxdlrDetailActivity.this, "请填写SO Item", Toast.LENGTH_LONG).show();
+                                Toast.makeText(PanDianZxdDetailActivity.this, "请填写SO Item", Toast.LENGTH_LONG).show();
                                 return;
                             }
 
 
                             if (Kits.Empty.check(material)) {
-                                Toast.makeText(ZxdlrDetailActivity.this, "请填写Material", Toast.LENGTH_LONG).show();
+                                Toast.makeText(PanDianZxdDetailActivity.this, "请填写Material", Toast.LENGTH_LONG).show();
                                 return;
                             }
 
 
                             if (Kits.Empty.check(rl)) {
-                                Toast.makeText(ZxdlrDetailActivity.this, "请填写RL", Toast.LENGTH_LONG).show();
+                                Toast.makeText(PanDianZxdDetailActivity.this, "请填写RL", Toast.LENGTH_LONG).show();
                                 return;
                             }
 
                             if (Kits.Empty.check(agl)) {
-                                Toast.makeText(ZxdlrDetailActivity.this, "请填写AGL", Toast.LENGTH_LONG).show();
+                                Toast.makeText(PanDianZxdDetailActivity.this, "请填写AGL", Toast.LENGTH_LONG).show();
                                 return;
                             }
 
 
                             if (Kits.Empty.check(qty)) {
-                                Toast.makeText(ZxdlrDetailActivity.this, "请填写Qty", Toast.LENGTH_LONG).show();
+                                Toast.makeText(PanDianZxdDetailActivity.this, "请填写Qty", Toast.LENGTH_LONG).show();
                                 return;
                             }
 
@@ -445,16 +441,11 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
 
                 }
                 break;
-            case R.id.tv_delete://删除按钮
-                DialogUtil.showBasicDialog(this, "作废提示", "确定作废此条装箱单?", (dialog, confirm) -> {
+            case R.id.tv_delete://盘点按钮
 
-                    if (confirm) {
-                        //退出登录
-//                        loading("正在退出...");
-                        presenter.deleteThis(id);
-                    }
-                    dialog.dismiss();
-                });
+                //盘点
+                presenter.getUP(id);
+
                 break;
             case R.id.tv_zzrq://组装日期
                 if (dialog3 == null)
@@ -723,16 +714,16 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
         if (!Kits.Empty.check(zxdDetailUpdateVO)) {
             if (!Kits.Empty.check(zxdDetailUpdateVO.getSuccess())) {
                 if (zxdDetailUpdateVO.getSuccess().equals("T")) {
-                    Toast.makeText(ZxdlrDetailActivity.this, "修改成功", Toast.LENGTH_LONG).show();
+                    Toast.makeText(PanDianZxdDetailActivity.this, "修改成功", Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(ZxdlrDetailActivity.this, zxdDetailUpdateVO.getMessage(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(PanDianZxdDetailActivity.this, zxdDetailUpdateVO.getMessage(), Toast.LENGTH_LONG).show();
                 }
             } else {
-                Toast.makeText(ZxdlrDetailActivity.this, "修改失败", Toast.LENGTH_LONG).show();
+                Toast.makeText(PanDianZxdDetailActivity.this, "修改失败", Toast.LENGTH_LONG).show();
             }
 
         } else {
-            Toast.makeText(ZxdlrDetailActivity.this, "修改失败", Toast.LENGTH_LONG).show();
+            Toast.makeText(PanDianZxdDetailActivity.this, "修改失败", Toast.LENGTH_LONG).show();
         }
 
     }
@@ -743,18 +734,30 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
         if (!Kits.Empty.check(zxdDetailDeleteVO)) {
             if (!Kits.Empty.check(zxdDetailDeleteVO.getSuccess())) {
                 if (zxdDetailDeleteVO.getSuccess().equals("T")) {
-                    Toast.makeText(ZxdlrDetailActivity.this, "此单已作废", Toast.LENGTH_LONG).show();
+                    Toast.makeText(PanDianZxdDetailActivity.this, "此单已作废", Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(ZxdlrDetailActivity.this, zxdDetailDeleteVO.getMessage(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(PanDianZxdDetailActivity.this, zxdDetailDeleteVO.getMessage(), Toast.LENGTH_LONG).show();
                 }
             } else {
-                Toast.makeText(ZxdlrDetailActivity.this, "操作失败", Toast.LENGTH_LONG).show();
+                Toast.makeText(PanDianZxdDetailActivity.this, "操作失败", Toast.LENGTH_LONG).show();
             }
 
         } else {
-            Toast.makeText(ZxdlrDetailActivity.this, "操作失败", Toast.LENGTH_LONG).show();
+            Toast.makeText(PanDianZxdDetailActivity.this, "操作失败", Toast.LENGTH_LONG).show();
         }
     }
+
+
+    @Override
+    public void pandianSuccess() {
+        Toast.makeText(this,"盘点成功",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void pandianMiss() {
+        Toast.makeText(this,"盘点失败",Toast.LENGTH_SHORT).show();
+    }
+
 
     @Override
     public void showErr(String err) {

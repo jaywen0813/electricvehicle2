@@ -185,6 +185,14 @@ public interface MainService {
     Observable<YiKuVO> updatekwh(@HeaderMap Map<String, String> headerMap,@Body RequestBody requestbody);
 
 
+    //通过库位号查询装箱单
+    @GET
+    Observable<PanDianListVO> getfreelocZXD(@HeaderMap Map<String, String> headerMap,@Url String url);
+
+    //传入装箱单 进行盘点
+    @POST("packings/instore/stock")
+    Observable<PanDianZxdVO> getpandian(@HeaderMap Map<String, String> headerMap, @Body RequestBody requestBody);
+
     //出库时通过SO展示的详情  //2019年10月28日 14:33:59  暂时没有用上，作废了
     @GET
     Observable<ItemDetailOutVO2> getoutPage2(@HeaderMap Map<String, String> headerMap,@Url String url);

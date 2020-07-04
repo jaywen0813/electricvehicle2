@@ -1,4 +1,4 @@
-package com.android.app.electricvehicle.ui.activity;
+package com.android.app.electricvehicle.ui.activity.ruku;
 
 import android.Manifest;
 import android.content.Context;
@@ -27,6 +27,7 @@ import com.android.app.electricvehicle.entity.INDetail_RuKu;
 import com.android.app.electricvehicle.entity.ShowInDetailEntity;
 import com.android.app.electricvehicle.model.main.contract.INContract;
 import com.android.app.electricvehicle.model.main.presenter.INPresenter;
+import com.android.app.electricvehicle.ui.activity.ZxingActivity;
 import com.android.app.electricvehicle.utils.DateTimeWheelDialog;
 import com.android.app.electricvehicle.utils.DialogUtil;
 import com.android.app.electricvehicle.utils.Kits;

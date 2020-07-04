@@ -7,7 +7,7 @@
     android:background="@color/color_f5f5f5"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    tools:context=".ui.activity.INDetailActivity">
+    tools:context=".ui.activity.ruku.INDetailActivity">
 
 
     <RelativeLayout

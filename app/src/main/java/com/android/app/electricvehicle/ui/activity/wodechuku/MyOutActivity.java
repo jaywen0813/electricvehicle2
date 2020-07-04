@@ -1,10 +1,8 @@
-package com.android.app.electricvehicle.ui.activity;
+package com.android.app.electricvehicle.ui.activity.wodechuku;
 
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
@@ -14,20 +12,18 @@ import android.widget.TextView;
 
 import com.android.app.electricvehicle.R;
 import com.android.app.electricvehicle.base.BaseListActivity;
-import com.android.app.electricvehicle.entity.ActivityVO;
-import com.android.app.electricvehicle.entity.MyInVO;
-import com.android.app.electricvehicle.model.main.contract.MYINContract;
-import com.android.app.electricvehicle.model.main.presenter.MyINPresenter;
+import com.android.app.electricvehicle.entity.MyOutVO;
+import com.android.app.electricvehicle.model.main.contract.MYOutContract;
+import com.android.app.electricvehicle.model.main.presenter.MyOutPresenter;
 import com.android.app.electricvehicle.mvp.presenter.BasePresenter;
-import com.android.app.electricvehicle.ui.adapter.MyINListAdapter;
+import com.android.app.electricvehicle.ui.adapter.MyOutListAdapter;
 import com.android.app.electricvehicle.utils.StatusBarUtil;
-import com.android.app.electricvehicle.utils.StatusBarUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyInActivity extends BaseListActivity<MYINContract.View, MyINPresenter> implements MYINContract.View,View.OnClickListener {
+public class MyOutActivity extends BaseListActivity<MYOutContract.View, MyOutPresenter> implements MYOutContract.View,View.OnClickListener {
 
 
     private RelativeLayout titleLayoutRl;
@@ -43,15 +39,13 @@ public class MyInActivity extends BaseListActivity<MYINContract.View, MyINPresen
 
 
 
-    private List<MyInVO.DataBean.DataListBean> activityVOList=new ArrayList<>();
-    MyINPresenter presenter;
+    private List<MyOutVO.DataBean.DataListBean> activityVOList=new ArrayList<>();
+    MyOutPresenter presenter;
     private String pageNum = "1";//分页
-
-
 
     @Override
     protected int getLayoutById() {
-        return R.layout.activity_my_in;
+        return R.layout.activity_my_out;
     }
 
 
@@ -72,8 +66,8 @@ public class MyInActivity extends BaseListActivity<MYINContract.View, MyINPresen
 
         backLayout.setOnClickListener(this);
 
-        tvLayerHead.setText("我的入库单");
-
+        tvLayerHead.setText("我的出库单");
+        //状态栏
         //状态栏
         StatusBarUtil.transparencyBar(this);//设置状态栏全透明
         StatusBarUtil.StatusBarLightMode(this);//设置状态栏黑色文字、图标，
@@ -86,9 +80,9 @@ public class MyInActivity extends BaseListActivity<MYINContract.View, MyINPresen
         super.initDate();
         //假数据
 //        for (int i = 0; i <5 ; i++) {
-//            MyInVO.DataBean.DataListBean ss=new MyInVO.DataBean.DataListBean();
+//            MyOutVO.DataBean.DataListBean ss=new MyOutVO.DataBean.DataListBean();
 //            ss.setId("11");
-//            ss.setDataId("22");
+//            ss.setDataId("222");
 //            activityVOList.add(ss);
 //        }
 
@@ -112,13 +106,13 @@ public class MyInActivity extends BaseListActivity<MYINContract.View, MyINPresen
 
     @Override
     protected BasePresenter getPresenter() {
-        presenter=new MyINPresenter();
+        presenter=new MyOutPresenter();
         return presenter;
     }
 
     @Override
     protected BaseQuickAdapter getRecyclerAdapter() {
-        return new MyINListAdapter(activityVOList,this);
+        return new MyOutListAdapter(activityVOList,this);
     }
 
     @Override
@@ -136,16 +130,15 @@ public class MyInActivity extends BaseListActivity<MYINContract.View, MyINPresen
 
     @Override
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-        Intent intent=new Intent(this,MyINDetailActivity.class);
+        Intent intent=new Intent(this,MyOutDetailActivity.class);
         intent.putExtra("id",activityVOList.get(position).getId());
 //        intent.putExtra("id",activityVOList.get(position).getPackingListId());
-        intent.putExtra("packingCode",activityVOList.get(position).getPackingCode());
         startActivity(intent);
 
     }
 
     @Override
-    public void showSuccess(List<MyInVO.DataBean.DataListBean>   list) {
+    public void showSuccess(List<MyOutVO.DataBean.DataListBean>  list) {
         srlList.setRefreshing(false);
 
         if (list == null || list.size() == 0) {

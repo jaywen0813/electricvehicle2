@@ -38,7 +38,7 @@ public interface PanDianContract {
         void getFreeLoc(String kuwei);
 
         //扫描装箱单标记盘点
-        void  getPandian(String id);
+        void  getPandian(String zxd);
 
     }
 }

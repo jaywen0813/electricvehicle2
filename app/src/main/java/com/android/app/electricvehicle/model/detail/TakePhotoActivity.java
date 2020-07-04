@@ -6,13 +6,11 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -27,7 +25,6 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.android.app.electricvehicle.MainApplication;
 import com.android.app.electricvehicle.R;
 import com.android.app.electricvehicle.base.BaseMvpActivity;
 import com.android.app.electricvehicle.entity.DetailVO;
@@ -41,7 +38,6 @@ import com.android.app.electricvehicle.utils.StatusBarUtils;
 import com.android.app.electricvehicle.utils.T;
 import com.android.app.electricvehicle.utils.UIUtils;
 import com.android.app.electricvehicle.utils.imageloader.ILFactory;
-import com.google.zxing.common.StringUtils;
 import com.jph.takephoto.app.TakePhoto;
 import com.jph.takephoto.app.TakePhotoImpl;
 import com.jph.takephoto.compress.CompressConfig;
@@ -60,8 +56,6 @@ import com.yzq.zxinglibrary.common.Constant;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.SortedMap;
-import java.util.TreeMap;
 
 public class TakePhotoActivity extends BaseMvpActivity<TakePhotoContract.View,TakePhotoPresenter> implements TakePhotoContract.View,View.OnClickListener,TakePhoto.TakeResultListener, InvokeListener {
 

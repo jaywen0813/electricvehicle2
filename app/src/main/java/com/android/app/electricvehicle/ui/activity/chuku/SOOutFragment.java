@@ -1,4 +1,4 @@
-package com.android.app.electricvehicle.ui.fragment;
+package com.android.app.electricvehicle.ui.activity.chuku;
 
 import android.Manifest;
 import android.app.Activity;
@@ -36,8 +36,6 @@ import com.android.app.electricvehicle.entity.OutDetailVO;
 import com.android.app.electricvehicle.entity.OutDetailVO2;
 import com.android.app.electricvehicle.model.main.contract.OUTContractSO2;
 import com.android.app.electricvehicle.model.main.presenter.OUTPresenterSO2;
-import com.android.app.electricvehicle.mvp.presenter.BasePresenter;
-import com.android.app.electricvehicle.ui.activity.OUTDetailActivity;
 import com.android.app.electricvehicle.ui.activity.ZxingActivity;
 import com.android.app.electricvehicle.ui.adapter.SOOutAdapter;
 

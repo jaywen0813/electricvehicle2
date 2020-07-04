@@ -1,40 +1,25 @@
 package com.android.app.electricvehicle.ui.activity;
 
-import android.annotation.SuppressLint;
-import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
-import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.app.electricvehicle.MainApplication;
 import com.android.app.electricvehicle.R;
 import com.android.app.electricvehicle.base.BaseMvpActivity;
 
-import com.android.app.electricvehicle.entity.LoginResultVO2;
 import com.android.app.electricvehicle.entity.LoginResultVO3;
 import com.android.app.electricvehicle.model.login.contract.LoginContract2;
 import com.android.app.electricvehicle.model.login.presenter.LoginPresenter2;
-import com.android.app.electricvehicle.model.setting.LoginAddress;
 import com.android.app.electricvehicle.model.setting.LoginSettingActivity;
-import com.android.app.electricvehicle.utils.ActivityManager;
 import com.android.app.electricvehicle.utils.DialogUtil;
-import com.android.app.electricvehicle.utils.Kits;
-import com.android.app.electricvehicle.utils.PreferenceUtils;
-import com.android.app.electricvehicle.utils.RegisterClientIdUtils;
-
-import com.android.app.electricvehicle.utils.T;
 
 public class Login2Activity extends BaseMvpActivity<LoginContract2.View, LoginPresenter2> implements LoginContract2.View, View.OnClickListener {
 

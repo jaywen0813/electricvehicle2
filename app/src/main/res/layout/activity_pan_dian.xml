@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/color_f5f5f5"
     android:orientation="vertical"
-    tools:context=".ui.activity.PanDianActivity">
+    tools:context=".ui.activity.pandian.PanDianActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"

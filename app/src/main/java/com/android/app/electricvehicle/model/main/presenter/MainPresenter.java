@@ -4,25 +4,13 @@ import android.content.Intent;
 
 
 import com.android.app.electricvehicle.MainApplication;
-import com.android.app.electricvehicle.entity.ActivityVO;
 import com.android.app.electricvehicle.model.main.contract.MianContract;
-import com.android.app.electricvehicle.model.main.repository.MainDataRepository;
 
-import com.android.app.electricvehicle.mvp.model.BaseEntity;
 import com.android.app.electricvehicle.mvp.presenter.BasePresenter;
 
 import com.android.app.electricvehicle.ui.activity.LoginActivity;
 
 import com.android.app.electricvehicle.utils.T;
-
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
-
-
-import java.util.SortedMap;
-import java.util.TreeMap;
 
 /**
  * ================================================

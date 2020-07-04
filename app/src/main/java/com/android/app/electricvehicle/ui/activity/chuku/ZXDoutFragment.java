@@ -1,4 +1,4 @@
-package com.android.app.electricvehicle.ui.fragment;
+package com.android.app.electricvehicle.ui.activity.chuku;
 
 import android.Manifest;
 import android.content.Context;
@@ -29,8 +29,6 @@ import com.android.app.electricvehicle.model.main.contract.OUTContract;
 import com.android.app.electricvehicle.model.main.contract.OUTContract2;
 import com.android.app.electricvehicle.model.main.presenter.OUTPresenter;
 import com.android.app.electricvehicle.model.main.presenter.OUTPresenter2;
-import com.android.app.electricvehicle.ui.activity.OUTDetailActivity;
-import com.android.app.electricvehicle.ui.activity.OUTDetailActivity2;
 import com.android.app.electricvehicle.ui.activity.ZxingActivity;
 import com.android.app.electricvehicle.ui.adapter.ZXDOutAdapter_SoItem;
 import com.android.app.electricvehicle.utils.DateTimeWheelDialog;

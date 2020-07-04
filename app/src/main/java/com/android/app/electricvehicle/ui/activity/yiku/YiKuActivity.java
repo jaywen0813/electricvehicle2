@@ -1,4 +1,4 @@
-package com.android.app.electricvehicle.ui.activity;
+package com.android.app.electricvehicle.ui.activity.yiku;
 
 import android.Manifest;
 import android.content.Context;
@@ -22,6 +22,7 @@ import com.android.app.electricvehicle.base.BaseMvpActivity;
 import com.android.app.electricvehicle.entity.ItemDetailOutVO;
 import com.android.app.electricvehicle.model.main.contract.YiKuContract;
 import com.android.app.electricvehicle.model.main.presenter.YiKuPresenter;
+import com.android.app.electricvehicle.ui.activity.ZxingActivity;
 import com.android.app.electricvehicle.ui.adapter.ZXDOutAdapter_SoItem;
 import com.android.app.electricvehicle.utils.DialogUtil;
 import com.android.app.electricvehicle.utils.EChangeScrollView;
@@ -132,6 +133,7 @@ public class YiKuActivity extends BaseMvpActivity<YiKuContract.View, YiKuPresent
         ll_shanchu=findViewById(R.id.ll_shanchu);
         ll_shanchu2=findViewById(R.id.ll_shanchu2);
 
+        backLayout.setOnClickListener(this);
         llSaomiao.setOnClickListener(this);
         llSaomiao2.setOnClickListener(this);
         tvShoudong.setOnClickListener(this);
@@ -159,6 +161,9 @@ public class YiKuActivity extends BaseMvpActivity<YiKuContract.View, YiKuPresent
     @Override
     public void onClick(View v) {
         switch (v.getId()){
+            case R.id.back_layout:
+                finish();
+                break;
             case R.id.ll_saomiao://扫描单据上的装箱单号
                 type = 1;
                 requestPermissionsCamera();

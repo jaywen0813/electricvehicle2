@@ -1,10 +1,8 @@
-package com.android.app.electricvehicle.ui.activity;
+package com.android.app.electricvehicle.ui.activity.woderuku;
 
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -17,16 +15,12 @@ import com.android.app.electricvehicle.R;
 import com.android.app.electricvehicle.base.BaseMvpActivity;
 import com.android.app.electricvehicle.entity.DeleteInDetailVO;
 import com.android.app.electricvehicle.entity.ItemDetailInVO;
-import com.android.app.electricvehicle.entity.MyInVO;
 import com.android.app.electricvehicle.model.main.contract.MyInDetailContract;
 import com.android.app.electricvehicle.model.main.presenter.MyINDetailPresenter;
-import com.android.app.electricvehicle.mvp.presenter.BasePresenter;
 import com.android.app.electricvehicle.ui.adapter.MyInDetailAdapter_SoItem;
 import com.android.app.electricvehicle.utils.DialogUtil;
 import com.android.app.electricvehicle.utils.Kits;
 import com.android.app.electricvehicle.utils.StatusBarUtil;
-import com.android.app.electricvehicle.utils.StatusBarUtils;
-import com.android.app.electricvehicle.utils.T;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

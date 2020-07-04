@@ -1,4 +1,4 @@
-package com.android.app.electricvehicle.ui.activity;
+package com.android.app.electricvehicle.ui.activity.wodechuku;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -16,9 +16,7 @@ import com.android.app.electricvehicle.base.BaseMvpActivity;
 
 import com.android.app.electricvehicle.entity.DeleteOUTdetailVO;
 import com.android.app.electricvehicle.entity.MyOutDetailVO;
-import com.android.app.electricvehicle.model.main.contract.MyInDetailContract;
 import com.android.app.electricvehicle.model.main.contract.MyOutDetailContract;
-import com.android.app.electricvehicle.model.main.presenter.MyINDetailPresenter;
 import com.android.app.electricvehicle.model.main.presenter.MyOutDetailPresenter;
 import com.android.app.electricvehicle.ui.adapter.MyOutDetailAdapter_SoItem;
 import com.android.app.electricvehicle.utils.DialogUtil;

@@ -32,20 +32,20 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.PanDianActivity"></activity>
-        <activity android:name=".ui.activity.YiKuActivity" />
-        <activity android:name=".ui.activity.OUTDetailActivity2"
+        <activity android:name=".ui.activity.pandian.PanDianActivity"></activity>
+        <activity android:name=".ui.activity.yiku.YiKuActivity" />
+        <activity android:name=".ui.activity.chuku.OUTDetailActivity2"
             android:windowSoftInputMode="adjustPan"
             />
         <activity android:name=".model.setting.LoginSettingActivity" />
-        <activity android:name=".ui.activity.ZxdlrDetailActivity" />
-        <activity android:name=".ui.activity.ZxdLookAndUpdateActivity" />
+        <activity android:name=".ui.activity.ZXDchaxunxiugai.ZxdlrDetailActivity" />
+        <activity android:name=".ui.activity.ZXDchaxunxiugai.ZxdLookAndUpdateActivity" />
         <activity android:name=".ui.activity.ZxdLuRuActivity" />
-        <activity android:name=".ui.activity.MyINDetailActivity" />
-        <activity android:name=".ui.activity.MyOutDetailActivity" />
-        <activity android:name=".ui.activity.MyInActivity" />
-        <activity android:name=".ui.activity.MyOutActivity" />
-        <activity android:name=".ui.activity.INDetailActivity" />
+        <activity android:name=".ui.activity.woderuku.MyINDetailActivity" />
+        <activity android:name=".ui.activity.wodechuku.MyOutDetailActivity" />
+        <activity android:name=".ui.activity.woderuku.MyInActivity" />
+        <activity android:name=".ui.activity.wodechuku.MyOutActivity" />
+        <activity android:name=".ui.activity.ruku.INDetailActivity" />
         <activity android:name=".ui.activity.OUTDetailActivity" />
         <activity android:name=".ui.activity.Main3Activity" />
         <activity android:name=".ui.activity.MainActivity" /> <!-- 个推SDK配置开始 -->
@@ -119,6 +119,7 @@
         <activity android:name=".ui.activity.TakePhotoActivity" />
         <activity android:name=".model.sousuo.SouSuoActivity" />
         <activity android:name=".ui.activity.ZxingActivity" />
+        <activity android:name=".ui.activity.pandian.PanDianZxdDetailActivity"/>
     </application>
 
 </manifest>

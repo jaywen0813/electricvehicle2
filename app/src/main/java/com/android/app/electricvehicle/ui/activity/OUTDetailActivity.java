@@ -24,19 +24,15 @@ import com.android.app.electricvehicle.entity.ItemDetailOutVO2;
 import com.android.app.electricvehicle.entity.OutDetailVO;
 import com.android.app.electricvehicle.model.main.contract.OUTContract;
 import com.android.app.electricvehicle.model.main.presenter.OUTPresenter;
-import com.android.app.electricvehicle.mvp.presenter.BasePresenter;
 import com.android.app.electricvehicle.utils.Kits;
 import com.android.app.electricvehicle.utils.StatusBarUtil;
-import com.android.app.electricvehicle.utils.StatusBarUtils;
-import com.android.app.electricvehicle.utils.T;
 import com.yzq.zxinglibrary.bean.ZxingConfig;
 import com.yzq.zxinglibrary.common.Constant;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-//出库
+//出库  此页面已作废 2020年7月4日 21:23:02
 public class OUTDetailActivity extends BaseMvpActivity<OUTContract.View, OUTPresenter> implements OUTContract.View, View.OnClickListener {
 
     private RelativeLayout titleLayoutRl;

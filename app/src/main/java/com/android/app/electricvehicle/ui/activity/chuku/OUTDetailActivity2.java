@@ -1,4 +1,4 @@
-package com.android.app.electricvehicle.ui.activity;
+package com.android.app.electricvehicle.ui.activity.chuku;
 
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
@@ -11,8 +11,6 @@ import android.widget.TextView;
 import com.android.app.electricvehicle.R;
 import com.android.app.electricvehicle.base.BaseActivity;
 import com.android.app.electricvehicle.ui.adapter.TuiJianPagerAdapter;
-import com.android.app.electricvehicle.ui.fragment.ZXDoutFragment;
-import com.android.app.electricvehicle.ui.fragment.SOOutFragment;
 
 import java.util.ArrayList;
 

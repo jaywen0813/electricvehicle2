@@ -15,6 +15,7 @@ import com.android.app.electricvehicle.model.login.presenter.LoginPresenter;
 import com.android.app.electricvehicle.utils.Kits;
 import com.android.app.electricvehicle.utils.RegisterClientIdUtils;
 
+//此页面已作废 2020年7月4日 21:19:18
 public class LoginActivity extends BaseMvpActivity<LoginContract.View, LoginPresenter> implements LoginContract.View, View.OnClickListener {
 
     private EditText etUserName, etPassword;

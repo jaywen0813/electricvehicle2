@@ -29,6 +29,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
+//此页面已经作废  2020年7月4日 21:14:39
 public class Main2Activity extends BaseListActivity<MianContract2.View,MainPresenter2> implements MianContract2.View,View.OnClickListener {
 
 
@@ -302,7 +303,7 @@ public class Main2Activity extends BaseListActivity<MianContract2.View,MainPrese
 
     @Override
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-        Intent intent=new Intent(this,TakePhotoActivity.class);
+        Intent intent=new Intent(this, TakePhotoActivity.class);
         intent.putExtra("id",activityVOList.get(position).getId());
         startActivity(intent);
     }

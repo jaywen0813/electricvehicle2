@@ -1,19 +1,13 @@
 package com.android.app.electricvehicle.ui.activity;
 
-import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.os.Build;
-import android.support.annotation.NonNull;
 import android.support.v4.app.ActionBarDrawerToggle;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -25,22 +19,22 @@ import android.widget.TextView;
 import com.android.app.electricvehicle.MainApplication;
 import com.android.app.electricvehicle.R;
 import com.android.app.electricvehicle.base.BaseMvpActivity;
-import com.android.app.electricvehicle.entity.ActivityVO;
 import com.android.app.electricvehicle.model.main.contract.MianContract3;
 import com.android.app.electricvehicle.model.main.presenter.MainPresenter3;
-import com.android.app.electricvehicle.mvp.presenter.BasePresenter;
+import com.android.app.electricvehicle.ui.activity.ZXDchaxunxiugai.ZxdLookAndUpdateActivity;
+import com.android.app.electricvehicle.ui.activity.chuku.OUTDetailActivity2;
+import com.android.app.electricvehicle.ui.activity.pandian.PanDianActivity;
+import com.android.app.electricvehicle.ui.activity.ruku.INDetailActivity;
+import com.android.app.electricvehicle.ui.activity.wodechuku.MyOutActivity;
+import com.android.app.electricvehicle.ui.activity.woderuku.MyInActivity;
+import com.android.app.electricvehicle.ui.activity.yiku.YiKuActivity;
 import com.android.app.electricvehicle.utils.DialogUtil;
 import com.android.app.electricvehicle.utils.ImageFilter;
 import com.android.app.electricvehicle.utils.PreferenceUtils;
 import com.android.app.electricvehicle.utils.StatusBarUtils;
 import com.android.app.electricvehicle.utils.T;
-import com.jph.takephoto.permission.PermissionManager;
-import com.yzq.zxinglibrary.bean.ZxingConfig;
-import com.yzq.zxinglibrary.common.Constant;
 
-import java.util.ArrayList;
-import java.util.List;
-
+//首页
 public class Main3Activity extends BaseMvpActivity<MianContract3.View, MainPresenter3> implements MianContract3.View,View.OnClickListener {
 
     private RelativeLayout titleLayoutRl;
@@ -100,23 +94,23 @@ public class Main3Activity extends BaseMvpActivity<MianContract3.View, MainPrese
                 openLeftLayout(img_menu);
                 break;
             case R.id.ll_wuliu1://入库操作
-                Intent intent=new Intent(this,INDetailActivity.class);
+                Intent intent=new Intent(this, INDetailActivity.class);
                 startActivity(intent);
                 break;
             case R.id.ll_wuliu2://出库操作
-                Intent intent1=new Intent(this,OUTDetailActivity2.class);
+                Intent intent1=new Intent(this, OUTDetailActivity2.class);
                 startActivity(intent1);
                 break;
             case R.id.ll_yiku://移库
-                Intent intent6=new Intent(this,YiKuActivity.class);
+                Intent intent6=new Intent(this, YiKuActivity.class);
                 startActivity(intent6);
                 break;
             case R.id.ll_pandian://盘点
-                Intent intent7=new Intent(this,PanDianActivity.class);
+                Intent intent7=new Intent(this, PanDianActivity.class);
                 startActivity(intent7);
                 break;
             case R.id.ll_zxdlr://装箱单录入
-                Intent intent4=new Intent(this,ZxdLuRuActivity.class);
+                Intent intent4=new Intent(this, ZxdLuRuActivity.class);
                 startActivity(intent4);
                 break;
             case R.id.ll_tuichu://退出帐号
@@ -131,15 +125,15 @@ public class Main3Activity extends BaseMvpActivity<MianContract3.View, MainPrese
                 });
                 break;
             case R.id.ll_myruku://我的入库
-               Intent intent2=new Intent(this,MyInActivity.class);
+               Intent intent2=new Intent(this, MyInActivity.class);
                startActivity(intent2);
                 break;
             case R.id.ll_mychuku://我的出库
-                Intent intent3=new Intent(this,MyOutActivity.class);
+                Intent intent3=new Intent(this, MyOutActivity.class);
                 startActivity(intent3);
                 break;
             case R.id.ll_look_update_zxd://装箱单的查询和修改
-                Intent intent5=new Intent(this,ZxdLookAndUpdateActivity.class);
+                Intent intent5=new Intent(this, ZxdLookAndUpdateActivity.class);
                 startActivity(intent5);
                 break;
         }
