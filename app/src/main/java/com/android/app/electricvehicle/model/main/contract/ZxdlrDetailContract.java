@@ -1,7 +1,8 @@
 package com.android.app.electricvehicle.model.main.contract;
 
 
-import com.android.app.electricvehicle.entity.PackingListItem;
+import com.android.app.electricvehicle.entity.PackingItem;
+
 import com.android.app.electricvehicle.entity.ZxdDetailDeleteVO;
 import com.android.app.electricvehicle.entity.ZxdDetailUpdateVO;
 import com.android.app.electricvehicle.entity.ZxdlrDetailVO;
@@ -43,7 +44,7 @@ public interface ZxdlrDetailContract {
         void getUP(String id);
         //修改
         void update(String id, String madeTime, String packingMaterial, String rankNum, String totalNum, String packLength, String packwidth,
-                    String packHeight, String netWeight, String roughWeight, List<PackingListItem> packingListItem,String salesOrder,String comments,String installTime,String deliveryDate);
+                    String packHeight, String netWeight, String roughWeight, List<PackingItem> packingItem, String salesOrder, String comments, String installTime, String deliveryDate);
 
 
         //删除

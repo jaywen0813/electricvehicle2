@@ -26,7 +26,7 @@ public class SOOutAdapter extends BaseAdapter {
     private Context context;
     private List<OutDetailVO2.DataBean> list;
 
-//    private List<OutDetailVO2.DataBean.PackingListBean.PackingListItemsBean> list_item=new ArrayList<>();//SOitem的列表
+//    private List<OutDetailVO2.DataBean.PackingBean.PackingItemsBean> list_item=new ArrayList<>();//SOitem的列表
 //    SOOutAdapter_SoItem adapter_soItem;
 
 
@@ -81,11 +81,11 @@ public class SOOutAdapter extends BaseAdapter {
 //        adapter_soItem=new SOOutAdapter_SoItem(context,list_item);
 //        viewHolder.lv.setAdapter(adapter_soItem);
 //
-//        if (!Kits.Empty.check(item.getPackingList().getPackingListItems())){
+//        if (!Kits.Empty.check(item.getPacking().getPackingItems())){
 //
-//            if  (item.getPackingList().getPackingListItems().size()>0){
+//            if  (item.getPacking().getPackingItems().size()>0){
 //                list_item.clear();
-//                list_item.addAll(item.getPackingList().getPackingListItems());
+//                list_item.addAll(item.getPacking().getPackingItems());
 //                adapter_soItem.notifyDataSetChanged();
 //            }
 //        }
@@ -94,11 +94,11 @@ public class SOOutAdapter extends BaseAdapter {
             viewHolder.tv_kwh.setText(item.getFreeLoc());
         }
 
-        if (!Kits.Empty.check(item.getPackingList().getPackingListItems())){
-            if (!Kits.Empty.check(item.getPackingList().getPackingListItems().size()>0)){
+        if (!Kits.Empty.check(item.getPacking().getPackingItems())){
+            if (!Kits.Empty.check(item.getPacking().getPackingItems().size()>0)){
                 //SOItem
-                if (!Kits.Empty.check(item.getPackingList().getPackingListItems().get(0).getSoItem())){
-                    viewHolder.tv_soItem.setText(item.getPackingList().getPackingListItems().get(0).getSoItem());
+                if (!Kits.Empty.check(item.getPacking().getPackingItems().get(0).getSoItem())){
+                    viewHolder.tv_soItem.setText(item.getPacking().getPackingItems().get(0).getSoItem());
                 }
             }
         }
@@ -106,9 +106,9 @@ public class SOOutAdapter extends BaseAdapter {
 
 
         //日期
-        if (!Kits.Empty.check(item.getPackingList().getMadeTime())){
+        if (!Kits.Empty.check(item.getPacking().getMadeTime())){
 
-            long itime= Long.parseLong(item.getPackingList().getMadeTime());
+            long itime= Long.parseLong(item.getPacking().getMadeTime());
 
             SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); //设置格式
             String timeText=format.format(itime);
@@ -116,46 +116,46 @@ public class SOOutAdapter extends BaseAdapter {
         }
 
         //装箱单号
-        if (!Kits.Empty.check(item.getPackingList().getPackingCode())) {
-            viewHolder.tvNumber.setText(item.getPackingList().getPackingCode());
+        if (!Kits.Empty.check(item.getPacking().getPackingCode())) {
+            viewHolder.tvNumber.setText(item.getPacking().getPackingCode());
         }
 
 
 //        //第几箱
-//        if (!Kits.Empty.check(item.getPackingList().getRankNum())) {
-//            viewHolder.tvDjx.setText("第  "+item.getPackingList().getRankNum()+"  箱");
+//        if (!Kits.Empty.check(item.getPacking().getRankNum())) {
+//            viewHolder.tvDjx.setText("第  "+item.getPacking().getRankNum()+"  箱");
 //        }
 //
 //        //共几箱
-//        if (!Kits.Empty.check(item.getPackingList().getTotalNum())) {
-//            viewHolder.tvGjx.setText("共  "+item.getPackingList().getTotalNum()+"  箱");
+//        if (!Kits.Empty.check(item.getPacking().getTotalNum())) {
+//            viewHolder.tvGjx.setText("共  "+item.getPacking().getTotalNum()+"  箱");
 //        }
 //
 //        //长
-//        if (!Kits.Empty.check(item.getPackingList().getPackLength())) {
-//            viewHolder.tvChang.setText("长："+item.getPackingList().getPackLength());
+//        if (!Kits.Empty.check(item.getPacking().getPackLength())) {
+//            viewHolder.tvChang.setText("长："+item.getPacking().getPackLength());
 //        }
 //        //宽
-//        if (!Kits.Empty.check(item.getPackingList().getPackwidth())) {
-//            viewHolder.tvKuan.setText("宽："+item.getPackingList().getPackwidth());
+//        if (!Kits.Empty.check(item.getPacking().getPackwidth())) {
+//            viewHolder.tvKuan.setText("宽："+item.getPacking().getPackwidth());
 //        }
 //        //高
-//        if (!Kits.Empty.check(item.getPackingList().getPackHeight())) {
-//            viewHolder.tvGao.setText("高:"+item.getPackingList().getPackHeight());
+//        if (!Kits.Empty.check(item.getPacking().getPackHeight())) {
+//            viewHolder.tvGao.setText("高:"+item.getPacking().getPackHeight());
 //        }
 //        //净重
-//        if (!Kits.Empty.check(item.getPackingList().getNetWeight())) {
-//            viewHolder.tvJingzhong.setText("净重："+item.getPackingList().getNetWeight());
+//        if (!Kits.Empty.check(item.getPacking().getNetWeight())) {
+//            viewHolder.tvJingzhong.setText("净重："+item.getPacking().getNetWeight());
 //        }
 //        //毛重
-//        if (!Kits.Empty.check(item.getPackingList().getRoughWeight())) {
-//            viewHolder.tvMaozhong.setText("毛重："+item.getPackingList().getRoughWeight());
+//        if (!Kits.Empty.check(item.getPacking().getRoughWeight())) {
+//            viewHolder.tvMaozhong.setText("毛重："+item.getPacking().getRoughWeight());
 //        }
 
 
         //状态(0暂存  1待入库  2已入库  3已出库)
-//        if (!Kits.Empty.check(item.getPackingList().getStoreState())) {
-//            switch (item.getPackingList().getStoreState()){
+//        if (!Kits.Empty.check(item.getPacking().getStoreState())) {
+//            switch (item.getPacking().getStoreState()){
 //                case "0":
 //                    viewHolder.tvZhuangtai.setText("状态：暂存");
 //                    viewHolder.tvZhuangtai.setTextColor(context.getResources().getColor(R.color.color_3d3d3d));
@@ -197,48 +197,48 @@ public class SOOutAdapter extends BaseAdapter {
 
 
         //单据归档 0否  1是
-//        if (!Kits.Empty.check(item.getPackingList().getBillArchived())) {
-//            if (item.getPackingList().getBillArchived().equals("0")){
+//        if (!Kits.Empty.check(item.getPacking().getBillArchived())) {
+//            if (item.getPacking().getBillArchived().equals("0")){
 //                viewHolder.tvDjgd.setText("单据归档：否");
-//            }else if (item.getPackingList().getBillArchived().equals("1")){
+//            }else if (item.getPacking().getBillArchived().equals("1")){
 //                viewHolder.tvDjgd.setText("单据归档：是");
 //            }
 //
 //        }
 
         //单据打印
-        if (!Kits.Empty.check(item.getPackingList().getBillPrint())) {
-            if (item.getPackingList().getBillPrint().equals("0")){
+        if (!Kits.Empty.check(item.getPacking().getBillPrint())) {
+            if (item.getPacking().getBillPrint().equals("0")){
                 viewHolder.tvDjdy.setText("单据打印：未打印");
-            }else if (item.getPackingList().getBillPrint().equals("1")){
+            }else if (item.getPacking().getBillPrint().equals("1")){
                 viewHolder.tvDjdy.setText("单据打印：已打印");
-            }else if (item.getPackingList().getBillPrint().equals("2")){
+            }else if (item.getPacking().getBillPrint().equals("2")){
                 viewHolder.tvDjdy.setText("单据打印：补打");
             }
 
         }
         //打印次数
-//        if (!Kits.Empty.check(item.getPackingList().getPrintTimes())) {
-//            viewHolder.tvDycs.setText("打印次数："+item.getPackingList().getPrintTimes()+"次");
+//        if (!Kits.Empty.check(item.getPacking().getPrintTimes())) {
+//            viewHolder.tvDycs.setText("打印次数："+item.getPacking().getPrintTimes()+"次");
 //        }
 
 
 
         //Sales order
-        if (!Kits.Empty.check(item.getPackingList().getSalesOrder())) {
-            viewHolder.tvOrder.setText(item.getPackingList().getSalesOrder());
+        if (!Kits.Empty.check(item.getPacking().getSalesOrder())) {
+            viewHolder.tvOrder.setText(item.getPacking().getSalesOrder());
         }
 
 
         //comments
-//        if (!Kits.Empty.check(item.getPackingList().getComments())) {
-//            viewHolder.tvComments.setText(item.getPackingList().getComments());
+//        if (!Kits.Empty.check(item.getPacking().getComments())) {
+//            viewHolder.tvComments.setText(item.getPacking().getComments());
 //        }
 
         //组装日期
-//        if (!Kits.Empty.check(item.getPackingList().getInstallTime())) {
+//        if (!Kits.Empty.check(item.getPacking().getInstallTime())) {
 //
-//            long itimes= Long.parseLong(item.getPackingList().getInstallTime());
+//            long itimes= Long.parseLong(item.getPacking().getInstallTime());
 //
 //            SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd"); //设置格式
 //            String timeText=format.format(itimes);
@@ -248,9 +248,9 @@ public class SOOutAdapter extends BaseAdapter {
 //        }
 
         //订单交货期
-        if (!Kits.Empty.check(item.getPackingList().getDeliveryDate())) {
+        if (!Kits.Empty.check(item.getPacking().getDeliveryDate())) {
 
-            long itimess= Long.parseLong(item.getPackingList().getDeliveryDate());
+            long itimess= Long.parseLong(item.getPacking().getDeliveryDate());
 
             SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd"); //设置格式
             String timeText=format.format(itimess);

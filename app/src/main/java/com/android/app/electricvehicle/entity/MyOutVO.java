@@ -14,7 +14,7 @@ public class MyOutVO implements Serializable {
      * method : null
      * uri : null
      * timestamp : 1570797645339
-     * data : {"pageNo":1,"pageSize":2,"pageCount":2,"totalCount":4,"beginPageIndex":1,"endPageIndex":2,"dataList":[{"id":"6df0e3ccea9411e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625883104,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625883104,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","outstoreCode":"1181916734454632448","storehouseId":"45933d9fe07511e992930242ac110012","storehouseName":"T00012B00001","freeLoc":"AAA-02-014","packingListId":"7eb0e96bea9211e992930242ac110012","packingCode":"1181913249818480640","remark":"","packingList":{"id":"7eb0e96bea9211e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625052301,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625052301,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","packingCode":"1181913249818480640","workCode":"55896849","madeTime":1569501298656,"packingMaterial":1,"rankNum":1,"totalNum":1,"packLength":500,"packwidth":500,"packHeight":500,"netWeight":5000,"roughWeight":5200,"storeState":0,"billArchived":0,"billPrint":0,"printTimes":0,"remark":"","packingListItems":[{"id":"7eb760afea9211e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625052353,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625052353,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"7eb0e96bea9211e992930242ac110012","soItem":"100","material":"RD-89VHJ4A5PF","rl":100,"agl":200,"qty":300,"wtpc":0,"totalWeight":0,"enable":true}],"enable":true,"storeStateText":"暂存","billArchivedText":"未归档","billPrintText":"未打印"},"enable":true},{"id":"6c737657ea6011e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570603546715,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570603546715,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","outstoreCode":"20191001001","storehouseId":"55838525","storehouseName":"500","freeLoc":"AAA-02-002","packingListId":"20191001001","packingCode":"","remark":"","packingList":null,"enable":true}],"countResultMap":null,"draw":1,"recordsTotal":4,"recordsFiltered":4,"nextPageNo":2}
+     * data : {"pageNo":1,"pageSize":2,"pageCount":2,"totalCount":4,"beginPageIndex":1,"endPageIndex":2,"dataList":[{"id":"6df0e3ccea9411e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625883104,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625883104,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","outstoreCode":"1181916734454632448","storehouseId":"45933d9fe07511e992930242ac110012","storehouseName":"T00012B00001","freeLoc":"AAA-02-014","PackingId":"7eb0e96bea9211e992930242ac110012","packingCode":"1181913249818480640","remark":"","Packing":{"id":"7eb0e96bea9211e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625052301,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625052301,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","packingCode":"1181913249818480640","workCode":"55896849","madeTime":1569501298656,"packingMaterial":1,"rankNum":1,"totalNum":1,"packLength":500,"packwidth":500,"packHeight":500,"netWeight":5000,"roughWeight":5200,"storeState":0,"billArchived":0,"billPrint":0,"printTimes":0,"remark":"","PackingItems":[{"id":"7eb760afea9211e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625052353,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625052353,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"7eb0e96bea9211e992930242ac110012","soItem":"100","material":"RD-89VHJ4A5PF","rl":100,"agl":200,"qty":300,"wtpc":0,"totalWeight":0,"enable":true}],"enable":true,"storeStateText":"暂存","billArchivedText":"未归档","billPrintText":"未打印"},"enable":true},{"id":"6c737657ea6011e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570603546715,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570603546715,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","outstoreCode":"20191001001","storehouseId":"55838525","storehouseName":"500","freeLoc":"AAA-02-002","PackingId":"20191001001","packingCode":"","remark":"","Packing":null,"enable":true}],"countResultMap":null,"draw":1,"recordsTotal":4,"recordsFiltered":4,"nextPageNo":2}
      * args : null
      * moreinfo : null
      * detail : null
@@ -148,7 +148,7 @@ public class MyOutVO implements Serializable {
          * totalCount : 4
          * beginPageIndex : 1
          * endPageIndex : 2
-         * dataList : [{"id":"6df0e3ccea9411e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625883104,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625883104,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","outstoreCode":"1181916734454632448","storehouseId":"45933d9fe07511e992930242ac110012","storehouseName":"T00012B00001","freeLoc":"AAA-02-014","packingListId":"7eb0e96bea9211e992930242ac110012","packingCode":"1181913249818480640","remark":"","packingList":{"id":"7eb0e96bea9211e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625052301,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625052301,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","packingCode":"1181913249818480640","workCode":"55896849","madeTime":1569501298656,"packingMaterial":1,"rankNum":1,"totalNum":1,"packLength":500,"packwidth":500,"packHeight":500,"netWeight":5000,"roughWeight":5200,"storeState":0,"billArchived":0,"billPrint":0,"printTimes":0,"remark":"","packingListItems":[{"id":"7eb760afea9211e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625052353,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625052353,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"7eb0e96bea9211e992930242ac110012","soItem":"100","material":"RD-89VHJ4A5PF","rl":100,"agl":200,"qty":300,"wtpc":0,"totalWeight":0,"enable":true}],"enable":true,"storeStateText":"暂存","billArchivedText":"未归档","billPrintText":"未打印"},"enable":true},{"id":"6c737657ea6011e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570603546715,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570603546715,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","outstoreCode":"20191001001","storehouseId":"55838525","storehouseName":"500","freeLoc":"AAA-02-002","packingListId":"20191001001","packingCode":"","remark":"","packingList":null,"enable":true}]
+         * dataList : [{"id":"6df0e3ccea9411e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625883104,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625883104,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","outstoreCode":"1181916734454632448","storehouseId":"45933d9fe07511e992930242ac110012","storehouseName":"T00012B00001","freeLoc":"AAA-02-014","PackingId":"7eb0e96bea9211e992930242ac110012","packingCode":"1181913249818480640","remark":"","Packing":{"id":"7eb0e96bea9211e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625052301,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625052301,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","packingCode":"1181913249818480640","workCode":"55896849","madeTime":1569501298656,"packingMaterial":1,"rankNum":1,"totalNum":1,"packLength":500,"packwidth":500,"packHeight":500,"netWeight":5000,"roughWeight":5200,"storeState":0,"billArchived":0,"billPrint":0,"printTimes":0,"remark":"","PackingItems":[{"id":"7eb760afea9211e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625052353,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625052353,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"7eb0e96bea9211e992930242ac110012","soItem":"100","material":"RD-89VHJ4A5PF","rl":100,"agl":200,"qty":300,"wtpc":0,"totalWeight":0,"enable":true}],"enable":true,"storeStateText":"暂存","billArchivedText":"未归档","billPrintText":"未打印"},"enable":true},{"id":"6c737657ea6011e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570603546715,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570603546715,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","outstoreCode":"20191001001","storehouseId":"55838525","storehouseName":"500","freeLoc":"AAA-02-002","PackingId":"20191001001","packingCode":"","remark":"","Packing":null,"enable":true}]
          * countResultMap : null
          * draw : 1
          * recordsTotal : 4
@@ -286,10 +286,10 @@ public class MyOutVO implements Serializable {
              * storehouseId : 45933d9fe07511e992930242ac110012
              * storehouseName : T00012B00001
              * freeLoc : AAA-02-014
-             * packingListId : 7eb0e96bea9211e992930242ac110012
+             * PackingId : 7eb0e96bea9211e992930242ac110012
              * packingCode : 1181913249818480640
              * remark : 
-             * packingList : {"id":"7eb0e96bea9211e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625052301,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625052301,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","packingCode":"1181913249818480640","workCode":"55896849","madeTime":1569501298656,"packingMaterial":1,"rankNum":1,"totalNum":1,"packLength":500,"packwidth":500,"packHeight":500,"netWeight":5000,"roughWeight":5200,"storeState":0,"billArchived":0,"billPrint":0,"printTimes":0,"remark":"","packingListItems":[{"id":"7eb760afea9211e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625052353,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625052353,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"7eb0e96bea9211e992930242ac110012","soItem":"100","material":"RD-89VHJ4A5PF","rl":100,"agl":200,"qty":300,"wtpc":0,"totalWeight":0,"enable":true}],"enable":true,"storeStateText":"暂存","billArchivedText":"未归档","billPrintText":"未打印"}
+             * Packing : {"id":"7eb0e96bea9211e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625052301,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625052301,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","packingCode":"1181913249818480640","workCode":"55896849","madeTime":1569501298656,"packingMaterial":1,"rankNum":1,"totalNum":1,"packLength":500,"packwidth":500,"packHeight":500,"netWeight":5000,"roughWeight":5200,"storeState":0,"billArchived":0,"billPrint":0,"printTimes":0,"remark":"","PackingItems":[{"id":"7eb760afea9211e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625052353,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625052353,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"7eb0e96bea9211e992930242ac110012","soItem":"100","material":"RD-89VHJ4A5PF","rl":100,"agl":200,"qty":300,"wtpc":0,"totalWeight":0,"enable":true}],"enable":true,"storeStateText":"暂存","billArchivedText":"未归档","billPrintText":"未打印"}
              * enable : true
              */
 
@@ -312,10 +312,10 @@ public class MyOutVO implements Serializable {
             private String storehouseId;
             private String storehouseName;
             private String freeLoc;
-            private String packingListId;
+            private String PackingId;
             private String packingCode;
             private String remark;
-            private PackingListBean packingList;
+            private PackingBean Packing;
             private boolean enable;
 
             public String getId() {
@@ -470,12 +470,12 @@ public class MyOutVO implements Serializable {
                 this.freeLoc = freeLoc;
             }
 
-            public String getPackingListId() {
-                return packingListId;
+            public String getPackingId() {
+                return PackingId;
             }
 
-            public void setPackingListId(String packingListId) {
-                this.packingListId = packingListId;
+            public void setPackingId(String PackingId) {
+                this.PackingId = PackingId;
             }
 
             public String getPackingCode() {
@@ -494,12 +494,12 @@ public class MyOutVO implements Serializable {
                 this.remark = remark;
             }
 
-            public PackingListBean getPackingList() {
-                return packingList;
+            public PackingBean getPacking() {
+                return Packing;
             }
 
-            public void setPackingList(PackingListBean packingList) {
-                this.packingList = packingList;
+            public void setPacking(PackingBean Packing) {
+                this.Packing = Packing;
             }
 
             public boolean isEnable() {
@@ -510,7 +510,7 @@ public class MyOutVO implements Serializable {
                 this.enable = enable;
             }
 
-            public static class PackingListBean {
+            public static class PackingBean {
                 /**
                  * id : 7eb0e96bea9211e992930242ac110012
                  * tokenId : null
@@ -543,7 +543,7 @@ public class MyOutVO implements Serializable {
                  * billPrint : 0
                  * printTimes : 0
                  * remark : 
-                 * packingListItems : [{"id":"7eb760afea9211e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625052353,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625052353,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"7eb0e96bea9211e992930242ac110012","soItem":"100","material":"RD-89VHJ4A5PF","rl":100,"agl":200,"qty":300,"wtpc":0,"totalWeight":0,"enable":true}]
+                 * PackingItems : [{"id":"7eb760afea9211e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570625052353,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570625052353,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"7eb0e96bea9211e992930242ac110012","soItem":"100","material":"RD-89VHJ4A5PF","rl":100,"agl":200,"qty":300,"wtpc":0,"totalWeight":0,"enable":true}]
                  * enable : true
                  * storeStateText : 暂存
                  * billArchivedText : 未归档
@@ -585,7 +585,7 @@ public class MyOutVO implements Serializable {
                 private String storeStateText;
                 private String billArchivedText;
                 private String billPrintText;
-                private List<PackingListItemsBean> packingListItems;
+                private List<PackingItemsBean> PackingItems;
 
                 public String getId() {
                     return id;
@@ -867,15 +867,15 @@ public class MyOutVO implements Serializable {
                     this.billPrintText = billPrintText;
                 }
 
-                public List<PackingListItemsBean> getPackingListItems() {
-                    return packingListItems;
+                public List<PackingItemsBean> getPackingItems() {
+                    return PackingItems;
                 }
 
-                public void setPackingListItems(List<PackingListItemsBean> packingListItems) {
-                    this.packingListItems = packingListItems;
+                public void setPackingItems(List<PackingItemsBean> PackingItems) {
+                    this.PackingItems = PackingItems;
                 }
 
-                public static class PackingListItemsBean {
+                public static class PackingItemsBean {
                     /**
                      * id : 7eb760afea9211e992930242ac110012
                      * tokenId : null

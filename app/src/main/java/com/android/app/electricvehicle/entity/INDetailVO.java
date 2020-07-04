@@ -11,7 +11,7 @@ public class INDetailVO {
      * method : null
      * uri : null
      * timestamp : 1570592197374
-     * data : {"id":"ff97a8e7ea4511e992930242ac110012","tokenId":"MSag69rfZLhGipIcPC81jtccjhroIsVsW9AlcudW766j8T8QQTAfGWGERrecNxNs","version":null,"locked":null,"lastAccess":1570592197315,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570592197315,"updaterId":null,"updatedBy":null,"dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","instoreCode":"20191001001","storehouseId":"55838525","storehouseName":"500","freeLoc":"AAA-02-002","packingListId":"500","instoreState":1,"remark":null,"enable":true}
+     * data : {"id":"ff97a8e7ea4511e992930242ac110012","tokenId":"MSag69rfZLhGipIcPC81jtccjhroIsVsW9AlcudW766j8T8QQTAfGWGERrecNxNs","version":null,"locked":null,"lastAccess":1570592197315,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570592197315,"updaterId":null,"updatedBy":null,"dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","instoreCode":"20191001001","storehouseId":"55838525","storehouseName":"500","freeLoc":"AAA-02-002","PackingId":"500","instoreState":1,"remark":null,"enable":true}
      * args : null
      * moreinfo : null
      * detail : null
@@ -158,7 +158,7 @@ public class INDetailVO {
          * storehouseId : 55838525
          * storehouseName : 500
          * freeLoc : AAA-02-002
-         * packingListId : 500
+         * PackingId : 500
          * instoreState : 1
          * remark : null
          * enable : true
@@ -183,7 +183,7 @@ public class INDetailVO {
         private String storehouseId;
         private String storehouseName;
         private String freeLoc;
-        private String packingListId;
+        private String PackingId;
         private int instoreState;
         private String remark;
         private boolean enable;
@@ -340,12 +340,12 @@ public class INDetailVO {
             this.freeLoc = freeLoc;
         }
 
-        public String getPackingListId() {
-            return packingListId;
+        public String getPackingId() {
+            return PackingId;
         }
 
-        public void setPackingListId(String packingListId) {
-            this.packingListId = packingListId;
+        public void setPackingId(String PackingId) {
+            this.PackingId = PackingId;
         }
 
         public int getInstoreState() {

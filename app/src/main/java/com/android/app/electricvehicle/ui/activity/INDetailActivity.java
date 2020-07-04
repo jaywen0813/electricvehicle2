@@ -105,7 +105,7 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
     EditText tvQty ;
 
     private int childCount = 0;//用来记录点击了几次添加下面的条目
-    List<INDetail_RuKu.PackingListBean.PackingListItemsBean> packingListItem=new ArrayList<>();
+    List<INDetail_RuKu.PackingBean.PackingItemsBean> PackingItem=new ArrayList<>();
 
 
     @Override
@@ -247,7 +247,7 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
 //                    String deliveryDate=sjc2; //订单交货期
 
 
-                    INDetail_RuKu.PackingListBean inDetail_ruKu=new INDetail_RuKu.PackingListBean();
+                    INDetail_RuKu.PackingBean inDetail_ruKu=new INDetail_RuKu.PackingBean();
 
 
                     inDetail_ruKu.setWorkCode(workCode);
@@ -266,10 +266,10 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
                     inDetail_ruKu.setDeliveryDate(deliveryDate);
 
 
-                    packingListItem.clear();//清一遍数据
+                    PackingItem.clear();//清一遍数据
 
 
-                    INDetail_RuKu.PackingListBean.PackingListItemsBean plist=new INDetail_RuKu.PackingListBean.PackingListItemsBean();
+                    INDetail_RuKu.PackingBean.PackingItemsBean plist=new INDetail_RuKu.PackingBean.PackingItemsBean();
 
 
                     for (int i = 0; i <childCount+1 ; i++) {//这里加1，因为一开始默认添加了一条
@@ -329,11 +329,11 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
                         plist.setQty(qty);
 
 
-                        packingListItem.add(plist);
+                        PackingItem.add(plist);
 
                     }
 
-                    inDetail_ruKu.setPackingListItems(packingListItem);
+                    inDetail_ruKu.setPackingItems(PackingItem);
 
                     inPresenter.getUP2(instoreCode,freeLoc,inDetail_ruKu);
 
@@ -397,8 +397,8 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
 
                 }
 
-                if (packingListItem!=null || packingListItem.size()>0){//清除数据
-                    packingListItem.clear();
+                if (PackingItem!=null || PackingItem.size()>0){//清除数据
+                    PackingItem.clear();
                 }
 
 
@@ -433,8 +433,8 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
                     }
 
                     childCount=0; //并且归零
-                    if (packingListItem!=null || packingListItem.size()>0){//清除数据
-                        packingListItem.clear();
+                    if (PackingItem!=null || PackingItem.size()>0){//清除数据
+                        PackingItem.clear();
                     }
                 }
 
@@ -895,27 +895,27 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
                        tvQty = view2.findViewById(R.id.tv_qty);
 
                        //下面列表
-                       if (!Kits.Empty.check(result.getData().getDataList().get(0).getPackingListItems()) && result.getData().getDataList().get(0).getPackingListItems().size()>0 ){
+                       if (!Kits.Empty.check(result.getData().getDataList().get(0).getPackingItems()) && result.getData().getDataList().get(0).getPackingItems().size()>0 ){
 
 
-                           if (!Kits.Empty.check(result.getData().getDataList().get(0).getPackingListItems().get(0).getSoItem())){
-                               tvSo.setText(result.getData().getDataList().get(0).getPackingListItems().get(0).getSoItem());
+                           if (!Kits.Empty.check(result.getData().getDataList().get(0).getPackingItems().get(0).getSoItem())){
+                               tvSo.setText(result.getData().getDataList().get(0).getPackingItems().get(0).getSoItem());
                            }
 
-                           if (!Kits.Empty.check(result.getData().getDataList().get(0).getPackingListItems().get(0).getMaterial())){
-                               tvMaterial.setText(result.getData().getDataList().get(0).getPackingListItems().get(0).getMaterial());
+                           if (!Kits.Empty.check(result.getData().getDataList().get(0).getPackingItems().get(0).getMaterial())){
+                               tvMaterial.setText(result.getData().getDataList().get(0).getPackingItems().get(0).getMaterial());
                            }
 
-                           if (!Kits.Empty.check(result.getData().getDataList().get(0).getPackingListItems().get(0).getRl())){
-                               tvRl.setText(result.getData().getDataList().get(0).getPackingListItems().get(0).getRl());
+                           if (!Kits.Empty.check(result.getData().getDataList().get(0).getPackingItems().get(0).getRl())){
+                               tvRl.setText(result.getData().getDataList().get(0).getPackingItems().get(0).getRl());
                            }
 
-                           if (!Kits.Empty.check(result.getData().getDataList().get(0).getPackingListItems().get(0).getAgl())){
-                               tvAgl.setText(result.getData().getDataList().get(0).getPackingListItems().get(0).getAgl());
+                           if (!Kits.Empty.check(result.getData().getDataList().get(0).getPackingItems().get(0).getAgl())){
+                               tvAgl.setText(result.getData().getDataList().get(0).getPackingItems().get(0).getAgl());
                            }
 
-                           if (!Kits.Empty.check(result.getData().getDataList().get(0).getPackingListItems().get(0).getQty())){
-                               tvQty.setText(result.getData().getDataList().get(0).getPackingListItems().get(0).getQty());
+                           if (!Kits.Empty.check(result.getData().getDataList().get(0).getPackingItems().get(0).getQty())){
+                               tvQty.setText(result.getData().getDataList().get(0).getPackingItems().get(0).getQty());
                            }
                        }
 

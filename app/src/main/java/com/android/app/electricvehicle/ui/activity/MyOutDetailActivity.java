@@ -74,7 +74,7 @@ public class MyOutDetailActivity extends BaseMvpActivity<MyOutDetailContract.Vie
     String id = "";
 
 
-    List<MyOutDetailVO.DataBean.PackingListBean.PackingListItemsBean> list = new ArrayList<>();
+    List<MyOutDetailVO.DataBean.PackingBean.PackingItemsBean> list = new ArrayList<>();
     MyOutDetailAdapter_SoItem adapter_soItem;
 
     @Override
@@ -205,20 +205,20 @@ public class MyOutDetailActivity extends BaseMvpActivity<MyOutDetailContract.Vie
             }
 
 
-            if (!(vDate.getData().getPackingList()==null||vDate.getData().getPackingList().equals(""))){
+            if (!(vDate.getData().getPacking()==null||vDate.getData().getPacking().equals(""))){
 
                 //租户ID
 //        if (!(vDate.getData().getTenantId())){
 //            tvZhid.setText(vDate.getData().getTenantId());
 //        }
                 //工作单号
-                if (!(vDate.getData().getPackingList().getWorkCode()==null||vDate.getData().getPackingList().getWorkCode().equals(""))){
-                    tvGzdh.setText(vDate.getData().getPackingList().getWorkCode());
+                if (!(vDate.getData().getPacking().getWorkCode()==null||vDate.getData().getPacking().getWorkCode().equals(""))){
+                    tvGzdh.setText(vDate.getData().getPacking().getWorkCode());
                 }
                 //日期
-                if (!(vDate.getData().getPackingList().getMadeTime()==null||vDate.getData().getPackingList().getMadeTime().equals(""))){
+                if (!(vDate.getData().getPacking().getMadeTime()==null||vDate.getData().getPacking().getMadeTime().equals(""))){
 
-                    long itime= Long.parseLong(vDate.getData().getPackingList().getMadeTime());
+                    long itime= Long.parseLong(vDate.getData().getPacking().getMadeTime());
 
                     SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); //设置格式
                     String timeText=format.format(itime);
@@ -230,40 +230,40 @@ public class MyOutDetailActivity extends BaseMvpActivity<MyOutDetailContract.Vie
 
 
                 //第几箱
-                if (!(vDate.getData().getPackingList().getRankNum()==null||vDate.getData().getPackingList().getRankNum().equals(""))) {
-                    tvDjx.setText("第  "+vDate.getData().getPackingList().getRankNum()+"  箱");
+                if (!(vDate.getData().getPacking().getRankNum()==null||vDate.getData().getPacking().getRankNum().equals(""))) {
+                    tvDjx.setText("第  "+vDate.getData().getPacking().getRankNum()+"  箱");
                 }
 
                 //共几箱
-                if (!(vDate.getData().getPackingList().getTotalNum()==null||vDate.getData().getPackingList().getTotalNum().equals(""))) {
-                    tvGjx.setText("共  "+vDate.getData().getPackingList().getTotalNum()+"  箱");
+                if (!(vDate.getData().getPacking().getTotalNum()==null||vDate.getData().getPacking().getTotalNum().equals(""))) {
+                    tvGjx.setText("共  "+vDate.getData().getPacking().getTotalNum()+"  箱");
                 }
 
                 //长
-                if (!(vDate.getData().getPackingList().getPackLength()==null||vDate.getData().getPackingList().getPackLength().equals(""))) {
-                    tvChang.setText("长："+vDate.getData().getPackingList().getPackLength());
+                if (!(vDate.getData().getPacking().getPackLength()==null||vDate.getData().getPacking().getPackLength().equals(""))) {
+                    tvChang.setText("长："+vDate.getData().getPacking().getPackLength());
                 }
                 //宽
-                if (!(vDate.getData().getPackingList().getPackwidth()==null||vDate.getData().getPackingList().getPackwidth().equals(""))) {
-                    tvKuan.setText("宽："+vDate.getData().getPackingList().getPackwidth());
+                if (!(vDate.getData().getPacking().getPackwidth()==null||vDate.getData().getPacking().getPackwidth().equals(""))) {
+                    tvKuan.setText("宽："+vDate.getData().getPacking().getPackwidth());
                 }
                 //高
-                if (!(vDate.getData().getPackingList().getPackHeight()==null||vDate.getData().getPackingList().getPackHeight().equals(""))) {
-                    tvGao.setText("高:"+vDate.getData().getPackingList().getPackHeight());
+                if (!(vDate.getData().getPacking().getPackHeight()==null||vDate.getData().getPacking().getPackHeight().equals(""))) {
+                    tvGao.setText("高:"+vDate.getData().getPacking().getPackHeight());
                 }
                 //净重
-                if (!(vDate.getData().getPackingList().getNetWeight()==null||vDate.getData().getPackingList().getNetWeight().equals(""))) {
-                    tvJingzhong.setText("净重："+vDate.getData().getPackingList().getNetWeight());
+                if (!(vDate.getData().getPacking().getNetWeight()==null||vDate.getData().getPacking().getNetWeight().equals(""))) {
+                    tvJingzhong.setText("净重："+vDate.getData().getPacking().getNetWeight());
                 }
                 //毛重
-                if (!(vDate.getData().getPackingList().getRoughWeight()==null||vDate.getData().getPackingList().getRoughWeight().equals(""))) {
-                    tvMaozhong.setText("毛重："+vDate.getData().getPackingList().getRoughWeight());
+                if (!(vDate.getData().getPacking().getRoughWeight()==null||vDate.getData().getPacking().getRoughWeight().equals(""))) {
+                    tvMaozhong.setText("毛重："+vDate.getData().getPacking().getRoughWeight());
                 }
 
 
                 //状态(0暂存  1待入库  2已入库  3已出库)
-                if (!(vDate.getData().getPackingList().getStoreState()==null||vDate.getData().getPackingList().getStoreState().equals(""))) {
-                    switch (vDate.getData().getPackingList().getStoreState()){
+                if (!(vDate.getData().getPacking().getStoreState()==null||vDate.getData().getPacking().getStoreState().equals(""))) {
+                    switch (vDate.getData().getPacking().getStoreState()){
                         case "0":
                             tvZhuangtai.setText("状态：暂存");
                             break;
@@ -284,46 +284,46 @@ public class MyOutDetailActivity extends BaseMvpActivity<MyOutDetailContract.Vie
                 }
 
                 //单据归档 0否  1是
-                if (!(vDate.getData().getPackingList().getBillArchived()==null||vDate.getData().getPackingList().getBillArchived().equals(""))) {
-                    if (vDate.getData().getPackingList().getBillArchived().equals("0")){
+                if (!(vDate.getData().getPacking().getBillArchived()==null||vDate.getData().getPacking().getBillArchived().equals(""))) {
+                    if (vDate.getData().getPacking().getBillArchived().equals("0")){
                         tvDjgd.setText("单据归档：否");
-                    }else if (vDate.getData().getPackingList().getBillArchived().equals("1")){
+                    }else if (vDate.getData().getPacking().getBillArchived().equals("1")){
                         tvDjgd.setText("单据归档：是");
                     }
 
                 }
 
                 //单据打印
-                if (!(vDate.getData().getPackingList().getBillPrint()==null||vDate.getData().getPackingList().getBillPrint().equals(""))) {
-                    if (vDate.getData().getPackingList().getBillPrint().equals("0")){
+                if (!(vDate.getData().getPacking().getBillPrint()==null||vDate.getData().getPacking().getBillPrint().equals(""))) {
+                    if (vDate.getData().getPacking().getBillPrint().equals("0")){
                         tvDjdy.setText("单据打印：未打印");
-                    }else if (vDate.getData().getPackingList().getBillPrint().equals("1")){
+                    }else if (vDate.getData().getPacking().getBillPrint().equals("1")){
                         tvDjdy.setText("单据打印：已打印");
-                    }else if (vDate.getData().getPackingList().getBillPrint().equals("2")){
+                    }else if (vDate.getData().getPacking().getBillPrint().equals("2")){
                         tvDjdy.setText("单据打印：补打");
                     }
 
                 }
                 //打印次数
-                if (!(vDate.getData().getPackingList().getPrintTimes()==null||vDate.getData().getPackingList().getPrintTimes().equals(""))) {
-                    tvDycs.setText("打印次数："+vDate.getData().getPackingList().getPrintTimes()+"次");
+                if (!(vDate.getData().getPacking().getPrintTimes()==null||vDate.getData().getPacking().getPrintTimes().equals(""))) {
+                    tvDycs.setText("打印次数："+vDate.getData().getPacking().getPrintTimes()+"次");
                 }
 
                 //Sales order
-                if (!Kits.Empty.check(vDate.getData().getPackingList().getSalesOrder())) {
-                    tv_order.setText("Sales order："+vDate.getData().getPackingList().getSalesOrder());
+                if (!Kits.Empty.check(vDate.getData().getPacking().getSalesOrder())) {
+                    tv_order.setText("Sales order："+vDate.getData().getPacking().getSalesOrder());
                 }
 
 
                 //comments
-                if (!Kits.Empty.check(vDate.getData().getPackingList().getComments())) {
-                    tv_comments.setText("comments："+vDate.getData().getPackingList().getComments());
+                if (!Kits.Empty.check(vDate.getData().getPacking().getComments())) {
+                    tv_comments.setText("comments："+vDate.getData().getPacking().getComments());
                 }
 
                 //组装日期
-                if (!Kits.Empty.check(vDate.getData().getPackingList().getInstallTime())) {
+                if (!Kits.Empty.check(vDate.getData().getPacking().getInstallTime())) {
 
-                    long itimes= Long.parseLong(vDate.getData().getPackingList().getInstallTime());
+                    long itimes= Long.parseLong(vDate.getData().getPacking().getInstallTime());
 
                     SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd"); //设置格式
                     String timeText=format.format(itimes);
@@ -332,9 +332,9 @@ public class MyOutDetailActivity extends BaseMvpActivity<MyOutDetailContract.Vie
                 }
 
                 //订单交货期
-                if (!Kits.Empty.check(vDate.getData().getPackingList().getDeliveryDate())) {
+                if (!Kits.Empty.check(vDate.getData().getPacking().getDeliveryDate())) {
 
-                    long itimess= Long.parseLong(vDate.getData().getPackingList().getDeliveryDate());
+                    long itimess= Long.parseLong(vDate.getData().getPacking().getDeliveryDate());
 
                     SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd"); //设置格式
                     String timeText=format.format(itimess);
@@ -354,8 +354,8 @@ public class MyOutDetailActivity extends BaseMvpActivity<MyOutDetailContract.Vie
                 tvNumber.setText(vDate.getData().getPackingCode());
             }
             //装箱单ID
-//        if (!(vDate.getData().getPackingListId())) {
-//            tvZxdid.setText(vDate.getData().getPackingListId());
+//        if (!(vDate.getData().getPackingId())) {
+//            tvZxdid.setText(vDate.getData().getPackingId());
 //        }
 
             //仓库名称
@@ -373,11 +373,11 @@ public class MyOutDetailActivity extends BaseMvpActivity<MyOutDetailContract.Vie
 
 
             //添加下面的列表
-            if (vDate.getData().getPackingList()!=null){
-                if (vDate.getData().getPackingList().getPackingListItems()!=null ){
-                    if ( vDate.getData().getPackingList().getPackingListItems().size()>0){
+            if (vDate.getData().getPacking()!=null){
+                if (vDate.getData().getPacking().getPackingItems()!=null ){
+                    if ( vDate.getData().getPacking().getPackingItems().size()>0){
                         list.clear();
-                        list.addAll(vDate.getData().getPackingList().getPackingListItems());
+                        list.addAll(vDate.getData().getPacking().getPackingItems());
                         adapter_soItem.notifyDataSetChanged();
                     }
 

@@ -2,8 +2,7 @@ package com.android.app.electricvehicle.model.main.presenter;
 
 import android.util.Log;
 
-import com.android.app.electricvehicle.entity.PackingListItem;
-import com.android.app.electricvehicle.entity.PackingListItems;
+import com.android.app.electricvehicle.entity.PackingItems;
 import com.android.app.electricvehicle.entity.ZxdDetailAddVO;
 import com.android.app.electricvehicle.entity.ZxdDetailDeleteVO;
 import com.android.app.electricvehicle.entity.ZxdDetailUpdateVO;
@@ -45,7 +44,7 @@ public class ZxdlrAddlPresenter extends BasePresenter<ZxdlrAddContract.View> imp
 
     @Override    //添加
     public void add(String workCode, String madeTime, String packingMaterial, String rankNum, String totalNum, String packLength, String packwidth,
-                       String packHeight, String netWeight, String roughWeight, List<PackingListItems> packingListItem,String salesOrder,String comments,String installTime,String deliveryDate){
+                    String packHeight, String netWeight, String roughWeight, List<PackingItems> packingItem, String salesOrder, String comments, String installTime, String deliveryDate){
         SortedMap<String, Object> paramsMap = new TreeMap<>();
 
         paramsMap.put("workCode",workCode);
@@ -58,7 +57,7 @@ public class ZxdlrAddlPresenter extends BasePresenter<ZxdlrAddContract.View> imp
         paramsMap.put("packHeight",packHeight);
         paramsMap.put("netWeight",netWeight);
         paramsMap.put("roughWeight",roughWeight);
-        paramsMap.put("packingListItems",packingListItem);
+        paramsMap.put("packingListItems",packingItem);
         paramsMap.put("salesOrder",salesOrder);
         paramsMap.put("comments",comments);
         paramsMap.put("installTime",installTime);

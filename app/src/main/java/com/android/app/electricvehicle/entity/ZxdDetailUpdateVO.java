@@ -11,7 +11,7 @@ public class ZxdDetailUpdateVO {
      * method : null
      * uri : null
      * timestamp : 1571140639936
-     * data : {"id":"804cd05ceeea11e994c60242ac110018","tokenId":"v4rVnTTV7R6eq0e6kvcL2UEVHjlutSISq0aiDKxDN1TnzH9vbJkdg2jGhI3PYQkl","version":null,"locked":null,"lastAccess":1571140639930,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":null,"updaterId":"a475d2268eb511e992930242ac110012","updatedBy":"英特诺","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","packingCode":null,"workCode":null,"madeTime":1569501298656,"packingMaterial":1,"rankNum":1,"totalNum":1,"packLength":500,"packwidth":500,"packHeight":500,"netWeight":5000,"roughWeight":5200,"storeState":null,"billArchived":null,"billPrint":null,"printTimes":null,"remark":null,"packingListItems":null,"packingMaterialText":"Wooden case(木箱)","storeStateText":"","billArchivedText":"","billPrintText":"","enable":true}
+     * data : {"id":"804cd05ceeea11e994c60242ac110018","tokenId":"v4rVnTTV7R6eq0e6kvcL2UEVHjlutSISq0aiDKxDN1TnzH9vbJkdg2jGhI3PYQkl","version":null,"locked":null,"lastAccess":1571140639930,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":null,"updaterId":"a475d2268eb511e992930242ac110012","updatedBy":"英特诺","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","packingCode":null,"workCode":null,"madeTime":1569501298656,"packingMaterial":1,"rankNum":1,"totalNum":1,"packLength":500,"packwidth":500,"packHeight":500,"netWeight":5000,"roughWeight":5200,"storeState":null,"billArchived":null,"billPrint":null,"printTimes":null,"remark":null,"PackingItems":null,"packingMaterialText":"Wooden case(木箱)","storeStateText":"","billArchivedText":"","billPrintText":"","enable":true}
      * args : null
      * moreinfo : null
      * detail : null
@@ -170,7 +170,7 @@ public class ZxdDetailUpdateVO {
          * billPrint : null
          * printTimes : null
          * remark : null
-         * packingListItems : null
+         * PackingItems : null
          * packingMaterialText : Wooden case(木箱)
          * storeStateText : 
          * billArchivedText : 
@@ -209,7 +209,7 @@ public class ZxdDetailUpdateVO {
         private String billPrint;
         private String printTimes;
         private String remark;
-        private String packingListItems;
+        private String PackingItems;
         private String packingMaterialText;
         private String storeStateText;
         private String billArchivedText;
@@ -464,12 +464,12 @@ public class ZxdDetailUpdateVO {
             this.remark = remark;
         }
 
-        public String getPackingListItems() {
-            return packingListItems;
+        public String getPackingItems() {
+            return PackingItems;
         }
 
-        public void setPackingListItems(String packingListItems) {
-            this.packingListItems = packingListItems;
+        public void setPackingItems(String PackingItems) {
+            this.PackingItems = PackingItems;
         }
 
         public String getPackingMaterialText() {

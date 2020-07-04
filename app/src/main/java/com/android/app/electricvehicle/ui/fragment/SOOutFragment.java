@@ -92,7 +92,7 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
     ScrollView scrollView;
 
 
-//    List<OutDetailVO2.DataBean.PackingListBean.PackingListItemsBean> list=new ArrayList<>();
+//    List<OutDetailVO2.DataBean.PackingBean.PackingItemsBean> list=new ArrayList<>();
 //    SOOutAdapter_SoItem adapter_soItem;
 
     ;
@@ -137,7 +137,7 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
     private EditText et_popup;
 
     //弹窗里面的SOitem列表
-    List<OutDetailVO2.DataBean.PackingListBean.PackingListItemsBean> list_item = new ArrayList<>();//SOitem的列表
+    List<OutDetailVO2.DataBean.PackingBean.PackingItemsBean> list_item = new ArrayList<>();//SOitem的列表
     SOOutAdapter_SoItem adapter_soItem;
 
 
@@ -271,17 +271,17 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
                 }
 
 
-                if (!Kits.Empty.check(list.get(position).getPackingList())) {
+                if (!Kits.Empty.check(list.get(position).getPacking())) {
                     //工作单号
-                    if (!Kits.Empty.check(list.get(position).getPackingList().getWorkCode())) {
-                        tvGzdh0.setText(list.get(position).getPackingList().getWorkCode());
+                    if (!Kits.Empty.check(list.get(position).getPacking().getWorkCode())) {
+                        tvGzdh0.setText(list.get(position).getPacking().getWorkCode());
                     }
 
 
                     //日期
-                    if (!Kits.Empty.check(list.get(position).getPackingList().getMadeTime())) {
+                    if (!Kits.Empty.check(list.get(position).getPacking().getMadeTime())) {
 
-                        long itime = Long.parseLong(list.get(position).getPackingList().getMadeTime());
+                        long itime = Long.parseLong(list.get(position).getPacking().getMadeTime());
 
                         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); //设置格式
                         String timeText = format.format(itime);
@@ -289,86 +289,86 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
                     }
 
                     //装箱单号
-                    if (!Kits.Empty.check(list.get(position).getPackingList().getPackingCode())) {
-                        tvNumber0.setText(list.get(position).getPackingList().getPackingCode());
-                        type_PackingCode = list.get(position).getPackingList().getPackingCode();
+                    if (!Kits.Empty.check(list.get(position).getPacking().getPackingCode())) {
+                        tvNumber0.setText(list.get(position).getPacking().getPackingCode());
+                        type_PackingCode = list.get(position).getPacking().getPackingCode();
                     }
 
 
                     //第几箱
-                    if (!Kits.Empty.check(list.get(position).getPackingList().getRankNum())) {
-                        tvDjx0.setText("第  " + list.get(position).getPackingList().getRankNum() + "  箱");
+                    if (!Kits.Empty.check(list.get(position).getPacking().getRankNum())) {
+                        tvDjx0.setText("第  " + list.get(position).getPacking().getRankNum() + "  箱");
                     }
 
                     //共几箱
-                    if (!Kits.Empty.check(list.get(position).getPackingList().getTotalNum())) {
-                        tvGjx0.setText("共  " + list.get(position).getPackingList().getTotalNum() + "  箱");
+                    if (!Kits.Empty.check(list.get(position).getPacking().getTotalNum())) {
+                        tvGjx0.setText("共  " + list.get(position).getPacking().getTotalNum() + "  箱");
                     }
 
                     //长
-                    if (!Kits.Empty.check(list.get(position).getPackingList().getPackLength())) {
-                        tvChang0.setText("长：" + list.get(position).getPackingList().getPackLength());
+                    if (!Kits.Empty.check(list.get(position).getPacking().getPackLength())) {
+                        tvChang0.setText("长：" + list.get(position).getPacking().getPackLength());
                     }
                     //宽
-                    if (!Kits.Empty.check(list.get(position).getPackingList().getPackwidth())) {
-                        tvKuan0.setText("宽：" + list.get(position).getPackingList().getPackwidth());
+                    if (!Kits.Empty.check(list.get(position).getPacking().getPackwidth())) {
+                        tvKuan0.setText("宽：" + list.get(position).getPacking().getPackwidth());
                     }
                     //高
-                    if (!Kits.Empty.check(list.get(position).getPackingList().getPackHeight())) {
-                        tvGao0.setText("高:" + list.get(position).getPackingList().getPackHeight());
+                    if (!Kits.Empty.check(list.get(position).getPacking().getPackHeight())) {
+                        tvGao0.setText("高:" + list.get(position).getPacking().getPackHeight());
                     }
                     //净重
-                    if (!Kits.Empty.check(list.get(position).getPackingList().getNetWeight())) {
-                        tvJingzhong0.setText("净重：" + list.get(position).getPackingList().getNetWeight());
+                    if (!Kits.Empty.check(list.get(position).getPacking().getNetWeight())) {
+                        tvJingzhong0.setText("净重：" + list.get(position).getPacking().getNetWeight());
                     }
                     //毛重
-                    if (!Kits.Empty.check(list.get(position).getPackingList().getRoughWeight())) {
-                        tvMaozhong0.setText("毛重：" + list.get(position).getPackingList().getRoughWeight());
+                    if (!Kits.Empty.check(list.get(position).getPacking().getRoughWeight())) {
+                        tvMaozhong0.setText("毛重：" + list.get(position).getPacking().getRoughWeight());
                     }
 
 
                     //单据归档 0否  1是
-                    if (!Kits.Empty.check(list.get(position).getPackingList().getBillArchived())) {
-                        if (list.get(position).getPackingList().getBillArchived().equals("0")) {
+                    if (!Kits.Empty.check(list.get(position).getPacking().getBillArchived())) {
+                        if (list.get(position).getPacking().getBillArchived().equals("0")) {
                             tvDjgd0.setText("单据归档：否");
-                        } else if (list.get(position).getPackingList().getBillArchived().equals("1")) {
+                        } else if (list.get(position).getPacking().getBillArchived().equals("1")) {
                             tvDjgd0.setText("单据归档：是");
                         }
 
                     }
 
                     //单据打印
-                    if (!Kits.Empty.check(list.get(position).getPackingList().getBillPrint())) {
-                        if (list.get(position).getPackingList().getBillPrint().equals("0")) {
+                    if (!Kits.Empty.check(list.get(position).getPacking().getBillPrint())) {
+                        if (list.get(position).getPacking().getBillPrint().equals("0")) {
                             tvDjdy0.setText("单据打印：未打印");
-                        } else if (list.get(position).getPackingList().getBillPrint().equals("1")) {
+                        } else if (list.get(position).getPacking().getBillPrint().equals("1")) {
                             tvDjdy0.setText("单据打印：已打印");
-                        } else if (list.get(position).getPackingList().getBillPrint().equals("2")) {
+                        } else if (list.get(position).getPacking().getBillPrint().equals("2")) {
                             tvDjdy0.setText("单据打印：补打");
                         }
 
                     }
                     //打印次数
-                    if (!Kits.Empty.check(list.get(position).getPackingList().getPrintTimes())) {
-                        tvDycs0.setText("打印次数：" + list.get(position).getPackingList().getPrintTimes() + "次");
+                    if (!Kits.Empty.check(list.get(position).getPacking().getPrintTimes())) {
+                        tvDycs0.setText("打印次数：" + list.get(position).getPacking().getPrintTimes() + "次");
                     }
 
 
                     //Sales order
-                    if (!Kits.Empty.check(list.get(position).getPackingList().getSalesOrder())) {
-                        tvOrder0.setText(list.get(position).getPackingList().getSalesOrder());
+                    if (!Kits.Empty.check(list.get(position).getPacking().getSalesOrder())) {
+                        tvOrder0.setText(list.get(position).getPacking().getSalesOrder());
                     }
 
 
                     //comments
-                    if (!Kits.Empty.check(list.get(position).getPackingList().getComments())) {
-                        tvComments0.setText(list.get(position).getPackingList().getComments());
+                    if (!Kits.Empty.check(list.get(position).getPacking().getComments())) {
+                        tvComments0.setText(list.get(position).getPacking().getComments());
                     }
 
                     //组装日期
-                    if (!Kits.Empty.check(list.get(position).getPackingList().getInstallTime())) {
+                    if (!Kits.Empty.check(list.get(position).getPacking().getInstallTime())) {
 
-                        long itimes = Long.parseLong(list.get(position).getPackingList().getInstallTime());
+                        long itimes = Long.parseLong(list.get(position).getPacking().getInstallTime());
 
                         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd"); //设置格式
                         String timeText = format.format(itimes);
@@ -378,9 +378,9 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
                     }
 
                     //订单交货期
-                    if (!Kits.Empty.check(list.get(position).getPackingList().getDeliveryDate())) {
+                    if (!Kits.Empty.check(list.get(position).getPacking().getDeliveryDate())) {
 
-                        long itimess = Long.parseLong(list.get(position).getPackingList().getDeliveryDate());
+                        long itimess = Long.parseLong(list.get(position).getPacking().getDeliveryDate());
 
                         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd"); //设置格式
                         String timeText = format.format(itimess);
@@ -392,11 +392,11 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
                     lv_soitem.setAdapter(adapter_soItem);
 
 
-                    if (!Kits.Empty.check(list.get(position).getPackingList().getPackingListItems())) {
-                        if (list.get(position).getPackingList().getPackingListItems().size() > 0) {
+                    if (!Kits.Empty.check(list.get(position).getPacking().getPackingItems())) {
+                        if (list.get(position).getPacking().getPackingItems().size() > 0) {
 
                             list_item.clear();
-                            list_item.addAll(list.get(position).getPackingList().getPackingListItems());
+                            list_item.addAll(list.get(position).getPacking().getPackingItems());
                             adapter_soItem.notifyDataSetChanged();
                         }
 
@@ -670,17 +670,17 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
                     }
 
 
-                    if (!Kits.Empty.check(item.getData().get(0).getPackingList())) {
+                    if (!Kits.Empty.check(item.getData().get(0).getPacking())) {
                         //工作单号
-                        if (!Kits.Empty.check(item.getData().get(0).getPackingList().getWorkCode())) {
-                            tvGzdh.setText(item.getData().get(0).getPackingList().getWorkCode());
+                        if (!Kits.Empty.check(item.getData().get(0).getPacking().getWorkCode())) {
+                            tvGzdh.setText(item.getData().get(0).getPacking().getWorkCode());
                         }
 
 
                         //日期
-                        if (!Kits.Empty.check(item.getData().get(0).getPackingList().getMadeTime())) {
+                        if (!Kits.Empty.check(item.getData().get(0).getPacking().getMadeTime())) {
 
-                            long itime = Long.parseLong(item.getData().get(0).getPackingList().getMadeTime());
+                            long itime = Long.parseLong(item.getData().get(0).getPacking().getMadeTime());
 
                             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); //设置格式
                             String timeText = format.format(itime);
@@ -688,47 +688,47 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
                         }
 
                         //装箱单号
-                        if (!Kits.Empty.check(item.getData().get(0).getPackingList().getPackingCode())) {
-                            tvNumber.setText(item.getData().get(0).getPackingList().getPackingCode());
-                            type_PackingCode = item.getData().get(0).getPackingList().getPackingCode();
+                        if (!Kits.Empty.check(item.getData().get(0).getPacking().getPackingCode())) {
+                            tvNumber.setText(item.getData().get(0).getPacking().getPackingCode());
+                            type_PackingCode = item.getData().get(0).getPacking().getPackingCode();
                         }
 
 
                         //第几箱
-                        if (!Kits.Empty.check(item.getData().get(0).getPackingList().getRankNum())) {
-                            tvDjx.setText("第  " + item.getData().get(0).getPackingList().getRankNum() + "  箱");
+                        if (!Kits.Empty.check(item.getData().get(0).getPacking().getRankNum())) {
+                            tvDjx.setText("第  " + item.getData().get(0).getPacking().getRankNum() + "  箱");
                         }
 
                         //共几箱
-                        if (!Kits.Empty.check(item.getData().get(0).getPackingList().getTotalNum())) {
-                            tvGjx.setText("共  " + item.getData().get(0).getPackingList().getTotalNum() + "  箱");
+                        if (!Kits.Empty.check(item.getData().get(0).getPacking().getTotalNum())) {
+                            tvGjx.setText("共  " + item.getData().get(0).getPacking().getTotalNum() + "  箱");
                         }
 
                         //长
-                        if (!Kits.Empty.check(item.getData().get(0).getPackingList().getPackLength())) {
-                            tvChang.setText("长：" + item.getData().get(0).getPackingList().getPackLength());
+                        if (!Kits.Empty.check(item.getData().get(0).getPacking().getPackLength())) {
+                            tvChang.setText("长：" + item.getData().get(0).getPacking().getPackLength());
                         }
                         //宽
-                        if (!Kits.Empty.check(item.getData().get(0).getPackingList().getPackwidth())) {
-                            tvKuan.setText("宽：" + item.getData().get(0).getPackingList().getPackwidth());
+                        if (!Kits.Empty.check(item.getData().get(0).getPacking().getPackwidth())) {
+                            tvKuan.setText("宽：" + item.getData().get(0).getPacking().getPackwidth());
                         }
                         //高
-                        if (!Kits.Empty.check(item.getData().get(0).getPackingList().getPackHeight())) {
-                            tvGao.setText("高:" + item.getData().get(0).getPackingList().getPackHeight());
+                        if (!Kits.Empty.check(item.getData().get(0).getPacking().getPackHeight())) {
+                            tvGao.setText("高:" + item.getData().get(0).getPacking().getPackHeight());
                         }
                         //净重
-                        if (!Kits.Empty.check(item.getData().get(0).getPackingList().getNetWeight())) {
-                            tvJingzhong.setText("净重：" + item.getData().get(0).getPackingList().getNetWeight());
+                        if (!Kits.Empty.check(item.getData().get(0).getPacking().getNetWeight())) {
+                            tvJingzhong.setText("净重：" + item.getData().get(0).getPacking().getNetWeight());
                         }
                         //毛重
-                        if (!Kits.Empty.check(item.getData().get(0).getPackingList().getRoughWeight())) {
-                            tvMaozhong.setText("毛重：" + item.getData().get(0).getPackingList().getRoughWeight());
+                        if (!Kits.Empty.check(item.getData().get(0).getPacking().getRoughWeight())) {
+                            tvMaozhong.setText("毛重：" + item.getData().get(0).getPacking().getRoughWeight());
                         }
 
 
                         //状态(0暂存  1待入库  2已入库  3已出库)
-//                        if (!Kits.Empty.check(item.getData().get(0).getPackingList().getStoreState())) {
-//                            switch (item.getData().get(0).getPackingList().getStoreState()){
+//                        if (!Kits.Empty.check(item.getData().get(0).getPacking().getStoreState())) {
+//                            switch (item.getData().get(0).getPacking().getStoreState()){
 //                                case "0":
 //                                    tvZhuangtai.setText("状态：暂存");
 //
@@ -763,47 +763,47 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
 
 
                         //单据归档 0否  1是
-                        if (!Kits.Empty.check(item.getData().get(0).getPackingList().getBillArchived())) {
-                            if (item.getData().get(0).getPackingList().getBillArchived().equals("0")) {
+                        if (!Kits.Empty.check(item.getData().get(0).getPacking().getBillArchived())) {
+                            if (item.getData().get(0).getPacking().getBillArchived().equals("0")) {
                                 tvDjgd.setText("单据归档：否");
-                            } else if (item.getData().get(0).getPackingList().getBillArchived().equals("1")) {
+                            } else if (item.getData().get(0).getPacking().getBillArchived().equals("1")) {
                                 tvDjgd.setText("单据归档：是");
                             }
 
                         }
 
                         //单据打印
-                        if (!Kits.Empty.check(item.getData().get(0).getPackingList().getBillPrint())) {
-                            if (item.getData().get(0).getPackingList().getBillPrint().equals("0")) {
+                        if (!Kits.Empty.check(item.getData().get(0).getPacking().getBillPrint())) {
+                            if (item.getData().get(0).getPacking().getBillPrint().equals("0")) {
                                 tvDjdy.setText("单据打印：未打印");
-                            } else if (item.getData().get(0).getPackingList().getBillPrint().equals("1")) {
+                            } else if (item.getData().get(0).getPacking().getBillPrint().equals("1")) {
                                 tvDjdy.setText("单据打印：已打印");
-                            } else if (item.getData().get(0).getPackingList().getBillPrint().equals("2")) {
+                            } else if (item.getData().get(0).getPacking().getBillPrint().equals("2")) {
                                 tvDjdy.setText("单据打印：补打");
                             }
 
                         }
                         //打印次数
-                        if (!Kits.Empty.check(item.getData().get(0).getPackingList().getPrintTimes())) {
-                            tvDycs.setText("打印次数：" + item.getData().get(0).getPackingList().getPrintTimes() + "次");
+                        if (!Kits.Empty.check(item.getData().get(0).getPacking().getPrintTimes())) {
+                            tvDycs.setText("打印次数：" + item.getData().get(0).getPacking().getPrintTimes() + "次");
                         }
 
 
                         //Sales order
-                        if (!Kits.Empty.check(item.getData().get(0).getPackingList().getSalesOrder())) {
-                            tvOrder.setText(item.getData().get(0).getPackingList().getSalesOrder());
+                        if (!Kits.Empty.check(item.getData().get(0).getPacking().getSalesOrder())) {
+                            tvOrder.setText(item.getData().get(0).getPacking().getSalesOrder());
                         }
 
 
                         //comments
-                        if (!Kits.Empty.check(item.getData().get(0).getPackingList().getComments())) {
-                            tvComments.setText(item.getData().get(0).getPackingList().getComments());
+                        if (!Kits.Empty.check(item.getData().get(0).getPacking().getComments())) {
+                            tvComments.setText(item.getData().get(0).getPacking().getComments());
                         }
 
                         //组装日期
-                        if (!Kits.Empty.check(item.getData().get(0).getPackingList().getInstallTime())) {
+                        if (!Kits.Empty.check(item.getData().get(0).getPacking().getInstallTime())) {
 
-                            long itimes = Long.parseLong(item.getData().get(0).getPackingList().getInstallTime());
+                            long itimes = Long.parseLong(item.getData().get(0).getPacking().getInstallTime());
 
                             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd"); //设置格式
                             String timeText = format.format(itimes);
@@ -813,9 +813,9 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
                         }
 
                         //订单交货期
-                        if (!Kits.Empty.check(item.getData().get(0).getPackingList().getDeliveryDate())) {
+                        if (!Kits.Empty.check(item.getData().get(0).getPacking().getDeliveryDate())) {
 
-                            long itimess = Long.parseLong(item.getData().get(0).getPackingList().getDeliveryDate());
+                            long itimess = Long.parseLong(item.getData().get(0).getPacking().getDeliveryDate());
 
                             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd"); //设置格式
                             String timeText = format.format(itimess);
@@ -828,12 +828,12 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
 
 
                         //listview
-                        if (!(item.getData().get(0).getPackingList() != null && item.getData().get(0).getPackingList().equals(""))) {
+                        if (!(item.getData().get(0).getPacking() != null && item.getData().get(0).getPacking().equals(""))) {
 //                            adapter_soItem=new SOOutAdapter_SoItem(getContext(),list);
 //                            lv.setAdapter(adapter_soItem);
 //                            //刷新
 //                            list.clear();
-//                            list.addAll(item.getData().get(0).getPackingList().getPackingListItems());
+//                            list.addAll(item.getData().get(0).getPacking().getPackingItems());
 //                            adapter_soItem.notifyDataSetChanged();
 
 

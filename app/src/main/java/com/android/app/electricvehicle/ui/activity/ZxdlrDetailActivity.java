@@ -22,7 +22,7 @@ import com.android.app.electricvehicle.R;
 import com.android.app.electricvehicle.base.BaseListActivity;
 import com.android.app.electricvehicle.base.BaseMvpActivity;
 import com.android.app.electricvehicle.entity.ItemDetailInVO;
-import com.android.app.electricvehicle.entity.PackingListItem;
+import com.android.app.electricvehicle.entity.PackingItem;
 import com.android.app.electricvehicle.entity.ZxdDetailDeleteVO;
 import com.android.app.electricvehicle.entity.ZxdDetailUpdateVO;
 import com.android.app.electricvehicle.entity.ZxdlrDetailVO;
@@ -81,9 +81,9 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
 //    private SwipeRefreshLayout srlList;
     private RecyclerView rvList;
 
-    private List<ZxdlrDetailVO.DataBean.PackingListItemsBean> activityVOList = new ArrayList<>();
+    private List<ZxdlrDetailVO.DataBean.PackingItemsBean> activityVOList = new ArrayList<>();
 
-    List<PackingListItem> packingListItem = new ArrayList<>();//用来存储列表的数据的
+    List<PackingItem> packingItem = new ArrayList<>();//用来存储列表的数据的
 
     String id = "";
     String disabled = "";
@@ -255,7 +255,7 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
 
     @Override
     protected BaseQuickAdapter getRecyclerAdapter() {
-        return new ZXDDetailAdapter(activityVOList, this, packingListItem, id);
+        return new ZXDDetailAdapter(activityVOList, this, packingItem, id);
     }
 
     @Override
@@ -417,7 +417,7 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
                                 return;
                             }
 
-                            PackingListItem plist = new PackingListItem();
+                            PackingItem plist = new PackingItem();
                             plist.setId(id);
                             plist.setSoItem(soItem);
                             plist.setMaterial(material);
@@ -425,7 +425,7 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
                             plist.setAgl(agl);
                             plist.setQty(qty);
 
-                            packingListItem.add(plist);
+                            packingItem.add(plist);
 
 
                         }
@@ -434,7 +434,7 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
 
 
                     //修改的网络请求
-                    presenter.update(id, madeTime, packingMaterial, rankNum, totalNum, packLength, packwidth, packHeight, netWeight, roughWeight, packingListItem,salesOrder,comments,installTime,deliveryDate);
+                    presenter.update(id, madeTime, packingMaterial, rankNum, totalNum, packLength, packwidth, packHeight, netWeight, roughWeight, packingItem,salesOrder,comments,installTime,deliveryDate);
 
 
                 } else {
@@ -636,12 +636,12 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
             }
 
             //添加下面部分
-            itemLength = vDate.getData().getPackingListItems().size();//记录长度
+            itemLength = vDate.getData().getPackingItems().size();//记录长度
 
-            if (vDate.getData().getPackingListItems() != null && vDate.getData().getPackingListItems().size() > 0) {
+            if (vDate.getData().getPackingItems() != null && vDate.getData().getPackingItems().size() > 0) {
                 //刷新
                 activityVOList.clear();
-                activityVOList.addAll(vDate.getData().getPackingListItems());
+                activityVOList.addAll(vDate.getData().getPackingItems());
                 adapter.notifyDataSetChanged();
             }
 

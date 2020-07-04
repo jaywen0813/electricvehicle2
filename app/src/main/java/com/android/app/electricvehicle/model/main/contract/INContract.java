@@ -39,7 +39,7 @@ public interface INContract {
         void getUP(String instoreCode,String freeLoc);
 
         //没有详情的时候提交数据
-        void getUP2(String instoreCode, String freeLoc, INDetail_RuKu.PackingListBean inDetail_ruKu);
+        void getUP2(String instoreCode, String freeLoc, INDetail_RuKu.PackingBean inDetail_ruKu);
 
 
 

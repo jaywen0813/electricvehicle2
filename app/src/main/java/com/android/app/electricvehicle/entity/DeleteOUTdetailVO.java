@@ -13,7 +13,7 @@ public class DeleteOUTdetailVO {
      * method : null
      * uri : null
      * timestamp : 1571192659539
-     * data : {"id":"d824717eef0711e994c60242ac110018","tokenId":null,"version":0,"locked":false,"lastAccess":1571115258158,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1571115258158,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","outstoreCode":"1183969322209513472","storehouseId":"ca912ef7e2cf11e992930242ac110012","storehouseName":"T00029A00004","freeLoc":"APP-02-009","packingListId":"7686dcc3eddf11e992930242ac110012","packingCode":"1183435409103917056","remark":"","packingList":{"id":"7686dcc3eddf11e992930242ac110012","tokenId":null,"version":6,"locked":false,"lastAccess":1571192659569,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570987963354,"updaterId":"a475d2268eb511e992930242ac110012","updatedBy":"英特诺","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","packingCode":"1183435409103917056","workCode":"56150073","madeTime":1570987963354,"packingMaterial":0,"rankNum":1,"totalNum":1,"packLength":1,"packwidth":1,"packHeight":1,"netWeight":1,"roughWeight":1,"storeState":2,"billArchived":0,"billPrint":0,"printTimes":0,"remark":"","packingListItems":[{"id":"76879ad7eddf11e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570987963359,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570987963359,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"7686dcc3eddf11e992930242ac110012","soItem":"10","material":"RD-89VVJ725PF","rl":319,"agl":0,"qty":0,"wtpc":0,"totalWeight":0,"remark":"","enable":true}],"packingMaterialText":"Carton(纸箱)","storeStateText":"已入库","billArchivedText":"未归档","billPrintText":"未打印","enable":true},"enable":true}
+     * data : {"id":"d824717eef0711e994c60242ac110018","tokenId":null,"version":0,"locked":false,"lastAccess":1571115258158,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1571115258158,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","outstoreCode":"1183969322209513472","storehouseId":"ca912ef7e2cf11e992930242ac110012","storehouseName":"T00029A00004","freeLoc":"APP-02-009","PackingId":"7686dcc3eddf11e992930242ac110012","packingCode":"1183435409103917056","remark":"","Packing":{"id":"7686dcc3eddf11e992930242ac110012","tokenId":null,"version":6,"locked":false,"lastAccess":1571192659569,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570987963354,"updaterId":"a475d2268eb511e992930242ac110012","updatedBy":"英特诺","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","packingCode":"1183435409103917056","workCode":"56150073","madeTime":1570987963354,"packingMaterial":0,"rankNum":1,"totalNum":1,"packLength":1,"packwidth":1,"packHeight":1,"netWeight":1,"roughWeight":1,"storeState":2,"billArchived":0,"billPrint":0,"printTimes":0,"remark":"","PackingItems":[{"id":"76879ad7eddf11e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570987963359,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570987963359,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"7686dcc3eddf11e992930242ac110012","soItem":"10","material":"RD-89VVJ725PF","rl":319,"agl":0,"qty":0,"wtpc":0,"totalWeight":0,"remark":"","enable":true}],"packingMaterialText":"Carton(纸箱)","storeStateText":"已入库","billArchivedText":"未归档","billPrintText":"未打印","enable":true},"enable":true}
      * args : null
      * moreinfo : null
      * detail : null
@@ -160,10 +160,10 @@ public class DeleteOUTdetailVO {
          * storehouseId : ca912ef7e2cf11e992930242ac110012
          * storehouseName : T00029A00004
          * freeLoc : APP-02-009
-         * packingListId : 7686dcc3eddf11e992930242ac110012
+         * PackingId : 7686dcc3eddf11e992930242ac110012
          * packingCode : 1183435409103917056
          * remark : 
-         * packingList : {"id":"7686dcc3eddf11e992930242ac110012","tokenId":null,"version":6,"locked":false,"lastAccess":1571192659569,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570987963354,"updaterId":"a475d2268eb511e992930242ac110012","updatedBy":"英特诺","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","packingCode":"1183435409103917056","workCode":"56150073","madeTime":1570987963354,"packingMaterial":0,"rankNum":1,"totalNum":1,"packLength":1,"packwidth":1,"packHeight":1,"netWeight":1,"roughWeight":1,"storeState":2,"billArchived":0,"billPrint":0,"printTimes":0,"remark":"","packingListItems":[{"id":"76879ad7eddf11e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570987963359,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570987963359,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"7686dcc3eddf11e992930242ac110012","soItem":"10","material":"RD-89VVJ725PF","rl":319,"agl":0,"qty":0,"wtpc":0,"totalWeight":0,"remark":"","enable":true}],"packingMaterialText":"Carton(纸箱)","storeStateText":"已入库","billArchivedText":"未归档","billPrintText":"未打印","enable":true}
+         * Packing : {"id":"7686dcc3eddf11e992930242ac110012","tokenId":null,"version":6,"locked":false,"lastAccess":1571192659569,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570987963354,"updaterId":"a475d2268eb511e992930242ac110012","updatedBy":"英特诺","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","packingCode":"1183435409103917056","workCode":"56150073","madeTime":1570987963354,"packingMaterial":0,"rankNum":1,"totalNum":1,"packLength":1,"packwidth":1,"packHeight":1,"netWeight":1,"roughWeight":1,"storeState":2,"billArchived":0,"billPrint":0,"printTimes":0,"remark":"","PackingItems":[{"id":"76879ad7eddf11e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570987963359,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570987963359,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"7686dcc3eddf11e992930242ac110012","soItem":"10","material":"RD-89VVJ725PF","rl":319,"agl":0,"qty":0,"wtpc":0,"totalWeight":0,"remark":"","enable":true}],"packingMaterialText":"Carton(纸箱)","storeStateText":"已入库","billArchivedText":"未归档","billPrintText":"未打印","enable":true}
          * enable : true
          */
 
@@ -186,10 +186,10 @@ public class DeleteOUTdetailVO {
         private String storehouseId;
         private String storehouseName;
         private String freeLoc;
-        private String packingListId;
+        private String PackingId;
         private String packingCode;
         private String remark;
-        private PackingListBean packingList;
+        private PackingBean Packing;
         private boolean enable;
 
         public String getId() {
@@ -344,12 +344,12 @@ public class DeleteOUTdetailVO {
             this.freeLoc = freeLoc;
         }
 
-        public String getPackingListId() {
-            return packingListId;
+        public String getPackingId() {
+            return PackingId;
         }
 
-        public void setPackingListId(String packingListId) {
-            this.packingListId = packingListId;
+        public void setPackingId(String PackingId) {
+            this.PackingId = PackingId;
         }
 
         public String getPackingCode() {
@@ -368,12 +368,12 @@ public class DeleteOUTdetailVO {
             this.remark = remark;
         }
 
-        public PackingListBean getPackingList() {
-            return packingList;
+        public PackingBean getPacking() {
+            return Packing;
         }
 
-        public void setPackingList(PackingListBean packingList) {
-            this.packingList = packingList;
+        public void setPacking(PackingBean Packing) {
+            this.Packing = Packing;
         }
 
         public boolean isEnable() {
@@ -384,7 +384,7 @@ public class DeleteOUTdetailVO {
             this.enable = enable;
         }
 
-        public static class PackingListBean {
+        public static class PackingBean {
             /**
              * id : 7686dcc3eddf11e992930242ac110012
              * tokenId : null
@@ -417,7 +417,7 @@ public class DeleteOUTdetailVO {
              * billPrint : 0
              * printTimes : 0
              * remark : 
-             * packingListItems : [{"id":"76879ad7eddf11e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570987963359,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570987963359,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"7686dcc3eddf11e992930242ac110012","soItem":"10","material":"RD-89VVJ725PF","rl":319,"agl":0,"qty":0,"wtpc":0,"totalWeight":0,"remark":"","enable":true}]
+             * PackingItems : [{"id":"76879ad7eddf11e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570987963359,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570987963359,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"7686dcc3eddf11e992930242ac110012","soItem":"10","material":"RD-89VVJ725PF","rl":319,"agl":0,"qty":0,"wtpc":0,"totalWeight":0,"remark":"","enable":true}]
              * packingMaterialText : Carton(纸箱)
              * storeStateText : 已入库
              * billArchivedText : 未归档
@@ -461,7 +461,7 @@ public class DeleteOUTdetailVO {
             private String billArchivedText;
             private String billPrintText;
             private boolean enable;
-            private List<PackingListItemsBean> packingListItems;
+            private List<PackingItemsBean> PackingItems;
 
             public String getId() {
                 return id;
@@ -751,15 +751,15 @@ public class DeleteOUTdetailVO {
                 this.enable = enable;
             }
 
-            public List<PackingListItemsBean> getPackingListItems() {
-                return packingListItems;
+            public List<PackingItemsBean> getPackingItems() {
+                return PackingItems;
             }
 
-            public void setPackingListItems(List<PackingListItemsBean> packingListItems) {
-                this.packingListItems = packingListItems;
+            public void setPackingItems(List<PackingItemsBean> PackingItems) {
+                this.PackingItems = PackingItems;
             }
 
-            public static class PackingListItemsBean {
+            public static class PackingItemsBean {
                 /**
                  * id : 76879ad7eddf11e992930242ac110012
                  * tokenId : null

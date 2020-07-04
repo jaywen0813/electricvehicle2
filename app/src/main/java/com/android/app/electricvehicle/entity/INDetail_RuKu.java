@@ -7,12 +7,12 @@ public class INDetail_RuKu {
     /**
      * packingCode : 1181913249818480640
      * freeLoc :
-     * packingList : {"workCode":"55873904","madeTime":"1569501298656","packingMaterial":1,"rankNum":"1","totalNum":"1","packLength":"500","packwidth":"500","packHeight":"500","netWeight":5000,"roughWeight":5200,"salesOrder":"ssssss","comments":"sss","installTime":"1569501298656","deliveryDate":"1569501298656","packingListItems":[{"soItem":"10","material":"RD-89VHJ4A5PF","rl":100,"agl":200,"qty":300}]}
+     * Packing : {"workCode":"55873904","madeTime":"1569501298656","packingMaterial":1,"rankNum":"1","totalNum":"1","packLength":"500","packwidth":"500","packHeight":"500","netWeight":5000,"roughWeight":5200,"salesOrder":"ssssss","comments":"sss","installTime":"1569501298656","deliveryDate":"1569501298656","PackingItems":[{"soItem":"10","material":"RD-89VHJ4A5PF","rl":100,"agl":200,"qty":300}]}
      */
 
     private String packingCode;
     private String freeLoc;
-    private PackingListBean packingList;
+    private PackingBean Packing;
 
     public String getPackingCode() {
         return packingCode;
@@ -30,15 +30,15 @@ public class INDetail_RuKu {
         this.freeLoc = freeLoc;
     }
 
-    public PackingListBean getPackingList() {
-        return packingList;
+    public PackingBean getPacking() {
+        return Packing;
     }
 
-    public void setPackingList(PackingListBean packingList) {
-        this.packingList = packingList;
+    public void setPacking(PackingBean Packing) {
+        this.Packing = Packing;
     }
 
-    public static class PackingListBean {
+    public static class PackingBean {
         /**
          * workCode : 55873904
          * madeTime : 1569501298656
@@ -54,7 +54,7 @@ public class INDetail_RuKu {
          * comments : sss
          * installTime : 1569501298656
          * deliveryDate : 1569501298656
-         * packingListItems : [{"soItem":"10","material":"RD-89VHJ4A5PF","rl":100,"agl":200,"qty":300}]
+         * PackingItems : [{"soItem":"10","material":"RD-89VHJ4A5PF","rl":100,"agl":200,"qty":300}]
          */
 
         private String workCode;
@@ -71,7 +71,7 @@ public class INDetail_RuKu {
         private String comments;
         private String installTime;
         private String deliveryDate;
-        private List<PackingListItemsBean> packingListItems;
+        private List<PackingItemsBean> PackingItems;
 
         public String getWorkCode() {
             return workCode;
@@ -185,15 +185,15 @@ public class INDetail_RuKu {
             this.deliveryDate = deliveryDate;
         }
 
-        public List<PackingListItemsBean> getPackingListItems() {
-            return packingListItems;
+        public List<PackingItemsBean> getPackingItems() {
+            return PackingItems;
         }
 
-        public void setPackingListItems(List<PackingListItemsBean> packingListItems) {
-            this.packingListItems = packingListItems;
+        public void setPackingItems(List<PackingItemsBean> PackingItems) {
+            this.PackingItems = PackingItems;
         }
 
-        public static class PackingListItemsBean {
+        public static class PackingItemsBean {
             /**
              * soItem : 10
              * material : RD-89VHJ4A5PF

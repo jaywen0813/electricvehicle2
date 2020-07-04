@@ -1,31 +1,23 @@
 package com.android.app.electricvehicle.entity;
 
-//用来存储修改装箱单的实体类
-public class PackingListItem {
+//用来记录添加装箱单的时候，传入的列表
+public class PackingItems {
 
     /**
-     * id : 530bf6b9ee6111e994c60242ac110018
-     * soItem : 130
+     * soItem : 10
      * material : RD-89VHJ4A5PF
      * rl : 100
      * agl : 200
      * qty : 300
      */
-
-    private String id;
     private String soItem;
     private String material;
     private String rl;
     private String agl;
     private String qty;
 
-    public String getId() {
-        return id;
-    }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+
 
     public String getSoItem() {
         return soItem;

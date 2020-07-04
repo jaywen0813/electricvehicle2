@@ -13,7 +13,7 @@ public class OutDetailVO implements Serializable {
      * method : null
      * uri : null
      * timestamp : 1570603546923
-     * data : {"id":"6c737657ea6011e992930242ac110012","tokenId":"MSag69rfZLhGipIcPC81jtccjhroIsVsW9AlcudW766j8T8QQTAfGWGERrecNxNs","version":null,"locked":null,"lastAccess":1570603546715,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570603546715,"updaterId":null,"updatedBy":null,"dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","outstoreCode":"20191001001","storehouseId":"55838525","storehouseName":"500","freeLoc":"AAA-02-002","packingListId":"20191001001","remark":null,"enable":true}
+     * data : {"id":"6c737657ea6011e992930242ac110012","tokenId":"MSag69rfZLhGipIcPC81jtccjhroIsVsW9AlcudW766j8T8QQTAfGWGERrecNxNs","version":null,"locked":null,"lastAccess":1570603546715,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570603546715,"updaterId":null,"updatedBy":null,"dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","outstoreCode":"20191001001","storehouseId":"55838525","storehouseName":"500","freeLoc":"AAA-02-002","PackingId":"20191001001","remark":null,"enable":true}
      * args : null
      * moreinfo : null
      * detail : null
@@ -160,7 +160,7 @@ public class OutDetailVO implements Serializable {
          * storehouseId : 55838525
          * storehouseName : 500
          * freeLoc : AAA-02-002
-         * packingListId : 20191001001
+         * PackingId : 20191001001
          * remark : null
          * enable : true
          */
@@ -184,7 +184,7 @@ public class OutDetailVO implements Serializable {
         private String storehouseId;
         private String storehouseName;
         private String freeLoc;
-        private String packingListId;
+        private String PackingId;
         private String remark;
         private boolean enable;
 
@@ -340,12 +340,12 @@ public class OutDetailVO implements Serializable {
             this.freeLoc = freeLoc;
         }
 
-        public String getPackingListId() {
-            return packingListId;
+        public String getPackingId() {
+            return PackingId;
         }
 
-        public void setPackingListId(String packingListId) {
-            this.packingListId = packingListId;
+        public void setPackingId(String PackingId) {
+            this.PackingId = PackingId;
         }
 
         public String getRemark() {

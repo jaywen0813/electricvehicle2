@@ -14,7 +14,7 @@ public class ZxdDetailAddVO {
      * method : null
      * uri : null
      * timestamp : 1571276895023
-     * data : {"id":"2f35bae4f08011e994c60242ac110018","tokenId":"CLdhpEcCtZqCmYGFbR1lkVNwh5roMJOaQDsU2Rbs6dCvWy1A7jKb8NT1J0HocSaf","version":null,"locked":null,"lastAccess":1571276895003,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1571276895003,"updaterId":"a475d2268eb511e992930242ac110012","updatedBy":"英特诺","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","packingCode":"1184647276275044352","workCode":"123","madeTime":1569501298656,"packingMaterial":0,"rankNum":2,"totalNum":5,"packLength":500,"packwidth":500,"packHeight":500,"netWeight":5000,"roughWeight":5200,"storeState":1,"billArchived":null,"billPrint":null,"printTimes":null,"remark":null,"packingListItems":[{"id":null,"tokenId":null,"version":null,"locked":null,"lastAccess":null,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":null,"updaterId":"a475d2268eb511e992930242ac110012","updatedBy":"英特诺","dataId":null,"isNew":null,"logTime":null,"packingId":"2f35bae4f08011e994c60242ac110018","soItem":"10","material":"RD-89VHJ4A5PF","rl":100,"agl":200,"qty":300,"wtpc":null,"totalWeight":null,"remark":null,"enable":true}],"packingMaterialText":"Carton(纸箱)","storeStateText":"待入库","billArchivedText":"","billPrintText":"","enable":true}
+     * data : {"id":"2f35bae4f08011e994c60242ac110018","tokenId":"CLdhpEcCtZqCmYGFbR1lkVNwh5roMJOaQDsU2Rbs6dCvWy1A7jKb8NT1J0HocSaf","version":null,"locked":null,"lastAccess":1571276895003,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1571276895003,"updaterId":"a475d2268eb511e992930242ac110012","updatedBy":"英特诺","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","packingCode":"1184647276275044352","workCode":"123","madeTime":1569501298656,"packingMaterial":0,"rankNum":2,"totalNum":5,"packLength":500,"packwidth":500,"packHeight":500,"netWeight":5000,"roughWeight":5200,"storeState":1,"billArchived":null,"billPrint":null,"printTimes":null,"remark":null,"PackingItems":[{"id":null,"tokenId":null,"version":null,"locked":null,"lastAccess":null,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":null,"updaterId":"a475d2268eb511e992930242ac110012","updatedBy":"英特诺","dataId":null,"isNew":null,"logTime":null,"packingId":"2f35bae4f08011e994c60242ac110018","soItem":"10","material":"RD-89VHJ4A5PF","rl":100,"agl":200,"qty":300,"wtpc":null,"totalWeight":null,"remark":null,"enable":true}],"packingMaterialText":"Carton(纸箱)","storeStateText":"待入库","billArchivedText":"","billPrintText":"","enable":true}
      * args : null
      * moreinfo : null
      * detail : null
@@ -173,7 +173,7 @@ public class ZxdDetailAddVO {
          * billPrint : null
          * printTimes : null
          * remark : null
-         * packingListItems : [{"id":null,"tokenId":null,"version":null,"locked":null,"lastAccess":null,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":null,"updaterId":"a475d2268eb511e992930242ac110012","updatedBy":"英特诺","dataId":null,"isNew":null,"logTime":null,"packingId":"2f35bae4f08011e994c60242ac110018","soItem":"10","material":"RD-89VHJ4A5PF","rl":100,"agl":200,"qty":300,"wtpc":null,"totalWeight":null,"remark":null,"enable":true}]
+         * PackingItems : [{"id":null,"tokenId":null,"version":null,"locked":null,"lastAccess":null,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":null,"updaterId":"a475d2268eb511e992930242ac110012","updatedBy":"英特诺","dataId":null,"isNew":null,"logTime":null,"packingId":"2f35bae4f08011e994c60242ac110018","soItem":"10","material":"RD-89VHJ4A5PF","rl":100,"agl":200,"qty":300,"wtpc":null,"totalWeight":null,"remark":null,"enable":true}]
          * packingMaterialText : Carton(纸箱)
          * storeStateText : 待入库
          * billArchivedText :
@@ -217,7 +217,7 @@ public class ZxdDetailAddVO {
         private String billArchivedText;
         private String billPrintText;
         private boolean enable;
-        private List<PackingListItemsBean> packingListItems;
+        private List<PackingItemsBean> PackingItems;
 
         public String getId() {
             return id;
@@ -507,15 +507,15 @@ public class ZxdDetailAddVO {
             this.enable = enable;
         }
 
-        public List<PackingListItemsBean> getPackingListItems() {
-            return packingListItems;
+        public List<PackingItemsBean> getPackingItems() {
+            return PackingItems;
         }
 
-        public void setPackingListItems(List<PackingListItemsBean> packingListItems) {
-            this.packingListItems = packingListItems;
+        public void setPackingItems(List<PackingItemsBean> PackingItems) {
+            this.PackingItems = PackingItems;
         }
 
-        public static class PackingListItemsBean {
+        public static class PackingItemsBean {
             /**
              * id : null
              * tokenId : null

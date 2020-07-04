@@ -144,7 +144,7 @@ public class INPresenter extends BasePresenter<INContract.View> implements INCon
 
     //没有详情数据的时候的提交
     @Override
-    public void getUP2(String instoreCode, String freeLoc, INDetail_RuKu.PackingListBean inDetail_ruKu) {
+    public void getUP2(String instoreCode, String freeLoc, INDetail_RuKu.PackingBean inDetail_ruKu) {
 
         mView.loadingtext();
 

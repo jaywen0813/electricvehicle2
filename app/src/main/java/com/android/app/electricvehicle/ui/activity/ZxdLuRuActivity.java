@@ -21,7 +21,7 @@ import android.widget.Toast;
 
 import com.android.app.electricvehicle.R;
 import com.android.app.electricvehicle.base.BaseMvpActivity;
-import com.android.app.electricvehicle.entity.PackingListItems;
+import com.android.app.electricvehicle.entity.PackingItems;
 import com.android.app.electricvehicle.entity.ZxdDetailAddVO;
 import com.android.app.electricvehicle.model.main.contract.ZxdlrAddContract;
 import com.android.app.electricvehicle.model.main.presenter.ZxdlrAddlPresenter;
@@ -81,7 +81,7 @@ public class ZxdLuRuActivity extends BaseMvpActivity<ZxdlrAddContract.View, Zxdl
     TextView tv_zzrq;
     TextView tv_ddjhq;
 
-    List<PackingListItems> packingListItem =new ArrayList<>();//用来存储入参的
+    List<PackingItems> PackingItem =new ArrayList<>();//用来存储入参的
 
 
 
@@ -366,19 +366,19 @@ public class ZxdLuRuActivity extends BaseMvpActivity<ZxdlrAddContract.View, Zxdl
                     return;
                 }
 
-                    PackingListItems plist=new PackingListItems();
+                    PackingItems plist=new PackingItems();
                     plist.setSoItem(soItem);
                     plist.setMaterial(material);
                     plist.setRl(rl);
                     plist.setAgl(agl);
                     plist.setQty(qty);
 
-                    packingListItem.add(plist);
+                    PackingItem.add(plist);
 
                 }
 
 
-                presenter.add(workCode,madeTime,packingMaterial,rankNum,totalNum,packLength,packwidth,packHeight,netWeight,roughWeight,packingListItem,salesOrder,comments,installTime,deliveryDate);
+                presenter.add(workCode,madeTime,packingMaterial,rankNum,totalNum,packLength,packwidth,packHeight,netWeight,roughWeight,PackingItem,salesOrder,comments,installTime,deliveryDate);
 
 
 

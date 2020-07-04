@@ -3,7 +3,7 @@ package com.android.app.electricvehicle.entity;
 import java.io.Serializable;
 import java.util.List;
 
-public class ZXDListVO implements Serializable {
+public class PanDianListVO implements Serializable {
 
 
     /**

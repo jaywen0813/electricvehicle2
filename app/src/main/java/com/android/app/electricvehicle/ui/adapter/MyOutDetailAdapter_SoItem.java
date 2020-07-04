@@ -17,10 +17,10 @@ public class MyOutDetailAdapter_SoItem extends BaseAdapter {
 
 
     private Context context;
-    private List<MyOutDetailVO.DataBean.PackingListBean.PackingListItemsBean> list;
+    private List<MyOutDetailVO.DataBean.PackingBean.PackingItemsBean> list;
 
 
-    public MyOutDetailAdapter_SoItem(Context context, List<MyOutDetailVO.DataBean.PackingListBean.PackingListItemsBean> list) {
+    public MyOutDetailAdapter_SoItem(Context context, List<MyOutDetailVO.DataBean.PackingBean.PackingItemsBean> list) {
         this.context = context;
         this.list = list;
     }
@@ -58,7 +58,7 @@ public class MyOutDetailAdapter_SoItem extends BaseAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        final MyOutDetailVO.DataBean.PackingListBean.PackingListItemsBean bean = list.get(position);
+        final MyOutDetailVO.DataBean.PackingBean.PackingItemsBean bean = list.get(position);
 
 
         //SO Item

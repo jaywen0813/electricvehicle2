@@ -52,7 +52,7 @@ public class OUTPresenter extends BasePresenter<OUTContract.View> implements OUT
 //        paramsMap.put("storehouseId", storehouseId);
 //        paramsMap.put("storehouseName", storehouseName);
         paramsMap.put("freeLoc", freeLoc);
-//        paramsMap.put("packingListId", packingListId);
+
 //        paramsMap.put("remark", remark);
 
 //        paramsMap.put("packingCode", "20191001001");

@@ -17,10 +17,10 @@ public class MyInDetailAdapter_SoItem extends BaseAdapter {
 
 
     private Context context;
-    private List<ItemDetailInVO.DataBean.PackingListBean.PackingListItemsBean> list;
+    private List<ItemDetailInVO.DataBean.PackingBean.PackingItemsBean> list;
 
 
-    public MyInDetailAdapter_SoItem(Context context, List<ItemDetailInVO.DataBean.PackingListBean.PackingListItemsBean> list) {
+    public MyInDetailAdapter_SoItem(Context context, List<ItemDetailInVO.DataBean.PackingBean.PackingItemsBean> list) {
         this.context = context;
         this.list = list;
     }
@@ -58,7 +58,7 @@ public class MyInDetailAdapter_SoItem extends BaseAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        final ItemDetailInVO.DataBean.PackingListBean.PackingListItemsBean bean = list.get(position);
+        final ItemDetailInVO.DataBean.PackingBean.PackingItemsBean bean = list.get(position);
 
 
         //SO Item

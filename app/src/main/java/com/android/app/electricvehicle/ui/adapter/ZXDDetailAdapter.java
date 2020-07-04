@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 import android.view.View;
 
 import com.android.app.electricvehicle.R;
-import com.android.app.electricvehicle.entity.PackingListItem;
+import com.android.app.electricvehicle.entity.PackingItem;
 import com.android.app.electricvehicle.entity.ZXDListVO;
 import com.android.app.electricvehicle.entity.ZxdlrDetailVO;
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -15,24 +15,24 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ZXDDetailAdapter extends BaseQuickAdapter<ZxdlrDetailVO.DataBean.PackingListItemsBean, BaseViewHolder> {
+public class ZXDDetailAdapter extends BaseQuickAdapter<ZxdlrDetailVO.DataBean.PackingItemsBean, BaseViewHolder> {
 
-    private List<ZxdlrDetailVO.DataBean.PackingListItemsBean> data;
+    private List<ZxdlrDetailVO.DataBean.PackingItemsBean> data;
     private Activity activity;
-    List<PackingListItem> packingListItems ;//用来存储列表的数据的
+    List<PackingItem> PackingItems ;//用来存储列表的数据的
     String id;
 
-    public ZXDDetailAdapter(@Nullable List<ZxdlrDetailVO.DataBean.PackingListItemsBean> data, Activity activity,List<PackingListItem> packingListItem,String id) {
+    public ZXDDetailAdapter(@Nullable List<ZxdlrDetailVO.DataBean.PackingItemsBean> data, Activity activity,List<PackingItem> PackingItem,String id) {
         super(R.layout.item_zxdlr, data);
         this.data = data;
         this.activity = activity;
-        this.packingListItems=packingListItem;
+        this.PackingItems=PackingItem;
         this.id=id;
     }
 
 
     @Override
-    protected void convert(BaseViewHolder helper, ZxdlrDetailVO.DataBean.PackingListItemsBean bean) {
+    protected void convert(BaseViewHolder helper, ZxdlrDetailVO.DataBean.PackingItemsBean bean) {
 
 
 
@@ -82,7 +82,7 @@ public class ZXDDetailAdapter extends BaseQuickAdapter<ZxdlrDetailVO.DataBean.Pa
 
 
 
-//        PackingListItem plist=new PackingListItem();
+//        PackingItem plist=new PackingItem();
 //        plist.setId(id);
 //        plist.setSoItem();
 //        plist.setMaterial(material);

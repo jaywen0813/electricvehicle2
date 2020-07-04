@@ -13,7 +13,7 @@ public class ZxdDetailDeleteVO {
      * method : null
      * uri : null
      * timestamp : 1571152680278
-     * data : {"id":"804cd05ceeea11e994c60242ac110018","tokenId":null,"version":5,"locked":false,"lastAccess":1571152671773,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1571102655377,"updaterId":"a475d2268eb511e992930242ac110012","updatedBy":"英特诺","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","packingCode":"1183916462314754048","workCode":"55873904","madeTime":1569501298656,"packingMaterial":1,"rankNum":1,"totalNum":1,"packLength":500,"packwidth":500,"packHeight":500,"netWeight":5000,"roughWeight":5200,"storeState":1,"billArchived":0,"billPrint":0,"printTimes":0,"remark":"","packingListItems":[{"id":"804d9467eeea11e994c60242ac110018","tokenId":null,"version":0,"locked":false,"lastAccess":1571102655383,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1571102655383,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"804cd05ceeea11e994c60242ac110018","soItem":"10","material":"RD-89VHJ4A5PF","rl":100,"agl":200,"qty":300,"wtpc":0,"totalWeight":0,"remark":"","enable":true}],"packingMaterialText":"Wooden case(木箱)","storeStateText":"待入库","billArchivedText":"未归档","billPrintText":"未打印","enable":true}
+     * data : {"id":"804cd05ceeea11e994c60242ac110018","tokenId":null,"version":5,"locked":false,"lastAccess":1571152671773,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1571102655377,"updaterId":"a475d2268eb511e992930242ac110012","updatedBy":"英特诺","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","packingCode":"1183916462314754048","workCode":"55873904","madeTime":1569501298656,"packingMaterial":1,"rankNum":1,"totalNum":1,"packLength":500,"packwidth":500,"packHeight":500,"netWeight":5000,"roughWeight":5200,"storeState":1,"billArchived":0,"billPrint":0,"printTimes":0,"remark":"","PackingItems":[{"id":"804d9467eeea11e994c60242ac110018","tokenId":null,"version":0,"locked":false,"lastAccess":1571102655383,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1571102655383,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"804cd05ceeea11e994c60242ac110018","soItem":"10","material":"RD-89VHJ4A5PF","rl":100,"agl":200,"qty":300,"wtpc":0,"totalWeight":0,"remark":"","enable":true}],"packingMaterialText":"Wooden case(木箱)","storeStateText":"待入库","billArchivedText":"未归档","billPrintText":"未打印","enable":true}
      * args : null
      * moreinfo : null
      * detail : null
@@ -172,7 +172,7 @@ public class ZxdDetailDeleteVO {
          * billPrint : 0
          * printTimes : 0
          * remark : 
-         * packingListItems : [{"id":"804d9467eeea11e994c60242ac110018","tokenId":null,"version":0,"locked":false,"lastAccess":1571102655383,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1571102655383,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"804cd05ceeea11e994c60242ac110018","soItem":"10","material":"RD-89VHJ4A5PF","rl":100,"agl":200,"qty":300,"wtpc":0,"totalWeight":0,"remark":"","enable":true}]
+         * PackingItems : [{"id":"804d9467eeea11e994c60242ac110018","tokenId":null,"version":0,"locked":false,"lastAccess":1571102655383,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1571102655383,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"804cd05ceeea11e994c60242ac110018","soItem":"10","material":"RD-89VHJ4A5PF","rl":100,"agl":200,"qty":300,"wtpc":0,"totalWeight":0,"remark":"","enable":true}]
          * packingMaterialText : Wooden case(木箱)
          * storeStateText : 待入库
          * billArchivedText : 未归档
@@ -216,7 +216,7 @@ public class ZxdDetailDeleteVO {
         private String billArchivedText;
         private String billPrintText;
         private boolean enable;
-        private List<PackingListItemsBean> packingListItems;
+        private List<PackingItemsBean> PackingItems;
 
         public String getId() {
             return id;
@@ -506,15 +506,15 @@ public class ZxdDetailDeleteVO {
             this.enable = enable;
         }
 
-        public List<PackingListItemsBean> getPackingListItems() {
-            return packingListItems;
+        public List<PackingItemsBean> getPackingItems() {
+            return PackingItems;
         }
 
-        public void setPackingListItems(List<PackingListItemsBean> packingListItems) {
-            this.packingListItems = packingListItems;
+        public void setPackingItems(List<PackingItemsBean> PackingItems) {
+            this.PackingItems = PackingItems;
         }
 
-        public static class PackingListItemsBean {
+        public static class PackingItemsBean {
             /**
              * id : 804d9467eeea11e994c60242ac110018
              * tokenId : null

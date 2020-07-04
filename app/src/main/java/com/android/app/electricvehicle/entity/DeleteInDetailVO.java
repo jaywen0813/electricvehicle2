@@ -13,7 +13,7 @@ public class DeleteInDetailVO {
      * method : null
      * uri : null
      * timestamp : 1571189829024
-     * data : {"id":"0732c902ef0811e994c60242ac110018","tokenId":null,"version":0,"locked":false,"lastAccess":1571115337105,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1571115337105,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","instoreCode":"1183969653337231360","storehouseId":"2b94e116ee3d11e994c60242ac110018","storehouseName":"成品仓A区","freeLoc":"FGB-02-004","packingListId":"d182e21eedde11e992930242ac110012","packingCode":"1183434247910854656","instoreState":0,"remark":"","packingList":{"id":"d182e21eedde11e992930242ac110012","tokenId":null,"version":4,"locked":false,"lastAccess":1571189829051,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570987686504,"updaterId":"a475d2268eb511e992930242ac110012","updatedBy":"英特诺","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","packingCode":"1183434247910854656","workCode":"55868400","madeTime":1570987686504,"packingMaterial":2,"rankNum":1,"totalNum":2,"packLength":10,"packwidth":11,"packHeight":12,"netWeight":13,"roughWeight":14,"storeState":1,"billArchived":0,"billPrint":0,"printTimes":0,"remark":"","packingListItems":[{"id":"d184015bedde11e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570987686511,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570987686511,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"d182e21eedde11e992930242ac110012","soItem":"10","material":"RD-35VDJ72WAB","rl":414,"agl":0,"qty":0,"wtpc":10,"totalWeight":15,"remark":"","enable":true}],"packingMaterialText":"Wooden Carton(木托盘纸箱)","storeStateText":"待入库","billArchivedText":"未归档","billPrintText":"未打印","enable":true},"instoreStateText":"未出库","enable":true}
+     * data : {"id":"0732c902ef0811e994c60242ac110018","tokenId":null,"version":0,"locked":false,"lastAccess":1571115337105,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1571115337105,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","instoreCode":"1183969653337231360","storehouseId":"2b94e116ee3d11e994c60242ac110018","storehouseName":"成品仓A区","freeLoc":"FGB-02-004","PackingId":"d182e21eedde11e992930242ac110012","packingCode":"1183434247910854656","instoreState":0,"remark":"","Packing":{"id":"d182e21eedde11e992930242ac110012","tokenId":null,"version":4,"locked":false,"lastAccess":1571189829051,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570987686504,"updaterId":"a475d2268eb511e992930242ac110012","updatedBy":"英特诺","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","packingCode":"1183434247910854656","workCode":"55868400","madeTime":1570987686504,"packingMaterial":2,"rankNum":1,"totalNum":2,"packLength":10,"packwidth":11,"packHeight":12,"netWeight":13,"roughWeight":14,"storeState":1,"billArchived":0,"billPrint":0,"printTimes":0,"remark":"","PackingItems":[{"id":"d184015bedde11e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570987686511,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570987686511,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"d182e21eedde11e992930242ac110012","soItem":"10","material":"RD-35VDJ72WAB","rl":414,"agl":0,"qty":0,"wtpc":10,"totalWeight":15,"remark":"","enable":true}],"packingMaterialText":"Wooden Carton(木托盘纸箱)","storeStateText":"待入库","billArchivedText":"未归档","billPrintText":"未打印","enable":true},"instoreStateText":"未出库","enable":true}
      * args : null
      * moreinfo : null
      * detail : null
@@ -160,11 +160,11 @@ public class DeleteInDetailVO {
          * storehouseId : 2b94e116ee3d11e994c60242ac110018
          * storehouseName : 成品仓A区
          * freeLoc : FGB-02-004
-         * packingListId : d182e21eedde11e992930242ac110012
+         * PackingId : d182e21eedde11e992930242ac110012
          * packingCode : 1183434247910854656
          * instoreState : 0
          * remark : 
-         * packingList : {"id":"d182e21eedde11e992930242ac110012","tokenId":null,"version":4,"locked":false,"lastAccess":1571189829051,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570987686504,"updaterId":"a475d2268eb511e992930242ac110012","updatedBy":"英特诺","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","packingCode":"1183434247910854656","workCode":"55868400","madeTime":1570987686504,"packingMaterial":2,"rankNum":1,"totalNum":2,"packLength":10,"packwidth":11,"packHeight":12,"netWeight":13,"roughWeight":14,"storeState":1,"billArchived":0,"billPrint":0,"printTimes":0,"remark":"","packingListItems":[{"id":"d184015bedde11e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570987686511,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570987686511,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"d182e21eedde11e992930242ac110012","soItem":"10","material":"RD-35VDJ72WAB","rl":414,"agl":0,"qty":0,"wtpc":10,"totalWeight":15,"remark":"","enable":true}],"packingMaterialText":"Wooden Carton(木托盘纸箱)","storeStateText":"待入库","billArchivedText":"未归档","billPrintText":"未打印","enable":true}
+         * Packing : {"id":"d182e21eedde11e992930242ac110012","tokenId":null,"version":4,"locked":false,"lastAccess":1571189829051,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570987686504,"updaterId":"a475d2268eb511e992930242ac110012","updatedBy":"英特诺","dataId":null,"isNew":null,"logTime":null,"tenantId":"304548c2ec8033f4917b18bfe144c569","packingCode":"1183434247910854656","workCode":"55868400","madeTime":1570987686504,"packingMaterial":2,"rankNum":1,"totalNum":2,"packLength":10,"packwidth":11,"packHeight":12,"netWeight":13,"roughWeight":14,"storeState":1,"billArchived":0,"billPrint":0,"printTimes":0,"remark":"","PackingItems":[{"id":"d184015bedde11e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570987686511,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570987686511,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"d182e21eedde11e992930242ac110012","soItem":"10","material":"RD-35VDJ72WAB","rl":414,"agl":0,"qty":0,"wtpc":10,"totalWeight":15,"remark":"","enable":true}],"packingMaterialText":"Wooden Carton(木托盘纸箱)","storeStateText":"待入库","billArchivedText":"未归档","billPrintText":"未打印","enable":true}
          * instoreStateText : 未出库
          * enable : true
          */
@@ -188,11 +188,11 @@ public class DeleteInDetailVO {
         private String storehouseId;
         private String storehouseName;
         private String freeLoc;
-        private String packingListId;
+        private String PackingId;
         private String packingCode;
         private int instoreState;
         private String remark;
-        private PackingListBean packingList;
+        private PackingBean Packing;
         private String instoreStateText;
         private boolean enable;
 
@@ -348,12 +348,12 @@ public class DeleteInDetailVO {
             this.freeLoc = freeLoc;
         }
 
-        public String getPackingListId() {
-            return packingListId;
+        public String getPackingId() {
+            return PackingId;
         }
 
-        public void setPackingListId(String packingListId) {
-            this.packingListId = packingListId;
+        public void setPackingId(String PackingId) {
+            this.PackingId = PackingId;
         }
 
         public String getPackingCode() {
@@ -380,12 +380,12 @@ public class DeleteInDetailVO {
             this.remark = remark;
         }
 
-        public PackingListBean getPackingList() {
-            return packingList;
+        public PackingBean getPacking() {
+            return Packing;
         }
 
-        public void setPackingList(PackingListBean packingList) {
-            this.packingList = packingList;
+        public void setPacking(PackingBean Packing) {
+            this.Packing = Packing;
         }
 
         public String getInstoreStateText() {
@@ -404,7 +404,7 @@ public class DeleteInDetailVO {
             this.enable = enable;
         }
 
-        public static class PackingListBean {
+        public static class PackingBean {
             /**
              * id : d182e21eedde11e992930242ac110012
              * tokenId : null
@@ -437,7 +437,7 @@ public class DeleteInDetailVO {
              * billPrint : 0
              * printTimes : 0
              * remark : 
-             * packingListItems : [{"id":"d184015bedde11e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570987686511,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570987686511,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"d182e21eedde11e992930242ac110012","soItem":"10","material":"RD-35VDJ72WAB","rl":414,"agl":0,"qty":0,"wtpc":10,"totalWeight":15,"remark":"","enable":true}]
+             * PackingItems : [{"id":"d184015bedde11e992930242ac110012","tokenId":null,"version":0,"locked":false,"lastAccess":1570987686511,"disabled":false,"creatorId":"a475d2268eb511e992930242ac110012","createdBy":"英特诺","createdTime":1570987686511,"updaterId":"","updatedBy":"","dataId":null,"isNew":null,"logTime":null,"packingId":"d182e21eedde11e992930242ac110012","soItem":"10","material":"RD-35VDJ72WAB","rl":414,"agl":0,"qty":0,"wtpc":10,"totalWeight":15,"remark":"","enable":true}]
              * packingMaterialText : Wooden Carton(木托盘纸箱)
              * storeStateText : 待入库
              * billArchivedText : 未归档
@@ -481,7 +481,7 @@ public class DeleteInDetailVO {
             private String billArchivedText;
             private String billPrintText;
             private boolean enable;
-            private List<PackingListItemsBean> packingListItems;
+            private List<PackingItemsBean> PackingItems;
 
             public String getId() {
                 return id;
@@ -771,15 +771,15 @@ public class DeleteInDetailVO {
                 this.enable = enable;
             }
 
-            public List<PackingListItemsBean> getPackingListItems() {
-                return packingListItems;
+            public List<PackingItemsBean> getPackingItems() {
+                return PackingItems;
             }
 
-            public void setPackingListItems(List<PackingListItemsBean> packingListItems) {
-                this.packingListItems = packingListItems;
+            public void setPackingItems(List<PackingItemsBean> PackingItems) {
+                this.PackingItems = PackingItems;
             }
 
-            public static class PackingListItemsBean {
+            public static class PackingItemsBean {
                 /**
                  * id : d184015bedde11e992930242ac110012
                  * tokenId : null
