@@ -550,8 +550,8 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
         spBzfs.setAdapter(spinnerAdapter);
 
 
-        //一开始不让修改
-        chooseFlase();
+        //一开始不让修改  2020年7月20日 14:00:28  改成可以编辑
+//        chooseFlase();
 
     }
 
@@ -735,10 +735,21 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
 //            T.showToastSafe("提交成功");
             Toast.makeText(INDetailActivity.this,"入库成功",Toast.LENGTH_LONG).show();
 
-            DialogUtil.showBasicDialog(this, "提示", "是否继续录入下一单?", (dialog, confirm) -> {
+            DialogUtil.showBasicDialog(this, "提示", "入库成功，是否继续录入下一单?", (dialog, confirm) -> {
                 if (confirm) {
                     etNumber.setText("");
                     etKwNumber.setText("");
+                    tvDjx.setText("");
+                    tvGjx.setText("");
+                    tvChang.setText("");
+                    tvKuan.setText("");
+                    tvGao.setText("");
+                    tvJingzhong.setText("");
+                    tvMaozhong.setText("");
+                    tvOrder.setText("");
+                    tvComments.setText("");
+                    tvZzrq.setText("");
+                    tvDdjhq.setText("");
                 }
                 dialog.dismiss();
             });
@@ -749,10 +760,21 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
             Toast.makeText(INDetailActivity.this,vDate.getMessage()+"",Toast.LENGTH_LONG).show();
 
 
-            DialogUtil.showBasicDialog(this, "提示", "是否继续录入下一单?", (dialog, confirm) -> {
+            DialogUtil.showBasicDialog(this, "提示", "录入失败，是否继续录入下一单?", (dialog, confirm) -> {
                 if (confirm) {
                     etNumber.setText("");
                     etKwNumber.setText("");
+                    tvDjx.setText("");
+                    tvGjx.setText("");
+                    tvChang.setText("");
+                    tvKuan.setText("");
+                    tvGao.setText("");
+                    tvJingzhong.setText("");
+                    tvMaozhong.setText("");
+                    tvOrder.setText("");
+                    tvComments.setText("");
+                    tvZzrq.setText("");
+                    tvDdjhq.setText("");
                 }
                 dialog.dismiss();
             });
