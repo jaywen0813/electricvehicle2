@@ -3,6 +3,7 @@ package com.android.app.electricvehicle.ui.activity.ZXDchaxunxiugai;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.os.Bundle;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
@@ -47,7 +48,7 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
     private TextView tvLayerHead;
     private LinearLayout navigationUserLayout;
     private TextView farmInputSave;
-    private ScrollView scrollView;
+    private NestedScrollView scrollView;
     private TextView tvGzdh;
     private TextView tvDate;
     private TextView tvNumber;
@@ -179,6 +180,7 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
         StatusBarUtil.transparencyBar(this);//设置状态栏全透明
         StatusBarUtil.StatusBarLightMode(this);//设置状态栏黑色文字、图标，
 
+        rvList.setNestedScrollingEnabled(false);//解决NestedScrollView滑动冲突
 
         tvLayerHead.setText("装箱单详情");
 

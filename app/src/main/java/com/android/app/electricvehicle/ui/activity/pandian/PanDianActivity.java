@@ -84,6 +84,8 @@ public class PanDianActivity extends BaseListActivity<PanDianContract.View, PanD
         tvShoudong = (RoundTextView) findViewById(R.id.tv_shoudong);
         rvList = (RecyclerView) findViewById(R.id.rv_list);
 
+        rvList.setNestedScrollingEnabled(false);//解决NestedScrollView滑动冲突
+
 
         backLayout.setOnClickListener(this);
         llSaomiao.setOnClickListener(this);

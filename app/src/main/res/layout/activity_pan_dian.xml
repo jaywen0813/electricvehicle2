@@ -68,6 +68,16 @@
     </RelativeLayout>
 
 
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -183,20 +193,7 @@
 
         </LinearLayout>
 
-        <com.flyco.roundview.RoundTextView
-            android:id="@+id/tv_shoudong"
-            android:layout_width="@dimen/dimen_value_dp60"
-            android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/dimen_value_dp10"
-            android:layout_marginBottom="@dimen/dimen_value_dp10"
-            android:layout_marginRight="@dimen/dimen_value_dp5"
-            app:rv_backgroundColor="@color/colorPrimary"
-            app:rv_cornerRadius="@dimen/dimen_value_dp5"
-            android:gravity="center"
-            android:text="盘   点"
-            android:textSize="@dimen/dimen_value_dp15"
-            android:textColor="@color/white"
-            />
+
 
 
     </LinearLayout>
@@ -206,8 +203,21 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:scrollbars="vertical"/>
 
-
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/tv_shoudong"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_value_dp50"
+       android:layout_margin="@dimen/dimen_value_dp20"
+        app:rv_backgroundColor="@color/colorPrimary"
+        app:rv_cornerRadius="@dimen/dimen_value_dp5"
+        android:gravity="center"
+        android:text="盘   点"
+        android:textSize="@dimen/dimen_value_dp15"
+        android:textColor="@color/white"
+        />
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
 </LinearLayout>
