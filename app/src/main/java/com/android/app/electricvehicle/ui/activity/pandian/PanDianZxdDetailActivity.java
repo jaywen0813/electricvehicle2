@@ -3,6 +3,7 @@ package com.android.app.electricvehicle.ui.activity.pandian;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
@@ -47,7 +48,7 @@ public class PanDianZxdDetailActivity extends BaseListActivity<PanDianZxdDetailC
     private TextView tvLayerHead;
     private LinearLayout navigationUserLayout;
     private TextView farmInputSave;
-    private ScrollView scrollView;
+    private NestedScrollView scrollView;
     private TextView tvGzdh;
     private TextView tvDate;
     private TextView tvNumber;
@@ -180,7 +181,9 @@ public class PanDianZxdDetailActivity extends BaseListActivity<PanDianZxdDetailC
         StatusBarUtil.StatusBarLightMode(this);//设置状态栏黑色文字、图标，
 
 
-        tvLayerHead.setText("装箱单详情");
+        rvList.setNestedScrollingEnabled(false);//解决NestedScrollView滑动冲突
+
+        tvLayerHead.setText("盘点详情");
 
 
         id = getIntent().getStringExtra("id");

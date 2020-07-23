@@ -643,7 +643,7 @@ public class SOOutFragment extends BaseMvpFragment<OUTContractSO2.View, OUTPrese
 
                 if (item.getData().size() > 0) {
 
-                    scrollView.setVisibility(View.VISIBLE);
+                    scrollView.setVisibility(View.GONE);//客户要求是列表点击
                     rll_detail.setVisibility(View.GONE);//客户要求是列表点击
 
 
