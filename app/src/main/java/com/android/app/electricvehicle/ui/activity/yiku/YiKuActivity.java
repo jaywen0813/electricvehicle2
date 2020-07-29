@@ -548,6 +548,77 @@ public class YiKuActivity extends BaseMvpActivity<YiKuContract.View, YiKuPresent
     @Override
     public void yikuSuccess() {
         Toast.makeText(this,"修改成功",Toast.LENGTH_LONG).show();
+
+
+
+
+            //库位号
+
+                etKwNumber.setText("");
+
+                //工作单号
+                tvGzdh.setText("");
+
+                //日期
+                tvDate.setText("");
+
+                //装箱单号
+                tvNumber.setText("");
+
+                //第几箱
+                tvDjx.setText("");
+
+                //共几箱
+                tvGjx.setText("");
+
+                //长
+                tvChang.setText("");
+
+                //宽
+                tvKuan.setText("");
+
+                //高
+                tvGao.setText("");
+
+                //净重
+                tvJingzhong.setText("");
+
+                //毛重
+                tvMaozhong.setText("");
+
+                //单据归档 0否  1是
+                tvDjgd.setText("");
+
+                //单据打印
+                tvDjdy.setText("单据打印：");
+
+                //打印次数
+                tvDycs.setText("打印次数：" );
+
+                //Sales order
+                tvOrder.setText("");
+
+                //comments
+                tvComments.setText("");
+
+                //组装日期
+                tvZzrq.setText( "");
+
+                //订单交货期
+                tvDdjhq.setText("");
+
+                //备注
+                tvBz.setText("");
+
+                   if (!Kits.Empty.check(list)){
+                       //刷新
+                       list.clear();
+
+                       adapter_soItem.notifyDataSetChanged();
+                   }
+
+
+
     }
 
     //移库提示失败的回调
