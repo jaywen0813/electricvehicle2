@@ -160,7 +160,7 @@ public class PanDianActivity extends BaseListActivity<PanDianContract.View, PanD
     //通过库位号查询的装箱单列表
     @Override
     public void showDetail(PanDianListVO vData) {
-            if (vData.getMessage().equals("T")){
+            if (vData.getSuccess().equals("T")){
 
                 if (!Kits.Empty.check(vData.getData())){
                     if (vData.getData().size()>0){
