@@ -318,7 +318,7 @@ public class MyInVO implements Serializable {
             private String packingCode;
             private String instoreState;
             private String remark;
-            private PackingBean Packing;
+            private PackingBean packing;
             private boolean enable;
             private String instoreStateText;
 
@@ -510,11 +510,11 @@ public class MyInVO implements Serializable {
             }
 
             public PackingBean getPacking() {
-                return Packing;
+                return packing;
             }
 
             public void setPacking(PackingBean Packing) {
-                this.Packing = Packing;
+                this.packing = Packing;
             }
 
             public boolean isEnable() {
@@ -590,7 +590,7 @@ public class MyInVO implements Serializable {
                 private String tenantId;
                 private String packingCode;
                 private String workCode;
-                private long madeTime;
+                private String madeTime;
                 private String packingMaterial;
                 private String rankNum;
                 private String totalNum;
@@ -771,11 +771,11 @@ public class MyInVO implements Serializable {
                     this.workCode = workCode;
                 }
 
-                public long getMadeTime() {
+                public String getMadeTime() {
                     return madeTime;
                 }
 
-                public void setMadeTime(long madeTime) {
+                public void setMadeTime(String madeTime) {
                     this.madeTime = madeTime;
                 }
 

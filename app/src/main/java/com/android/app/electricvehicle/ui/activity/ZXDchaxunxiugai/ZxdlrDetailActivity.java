@@ -381,11 +381,17 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
                             tvAgl = childAt.findViewById(R.id.tv_agl);
                             tvQty = childAt.findViewById(R.id.tv_qty);
 
-                            String soItem = tvSo.getText().toString()==null?"":tvSo.getText().toString();
-                            String material = tvMaterial.getText().toString()==null?"":tvMaterial.getText().toString();
-                            String rl = tvRl.getText().toString()==null?"":tvRl.getText().toString();
-                            String agl = tvAgl.getText().toString()==null?"":tvAgl.getText().toString();
-                            String qty = tvQty.getText().toString()==null?"":tvQty.getText().toString();
+                            String soItem = "";
+                            String material = "";
+                            String rl = "";
+                            String agl = "";
+                            String qty = "";
+
+                             soItem = tvSo.getText().toString();
+                             material = tvMaterial.getText().toString();
+                             rl = tvRl.getText().toString();
+                             agl = tvAgl.getText().toString();
+                             qty = tvQty.getText().toString();
 
                             if (Kits.Empty.check(soItem)) {
                                 Toast.makeText(ZxdlrDetailActivity.this, "请填写SO Item", Toast.LENGTH_LONG).show();

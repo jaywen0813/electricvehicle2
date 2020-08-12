@@ -315,7 +315,7 @@ public class MyOutVO implements Serializable {
             private String PackingId;
             private String packingCode;
             private String remark;
-            private PackingBean Packing;
+            private PackingBean packing;
             private boolean enable;
 
             public String getId() {
@@ -495,11 +495,11 @@ public class MyOutVO implements Serializable {
             }
 
             public PackingBean getPacking() {
-                return Packing;
+                return packing;
             }
 
             public void setPacking(PackingBean Packing) {
-                this.Packing = Packing;
+                this.packing = Packing;
             }
 
             public boolean isEnable() {
@@ -567,7 +567,7 @@ public class MyOutVO implements Serializable {
                 private String tenantId;
                 private String packingCode;
                 private String workCode;
-                private long madeTime;
+                private String madeTime;
                 private int packingMaterial;
                 private int rankNum;
                 private int totalNum;
@@ -723,11 +723,11 @@ public class MyOutVO implements Serializable {
                     this.workCode = workCode;
                 }
 
-                public long getMadeTime() {
+                public String getMadeTime() {
                     return madeTime;
                 }
 
-                public void setMadeTime(long madeTime) {
+                public void setMadeTime(String madeTime) {
                     this.madeTime = madeTime;
                 }
 

@@ -192,7 +192,7 @@ public class ItemDetailInVO {
         private String packingCode;
         private String instoreState;
         private String remark;
-        private PackingBean Packing;
+        private PackingBean packing;
         private boolean enable;
         private String instoreStateText;
 
@@ -381,11 +381,11 @@ public class ItemDetailInVO {
         }
 
         public PackingBean getPacking() {
-            return Packing;
+            return packing;
         }
 
-        public void setPacking(PackingBean Packing) {
-            this.Packing = Packing;
+        public void setPacking(PackingBean packing) {
+            this.packing = packing;
         }
 
         public boolean isEnable() {
@@ -483,7 +483,7 @@ public class ItemDetailInVO {
             private String storeStateText;
             private String billArchivedText;
             private String billPrintText;
-            private List<PackingItemsBean> PackingItems;
+            private List<PackingItemsBean> packingItems;
 
 
             public String getSalesOrder() {
@@ -803,11 +803,11 @@ public class ItemDetailInVO {
 
 
             public List<PackingItemsBean> getPackingItems() {
-                return PackingItems;
+                return packingItems;
             }
 
-            public void setPackingItems(List<PackingItemsBean> PackingItems) {
-                this.PackingItems = PackingItems;
+            public void setPackingItems(List<PackingItemsBean> packingItems) {
+                this.packingItems = packingItems;
             }
 
             public static class PackingItemsBean {

@@ -99,6 +99,7 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
     String sjc="";//
     String sjc2="";//订单交货期时间戳
 
+    View view2;//添加的item的条目
     EditText tvSo ;
     EditText tvMaterial ;
     EditText tvRl ;
@@ -107,6 +108,7 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
 
     private int childCount = 0;//用来记录点击了几次添加下面的条目
     List<INDetail_RuKu.PackingBean.PackingItemsBean> PackingItem=new ArrayList<>();
+
 
 
     @Override
@@ -330,7 +332,7 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
 
 
                 for (int i = 0; i <1 ; i++) {
-                    View view2 = LayoutInflater.from(this).inflate(R.layout.item_zxdlr,null);
+                     view2 = LayoutInflater.from(this).inflate(R.layout.item_zxdlr,null);
 //                    final View childAt = llAdd.getChildAt(i);
 
                     tvSo = view2.findViewById(R.id.tv_so);
@@ -384,7 +386,7 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
 
 
                     for (int i = 0; i <1 ; i++) {//再重新添加一条
-                        View view2 = LayoutInflater.from(this).inflate(R.layout.item_zxdlr,null);
+                         view2 = LayoutInflater.from(this).inflate(R.layout.item_zxdlr,null);
 
                         tvSo = view2.findViewById(R.id.tv_so);
                         tvMaterial = view2.findViewById(R.id.tv_material);
@@ -714,6 +716,16 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
                     tvComments.setText("");
                     tvZzrq.setText("");
                     tvDdjhq.setText("");
+                    tvGzdh.setText("");
+
+                    if (view2!=null){
+                        tvSo.setText("");
+                        tvMaterial.setText("");
+                        tvRl.setText("");
+                        tvAgl.setText("");
+                        tvQty.setText("");
+                    }
+
                 }
                 dialog.dismiss();
             });
@@ -739,6 +751,15 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
                     tvComments.setText("");
                     tvZzrq.setText("");
                     tvDdjhq.setText("");
+                    tvGzdh.setText("");
+
+                    if (view2!=null){
+                        tvSo.setText("");
+                        tvMaterial.setText("");
+                        tvRl.setText("");
+                        tvAgl.setText("");
+                        tvQty.setText("");
+                    }
                 }
                 dialog.dismiss();
             });
@@ -873,7 +894,7 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
 
                    //默认添加一条So Item
                    for (int i = 0; i <1 ; i++) {
-                       View view2 = LayoutInflater.from(this).inflate(R.layout.item_zxdlr,null);
+                        view2 = LayoutInflater.from(this).inflate(R.layout.item_zxdlr,null);
 
                        tvSo = view2.findViewById(R.id.tv_so);
                        tvMaterial = view2.findViewById(R.id.tv_material);
@@ -921,7 +942,7 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
 
                    //默认添加一条So Item
                    for (int i = 0; i <1 ; i++) {
-                       View view2 = LayoutInflater.from(this).inflate(R.layout.item_zxdlr,null);
+                        view2 = LayoutInflater.from(this).inflate(R.layout.item_zxdlr,null);
 
                        tvSo = view2.findViewById(R.id.tv_so);
                        tvMaterial = view2.findViewById(R.id.tv_material);
@@ -944,7 +965,7 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
 
                 //默认添加一条So Item
                 for (int i = 0; i <1 ; i++) {
-                    View view2 = LayoutInflater.from(this).inflate(R.layout.item_zxdlr,null);
+                     view2 = LayoutInflater.from(this).inflate(R.layout.item_zxdlr,null);
 
                     tvSo = view2.findViewById(R.id.tv_so);
                     tvMaterial = view2.findViewById(R.id.tv_material);
@@ -967,7 +988,7 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
 
             //默认添加一条So Item
             for (int i = 0; i <1 ; i++) {
-                View view2 = LayoutInflater.from(this).inflate(R.layout.item_zxdlr,null);
+                 view2 = LayoutInflater.from(this).inflate(R.layout.item_zxdlr,null);
 
                 tvSo = view2.findViewById(R.id.tv_so);
                 tvMaterial = view2.findViewById(R.id.tv_material);

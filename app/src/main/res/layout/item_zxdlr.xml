@@ -65,7 +65,9 @@
 
                 <EditText
                     android:id="@+id/tv_rl"
-                    style="@style/etTextView1" />
+                    style="@style/etTextView1"
+                    android:digits="0123456789"
+                    />
 
             </LinearLayout>
 
@@ -81,7 +83,9 @@
 
                 <EditText
                     android:id="@+id/tv_agl"
-                    style="@style/etTextView1" />
+                    style="@style/etTextView1"
+                    android:digits="0123456789"
+                    />
 
             </LinearLayout>
 
@@ -97,7 +101,9 @@
 
                 <EditText
                     android:id="@+id/tv_qty"
-                    style="@style/etTextView1" />
+                    style="@style/etTextView1"
+                    android:digits="0123456789"
+                    />
 
             </LinearLayout>
 

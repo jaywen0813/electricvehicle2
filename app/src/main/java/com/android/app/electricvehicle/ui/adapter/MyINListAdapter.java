@@ -7,9 +7,11 @@ import android.support.annotation.Nullable;
 import com.android.app.electricvehicle.R;
 import com.android.app.electricvehicle.entity.ActivityVO;
 import com.android.app.electricvehicle.entity.MyInVO;
+import com.android.app.electricvehicle.utils.Kits;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class MyINListAdapter extends BaseQuickAdapter<MyInVO.DataBean.DataListBean, BaseViewHolder> {
@@ -66,6 +68,25 @@ public class MyINListAdapter extends BaseQuickAdapter<MyInVO.DataBean.DataListBe
         }else {
             helper.setText(R.id.tv_zxdid,"备注："+"");
         }
+
+        //时间
+        if (!Kits.Empty.check(bean.getPacking())){
+
+            if (!Kits.Empty.check(bean.getPacking().getMadeTime())){
+
+                long itime= Long.parseLong(bean.getPacking().getMadeTime());
+
+                SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); //设置格式
+                String timeText=format.format(itime);
+                helper.setText(R.id.tv_intime,"时间："+timeText);
+            }else {
+                helper.setText(R.id.tv_intime,"时间：");
+            }
+        }else {
+            helper.setText(R.id.tv_intime,"时间：");
+        }
+
+
 
 
         //状态
