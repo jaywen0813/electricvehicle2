@@ -32,6 +32,8 @@ public interface INContract {
         void loadingtext();
 
         void loadWanCheng();
+
+        void toast(String  ss);
     }
 
     interface Presenter {

@@ -276,12 +276,6 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
                     for (int i = 0; i <childCount+1 ; i++) {//这里加1，因为一开始默认添加了一条
                         View childAt = llAdd.getChildAt(i);
 
-//                        tvSo = childAt.findViewById(R.id.tv_so);
-//                        tvMaterial = childAt.findViewById(R.id.tv_material);
-//                        tvRl = childAt.findViewById(R.id.tv_rl);
-//                        tvAgl = childAt.findViewById(R.id.tv_agl);
-//                        tvQty = childAt.findViewById(R.id.tv_qty);
-
                         String soItem="";
                         String material="";
                         String rl="";
@@ -294,41 +288,11 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
                          agl=tvAgl.getText().toString();
                          qty=tvQty.getText().toString();
 
-//                        if (Kits.Empty.check(soItem)) {
-//                            Toast.makeText(INDetailActivity.this,"请填写SO Item",Toast.LENGTH_LONG).show();
-//                            return;
-//                        }
-
-
-//                        if (Kits.Empty.check(material)) {
-//                            Toast.makeText(INDetailActivity.this,"请填写Material",Toast.LENGTH_LONG).show();
-//                            return;
-//                        }
-//
-//
-//                        if (Kits.Empty.check(rl)) {
-//                            Toast.makeText(INDetailActivity.this,"请填写RL",Toast.LENGTH_LONG).show();
-//                            return;
-//                        }
-//
-//                        if (Kits.Empty.check(agl)) {
-//                            Toast.makeText(INDetailActivity.this,"请填写AGL",Toast.LENGTH_LONG).show();
-//                            return;
-//                        }
-//
-//
-//                        if (Kits.Empty.check(qty)) {
-//                            Toast.makeText(INDetailActivity.this,"请填写Qty",Toast.LENGTH_LONG).show();
-//                            return;
-//                        }
-
-
                         plist.setSoItem(soItem);
                         plist.setMaterial(material);
                         plist.setRl(rl);
                         plist.setAgl(agl);
                         plist.setQty(qty);
-
 
                         PackingItem.add(plist);
 
@@ -760,7 +724,7 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
             Toast.makeText(INDetailActivity.this,vDate.getMessage()+"",Toast.LENGTH_LONG).show();
 
 
-            DialogUtil.showBasicDialog(this, "提示", "录入失败，是否继续录入下一单?", (dialog, confirm) -> {
+            DialogUtil.showBasicDialog(this, "提示", vDate.getMessage()+"故录入失败，是否继续录入下一单?", (dialog, confirm) -> {
                 if (confirm) {
                     etNumber.setText("");
                     etKwNumber.setText("");
@@ -948,6 +912,27 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
                    }
 
 
+               }else {//证明data不为空，但是dataList为空
+                   ll_detail.setVisibility(View.VISIBLE);//显示出详情//这个时候可以编辑了
+                   chooseTrue();//此时可以修改
+                   navigationUserLayout.setVisibility(View.VISIBLE);//此时显示添加SO Item按钮
+                   type_f=1;//type_f 为0的时候，代表返回了详情，为1的时候代表没有返回详情，此时提交给后台出库的数据不一样
+
+
+                   //默认添加一条So Item
+                   for (int i = 0; i <1 ; i++) {
+                       View view2 = LayoutInflater.from(this).inflate(R.layout.item_zxdlr,null);
+
+                       tvSo = view2.findViewById(R.id.tv_so);
+                       tvMaterial = view2.findViewById(R.id.tv_material);
+                       tvRl = view2.findViewById(R.id.tv_rl);
+                       tvAgl = view2.findViewById(R.id.tv_agl);
+                       tvQty = view2.findViewById(R.id.tv_qty);
+
+                       llAdd.addView(view2);//动态添加view
+                       childCount++;
+                   }
+
                }
 
             }else {//证明返回的T，但是data为空
@@ -1007,6 +992,11 @@ public class INDetailActivity extends BaseMvpActivity<INContract.View, INPresent
     @Override
     public void loadWanCheng() {
         loadingComplete();
+    }
+
+    @Override
+    public void toast(String ss) {
+        Toast.makeText(INDetailActivity.this,ss+"",Toast.LENGTH_LONG).show();
     }
 
 

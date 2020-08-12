@@ -117,7 +117,9 @@ public class INPresenter extends BasePresenter<INContract.View> implements INCon
                             mView.showSuccess(vDate);
                             Log.e("qqqq", "onNext: 成功" );
                         }else {
-                            mView.showSuccess(vDate);
+//                            mView.showSuccess(vDate);
+
+                            mView.toast(vDate.getMessage());
                         }
                     }
 

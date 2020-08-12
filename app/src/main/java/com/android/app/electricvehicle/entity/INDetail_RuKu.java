@@ -71,7 +71,7 @@ public class INDetail_RuKu {
         private String comments;
         private String installTime;
         private String deliveryDate;
-        private List<PackingItemsBean> PackingItems;
+        private List<PackingItemsBean> packingItems;
 
         public String getWorkCode() {
             return workCode;
@@ -186,11 +186,11 @@ public class INDetail_RuKu {
         }
 
         public List<PackingItemsBean> getPackingItems() {
-            return PackingItems;
+            return packingItems;
         }
 
-        public void setPackingItems(List<PackingItemsBean> PackingItems) {
-            this.PackingItems = PackingItems;
+        public void setPackingItems(List<PackingItemsBean> packingItems) {
+            this.packingItems = packingItems;
         }
 
         public static class PackingItemsBean {
