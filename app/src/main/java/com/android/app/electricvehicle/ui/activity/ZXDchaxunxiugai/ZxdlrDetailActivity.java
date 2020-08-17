@@ -113,6 +113,7 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
     String sjc="";//
     String sjc2="";//订单交货期时间戳
 
+    ZXDDetailAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -253,7 +254,8 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
 
     @Override
     protected BaseQuickAdapter getRecyclerAdapter() {
-        return new ZXDDetailAdapter(activityVOList, this, packingItem, id);
+        adapter= new ZXDDetailAdapter(activityVOList, this, packingItem, id);
+        return adapter;
     }
 
     @Override
@@ -387,39 +389,50 @@ public class ZxdlrDetailActivity extends BaseListActivity<ZxdlrDetailContract.Vi
                             String agl = "";
                             String qty = "";
 
-                             soItem = tvSo.getText().toString();
-                             material = tvMaterial.getText().toString();
-                             rl = tvRl.getText().toString();
-                             agl = tvAgl.getText().toString();
-                             qty = tvQty.getText().toString();
+//                             soItem = tvSo.getText().toString();
+//                             material = tvMaterial.getText().toString();
+//                             rl = tvRl.getText().toString();
+//                             agl = tvAgl.getText().toString();
+//                             qty = tvQty.getText().toString();
 
-                            if (Kits.Empty.check(soItem)) {
-                                Toast.makeText(ZxdlrDetailActivity.this, "请填写SO Item", Toast.LENGTH_LONG).show();
-                                return;
+                            if (i==adapter.getPosition()){//当postion相同的时候
+                                soItem = adapter.getSoItem();
+                                material = adapter.getMaterial();
+                                rl = adapter.getRl();
+                                agl =adapter.getAgl();
+                                qty = adapter.getQty();
                             }
 
 
-                            if (Kits.Empty.check(material)) {
-                                Toast.makeText(ZxdlrDetailActivity.this, "请填写Material", Toast.LENGTH_LONG).show();
-                                return;
-                            }
 
 
-                            if (Kits.Empty.check(rl)) {
-                                Toast.makeText(ZxdlrDetailActivity.this, "请填写RL", Toast.LENGTH_LONG).show();
-                                return;
-                            }
-
-                            if (Kits.Empty.check(agl)) {
-                                Toast.makeText(ZxdlrDetailActivity.this, "请填写AGL", Toast.LENGTH_LONG).show();
-                                return;
-                            }
-
-
-                            if (Kits.Empty.check(qty)) {
-                                Toast.makeText(ZxdlrDetailActivity.this, "请填写Qty", Toast.LENGTH_LONG).show();
-                                return;
-                            }
+//                            if (Kits.Empty.check(soItem)) {
+//                                Toast.makeText(ZxdlrDetailActivity.this, "请填写SO Item", Toast.LENGTH_LONG).show();
+//                                return;
+//                            }
+//
+//
+//                            if (Kits.Empty.check(material)) {
+//                                Toast.makeText(ZxdlrDetailActivity.this, "请填写Material", Toast.LENGTH_LONG).show();
+//                                return;
+//                            }
+//
+//
+//                            if (Kits.Empty.check(rl)) {
+//                                Toast.makeText(ZxdlrDetailActivity.this, "请填写RL", Toast.LENGTH_LONG).show();
+//                                return;
+//                            }
+//
+//                            if (Kits.Empty.check(agl)) {
+//                                Toast.makeText(ZxdlrDetailActivity.this, "请填写AGL", Toast.LENGTH_LONG).show();
+//                                return;
+//                            }
+//
+//
+//                            if (Kits.Empty.check(qty)) {
+//                                Toast.makeText(ZxdlrDetailActivity.this, "请填写Qty", Toast.LENGTH_LONG).show();
+//                                return;
+//                            }
 
                             PackingItem plist = new PackingItem();
                             plist.setId(id);
