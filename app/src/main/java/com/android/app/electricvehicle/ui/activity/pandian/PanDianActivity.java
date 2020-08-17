@@ -26,6 +26,7 @@ import com.android.app.electricvehicle.ui.activity.ZXDchaxunxiugai.ZxdlrDetailAc
 import com.android.app.electricvehicle.ui.activity.ZxingActivity;
 import com.android.app.electricvehicle.ui.adapter.PanDianListAdapter;
 import com.android.app.electricvehicle.utils.Kits;
+import com.android.app.electricvehicle.utils.T;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.flyco.roundview.RoundTextView;
 import com.yzq.zxinglibrary.bean.ZxingConfig;
@@ -192,6 +193,7 @@ public class PanDianActivity extends BaseListActivity<PanDianContract.View, PanD
     @Override
     public void pandianSuccess() {
         Toast.makeText(this,"盘点成功",Toast.LENGTH_SHORT).show();
+        T.showToastSafe("盘点成功");
     }
 
     @Override

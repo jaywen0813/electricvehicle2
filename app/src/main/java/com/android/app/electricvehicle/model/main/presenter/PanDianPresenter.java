@@ -17,6 +17,7 @@ import com.android.app.electricvehicle.model.main.http.MainService;
 import com.android.app.electricvehicle.model.main.repository.NetInstance;
 import com.android.app.electricvehicle.mvp.presenter.BasePresenter;
 import com.android.app.electricvehicle.utils.ParameterUtils;
+import com.android.app.electricvehicle.utils.T;
 import com.orhanobut.logger.Logger;
 
 import java.util.SortedMap;
